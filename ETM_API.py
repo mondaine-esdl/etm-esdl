@@ -61,7 +61,6 @@ class ETM_API(object):
         self.df_templates = pd.DataFrame.from_dict(r.json())
         pass
 
-    # def create_new_scenario(self, scenario_title, area_code, end_year):
     def create_new_scenario(self, scenario_title, area_code, end_year):
         """
         Create a new scenario in the ETM. The scenario_id is saved so we can
