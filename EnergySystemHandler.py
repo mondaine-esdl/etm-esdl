@@ -6,16 +6,45 @@ from pyecore.resources.resource import HttpURI
 from xmlresource import XMLResource
 from pyecore.notification import EObserver
 import uuid
+from StringURI import StringURI
 from io import BytesIO
 
 class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""
 
-    def __init__(self, name):
-        self.name = name
-        self.es, self.resource, self.esdl, self.rset = self.load_energy_system(name)
-        # print('\nEnergy system \"{}\" is loaded!'.format(name))
+    def __init__(self, name=None):
+        # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
+        self.rset = ResourceSet()
 
+        # Assign files with the .esdl extension to the XMLResource instead of default XMI
+        self.rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)
+
+        # Read the lastest esdl.ecore from github
+        esdl_model_resource = self.rset.get_resource(HttpURI('https://raw.githubusercontent.com/EnergyTransition/ESDL/master/esdl/model/esdl.ecore'))
+
+        esdl_model = esdl_model_resource.contents[0]
+        # print('Namespace: {}'.format(esdl_model.nsURI))
+        self.rset.metamodel_registry[esdl_model.nsURI] = esdl_model
+
+        # Create a dynamic model from the loaded esdl.ecore model, which we can use to build Energy Systems
+        self.esdl = DynamicEPackage(esdl_model)
+
+        # fix python buildin 'from' that is also used in ProfileElement as attribute
+        # use 'start' instead of 'from' when using a ProfileElement
+        alias('start', self.esdl.ProfileElement.findEStructuralFeature('from'))
+
+        # have a nice __repr__ for some ESDL classes when printing ESDL objects (includes all Assets and EnergyAssets)
+        self.esdl.Item.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
+        self.esdl.Carrier.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
+        self.esdl.Geometry.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
+        self.esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: '{}: ({})'.format(x.id, EnergySystemHandler.attr_to_dict(x))
+        self.esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: '{}: ({})'.format('QuantityAndUnitReference', EnergySystemHandler.attr_to_dict(x))
+        self.esdl.KPI.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
+        self.esdl.ProfileElement.python_class.__repr__ = lambda x: 'ProfileElement ({})'.format(EnergySystemHandler.attr_to_dict(x))
+
+        if name:
+            self.name = name
+            self.load_energy_system(name)
 
     # Creates a dict of all the attributes of an ESDL object
     @staticmethod
@@ -28,56 +57,15 @@ class EnergySystemHandler:
                 d[attr] = attr_value
         return d
 
-
     # Creates a uuid: useful for generating unique IDs
     @staticmethod
     def generate_uuid():
         return str(uuid.uuid4())
 
-
     def load_energy_system(self, name):
-        # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
-        rset = ResourceSet()
-
-        # Assign files with the .esdl extension to the XMLResource instead of default XMI
-        rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)
-
-        # Read the lastest esdl.ecore from github
-        esdl_model_resource = rset.get_resource(HttpURI('https://raw.githubusercontent.com/EnergyTransition/ESDL/master/esdl/model/esdl.ecore'))
-
-        esdl_model = esdl_model_resource.contents[0]
-        # print('Namespace: {}'.format(esdl_model.nsURI))
-        rset.metamodel_registry[esdl_model.nsURI] = esdl_model
-
-        # Create a dynamic model from the loaded esdl.ecore model, which we can use to build Energy Systems
-        esdl = DynamicEPackage(esdl_model)
-
-        # fix python buildin 'from' that is also used in ProfileElement as attribute
-        # use 'start' instead of 'from' when using a ProfileElement
-        alias('start', esdl.ProfileElement.findEStructuralFeature('from'))
-
-        # have a nice __repr__ for some ESDL classes when printing ESDL objects (includes all Assets and EnergyAssets)
-        esdl.Item.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        esdl.Carrier.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        esdl.Geometry.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: '{}: ({})'.format(x.id, EnergySystemHandler.attr_to_dict(x))
-        esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: '{}: ({})'.format('QuantityAndUnitReference', EnergySystemHandler.attr_to_dict(x))
-        esdl.KPI.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        esdl.ProfileElement.python_class.__repr__ = lambda x: 'ProfileElement ({})'.format(EnergySystemHandler.attr_to_dict(x))
-
-
         # load the ESDL file
-        resource = rset.get_resource(URI(name))
-        es = resource.contents[0]
-        # At this point, the model instance is loaded!
-
-        # get notifications of changes in the EnergySystem model
-        #observer = PrintNotification(es)
-        #observer2 = PrintNotification(es.instance[0].area)
-
-        # also return the esdlm and rset reference, so we can create esdl classes and store them as strings
-        return es, resource, esdl, rset
-
+        self.resource = self.rset.get_resource(URI(name))
+        self.es = resource.contents[0]
 
     # Add Energy System Information
     def add_energy_system_information(self):
@@ -267,22 +255,3 @@ class PrintNotification(EObserver):
     def notifyChanged(self, notification):
         print('Notification: {}'.format(notification))
 
-
-class StringURI(URI):
-    def __init__(self, uri, text=None):
-        super(StringURI, self).__init__(uri)
-        if text is not None:
-            self.__stream = BytesIO(text.encode('UTF-8'))
-
-    def getvalue(self):
-        readbytes = self.__stream.getvalue()
-        # somehow stringIO does not work, so we use BytesIO
-        string = readbytes.decode('UTF-8')
-        return string
-
-    def create_instream(self):
-        return self.__stream
-
-    def create_outstream(self):
-        self.__stream = BytesIO()
-        return self.__stream

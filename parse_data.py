@@ -217,7 +217,7 @@ def create_etm_scenario(regional_data):
     return etm
 
 
-def parse_esdl(filename):
+def parse_esdl(es):
     """
     Top area
     For asset in assets:
@@ -244,8 +244,6 @@ def parse_esdl(filename):
     Return list of changed slider settings
     """
 
-    # Load energy system based on the specified input file
-    es = load_esdl(filename)
     # Get existing energy system form Mondaine Hub
     # mh.get_existing_es(filename)
     # Parse neighbourhoods
@@ -277,8 +275,10 @@ def main(args):
         print('\nWARNING! No ESDL input filename has been specified.')
         return
 
+    # Load energy system based on the specified input file
+    es = load_esdl(filename)
     # Parse ESDL input data
-    es, regional_data = parse_esdl(filename)
+    regional_data = parse_esdl(es)
     # Create ETM scenario
     etm = create_etm_scenario(regional_data)
     # Save energy system to a file
