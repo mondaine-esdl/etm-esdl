@@ -147,7 +147,7 @@ def aggregate_to_region(es, neighbourhoods):
     for key, value in region.items():
         print('  - {}: {}'.format(key, value))
 
-    return es, region
+    return region
 
 
 def connect_to_etm():
@@ -279,6 +279,7 @@ def main(args):
     es = load_esdl(filename)
     # Parse ESDL input data
     regional_data = parse_esdl(es)
+
     # Create ETM scenario
     etm = create_etm_scenario(regional_data)
     # Save energy system to a file
