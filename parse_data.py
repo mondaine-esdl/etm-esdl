@@ -21,12 +21,15 @@ from ETM_API import ETM_API, SessionWithUrlBase
 # ESDL modules
 from EnergySystemHandler import EnergySystemHandler
 
+from MondaineHub import MondaineHub
+mh = MondaineHub('roos.dekok@quintel.com')
+
 
 def load_esdl(filename):
-    '''
+    """
     Load ESDL input file into the EnergySystemHandler and add the energy system
     information (ESI) to be ready to be parsed.
-    '''
+    """
 
     es = EnergySystemHandler('./input/{}.esdl'.format(filename))
     es.add_energy_system_information()
@@ -75,6 +78,10 @@ def parse_neighbourhood(es, neighbourhood):
     heating_demand = es.get_assets_of_type(neighbourhood, es.esdl.HeatingDemand)
 
     # Distinguish different types of heating demand (total, MT, HT)
+    total_heating_demand = 0.
+    MT_heating_demand = 0.
+    LT_heating_demand = 0.
+
     for demand in heating_demand:
         if demand.name == 'Vraag_Warmte_totaal':
             total_heating_demand = demand.port[0].profile[0].value
@@ -155,20 +162,50 @@ def create_etm_scenario(regional_data):
     # Connect to ETM API
     etm = connect_to_etm()
     # Create scenario
-    etm.create_new_scenario('Mondaine', 'RES12_metropoolregio_eindhoven', 2050)
+    etm.create_new_scenario('Mondaine', 'RGNH03_gooi_en_vechtstreek', 2050)
 
     print('\nETM scenario_id: {}'.format(etm.scenario_id))
+
+    share_of_residual_heat = ((regional_data['heating_demand']['LT'] +
+                               regional_data['heating_demand']['MT']) /
+                               regional_data['heating_demand']['total']) * 100.
+
+    share_of_gas = (regional_data['gas_demand'] /
+                    regional_data['heating_demand']['total']) * 100.
+
+    share_of_electricity = max(100. - share_of_residual_heat - share_of_gas, 0)
+
+    # Change the user values (slider settings) based on the energy system (from PICO)
+    user_values = {
+        'households_number_of_residences': regional_data['number_of_residences'],
+        'households_insulation_level_apartments': 30.,
+        'households_insulation_level_corner_houses': 30.,
+        'households_insulation_level_detached_houses': 30.,
+        'households_insulation_level_semi_detached_houses': 30.,
+        'households_insulation_level_terraced_houses': 30.,
+        'households_heater_combined_network_gas_share': share_of_gas,
+        'households_heater_district_heating_steam_hot_water_share': share_of_residual_heat,
+        'households_heater_heatpump_air_water_electricity_share': share_of_electricity,
+        'households_heater_heatpump_ground_water_electricity_share': 0.,
+        'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
+        'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
+        'households_heater_wood_pellets_share': 0.,
+        'households_heater_network_gas_share': 0.,
+        'households_heater_electricity_share': 0.,
+        'buildings_insulation_level': 52.,
+        'buildings_space_heater_network_gas_share': share_of_gas,
+        'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': share_of_electricity,
+        'buildings_space_heater_heatpump_air_water_network_gas_share': 0.,
+        'buildings_space_heater_electricity_share': 0.,
+        'buildings_space_heater_wood_pellets_share': 0.,
+        'buildings_space_heater_district_heating_steam_hot_water_share': share_of_residual_heat
+    }
 
     # Determine the metrics (KPIs and relevant slider queries)
     gqueries = [
         'dashboard_co2_emissions_versus_start_year',
         'dashboard_total_costs'
     ]
-
-    # Change the user values (slider settings) based on the energy system (from PICO)
-    user_values = {
-        'households_number_of_residences': regional_data['number_of_residences']
-    }
 
     # Change the user inputs (i.e., set sliders)
     etm.change_inputs(user_values, gqueries)
@@ -181,8 +218,36 @@ def create_etm_scenario(regional_data):
 
 
 def parse_esdl(filename):
+    """
+    Top area
+    For asset in assets:
+        parse asset
+            - Energy demands
+            - Wind turbines
+            - Zonneparken
+            - Zon PV op dak?
+                (SolarPotential type=PV_OP_DAK value=X m2)
+                (PVInstallation type=... surfaceArea=1000 m2)
+
+    For sub area in area.area
+        For asset in assets:
+            parse asset
+                - Energy demands
+                - Wind turbines
+                - Zonneparken
+                - Zon PV op dak?
+
+    Aggregate assets for top area
+
+    Generate new energy system for top area
+
+    Return list of changed slider settings
+    """
+
     # Load energy system based on the specified input file
     es = load_esdl(filename)
+    # Get existing energy system form Mondaine Hub
+    # mh.get_existing_es(filename)
     # Parse neighbourhoods
     neighbourhoods = parse_neighbourhoods(es)
     # Aggregate neighbourhood values to regional values
@@ -198,7 +263,7 @@ def main(args):
     Run [ python3 parse_data.py <name_of_esdl_input_file> ] in your terminal,
     where the name should be specified WITHOUT the extension. For instance:
 
-    python3 parse_data.py vesta_co2
+    python3 parse_data.py gv/S1a_AllElectric_lucht_GooiEnVechtstreek
 
     Make sure the ESDL input file can be found in the startanalyse-esdl/input
     folder.
@@ -217,7 +282,9 @@ def main(args):
     # Create ETM scenario
     etm = create_etm_scenario(regional_data)
     # Save energy system to a file
-    es.save('./output/region.esdl')
+    resource = es.save('./output/{}.esdl'.format(filename))
+    # Save energy system to Mondaine Hub
+    mh.store_in_mondaine_hub(filename, resource)
     # Open ETM scenario
     webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
 

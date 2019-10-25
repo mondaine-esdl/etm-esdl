@@ -229,6 +229,8 @@ class EnergySystemHandler:
         fileresource.append(self.es)
         # save the resource
         fileresource.save()
+        # return the resource
+        return fileresource
 
 
     # get the energy system as a XML String
