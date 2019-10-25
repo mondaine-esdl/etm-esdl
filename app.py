@@ -16,6 +16,10 @@ energysystem = api.model('energysystem', {
     'energysystem': fields.String(required=True, description='The ESDL string')
 })
 
+etm_esdl_result = api.model('etm_esdl_result', {
+    'etm_url': fields.String(required=True, description='ETM scenario URL')
+})
+
 
 def abort_if_es_doesnt_exist(es_id):
     if es_id not in ES_list:
@@ -32,7 +36,7 @@ class EnergySystem(Resource):
     '''Transform ESDL energysystem description into an ETM scenario'''
 #    @api.doc(description='Transform ESDL energysystem description into an ETM scenario')
     @api.doc(parser=parser)
-    @api.marshal_with(energysystem)
+    @api.marshal_with(etm_esdl_result)
     def post(self):
         '''Transform ESDL energysystem description into an ETM scenario'''
         args = parser.parse_args()
@@ -48,7 +52,7 @@ class EnergySystem(Resource):
         regional_data = parse_esdl(esh)
         etm_config = create_etm_scenario(regional_data)
 
-        return 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id)
+        return { 'etm_url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id) }
 
 
 if __name__ == '__main__':
