@@ -188,7 +188,7 @@ def create_etm_scenario(regional_data):
         'households_heater_heatpump_air_water_electricity_share': share_of_electricity,
         'households_heater_heatpump_ground_water_electricity_share': 0.,
         'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
-        'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
+        'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share': 0.,
         'households_heater_wood_pellets_share': 0.,
         'households_heater_network_gas_share': 0.,
         'households_heater_electricity_share': 0.,
