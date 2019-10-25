@@ -65,7 +65,7 @@ class EnergySystemHandler:
     def load_energy_system(self, name):
         # load the ESDL file
         self.resource = self.rset.get_resource(URI(name))
-        self.es = resource.contents[0]
+        self.es = self.resource.contents[0]
 
     # Add Energy System Information
     def add_energy_system_information(self):
