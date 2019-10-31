@@ -4,11 +4,13 @@ MAINTAINER Edwin Matthijssen  <edwin.matthijssen@tno.nl>
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+RUN apk add --update alpine-sdk
+RUN apk add --update --no-cache libxslt-dev libxml2-dev
+
 COPY requirements.txt .
 
-RUN \
- python3 -m pip install -r requirements.txt --no-cache-dir && \
- apk --purge del .build-deps
+RUN python3 -m pip install -r requirements.txt --no-cache-dir
+# RUN apk --purge del .build-deps
 
 COPY . .
 
