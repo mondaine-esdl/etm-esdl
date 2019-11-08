@@ -33,7 +33,7 @@ def connect_to_etm():
     return ETM_API(session)
 
 
-def create_etm_scenario(regional_data, supply):
+def create_etm_scenario(regional_data):
     # Connect to ETM API
     etm = connect_to_etm()
     # Create scenario
@@ -84,8 +84,8 @@ def create_etm_scenario(regional_data, supply):
         # 'buildings_space_heater_electricity_share': 0.,
         # 'buildings_space_heater_wood_pellets_share': 0.,
         # 'buildings_space_heater_district_heating_steam_hot_water_share': shares['services']['residual_heat']
-        'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
-        'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
+        #'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
+        #'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
     }
 
     # Determine the metrics (KPIs and relevant slider queries)
