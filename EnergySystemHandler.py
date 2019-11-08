@@ -116,7 +116,7 @@ class EnergySystemHandler:
         return assets
 
 
-    # Get a list of assets of a specific ESDL type in the specified area
+    # Get a list of assets of a specific ESDL type in the specified area or asset
     def get_assets_of_type(self, area, esdl_type):
         assets = []
 
@@ -254,4 +254,3 @@ class PrintNotification(EObserver):
 
     def notifyChanged(self, notification):
         print('Notification: {}'.format(notification))
-

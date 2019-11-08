@@ -33,7 +33,7 @@ def connect_to_etm():
     return ETM_API(session)
 
 
-def create_etm_scenario(regional_data, supply):
+def create_etm_scenario(regional_data):
     # Connect to ETM API
     etm = connect_to_etm()
     # Create scenario
@@ -41,51 +41,39 @@ def create_etm_scenario(regional_data, supply):
 
     print('\nETM scenario_id: {}'.format(etm.scenario_id))
 
-    shares = {
-        'residences': {}, 'services': {}
-    }
+    share_of_residual_heat = ((regional_data['heating_demand']['LT'] +
+                               regional_data['heating_demand']['MT']) /
+                               regional_data['heating_demand']['total']) * 100.
 
-    for building_type in ['residences']:
-        shares[building_type]['residual_heat'] = (
-            (regional_data[building_type]['heating_demand']['LT'] +
-             regional_data[building_type]['heating_demand']['MT']) /
-            regional_data[building_type]['heating_demand']['total']) * 100.
+    share_of_gas = (regional_data['gas_demand'] /
+                    regional_data['heating_demand']['total']) * 100.
 
-
-        shares[building_type]['gas'] = (
-            regional_data[building_type]['gas_demand'] /
-            regional_data[building_type]['heating_demand']['total']) * 100.
-
-        shares[building_type]['electricity'] = (
-            max(100. - (shares[building_type]['residual_heat'] +
-                shares[building_type]['gas']), 0))
+    share_of_electricity = max(100. - share_of_residual_heat - share_of_gas, 0)
 
     # Change the user values (slider settings) based on the energy system (from PICO)
     user_values = {
-        'households_number_of_residences': regional_data['residences']['number_of_buildings'],
+        'households_number_of_residences': regional_data['number_of_residences'],
         'households_insulation_level_apartments': 30.,
         'households_insulation_level_corner_houses': 30.,
         'households_insulation_level_detached_houses': 30.,
         'households_insulation_level_semi_detached_houses': 30.,
         'households_insulation_level_terraced_houses': 30.,
-        'households_heater_combined_network_gas_share': shares['residences']['gas'],
-        'households_heater_district_heating_steam_hot_water_share': shares['residences']['residual_heat'],
-        'households_heater_heatpump_air_water_electricity_share': shares['residences']['electricity'],
+        'households_heater_combined_network_gas_share': share_of_gas,
+        'households_heater_district_heating_steam_hot_water_share': share_of_residual_heat,
+        'households_heater_heatpump_air_water_electricity_share': share_of_electricity,
         'households_heater_heatpump_ground_water_electricity_share': 0.,
         'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
         'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share': 0.,
         'households_heater_wood_pellets_share': 0.,
         'households_heater_network_gas_share': 0.,
         'households_heater_electricity_share': 0.,
-        # 'buildings_insulation_level': 52.,
-        # 'buildings_space_heater_network_gas_share': shares['services']['gas'],
-        # 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': shares['services']['electricity'],
-        # 'buildings_space_heater_heatpump_air_water_network_gas_share': 0.,
-        # 'buildings_space_heater_electricity_share': 0.,
-        # 'buildings_space_heater_wood_pellets_share': 0.,
-        # 'buildings_space_heater_district_heating_steam_hot_water_share': shares['services']['residual_heat']
-        'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
-        'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
+        'buildings_insulation_level': 52.,
+        'buildings_space_heater_network_gas_share': share_of_gas,
+        'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': share_of_electricity,
+        'buildings_space_heater_heatpump_air_water_network_gas_share': 0.,
+        'buildings_space_heater_electricity_share': 0.,
+        'buildings_space_heater_wood_pellets_share': 0.,
+        'buildings_space_heater_district_heating_steam_hot_water_share': share_of_residual_heat
     }
 
     # Determine the metrics (KPIs and relevant slider queries)
@@ -150,7 +138,7 @@ def aggregate_to_region(esh, neighbourhoods):
 
     # Sum neighbourhood values to regional values
     for neighbourhood in neighbourhoods.values():
-        for building_type in ['residences']:
+        for building_type in ['residences', 'services']:
             region[building_type]['number_of_buildings'] += neighbourhood[building_type]['number_of_buildings']
             region[building_type]['heating_demand']['total'] += neighbourhood[building_type]['heating_demand']['total']
             region[building_type]['heating_demand']['MT'] += neighbourhood[building_type]['heating_demand']['MT']
@@ -206,6 +194,7 @@ def parse_aggregated_building(esh, asset):
     return data
 
 
+
 def parse_neighbourhood(esh, neighbourhood):
     # Get the neighbourhood code and name
     code = neighbourhood.id
@@ -219,18 +208,21 @@ def parse_neighbourhood(esh, neighbourhood):
 
     # Loop over AggregatedBuilding assets to determine the number of residences
     # and services and the corresponding energy demands
-    for asset in esh.get_assets_of_type(neighbourhood, esh.esdl.AggregatedBuilding):
+    number_of_residences = 0
+    number_of_services = 0
+
+    for asset in esh.get_assets_of_type(neighbourhood,esh.esdl.AggregatedBuilding):
         if asset.name == 'Woningen':
             # Parse asset data for aggregated building of type residences
             data = parse_aggregated_building(esh, asset)
             # Read attribute values into assets object
             assets['residences'] = data
 
-        # elif asset.name == 'Utiliteiten':
-        #     # Parse asset data for aggregated building of type residences
-        #     data = parse_aggregated_building(esh, asset)
-        #     # Read attribute values into assets object
-        #     assets['services'] = data
+        elif asset.name == 'Utiliteiten':
+            # Parse asset data for aggregated building of type residences
+            data = parse_aggregated_building(esh, asset)
+            # Read attribute values into assets object
+            assets['services'] = data
 
     # TODO
     kpis = {
@@ -238,41 +230,22 @@ def parse_neighbourhood(esh, neighbourhood):
         'co2': 0.
     }
 
+    assets = {}
+    kpis = {}
+
     return assets, kpis
 
 
-def parse_supply_assets(esh):
-    # Initialise dictionary to store supply information per asset type
-    supply = {
-        'wind': {},
-        'solar': {}
-    }
-
-    # Parse wind turbines
-    list_of_wind_turbines = esh.get_assets_of_type(esh.es.instance[0].area, esh.esdl.WindTurbine)
-    # Sum capacities
-    capacity = 0
-    for wind_turbine in list_of_wind_turbines:
-        capacity += wind_turbine.power / 1E6
-    supply['wind']['capacity'] = capacity
-
-    # Parse solar PV parcs
-    list_of_pv_parcs = esh.get_assets_of_type(esh.es.instance[0].area, esh.esdl.PVParc)
-    # Sum capacities
-    capacity = 0
-    for pv_parc in list_of_pv_parcs:
-        capacity += pv_parc.power / 1E6
-    supply['solar']['capacity'] = capacity
-
-    return supply
-
-
 def parse_neighbourhoods(esh):
-    # Initialise dictionary to store demand information per neighbourhood
+    # Create dictionary to store information per neighbourhood
     neighbourhoods = {}
 
     # Loop over the neighbourhoods in the area (by looping over the ESDL tree)
+
     for neighbourhood in esh.es.instance[0].area.area:
+        print('\nNEIGHBOURHOOD:')
+        print(neighbourhood.id.upper())
+        print(neighbourhood.scope)
         assets, kpis = parse_neighbourhood(esh, neighbourhood)
 
         # And parse the ESDL to store the attributes per neighbourhood
@@ -311,18 +284,14 @@ def parse_esdl(esh):
     # Get existing energy system form Mondaine Hub
     # mh.get_existing_es(filename)
 
-    # First, loop over supply assets in top area
-    supply = parse_supply_assets(esh)
-
-    # Then, loop over demand assets in sub areas (i.e., parse neighbourhoods)
+    # Parse neighbourhoods
     neighbourhoods = parse_neighbourhoods(esh)
     # Aggregate neighbourhood values to regional values
     regional_data = aggregate_to_region(esh, neighbourhoods)
-
     # Print first few lines of ESDL energy system
     print_esdl(esh)
 
-    return regional_data, supply
+    return regional_data
 
 
 def main(args):
@@ -347,10 +316,10 @@ def main(args):
     # Load energy system based on the specified input file
     esh = load_esdl(filename)
     # Parse ESDL input data
-    regional_data, supply = parse_esdl(esh)
+    regional_data = parse_esdl(esh)
 
     # Create ETM scenario
-    etm = create_etm_scenario(regional_data, supply)
+    etm = create_etm_scenario(regional_data)
 
     # Save energy system to a file
     resource = esh.save('./output/{}.esdl'.format(filename))
