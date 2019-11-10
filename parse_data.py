@@ -33,7 +33,7 @@ def connect_to_etm():
     return ETM_API(session)
 
 
-def create_etm_scenario(regional_data):
+def create_etm_scenario(regional_data, supply):
     # Connect to ETM API
     etm = connect_to_etm()
     # Create scenario
@@ -46,15 +46,20 @@ def create_etm_scenario(regional_data):
     }
 
     for building_type in ['residences']:
-        shares[building_type]['residual_heat'] = (
-            (regional_data[building_type]['heating_demand']['LT'] +
-             regional_data[building_type]['heating_demand']['MT']) /
-            regional_data[building_type]['heating_demand']['total']) * 100.
+        if regional_data[building_type]['heating_demand']['total'] != 0:
+            shares[building_type]['residual_heat'] = (
+                (regional_data[building_type]['heating_demand']['LT'] +
+                 regional_data[building_type]['heating_demand']['MT']) /
+                regional_data[building_type]['heating_demand']['total']) * 100.
+        else:
+            shares[building_type]['residual_heat'] = 0
 
-
-        shares[building_type]['gas'] = (
-            regional_data[building_type]['gas_demand'] /
-            regional_data[building_type]['heating_demand']['total']) * 100.
+        if regional_data[building_type]['heating_demand']['total'] != 0:
+            shares[building_type]['gas'] = (
+                regional_data[building_type]['gas_demand'] /
+                regional_data[building_type]['heating_demand']['total']) * 100.
+        else:
+            shares[building_type]['gas'] = 0
 
         shares[building_type]['electricity'] = (
             max(100. - (shares[building_type]['residual_heat'] +
@@ -84,8 +89,8 @@ def create_etm_scenario(regional_data):
         # 'buildings_space_heater_electricity_share': 0.,
         # 'buildings_space_heater_wood_pellets_share': 0.,
         # 'buildings_space_heater_district_heating_steam_hot_water_share': shares['services']['residual_heat']
-        #'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
-        #'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
+        'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
+        'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
     }
 
     # Determine the metrics (KPIs and relevant slider queries)

@@ -49,8 +49,8 @@ class EnergySystem(Resource):
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
-        regional_data = parse_esdl(esh)
-        etm_config = create_etm_scenario(regional_data)
+        regional_data, supply = parse_esdl(esh)
+        etm_config = create_etm_scenario(regional_data, supply)
 
         return { 'etm_url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id) }
 
