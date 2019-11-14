@@ -196,6 +196,17 @@ def parse_aggregated_building(esh, asset):
         elif demand.name == 'Vraag_LT_Warmte':
             LT_heating_demand = demand.port[0].profile[0].value
 
+    try:
+        e_value = electricity_demand[0].port[0].profile[0].value
+    except:
+        e_value = 0
+
+    try:
+        g_value = gas_demand[0].port[0].profile[0].value
+    except:
+        g_value = 0
+
+
     # Read values into data object
     data = {
         'number_of_buildings': number_of_buildings,
@@ -204,8 +215,8 @@ def parse_aggregated_building(esh, asset):
             'MT': MT_heating_demand,
             'LT': LT_heating_demand
         },
-        'electricity_demand': electricity_demand[0].port[0].profile[0].value,
-        'gas_demand': gas_demand[0].port[0].profile[0].value
+        'electricity_demand': e_value,
+        'gas_demand': g_value
     }
 
     return data
@@ -225,7 +236,7 @@ def parse_neighbourhood(esh, neighbourhood):
     # Loop over AggregatedBuilding assets to determine the number of residences
     # and services and the corresponding energy demands
     for asset in esh.get_assets_of_type(neighbourhood, esh.esdl.AggregatedBuilding):
-        if asset.name == 'Woningen':
+        if asset.name.startswith('woningen'):
             # Parse asset data for aggregated building of type residences
             data = parse_aggregated_building(esh, asset)
             # Read attribute values into assets object
