@@ -274,6 +274,7 @@ def parse_supply_assets(esh):
 
     # Parse solar PV parcs
     list_of_pv_parcs = esh.get_assets_of_type(esh.es.instance[0].area, esh.esdl.PVParc)
+    list_of_pv_parcs.extend(esh.get_assets_of_type(esh.es.instance[0].area, esh.esdl.PVPark))
     # Sum capacities
     capacity = 0
     for pv_parc in list_of_pv_parcs:

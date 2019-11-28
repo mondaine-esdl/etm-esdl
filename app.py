@@ -36,7 +36,7 @@ class EnergySystem(Resource):
     '''Transform ESDL energysystem description into an ETM scenario'''
 #    @api.doc(description='Transform ESDL energysystem description into an ETM scenario')
     @api.doc(parser=parser)
-    @api.marshal_with(etm_esdl_result)
+#    @api.marshal_with(etm_esdl_result)
     def post(self):
         '''Transform ESDL energysystem description into an ETM scenario'''
         args = parser.parse_args()
@@ -52,7 +52,13 @@ class EnergySystem(Resource):
         regional_data, supply = parse_esdl(esh)
         etm_config = create_etm_scenario(regional_data, supply)
 
-        return { 'etm_url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id) }
+        return {
+            'show_url': {
+                'description': 'Click on this link to open the created ETM scenario:',
+                'url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id),
+                'link_text': 'Open ETM'
+            }
+        }
 
 
 if __name__ == '__main__':
