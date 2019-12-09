@@ -67,7 +67,7 @@ def create_etm_scenario(regional_data, supply):
 
     # Change the user values (slider settings) based on the energy system (from PICO)
     user_values = {
-        'households_number_of_residences': regional_data['residences']['number_of_buildings'],
+        # 'households_number_of_residences': regional_data['residences']['number_of_buildings'],
         'households_insulation_level_apartments': 30.,
         'households_insulation_level_corner_houses': 30.,
         'households_insulation_level_detached_houses': 30.,
