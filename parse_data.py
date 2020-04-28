@@ -156,12 +156,30 @@ def aggregate_to_region(esh, neighbourhoods):
     # Sum neighbourhood values to regional values
     for neighbourhood in neighbourhoods.values():
         for building_type in ['residences']:
-            region[building_type]['number_of_buildings'] += neighbourhood[building_type]['number_of_buildings']
-            region[building_type]['heating_demand']['total'] += neighbourhood[building_type]['heating_demand']['total']
-            region[building_type]['heating_demand']['MT'] += neighbourhood[building_type]['heating_demand']['MT']
-            region[building_type]['heating_demand']['LT'] += neighbourhood[building_type]['heating_demand']['LT']
-            region[building_type]['electricity_demand'] += neighbourhood[building_type]['electricity_demand']
-            region[building_type]['gas_demand'] += neighbourhood[building_type]['gas_demand']
+            try:
+                region[building_type]['number_of_buildings'] += neighbourhood[building_type]['number_of_buildings']
+            except:
+                pass
+            try:
+                region[building_type]['heating_demand']['total'] += neighbourhood[building_type]['heating_demand']['total']
+            except:
+                pass
+            try:
+                region[building_type]['heating_demand']['MT'] += neighbourhood[building_type]['heating_demand']['MT']
+            except:
+                pass
+            try:
+                region[building_type]['heating_demand']['LT'] += neighbourhood[building_type]['heating_demand']['LT']
+            except:
+                pass
+            try:
+                region[building_type]['electricity_demand'] += neighbourhood[building_type]['electricity_demand']
+            except:
+                pass
+            try:
+                region[building_type]['gas_demand'] += neighbourhood[building_type]['gas_demand']
+            except:
+                pass
 
     print('\nAggregated values for {} {}:'.format(region['code'], region['name']))
 
