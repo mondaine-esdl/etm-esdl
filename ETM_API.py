@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May 08 09:06:02 2018
-Author: frank buters - frank.buters@data-quest.nl
-Description: ETM_API class to call ETM engine developed by Quintel
-Status: Finished
-"""
+# system modules
+import sys
+
+# external modules
+import io
+import json
 import pandas as pd
 import requests
 
@@ -131,5 +130,10 @@ class ETM_API(object):
                    }
         p = self.session.put('/scenarios/' + str(self.scenario_id), json = put_data,
                                                 headers={'Connection':'close'})
+
+        if p.status_code != requests.codes.ok:
+          print(json.dumps(p.json(), indent=4, sort_keys=True))
+          sys.exit(1)
+
         self.current_metrics = self.return_gqueries(p)
         return self.current_metrics

@@ -67,7 +67,7 @@ def create_etm_scenario(regional_data, supply):
 
     # Change the user values (slider settings) based on the energy system (from PICO)
     user_values = {
-        # 'households_number_of_residences': regional_data['residences']['number_of_buildings'],
+        'households_number_of_residences': regional_data['residences']['number_of_buildings'],
         'households_insulation_level_apartments': 30.,
         'households_insulation_level_corner_houses': 30.,
         'households_insulation_level_detached_houses': 30.,
@@ -82,7 +82,7 @@ def create_etm_scenario(regional_data, supply):
         'households_heater_wood_pellets_share': 0.,
         'households_heater_network_gas_share': 0.,
         'households_heater_electricity_share': 0.,
-        # 'buildings_insulation_level': 52.,
+        'buildings_insulation_level': 52.,
         # 'buildings_space_heater_network_gas_share': shares['services']['gas'],
         # 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': shares['services']['electricity'],
         # 'buildings_space_heater_heatpump_air_water_network_gas_share': 0.,
@@ -95,8 +95,70 @@ def create_etm_scenario(regional_data, supply):
 
     # Determine the metrics (KPIs and relevant slider queries)
     gqueries = [
+        # Aandeel hernieuwbare energie op eindgebruik (totaal)
+        'renewability',
+
+        # Elektriciteitsopek uit hernieuwbare bronnen
+        'total_renewable_electricity_produced',
+
+        # Aandeel hernieuwbare elektriciteit op eindgebruik
+        'share_of_renewable_electricity',
+
+        # Energiebesparing t.o.v. startjaar (totaal)
+        'turk_energy_use',
+
+        # Energie-import (totaal)
+
+        # Aandeel import op eindgebruik (totaal)
+        'dashboard_energy_import_netto',
+
+        # Energie-export (totaal)
+
+        # Import van elektriciteit
+        'import_in_source_of_electricity_production',
+
+        # Aandeel import op eindgebruik (elektriciteit)
+        'net_import_of_electricity',
+
+        # Export van elektriciteit
+
+        # Import van warmte
+
+        # Aandeel import op eindgebruik (warmte)
+
+        # Export van warmte
+
+        # Reductie CO2-emissies t.o.v. startjaar (relatief)
         'dashboard_co2_emissions_versus_start_year',
-        'dashboard_total_costs'
+
+        # Reductie CO2-emissies t.o.v. startjaar (absoluut)
+        'total_co2_emissions',
+
+        # Aantal uren met elektriciteitstekorten
+        'dashboard_blackout_hours',
+
+        # Aantal uren met elektriciteitsoverschotten
+        'dashboard_total_number_of_excess_events',
+
+        # Uit te breiden netcapaciteit
+        'lv_net_capacity_delta_present_future',
+        'lv_mv_trafo_capacity_delta_present_future',
+        'mv_net_capacity_delta_present_future',
+        'mv_hv_trafo_capacity_delta_present_future',
+        'hv_net_capacity_delta_present_future',
+        'interconnection_net_capacity_delta_present_future',
+        'offshore_net_capacity_delta_present_future',
+
+        # Benodigde meerinvestering infrastructuur (totaal)
+        'hv_net_in_additional_infrastructure_investments',
+        'interconnection_net_in_additional_infrastructure_investments',
+        'lv_mv_transformer_in_additional_infrastructure_investments',
+        'lv_net_in_additional_infrastructure_investments',
+        'mv_hv_transformer_in_additional_infrastructure_investments',
+        'mv_net_in_additional_infrastructure_investments',
+        'offshore_net_in_additional_infrastructure_investments',
+
+        # Onbalans tussen vraag en aanbod uitgedrukt in ​piekvermogen (gas-)backup
     ]
 
     # Change the user inputs (i.e., set sliders)
@@ -106,7 +168,7 @@ def create_etm_scenario(regional_data, supply):
     metrics = etm.current_metrics
     print(metrics, '\n')
 
-    return etm
+    return etm, metrics
 
 
 def load_esdl(filename):
@@ -254,7 +316,7 @@ def parse_neighbourhood(esh, neighbourhood):
     # Loop over AggregatedBuilding assets to determine the number of residences
     # and services and the corresponding energy demands
     for asset in esh.get_assets_of_type(neighbourhood, esh.esdl.AggregatedBuilding):
-        if asset.name.startswith('woningen'):
+        if asset.name.startswith('Woningen'):
             # Parse asset data for aggregated building of type residences
             data = parse_aggregated_building(esh, asset)
             # Read attribute values into assets object
@@ -360,6 +422,69 @@ def parse_esdl(esh):
     return regional_data, supply
 
 
+def add_quantity_and_units(esh):
+    # Energy System information can be used to globally define the quantity and
+    # units of this system, instead of defining them manually per KPI in each
+    # area: this fosters reuse (but is not necessary)
+    q_and_u = esh.get_quantity_and_units()
+
+    # Add share of energy demand as quantity and unit to the energy system information
+    if esh.get_by_id('share_of_energy_demand') is None:
+        unit = esh.esdl.QuantityAndUnitType(
+            id='share_of_energy_demand',
+            physicalQuantity='ENERGY',
+            unit='PERCENT',
+            description='%')
+        q_and_u.quantityAndUnit.append(unit)
+
+    # Add energy demand in MJ as quantity and unit to the energy system information
+    if esh.get_by_id('energy_demand') is None:
+        unit = esh.esdl.QuantityAndUnitType(
+            id='energy_demand',
+            physicalQuantity='ENERGY',
+            multiplier='MEGA',
+            unit='JOULE',
+            description='MJ')
+        q_and_u.quantityAndUnit.append(unit)
+
+
+def add_kpis_and_targets(esh):
+    # Create renewable electricity production KPI
+    kpi_renewable_electricity_production = esh.esdl.DoubleKPI(
+        id=esh.generate_uuid(),
+        name='Elektriciteitsopwek uit hernieuwbare bronnen',
+        value=0.0,
+        quantityAndUnit=esh.get_by_id_slow('energy_demand')
+    )
+
+    # Create share of electricity production KPI
+    kpi_renewable_electricity_share = esh.esdl.DoubleKPI(
+        id=esh.generate_uuid(),
+        name='Aandeel hernieuwbare elektriciteit op eindgebruik',
+        value=0.0,
+        quantityAndUnit=esh.get_by_id_slow('share_of_energy_demand')
+    )
+
+    esh.add_kpis()
+    esh.add_kpi(kpi_renewable_electricity_production)
+    esh.add_kpi(kpi_renewable_electricity_share)
+
+
+def update_kpis(esh, metrics):
+    # Update the energy system KPIs with the new values
+    # get_kpi_by_id() does not work yet in current version of ESDL, so do it by
+    # name: co2_emission = get_kpi_by_id(es, 'co2emission')
+    renewable_electricity_prodution = esh.get_kpi_by_name('Elektriciteitsopwek uit hernieuwbare bronnen')
+    renewable_electricity_prodution.value = metrics.loc['total_renewable_electricity_produced', 'future']
+    print('\n{}: {} {}'.format(renewable_electricity_prodution.name, renewable_electricity_prodution.value,
+                                   renewable_electricity_prodution.quantityAndUnit.description))
+
+    renewable_electricity_share = esh.get_kpi_by_name('Aandeel hernieuwbare elektriciteit op eindgebruik')
+    renewable_electricity_share.value = metrics.loc['share_of_renewable_electricity', 'future']
+    print('{}: {} {}'.format(renewable_electricity_share.name, renewable_electricity_share.value,
+                                   renewable_electricity_share.quantityAndUnit.description))
+
+
 def main(args):
     """
     Run [ python3 parse_data.py <name_of_esdl_input_file> ] in your terminal,
@@ -384,8 +509,13 @@ def main(args):
     # Parse ESDL input data
     regional_data, supply = parse_esdl(esh)
 
-    # Create ETM scenario
-    etm = create_etm_scenario(regional_data, supply)
+    # Create ETM scenario and return KPIs
+    etm, metrics = create_etm_scenario(regional_data, supply)
+
+    # Add KPIs to ESDL
+    add_quantity_and_units(esh)
+    add_kpis_and_targets(esh)
+    update_kpis(esh, metrics)
 
     # Save energy system to a file
     resource = esh.save('./output/{}.esdl'.format(filename))
@@ -393,7 +523,7 @@ def main(args):
     # mh.store_in_mondaine_hub(filename, resource)
 
     # Open ETM scenario
-    webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
+    # webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
 
 if __name__ == '__main__':
     main(sys.argv[1:])
