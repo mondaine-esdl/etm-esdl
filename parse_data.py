@@ -457,6 +457,15 @@ def add_kpis_and_targets(esh):
         quantityAndUnit=esh.get_by_id_slow('energy_demand')
     )
 
+    # TODO: Make this dynamic
+    # Create renewable electricity production KPI target
+    target_renewable_electricity_production = esh.esdl.DoubleTargetKPI(
+        id=esh.generate_uuid(),
+        value=1.08E9  # 300 GWh = 1.08 PJ = 1.08E9 MJ
+    )
+    # Add target to KPI
+    kpi_renewable_electricity_production.target.append(target_renewable_electricity_production)
+
     # Create share of electricity production KPI
     kpi_renewable_electricity_share = esh.esdl.DoubleKPI(
         id=esh.generate_uuid(),
