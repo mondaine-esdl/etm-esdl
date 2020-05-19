@@ -489,7 +489,7 @@ def update_kpis(esh, metrics):
                                    renewable_electricity_prodution.quantityAndUnit.description))
 
     renewable_electricity_share = esh.get_kpi_by_name('Aandeel hernieuwbare elektriciteit op eindgebruik')
-    renewable_electricity_share.value = metrics.loc['share_of_renewable_electricity', 'future']
+    renewable_electricity_share.value = metrics.loc['share_of_renewable_electricity', 'future'] * 100.
     print('{}: {} {}'.format(renewable_electricity_share.name, renewable_electricity_share.value,
                                    renewable_electricity_share.quantityAndUnit.description))
 

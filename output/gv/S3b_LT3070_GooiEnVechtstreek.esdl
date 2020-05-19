@@ -3,17 +3,17 @@
   <instance aggrType="PER_COMMODITY" name="y2030">
     <area name="GooiEnVechtstreek">
       <KPIs id="kpis" description="KPIs">
-        <kpi xsi:type="esdl:DoubleKPI" name="Elektriciteitsopwek uit hernieuwbare bronnen" id="2accb987-6424-4074-92e4-c85e070f3e46" value="39292545.437246524">
+        <kpi xsi:type="esdl:DoubleKPI" name="Elektriciteitsopwek uit hernieuwbare bronnen" id="5488c5e5-44ce-4385-b263-6d910ff04eb5" value="39292545.437246524">
           <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="MEGA" physicalQuantity="ENERGY" id="energy_demand" description="MJ" unit="JOULE"/>
           <target value="1080000000.0"/>
         </kpi>
-        <kpi xsi:type="esdl:DoubleKPI" name="Aandeel hernieuwbare elektriciteit op eindgebruik" id="d8494f87-d3e5-4f79-80d0-645693af30c3" value="0.007809391591507198">
+        <kpi xsi:type="esdl:DoubleKPI" name="Aandeel hernieuwbare elektriciteit op eindgebruik" id="ee9eba86-2237-4272-bd46-6faf08933bdc" value="0.7809391591507198">
           <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="ENERGY" id="share_of_energy_demand" unit="PERCENT" description="%"/>
         </kpi>
       </KPIs>
       <area scope="NEIGHBOURHOOD" id="'BU03760101'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1815" name="Woningen" id="82fbc950-1097-431b-9837-b5ff42d0f789"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="98" name="Utiliteiten" id="23994526-9dd8-462f-8451-ca97dc830b20"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="82fbc950-1097-431b-9837-b5ff42d0f789" numberOfBuildings="1815"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="23994526-9dd8-462f-8451-ca97dc830b20" numberOfBuildings="98"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="482b13f0-cd8f-4b2a-9ae4-09a689710e96">
           <port xsi:type="esdl:InPort" name="InPort" id="de3c85ff-bbac-4f34-b532-87179fa2908d">
             <profile xsi:type="esdl:SingleValue" value="50928.0025" id="e8ff880a-feb3-4f79-90a4-5a9c09982039">
@@ -70,8 +70,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760102'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2235" name="Woningen" id="f2a7e835-22df-4256-8364-90593df80e33"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="187" name="Utiliteiten" id="6cf2f80e-3c43-4e78-9279-feb268cddd16"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f2a7e835-22df-4256-8364-90593df80e33" numberOfBuildings="2235"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6cf2f80e-3c43-4e78-9279-feb268cddd16" numberOfBuildings="187"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fd6408a5-3c56-4691-9bbe-937507a4f01e">
           <port xsi:type="esdl:InPort" name="InPort" id="2f5fc201-de93-48e5-a8c1-0c32b992120a">
             <profile xsi:type="esdl:SingleValue" value="96213.7776" id="04ce6d4c-341b-46e3-ad81-73eb7572ffab">
@@ -128,8 +128,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="ec5bcc8c-0e5d-40c0-937a-392e5a2b1400"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="33a9e9d0-3df9-40d8-a563-f61bcb2931af"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ec5bcc8c-0e5d-40c0-937a-392e5a2b1400" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="33a9e9d0-3df9-40d8-a563-f61bcb2931af" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9de0df3c-836a-4fb2-ada4-0c590bc4190a">
           <port xsi:type="esdl:InPort" name="InPort" id="34a83d70-b3c5-4760-b18a-8ddc73f65f7e">
             <profile xsi:type="esdl:SingleValue" value="58.5272069" id="7efa380f-ac60-401b-8755-c01e56c10dac">
@@ -186,8 +186,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760104'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="816" name="Woningen" id="687da90d-9d7d-4802-94dd-b128800f6f9f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="116" name="Utiliteiten" id="e973a6c2-0444-49cd-bc64-30ff4631156f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="687da90d-9d7d-4802-94dd-b128800f6f9f" numberOfBuildings="816"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e973a6c2-0444-49cd-bc64-30ff4631156f" numberOfBuildings="116"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e877aca9-95f6-4aa5-84fa-5ad57f3820d0">
           <port xsi:type="esdl:InPort" name="InPort" id="519627bf-b07a-4a46-81d2-e26d0b35cd7d">
             <profile xsi:type="esdl:SingleValue" value="23665.4668" id="a3c83069-8c8a-4aaf-bf6e-976587ed0b9c">
@@ -244,8 +244,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760105'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="56" name="Woningen" id="ac7154f5-3386-48e6-9b67-84bfffa2a30a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="442b49a3-2556-46ef-bf46-6fde8964c27c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ac7154f5-3386-48e6-9b67-84bfffa2a30a" numberOfBuildings="56"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="442b49a3-2556-46ef-bf46-6fde8964c27c" numberOfBuildings="5"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fd945a37-14fe-40e3-9b25-68eb3ee5ac8e">
           <port xsi:type="esdl:InPort" name="InPort" id="46ecfba8-87fd-4a34-b130-9480b21c2606">
             <profile xsi:type="esdl:SingleValue" value="2912.37631" id="aabb76af-8d63-4040-89ed-74f4980c6308">
@@ -302,7 +302,7 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760106'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="d5d2fcbe-0d64-4c5d-9a9a-66abd9e55dff"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d5d2fcbe-0d64-4c5d-9a9a-66abd9e55dff" numberOfBuildings="1"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ade0532e-4902-4455-8d05-9ed5d4e22e4b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d24be202-fdfe-40c1-a6fe-9e4390e1b24e">
           <port xsi:type="esdl:InPort" name="InPort" id="9bac43ca-1048-4c52-bba3-73cd091e84f1">
@@ -419,7 +419,7 @@
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760108'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d707068f-b868-4e92-944b-ca1e95b22c03"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="c6e1b58b-6ed1-4f20-bf9d-e78fae135738"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c6e1b58b-6ed1-4f20-bf9d-e78fae135738" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1d6f7be7-2a3c-464f-8cf6-3d7985d54821">
           <port xsi:type="esdl:InPort" name="InPort" id="621289aa-f2a4-4842-8bc3-95d08e81658c">
             <profile xsi:type="esdl:SingleValue" id="98da488f-78c9-4c01-b9b6-96ec1f676a38">
@@ -476,8 +476,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760109'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="aec94aa1-7417-447b-8020-e9d31ac14283"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="7bb33303-8575-4714-b450-9db068029975"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="aec94aa1-7417-447b-8020-e9d31ac14283" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7bb33303-8575-4714-b450-9db068029975" numberOfBuildings="1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="59e86a8c-18a0-4e72-a841-ccd76bb1341c">
           <port xsi:type="esdl:InPort" name="InPort" id="b1b2a749-a7e9-41b4-92ec-38bbc283bae4">
             <profile xsi:type="esdl:SingleValue" value="39.8692338" id="b9404c9e-431f-4c89-8aee-063c437e63f3">
@@ -534,8 +534,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020101'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1893" name="Woningen" id="ea123f45-b962-4fbd-8e97-2070707e1b0d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="546" name="Utiliteiten" id="1544e819-4b84-4162-b3f2-d99014aa9874"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ea123f45-b962-4fbd-8e97-2070707e1b0d" numberOfBuildings="1893"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1544e819-4b84-4162-b3f2-d99014aa9874" numberOfBuildings="546"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4d6b787f-7371-444b-b9c3-909eba10a34f">
           <port xsi:type="esdl:InPort" name="InPort" id="8b49fc7a-389d-4e1f-91ee-e1f292e8757b">
             <profile xsi:type="esdl:SingleValue" value="48317.4849" id="4e1d8bf4-f079-47f4-9221-0cf1a2cdfce3">
@@ -592,8 +592,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020102'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1522" name="Woningen" id="27f5eddd-e038-435c-8a24-639297cff932"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="203" name="Utiliteiten" id="d7736c5f-c486-419f-94bf-efe055c3e8ea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="27f5eddd-e038-435c-8a24-639297cff932" numberOfBuildings="1522"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d7736c5f-c486-419f-94bf-efe055c3e8ea" numberOfBuildings="203"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e7192db0-8dcb-4a1b-a9c1-8339d9ec655c">
           <port xsi:type="esdl:InPort" name="InPort" id="979274ac-8464-41d7-8bf7-978209f2a5fb">
             <profile xsi:type="esdl:SingleValue" value="39587.1614" id="ab6373c2-f9c0-485f-a0e6-da4da1cfce9c">
@@ -650,8 +650,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="836" name="Woningen" id="e80780bd-c551-4b92-b819-6b87ed34b3f7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="b62ed23c-fe3a-4a87-9303-5c8823432e48"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e80780bd-c551-4b92-b819-6b87ed34b3f7" numberOfBuildings="836"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b62ed23c-fe3a-4a87-9303-5c8823432e48" numberOfBuildings="58"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2cc3b04e-a4cc-4edc-9aca-a08c8a0e1297">
           <port xsi:type="esdl:InPort" name="InPort" id="d816b6a8-a144-458e-9ed7-a3ab5531de6d">
             <profile xsi:type="esdl:SingleValue" value="24984.5313" id="9ff65aaa-0627-41a8-9a98-702cc5dc176f">
@@ -708,8 +708,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020104'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="936" name="Woningen" id="25c623a8-16ee-44bc-9979-3e20e9879115"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="263" name="Utiliteiten" id="5a23ca18-cde7-4dab-8d78-29bd4ae73a1d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="25c623a8-16ee-44bc-9979-3e20e9879115" numberOfBuildings="936"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5a23ca18-cde7-4dab-8d78-29bd4ae73a1d" numberOfBuildings="263"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2fced2d3-e14f-43dc-b899-235a63ac3b94">
           <port xsi:type="esdl:InPort" name="InPort" id="ed943497-35f6-4893-b015-e9bb0ec450cb">
             <profile xsi:type="esdl:SingleValue" value="24113.2231" id="f252235e-76af-4646-82e7-2c5bbdcbac69">
@@ -766,8 +766,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020201'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1530" name="Woningen" id="e640c7ec-16c1-405f-a51b-f56228dd39f8"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="211" name="Utiliteiten" id="ca3e7ff2-68a1-4fac-af41-2ab24a6383ec"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e640c7ec-16c1-405f-a51b-f56228dd39f8" numberOfBuildings="1530"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ca3e7ff2-68a1-4fac-af41-2ab24a6383ec" numberOfBuildings="211"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5d15548e-4355-4d36-928d-12e253bbfb64">
           <port xsi:type="esdl:InPort" name="InPort" id="62842b3d-1c00-4afb-a9a3-40e49e49ae21">
             <profile xsi:type="esdl:SingleValue" value="53120.8575" id="f0bf4b2e-011b-450e-a8e3-5dd618eb5ca6">
@@ -824,8 +824,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020202'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="641" name="Woningen" id="2dff3369-329f-4aa3-a75d-1c04790b7bdf"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="89" name="Utiliteiten" id="aab60e65-cab6-44ed-8056-28dc306759ea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2dff3369-329f-4aa3-a75d-1c04790b7bdf" numberOfBuildings="641"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="aab60e65-cab6-44ed-8056-28dc306759ea" numberOfBuildings="89"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="28ea09ef-a539-41a0-924b-5ba2afd272ff">
           <port xsi:type="esdl:InPort" name="InPort" id="f8524f7d-be8d-4d17-a610-954cc410aee8">
             <profile xsi:type="esdl:SingleValue" value="26602.4314" id="b0dc82e7-a975-4f1a-9f99-a7c4c8ee79d0">
@@ -882,8 +882,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020203'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="471" name="Woningen" id="b3c0461d-3527-4464-b693-a81df2c2d15a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="849ab975-b793-431c-b7ed-899e826363f2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b3c0461d-3527-4464-b693-a81df2c2d15a" numberOfBuildings="471"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="849ab975-b793-431c-b7ed-899e826363f2" numberOfBuildings="58"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9e9b9714-8915-4ce6-afd1-3cc9f0374dc2">
           <port xsi:type="esdl:InPort" name="InPort" id="740c0c5d-a9dd-4aa8-9cb7-579397955a79">
             <profile xsi:type="esdl:SingleValue" value="14473.1811" id="c3002c71-4ac3-4f0b-87da-4fdd7a7d4f0f">
@@ -940,8 +940,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020204'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="577" name="Woningen" id="1a808e9f-32b9-48d1-ad81-6460b3afafff"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="57" name="Utiliteiten" id="adb25680-948e-4cd8-acff-face0828ff03"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1a808e9f-32b9-48d1-ad81-6460b3afafff" numberOfBuildings="577"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="adb25680-948e-4cd8-acff-face0828ff03" numberOfBuildings="57"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="653ab55e-c603-42dd-8bfe-2f7b487eed3c">
           <port xsi:type="esdl:InPort" name="InPort" id="f039160b-a3bd-44b2-9c78-7b0c5430ea87">
             <profile xsi:type="esdl:SingleValue" value="23918.9951" id="046e434d-d210-42b0-9778-55599d17a76f">
@@ -998,8 +998,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020205'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="286" name="Woningen" id="0474fa8e-2b34-4207-b7c2-c7d64f520def"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="00867509-fece-49a0-8cc4-39826efa18e3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0474fa8e-2b34-4207-b7c2-c7d64f520def" numberOfBuildings="286"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="00867509-fece-49a0-8cc4-39826efa18e3" numberOfBuildings="24"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7f2fd715-8063-47ab-a339-4e198578ae82">
           <port xsi:type="esdl:InPort" name="InPort" id="6b622410-f9a9-44e6-9cb9-d0e694d4792e">
             <profile xsi:type="esdl:SingleValue" value="12109.0263" id="799f93b4-a391-492e-a336-939d1389dcc7">
@@ -1056,8 +1056,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020206'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Woningen" id="b6431cb5-331c-4cf2-9a91-28405cf9834f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="102" name="Utiliteiten" id="c01859ee-2175-43d2-a668-2c1db664e687"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b6431cb5-331c-4cf2-9a91-28405cf9834f" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c01859ee-2175-43d2-a668-2c1db664e687" numberOfBuildings="102"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e9e57e9e-1b5e-4a3f-9e61-ad64f3ff792b">
           <port xsi:type="esdl:InPort" name="InPort" id="2af12ce5-5501-4dba-9d31-17765d3c4acf">
             <profile xsi:type="esdl:SingleValue" value="371.201843" id="66d526cd-724d-44ff-91ef-1015ae615112">
@@ -1114,8 +1114,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020301'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Woningen" id="0c61fb2c-3834-4584-ab63-9e578085e387"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="119" name="Utiliteiten" id="6f342b7a-b6ac-4782-adbf-bc46ef2cbd96"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0c61fb2c-3834-4584-ab63-9e578085e387" numberOfBuildings="16"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6f342b7a-b6ac-4782-adbf-bc46ef2cbd96" numberOfBuildings="119"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="79eb6d30-fda6-48b4-b0ef-82ab0c7bad6c">
           <port xsi:type="esdl:InPort" name="InPort" id="863e7676-d0ac-47cd-8f0b-d1d5c7f7ba04">
             <profile xsi:type="esdl:SingleValue" value="454.13772" id="0b23087f-a740-4101-8f9c-8c3eb13a1ebf">
@@ -1172,8 +1172,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020302'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="616" name="Woningen" id="73718b1b-ead8-40a3-9f6c-70e5dada9765"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="9" name="Utiliteiten" id="7961ec71-9c78-4623-92c5-27a370eb3379"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73718b1b-ead8-40a3-9f6c-70e5dada9765" numberOfBuildings="616"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7961ec71-9c78-4623-92c5-27a370eb3379" numberOfBuildings="9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="14719da8-fe23-49d6-9afc-fd4c81d3c844">
           <port xsi:type="esdl:InPort" name="InPort" id="c5bea524-aaaa-4630-822d-b3671414fffa">
             <profile xsi:type="esdl:SingleValue" value="19395.018" id="246b2ea6-de41-40dd-8e7b-0fdfcbe50c6f">
@@ -1230,8 +1230,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020303'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="845" name="Woningen" id="3ac03278-3d98-4553-a9e2-06c43f091650"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="6055eba8-07ee-483f-bf55-943b3e4f95ac"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3ac03278-3d98-4553-a9e2-06c43f091650" numberOfBuildings="845"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6055eba8-07ee-483f-bf55-943b3e4f95ac" numberOfBuildings="80"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b0161b93-c66f-4aec-9580-00dc32d48e21">
           <port xsi:type="esdl:InPort" name="InPort" id="46747b9f-d6a1-4c87-980e-d7485b187833">
             <profile xsi:type="esdl:SingleValue" value="23255.1904" id="da9b3e8a-dd22-4d76-9953-298c00d8a4d8">
@@ -1288,8 +1288,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020304'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3034" name="Woningen" id="04f3b9d3-9def-4929-a73d-636c80b107ee"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="488" name="Utiliteiten" id="6a4c507c-161e-43b2-83ea-286ca608cac9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="04f3b9d3-9def-4929-a73d-636c80b107ee" numberOfBuildings="3034"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6a4c507c-161e-43b2-83ea-286ca608cac9" numberOfBuildings="488"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="40ee9b88-0b6c-48b2-ba8e-280bfd6d93cb">
           <port xsi:type="esdl:InPort" name="InPort" id="4e38a6ba-d7b7-4851-a09d-3ad457fc3e3b">
             <profile xsi:type="esdl:SingleValue" value="74618.5623" id="d23901d3-a45d-4c05-9b6d-2b503f1fced9">
@@ -1346,8 +1346,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020401'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1300" name="Woningen" id="9d9925e6-e047-4c41-a4f1-69d0834d42b6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="216" name="Utiliteiten" id="bcb1c51c-78fd-45e5-acee-75d203cecd8e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9d9925e6-e047-4c41-a4f1-69d0834d42b6" numberOfBuildings="1300"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bcb1c51c-78fd-45e5-acee-75d203cecd8e" numberOfBuildings="216"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="931c4f05-f6a3-47c9-9b96-0cb37ffe0143">
           <port xsi:type="esdl:InPort" name="InPort" id="e0bbc659-9fbe-4638-a149-714bdc011cbf">
             <profile xsi:type="esdl:SingleValue" value="41125.5134" id="61857d32-3264-4c7a-be18-e40cb5399526">
@@ -1404,8 +1404,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020402'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2307" name="Woningen" id="5fdeaf2f-8195-4dac-b068-762b44eefca4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="156" name="Utiliteiten" id="f86c672f-6608-41af-8960-860be3395cf3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5fdeaf2f-8195-4dac-b068-762b44eefca4" numberOfBuildings="2307"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f86c672f-6608-41af-8960-860be3395cf3" numberOfBuildings="156"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b7ce27b5-7214-4d2c-bef3-8929095d577d">
           <port xsi:type="esdl:InPort" name="InPort" id="5b03884d-5e7d-4db1-88f1-bb888ab6b304">
             <profile xsi:type="esdl:SingleValue" value="71612.1586" id="cb220779-3966-4df8-b905-46f74794502e">
@@ -1462,8 +1462,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020403'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="810" name="Woningen" id="2eadfce2-2942-4e0a-9483-7e4a216c9947"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="127" name="Utiliteiten" id="9c92cbe0-dbfe-448c-9259-9cce940a9bbe"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2eadfce2-2942-4e0a-9483-7e4a216c9947" numberOfBuildings="810"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9c92cbe0-dbfe-448c-9259-9cce940a9bbe" numberOfBuildings="127"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="27ce2ae7-4433-4d25-a091-6055021a5c06">
           <port xsi:type="esdl:InPort" name="InPort" id="b5304eac-f37e-44d4-a1a0-7f33b2d7fac2">
             <profile xsi:type="esdl:SingleValue" value="29677.8339" id="d2405c19-08c9-4364-8b7e-a02ac3709fbd">
@@ -1520,8 +1520,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020404'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1620" name="Woningen" id="73f89da9-3626-4b27-89a2-07b230af33c0"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="256" name="Utiliteiten" id="c827624d-2920-4e1d-9492-863529dca064"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73f89da9-3626-4b27-89a2-07b230af33c0" numberOfBuildings="1620"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c827624d-2920-4e1d-9492-863529dca064" numberOfBuildings="256"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4d05b759-4b3c-47b3-a424-40e815b3a1d1">
           <port xsi:type="esdl:InPort" name="InPort" id="e53ad108-ac64-4bbf-8692-ebf14bb5ba5b">
             <profile xsi:type="esdl:SingleValue" value="51560.6657" id="731c7592-9a12-4499-b493-1f5eead3453e">
@@ -1578,8 +1578,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020405'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2277" name="Woningen" id="9163dbba-970e-4cae-b6dd-5b79176badbf"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="429" name="Utiliteiten" id="60b63f3e-6bd0-4bcc-b527-4f49d1b256e8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9163dbba-970e-4cae-b6dd-5b79176badbf" numberOfBuildings="2277"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60b63f3e-6bd0-4bcc-b527-4f49d1b256e8" numberOfBuildings="429"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e06daf67-4c09-4892-89d8-a3fc8eb10ead">
           <port xsi:type="esdl:InPort" name="InPort" id="8734bc4f-aba8-4a6b-ac53-9eed17f65837">
             <profile xsi:type="esdl:SingleValue" value="60993.1032" id="9efc8942-bce2-4434-baad-a71cb336614e">
@@ -1636,8 +1636,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020501'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1437" name="Woningen" id="7ccaf301-4513-49ce-8393-d9142be656d0"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="247" name="Utiliteiten" id="00461c1b-1326-4eda-9a7b-5a318c0f736b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7ccaf301-4513-49ce-8393-d9142be656d0" numberOfBuildings="1437"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="00461c1b-1326-4eda-9a7b-5a318c0f736b" numberOfBuildings="247"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="10848e80-ebdb-48f5-add5-baf5922896d6">
           <port xsi:type="esdl:InPort" name="InPort" id="e93cc7df-7919-4628-aca7-469142d95a6c">
             <profile xsi:type="esdl:SingleValue" value="56105.6432" id="85ff1cb7-9473-457c-8a02-50de5c40ad79">
@@ -1694,8 +1694,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020502'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="624" name="Woningen" id="a5cf7139-0610-40c7-9d65-edfd5e47b203"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="f0448940-4dd0-4999-b1ac-164113f7954b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a5cf7139-0610-40c7-9d65-edfd5e47b203" numberOfBuildings="624"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f0448940-4dd0-4999-b1ac-164113f7954b" numberOfBuildings="51"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d5122833-26c5-4ee8-9e9d-118f5785ab85">
           <port xsi:type="esdl:InPort" name="InPort" id="dd5e2495-a1b6-4efc-9d05-7110e1426a5a">
             <profile xsi:type="esdl:SingleValue" value="22729.0371" id="79ca71ca-0772-4c10-94d1-0c134d566efd">
@@ -1752,8 +1752,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020503'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="240" name="Woningen" id="89b30c57-9258-4a26-8452-05d5df9340c3"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Utiliteiten" id="7e1e3bdc-adef-4380-8a0d-cc47e26b4d95"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="89b30c57-9258-4a26-8452-05d5df9340c3" numberOfBuildings="240"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7e1e3bdc-adef-4380-8a0d-cc47e26b4d95" numberOfBuildings="155"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5dfe195c-0f1f-4b10-959b-01861a6ad39f">
           <port xsi:type="esdl:InPort" name="InPort" id="3c2f8fcb-617d-4b67-8d73-27ab55808af5">
             <profile xsi:type="esdl:SingleValue" value="8793.4007" id="755c8f1f-b04f-4eb0-849b-109a890c1ecf">
@@ -1810,8 +1810,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020504'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="97" name="Woningen" id="29d62eed-848b-4975-93b4-de004f595cf4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="d4066c40-1b20-4913-857f-e94898cdfe6c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="29d62eed-848b-4975-93b4-de004f595cf4" numberOfBuildings="97"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d4066c40-1b20-4913-857f-e94898cdfe6c" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="55b9d2dc-1629-4362-b968-602cf7575b87">
           <port xsi:type="esdl:InPort" name="InPort" id="dcd5dfd8-7633-4279-bbb8-a3cc46e87bc5">
             <profile xsi:type="esdl:SingleValue" value="5212.31401" id="07f26e82-fdcd-473b-a980-3415bddbbcef">
@@ -1868,8 +1868,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020505'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1933" name="Woningen" id="ea2ee7ef-0ff4-471a-88d4-17fe723574c6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="209" name="Utiliteiten" id="c3c85d8a-0855-4d0c-9b05-a9b5c7877996"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ea2ee7ef-0ff4-471a-88d4-17fe723574c6" numberOfBuildings="1933"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c3c85d8a-0855-4d0c-9b05-a9b5c7877996" numberOfBuildings="209"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="65823da0-d0b6-4beb-830d-959e3d0ff391">
           <port xsi:type="esdl:InPort" name="InPort" id="f5d217a0-ad06-4a34-aa43-ba01a6dc2d89">
             <profile xsi:type="esdl:SingleValue" value="44600.0435" id="207abf8b-0bbe-48e6-bf2c-edc079bfa26c">
@@ -1927,7 +1927,7 @@
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020506'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84093a1e-72c0-4a8c-b382-9b3435023a8d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="44ef3ec3-972f-4308-b3a0-0b21e12f02b1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="44ef3ec3-972f-4308-b3a0-0b21e12f02b1" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="45906952-7ac1-46f9-922c-07756ff30e2b">
           <port xsi:type="esdl:InPort" name="InPort" id="ca6abe31-86de-4093-b3fa-0b81e63712e8">
             <profile xsi:type="esdl:SingleValue" id="4debeee2-e222-4181-965a-85fbcef88e3c">
@@ -1984,8 +1984,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020601'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1200" name="Woningen" id="214087a5-9508-4953-b4bd-97ae3162a9b6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="111" name="Utiliteiten" id="0a419429-5089-4057-b2fc-63b190a824a0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="214087a5-9508-4953-b4bd-97ae3162a9b6" numberOfBuildings="1200"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0a419429-5089-4057-b2fc-63b190a824a0" numberOfBuildings="111"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="54fc3da1-5b5b-43ae-b202-d3f3b3f7a7f9">
           <port xsi:type="esdl:InPort" name="InPort" id="87fe982f-cc20-4647-ac85-3af8a66e8349">
             <profile xsi:type="esdl:SingleValue" value="36318.0494" id="f77210c9-f9e4-4e36-985f-429eb0d69ab3">
@@ -2042,8 +2042,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020602'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1066" name="Woningen" id="3a169ea6-6abf-4b5b-93e4-732edbd0bbb1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="12b1247d-fa4e-4f39-b86c-ae84cba31a27"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3a169ea6-6abf-4b5b-93e4-732edbd0bbb1" numberOfBuildings="1066"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="12b1247d-fa4e-4f39-b86c-ae84cba31a27" numberOfBuildings="47"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="54a01dbf-3377-4159-a771-00783fd94c3c">
           <port xsi:type="esdl:InPort" name="InPort" id="4d7e5ef3-3e90-41b7-b1c8-596528cb19b6">
             <profile xsi:type="esdl:SingleValue" value="29766.6981" id="f0000cda-96ae-4268-859d-86a91844ee70">
@@ -2100,8 +2100,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020603'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1916" name="Woningen" id="73aab9f6-abe3-4920-881a-ee5b1ffb0024"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="142" name="Utiliteiten" id="88276a5f-11c7-4439-8b85-1ad854c3e63b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73aab9f6-abe3-4920-881a-ee5b1ffb0024" numberOfBuildings="1916"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="88276a5f-11c7-4439-8b85-1ad854c3e63b" numberOfBuildings="142"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fe437b9a-7885-4393-839b-63024d2101ef">
           <port xsi:type="esdl:InPort" name="InPort" id="7b05bb09-27dd-4b88-96dd-9044cd60e948">
             <profile xsi:type="esdl:SingleValue" value="51569.3427" id="19d214f2-e1e6-4347-b41e-01dece36eb27">
@@ -2158,8 +2158,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020604'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2251" name="Woningen" id="cb89918a-3c42-4200-b7c1-b226163bc2dc"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="84" name="Utiliteiten" id="f051e1c5-e70c-4c26-a276-23c149feb03c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cb89918a-3c42-4200-b7c1-b226163bc2dc" numberOfBuildings="2251"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f051e1c5-e70c-4c26-a276-23c149feb03c" numberOfBuildings="84"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bf2262cb-1de9-4989-8303-ab591f972353">
           <port xsi:type="esdl:InPort" name="InPort" id="5b8745b7-15d7-42b7-9ee3-71775c7360db">
             <profile xsi:type="esdl:SingleValue" value="57926.9243" id="b7498453-e2b1-4076-80bf-c4151b3b23c8">
@@ -2216,8 +2216,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020605'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2403" name="Woningen" id="e810adcf-9ed5-44f8-8668-93570e05dd8e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="226" name="Utiliteiten" id="b8a8845c-5734-4ed8-a3ec-bebbde300ea0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e810adcf-9ed5-44f8-8668-93570e05dd8e" numberOfBuildings="2403"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b8a8845c-5734-4ed8-a3ec-bebbde300ea0" numberOfBuildings="226"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c2ded861-b586-408f-a1e1-4b59afff138a">
           <port xsi:type="esdl:InPort" name="InPort" id="945e8426-3432-4da6-bedf-43a95dffbca1">
             <profile xsi:type="esdl:SingleValue" value="73794.3787" id="9dc8d2d1-4d70-4e82-84fe-ff2d0063ac9c">
@@ -2274,8 +2274,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020606'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="204" name="Woningen" id="d6998ba7-ceb2-4d84-9aa5-17af67605cd4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="323caafc-7dab-41f8-82c3-34446173d6c4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d6998ba7-ceb2-4d84-9aa5-17af67605cd4" numberOfBuildings="204"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="323caafc-7dab-41f8-82c3-34446173d6c4" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="73dc01d8-6de3-42f9-8256-76c0a837f797">
           <port xsi:type="esdl:InPort" name="InPort" id="85da8ca5-1e02-44c9-b382-4d78a584c17a">
             <profile xsi:type="esdl:SingleValue" value="5913.81136" id="0bf1f56a-bfc7-466b-ba3b-949f96e3d424">
@@ -2332,8 +2332,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020701'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="890" name="Woningen" id="817eeb2e-053d-4cd3-b6d0-a9ac2c045a5c"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Utiliteiten" id="abf324be-6c74-4cc2-a56c-43844153d3f2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="817eeb2e-053d-4cd3-b6d0-a9ac2c045a5c" numberOfBuildings="890"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="abf324be-6c74-4cc2-a56c-43844153d3f2" numberOfBuildings="38"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d509de72-b585-48bf-a40a-975bf6a078ca">
           <port xsi:type="esdl:InPort" name="InPort" id="48752362-fc6f-477a-ad97-a2866876a3f2">
             <profile xsi:type="esdl:SingleValue" value="31019.7828" id="fccfe12e-b98b-4766-9efb-e5582e36eac9">
@@ -2390,8 +2390,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020702'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="767" name="Woningen" id="2ae36fa4-1370-494d-82e7-e04a0812dc94"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="82" name="Utiliteiten" id="9274a486-289f-4181-a6d0-5c5223256d6b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2ae36fa4-1370-494d-82e7-e04a0812dc94" numberOfBuildings="767"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9274a486-289f-4181-a6d0-5c5223256d6b" numberOfBuildings="82"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f7249794-c921-408e-ac56-96dc5e76443f">
           <port xsi:type="esdl:InPort" name="InPort" id="c2be51c3-fbaa-4013-bcf9-bc8b63fa1c2c">
             <profile xsi:type="esdl:SingleValue" value="24615.7487" id="52eff6da-e4a5-4d26-996c-cad2bbb34a9d">
@@ -2448,8 +2448,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020703'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3684" name="Woningen" id="d3a2dccf-836b-4954-a2dd-dbaa3ee802f8"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="276" name="Utiliteiten" id="f18bef09-296a-4e97-8af0-1ab36d5979b9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d3a2dccf-836b-4954-a2dd-dbaa3ee802f8" numberOfBuildings="3684"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f18bef09-296a-4e97-8af0-1ab36d5979b9" numberOfBuildings="276"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3216a280-6dd9-44ba-9e52-a3b2c3a2e0dd">
           <port xsi:type="esdl:InPort" name="InPort" id="9af23175-e972-4b9b-8a35-3b8661d5be7f">
             <profile xsi:type="esdl:SingleValue" value="95280.0374" id="c6670358-4f2d-4bd4-9a13-bc39605bb329">
@@ -2506,8 +2506,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020704'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="9" name="Woningen" id="e0e5db84-02be-4834-b22e-b53b202dbeba"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="93200182-0759-4e75-af4e-6639f421d55e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e0e5db84-02be-4834-b22e-b53b202dbeba" numberOfBuildings="9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="93200182-0759-4e75-af4e-6639f421d55e" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c08bb831-ae0d-4033-951f-15e663385e92">
           <port xsi:type="esdl:InPort" name="InPort" id="1a23124f-2eee-4ce9-b81f-c545be603eb8">
             <profile xsi:type="esdl:SingleValue" value="471.756956" id="7f3795c9-16d2-48b7-a30d-0dee6d052d6c">
@@ -2564,8 +2564,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020801'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1827" name="Woningen" id="11dc7d8e-90ec-4674-94ad-80a1db0d3a64"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="86" name="Utiliteiten" id="40ba5bcf-957d-460c-b70b-a6342cece0ef"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="11dc7d8e-90ec-4674-94ad-80a1db0d3a64" numberOfBuildings="1827"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="40ba5bcf-957d-460c-b70b-a6342cece0ef" numberOfBuildings="86"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="50d613de-5bb5-45a8-817c-99f25a6d6640">
           <port xsi:type="esdl:InPort" name="InPort" id="576f3959-1d47-44c4-9fe6-bc37d957aa04">
             <profile xsi:type="esdl:SingleValue" value="56953.2684" id="78911b20-04fe-49d0-be03-33776c96757a">
@@ -2622,8 +2622,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020901'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Woningen" id="cedcc7f1-f2cf-425a-924b-f50f325afc44"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="22" name="Utiliteiten" id="deb7ce36-22e7-4cce-9765-77e76f7e8257"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cedcc7f1-f2cf-425a-924b-f50f325afc44" numberOfBuildings="12"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="deb7ce36-22e7-4cce-9765-77e76f7e8257" numberOfBuildings="22"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ad4ceb3-3488-488a-a228-57496c23b21f">
           <port xsi:type="esdl:InPort" name="InPort" id="dcc3af7c-7db3-401d-8130-c7cdcf81cb4d">
             <profile xsi:type="esdl:SingleValue" value="574.024295" id="dc17b8ff-6598-4197-85ff-f3966eca4022">
@@ -2681,7 +2681,7 @@
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020902'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a04a721f-c521-4c75-9b07-0fbbab39a009"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="a0ba6eea-1082-4dc3-aca0-8c7cee171705"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a0ba6eea-1082-4dc3-aca0-8c7cee171705" numberOfBuildings="5"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e102cb60-d051-4c46-8945-215db3566c1f">
           <port xsi:type="esdl:InPort" name="InPort" id="050c3acd-0eb5-4cda-a68c-d9d3d98fdbff">
             <profile xsi:type="esdl:SingleValue" id="0912500a-c5a8-4e8c-971b-90519fb4460c">
@@ -2738,8 +2738,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020903'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Woningen" id="5c9cddd5-1e8b-437b-bf2f-8bd22e45bf38"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="35" name="Utiliteiten" id="fcbc4b1c-d1b7-401b-8a6e-a1ad01943092"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5c9cddd5-1e8b-437b-bf2f-8bd22e45bf38" numberOfBuildings="19"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fcbc4b1c-d1b7-401b-8a6e-a1ad01943092" numberOfBuildings="35"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c8731d4f-509d-4e05-b368-0252495fb400">
           <port xsi:type="esdl:InPort" name="InPort" id="2aee7fb7-8802-43c0-9ab2-3da0e9b2f641">
             <profile xsi:type="esdl:SingleValue" value="787.445027" id="eed3d9a4-89e9-4f80-934b-96c89d236721">
@@ -2796,8 +2796,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020904'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="37" name="Woningen" id="72c98c21-e624-415e-9832-0f27d22f9823"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="13" name="Utiliteiten" id="d21caf80-85c6-4468-aa66-77198d938d0c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="72c98c21-e624-415e-9832-0f27d22f9823" numberOfBuildings="37"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d21caf80-85c6-4468-aa66-77198d938d0c" numberOfBuildings="13"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a0b501ab-5c8f-4f10-827c-4dcc8bfbb352">
           <port xsi:type="esdl:InPort" name="InPort" id="a66f6dd4-7bfb-4e46-a771-615dff1c999f">
             <profile xsi:type="esdl:SingleValue" value="1859.26003" id="507ea137-54cd-498c-bbd9-89bf82bfc4a1">
@@ -2854,8 +2854,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020905'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="134" name="Woningen" id="1e3b5f3a-b7b2-4026-9cc7-d12f865580f5"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="95b74664-d634-4eb2-9574-3a1a5872fecf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1e3b5f3a-b7b2-4026-9cc7-d12f865580f5" numberOfBuildings="134"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="95b74664-d634-4eb2-9574-3a1a5872fecf" numberOfBuildings="87"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="89f1d40e-3258-4c67-953b-323ddfb25251">
           <port xsi:type="esdl:InPort" name="InPort" id="49221f37-a725-4914-9967-86709f670926">
             <profile xsi:type="esdl:SingleValue" value="4559.80346" id="b5888df2-3749-44e2-a864-f95976534522">
@@ -2912,8 +2912,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020906'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Woningen" id="e5cf75c5-9098-4d4b-8ecf-865ae6c74876"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="f43fa47b-c414-4286-8fd8-57bf19a5390a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e5cf75c5-9098-4d4b-8ecf-865ae6c74876" numberOfBuildings="6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f43fa47b-c414-4286-8fd8-57bf19a5390a" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1fbd6465-485e-41d1-9ffc-526627f65705">
           <port xsi:type="esdl:InPort" name="InPort" id="ab2451aa-27b3-4aae-b38e-c2b0b50338da">
             <profile xsi:type="esdl:SingleValue" value="331.881863" id="0eb14461-0e3b-4a61-b046-ae3141f7d9ca">
@@ -2970,8 +2970,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020907'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="bfdfbe8b-2330-4955-8788-a23e4953ae97"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="ed0ca48c-37b2-4196-a7cc-f01cad8faed2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bfdfbe8b-2330-4955-8788-a23e4953ae97" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ed0ca48c-37b2-4196-a7cc-f01cad8faed2" numberOfBuildings="7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="39ff1ee1-bb28-4a34-8fb1-39c51a148355">
           <port xsi:type="esdl:InPort" name="InPort" id="019cdc43-b75e-471b-94bc-0348e178178c">
             <profile xsi:type="esdl:SingleValue" value="193.282714" id="f522bb32-f47b-462b-b081-03d2aa950203">
@@ -3028,8 +3028,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060001'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1673" name="Woningen" id="5b2779df-71dd-47df-b8d8-62f99c869762"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="229" name="Utiliteiten" id="ced3d601-d2ce-45cb-80a8-7c800c509e90"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5b2779df-71dd-47df-b8d8-62f99c869762" numberOfBuildings="1673"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ced3d601-d2ce-45cb-80a8-7c800c509e90" numberOfBuildings="229"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e63cb4db-c272-4ff5-96c5-5df2ec8f0d2c">
           <port xsi:type="esdl:InPort" name="InPort" id="a76ad7f0-b330-433b-97f7-d82298056c1c">
             <profile xsi:type="esdl:SingleValue" value="53921.8674" id="350d5211-eba5-4141-a2c0-387775b83357">
@@ -3086,8 +3086,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060002'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1250" name="Woningen" id="bde105fe-78db-4da3-9561-78ca949d3556"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="66" name="Utiliteiten" id="ee438c52-fa3e-4ba3-a27d-ce6b23be27da"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bde105fe-78db-4da3-9561-78ca949d3556" numberOfBuildings="1250"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ee438c52-fa3e-4ba3-a27d-ce6b23be27da" numberOfBuildings="66"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="aa931f10-5205-428a-8db8-a44bffb05d2a">
           <port xsi:type="esdl:InPort" name="InPort" id="9ac7b038-64b8-434c-998f-6296fa807897">
             <profile xsi:type="esdl:SingleValue" value="41222.9357" id="3bdf3fa3-c2ea-4892-af97-844e6de3f321">
@@ -3144,8 +3144,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1008" name="Woningen" id="10634222-1af0-45f2-86ce-13a4f3ea7325"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="a17a62ab-560b-4b6d-9a67-b6f1a6c36b00"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="10634222-1af0-45f2-86ce-13a4f3ea7325" numberOfBuildings="1008"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a17a62ab-560b-4b6d-9a67-b6f1a6c36b00" numberOfBuildings="34"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d0e8e532-3741-488e-8e48-37aab65aea5b">
           <port xsi:type="esdl:InPort" name="InPort" id="7e173fa0-ac27-4a3d-9260-2e94da39da66">
             <profile xsi:type="esdl:SingleValue" value="36211.2267" id="9092de91-235e-4891-8d71-6592a3ac5fca">
@@ -3202,8 +3202,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060204'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="94" name="Woningen" id="fedb9911-c523-41f3-8ae7-c8cb8fc3ebd5"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="0aa2bf29-946e-413f-841b-471f61ca644a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fedb9911-c523-41f3-8ae7-c8cb8fc3ebd5" numberOfBuildings="94"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0aa2bf29-946e-413f-841b-471f61ca644a" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="897bebf1-a930-4082-bb11-563b1f504cdf">
           <port xsi:type="esdl:InPort" name="InPort" id="4361cf03-626b-4626-b5f8-ef2f58883f07">
             <profile xsi:type="esdl:SingleValue" value="5172.76544" id="b9c1774e-f338-4ac3-a10e-663b0efc59b6">
@@ -3260,8 +3260,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060205'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Woningen" id="0a85b5a0-bf5b-4b92-9d40-44fb3eb167a6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="913d5438-e64a-44aa-a654-67a77b84cf38"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0a85b5a0-bf5b-4b92-9d40-44fb3eb167a6" numberOfBuildings="109"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="913d5438-e64a-44aa-a654-67a77b84cf38" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="84b85d91-2776-48b0-8250-61b52ea5b4ad">
           <port xsi:type="esdl:InPort" name="InPort" id="09655af9-17a7-470a-8e24-dfc3e5e4a2f4">
             <profile xsi:type="esdl:SingleValue" value="5292.42189" id="7e383aab-e07c-4621-85c4-290cfbb2cfdf">
@@ -3318,8 +3318,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060206'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="149" name="Woningen" id="9ef6293b-2d11-4555-bb47-7c88a053ee72"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="f934e767-1085-4118-becc-e5bef3841a1a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9ef6293b-2d11-4555-bb47-7c88a053ee72" numberOfBuildings="149"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f934e767-1085-4118-becc-e5bef3841a1a" numberOfBuildings="16"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1277e309-45d1-4758-8bf9-9be1d987d5b8">
           <port xsi:type="esdl:InPort" name="InPort" id="46e4a990-2dc8-47b6-8ee9-d3f0bf37a9f2">
             <profile xsi:type="esdl:SingleValue" value="8120.03986" id="148f5de2-6288-4c83-9615-cf395a323184">
@@ -3376,8 +3376,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060307'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="32" name="Woningen" id="b1ce37a4-1fd1-472a-bc03-c89f5f2a549e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="b026dc64-c15a-4bf1-8547-65e8aa3bc012"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b1ce37a4-1fd1-472a-bc03-c89f5f2a549e" numberOfBuildings="32"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b026dc64-c15a-4bf1-8547-65e8aa3bc012" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3a71abc2-7f11-4c43-85b9-19c0c08211eb">
           <port xsi:type="esdl:InPort" name="InPort" id="5a1226d0-6fa4-4796-b5dd-7579cc76f280">
             <profile xsi:type="esdl:SingleValue" value="1619.70548" id="e8a3aa0b-3ef0-4387-9e91-ac8b604e56a9">
@@ -3434,8 +3434,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060308'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="63" name="Woningen" id="9349c8c8-cbf2-4204-b01b-c83efcfa9a1b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Utiliteiten" id="1b05f1fc-078a-458c-b820-72716bd3d432"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9349c8c8-cbf2-4204-b01b-c83efcfa9a1b" numberOfBuildings="63"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1b05f1fc-078a-458c-b820-72716bd3d432" numberOfBuildings="6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8a370605-02b7-493c-a9ac-802c399e0c69">
           <port xsi:type="esdl:InPort" name="InPort" id="f36a4c61-617c-4841-938f-197b97841010">
             <profile xsi:type="esdl:SingleValue" value="3348.25342" id="3280c156-4878-4dd9-903a-1da396bf6b9b">
@@ -3492,8 +3492,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060327'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Woningen" id="d40e35a8-8127-4f14-a51a-153234a15802"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="6ce70b11-60ee-43b2-9595-751dd97e0f89"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d40e35a8-8127-4f14-a51a-153234a15802" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6ce70b11-60ee-43b2-9595-751dd97e0f89" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9f00dd5c-e1dc-40e2-af5c-20b16773b9ac">
           <port xsi:type="esdl:InPort" name="InPort" id="12e1b4cb-c453-4acc-9530-a29f81124f06">
             <profile xsi:type="esdl:SingleValue" value="371.472758" id="e92184a7-ac01-45ba-9987-e3b7c714c873">
@@ -3550,8 +3550,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060328'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="edc1f675-d380-4563-99df-20610025df4a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="97c8cb3c-d1a2-4c2e-bfe2-edc0a127af91"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="edc1f675-d380-4563-99df-20610025df4a" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="97c8cb3c-d1a2-4c2e-bfe2-edc0a127af91" numberOfBuildings="1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d78a70b3-2893-4675-8707-1089aeb53c1c">
           <port xsi:type="esdl:InPort" name="InPort" id="4a6f0fa3-9db4-4a28-a2dc-89dca5a2aa6a">
             <profile xsi:type="esdl:SingleValue" value="58.8603755" id="aaefe4aa-c6ad-48c3-a2c3-dea047330532">
@@ -3608,8 +3608,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060329'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="67ac0591-2380-426a-baf0-8cc94d256458"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="756ff652-ff09-49f1-80f3-20c66f005b93"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="67ac0591-2380-426a-baf0-8cc94d256458" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="756ff652-ff09-49f1-80f3-20c66f005b93" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b9367d14-f74e-40d7-be4d-7f36d2cd871d">
           <port xsi:type="esdl:InPort" name="InPort" id="c23c250a-c4c7-4437-891a-4e09607033eb">
             <profile xsi:type="esdl:SingleValue" value="163.316272" id="57ac286d-7aad-407a-bf25-f75de9bd7eb9">
@@ -3666,8 +3666,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060330'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="42" name="Woningen" id="edbaf380-2d6c-4ce0-ae13-a2ac58b69bc0"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="aa71e152-df29-4a0c-bfc0-3612909e7c1e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="edbaf380-2d6c-4ce0-ae13-a2ac58b69bc0" numberOfBuildings="42"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="aa71e152-df29-4a0c-bfc0-3612909e7c1e" numberOfBuildings="2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e728b465-89d9-429c-8384-edca94d2a860">
           <port xsi:type="esdl:InPort" name="InPort" id="b948fb81-446c-44b7-a247-128147c7fcfb">
             <profile xsi:type="esdl:SingleValue" value="1913.05287" id="b8f78ae4-6938-48ca-af60-6d5e8f67251a">
@@ -3724,8 +3724,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060409'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="244" name="Woningen" id="f50dc54b-5e53-4c21-b5b0-3b710bf23019"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="43627b27-8a0b-4648-af7d-4face8ba7f45"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f50dc54b-5e53-4c21-b5b0-3b710bf23019" numberOfBuildings="244"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="43627b27-8a0b-4648-af7d-4face8ba7f45" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4a9e37ea-7ee8-4cdc-b00f-fae60f0123ac">
           <port xsi:type="esdl:InPort" name="InPort" id="177cf39c-645c-48bd-b5ce-3d0be8ad597d">
             <profile xsi:type="esdl:SingleValue" value="11231.1116" id="137318e6-5ecd-48c5-8efb-042262b0d93e">
@@ -3782,8 +3782,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060410'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="980" name="Woningen" id="1afc0973-7c12-4a3f-80f2-f7a766d55fff"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="50" name="Utiliteiten" id="a41efc42-947f-41de-a0ca-7b97f14adc13"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1afc0973-7c12-4a3f-80f2-f7a766d55fff" numberOfBuildings="980"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a41efc42-947f-41de-a0ca-7b97f14adc13" numberOfBuildings="50"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e4cfb5e8-c18c-4e53-9820-ccddbdc12a8c">
           <port xsi:type="esdl:InPort" name="InPort" id="8d5f8b2a-7f23-4984-8a97-2644c7ae8d1b">
             <profile xsi:type="esdl:SingleValue" value="35716.3313" id="446e94c3-3d75-4d86-bb25-2fe2155bdb6a">
@@ -3840,8 +3840,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060511'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="359" name="Woningen" id="82ae655a-f7db-4a5d-9b83-b8b076194106"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Utiliteiten" id="79b5e63b-adc5-4dfe-8477-8c3ed231a884"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="82ae655a-f7db-4a5d-9b83-b8b076194106" numberOfBuildings="359"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="79b5e63b-adc5-4dfe-8477-8c3ed231a884" numberOfBuildings="19"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f4be57ac-8055-485a-9ce2-ef743680e6ed">
           <port xsi:type="esdl:InPort" name="InPort" id="ff45c14f-d7c9-41ac-ad30-3c2c32518579">
             <profile xsi:type="esdl:SingleValue" value="9770.8668" id="1b99b9af-28c0-4eac-acf2-3d308a56733f">
@@ -3898,8 +3898,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060512'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Woningen" id="f1562133-1114-4256-b091-978af2379bc7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="48d8b231-e23b-4b89-b898-1dfa5ffc6dcc"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f1562133-1114-4256-b091-978af2379bc7" numberOfBuildings="34"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="48d8b231-e23b-4b89-b898-1dfa5ffc6dcc" numberOfBuildings="31"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5a2deee7-294e-4ff4-8a3c-f7f46e504864">
           <port xsi:type="esdl:InPort" name="InPort" id="e2617709-9665-46e1-929d-46a189e027a4">
             <profile xsi:type="esdl:SingleValue" value="724.66823" id="b2c4ad02-d35e-45be-9bf5-ad8b30814698">
@@ -3956,8 +3956,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060513'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="232" name="Woningen" id="06bc8679-5030-46cf-b36e-6ee992ea176f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="128" name="Utiliteiten" id="009aef35-bae2-4cfc-b037-8e2c2b743be6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="06bc8679-5030-46cf-b36e-6ee992ea176f" numberOfBuildings="232"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="009aef35-bae2-4cfc-b037-8e2c2b743be6" numberOfBuildings="128"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="784e8a6e-2975-4f5f-809f-87e35e9b98b9">
           <port xsi:type="esdl:InPort" name="InPort" id="c29c9e13-e190-4e03-b464-54c04e4412f7">
             <profile xsi:type="esdl:SingleValue" value="5881.21547" id="e893f435-a7e7-4f1d-95d4-59dba8677670">
@@ -4014,8 +4014,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060614'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1331" name="Woningen" id="21addb10-4726-4add-ad06-463f304a8687"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="97" name="Utiliteiten" id="a3ff31f3-74c3-4e8d-8389-134b89d9dcf8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="21addb10-4726-4add-ad06-463f304a8687" numberOfBuildings="1331"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a3ff31f3-74c3-4e8d-8389-134b89d9dcf8" numberOfBuildings="97"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="71acb09a-4a29-4a7f-bffd-a333831aa182">
           <port xsi:type="esdl:InPort" name="InPort" id="138eb970-eab2-4d85-9598-f6a793b9f6a8">
             <profile xsi:type="esdl:SingleValue" value="33836.336" id="aa0e2514-98a6-4159-bafc-b394956971e8">
@@ -4072,8 +4072,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060615'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="559" name="Woningen" id="78b9eca0-220f-4a68-af28-7954ba0d09e6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="45" name="Utiliteiten" id="da86d44a-dcb7-4715-be46-caf521598c78"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="78b9eca0-220f-4a68-af28-7954ba0d09e6" numberOfBuildings="559"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="da86d44a-dcb7-4715-be46-caf521598c78" numberOfBuildings="45"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="77b754a1-7e6e-4b2f-a378-bc816144d100">
           <port xsi:type="esdl:InPort" name="InPort" id="cc447f64-0370-4f25-b8bf-d72efc406d8a">
             <profile xsi:type="esdl:SingleValue" value="16741.3727" id="ccfd87f6-49be-4cc3-b5a4-4b68eb49e148">
@@ -4130,8 +4130,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060716'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1599" name="Woningen" id="8a066830-8ad4-4c32-93b1-0c4a02b0cec1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="289" name="Utiliteiten" id="98d713ec-e0b8-479d-ab71-99ebc18f7475"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="8a066830-8ad4-4c32-93b1-0c4a02b0cec1" numberOfBuildings="1599"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="98d713ec-e0b8-479d-ab71-99ebc18f7475" numberOfBuildings="289"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2666710f-4684-44d8-8b3c-98cabffc4b14">
           <port xsi:type="esdl:InPort" name="InPort" id="e17e3191-d190-4a3d-8f1d-a8861fa161a1">
             <profile xsi:type="esdl:SingleValue" value="47173.0765" id="79fab1ce-34a2-488c-a1a6-074a3c7f6549">
@@ -4188,8 +4188,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060817'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1453" name="Woningen" id="df7d3adf-5ac2-446c-81a9-fc1fcefdaf43"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="168" name="Utiliteiten" id="e3adb333-aad7-470a-a544-95858e6a88cf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="df7d3adf-5ac2-446c-81a9-fc1fcefdaf43" numberOfBuildings="1453"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e3adb333-aad7-470a-a544-95858e6a88cf" numberOfBuildings="168"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="6d8ee8cb-8aba-410c-9821-b8aabfd54567">
           <port xsi:type="esdl:InPort" name="InPort" id="fafe7107-297b-492e-a0f2-f7ac0918f0ee">
             <profile xsi:type="esdl:SingleValue" value="41769.6387" id="8eec53cb-759a-4186-8186-d1fe265cb849">
@@ -4246,8 +4246,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060818'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1366" name="Woningen" id="9e5972c3-5c11-467c-879e-a0fed5103af8"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="b7ea35f5-2ce6-4a66-a034-a5820f3ee814"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9e5972c3-5c11-467c-879e-a0fed5103af8" numberOfBuildings="1366"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b7ea35f5-2ce6-4a66-a034-a5820f3ee814" numberOfBuildings="80"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="955567ec-2917-4d43-970a-085a3ffce7b4">
           <port xsi:type="esdl:InPort" name="InPort" id="445337b9-e59b-4c0a-846b-0c6be106721f">
             <profile xsi:type="esdl:SingleValue" value="37497.4427" id="489b08d8-05fa-4c64-984f-a8c71cc3c93d">
@@ -4304,8 +4304,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060919'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1409" name="Woningen" id="2fd97ce7-3235-42c0-8316-646421963351"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="60" name="Utiliteiten" id="bc71d298-04d1-4491-9d18-37bd05b3b90c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2fd97ce7-3235-42c0-8316-646421963351" numberOfBuildings="1409"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bc71d298-04d1-4491-9d18-37bd05b3b90c" numberOfBuildings="60"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="cbff7da3-9346-4863-8a76-5998da8e8599">
           <port xsi:type="esdl:InPort" name="InPort" id="bd675a2b-d8cb-414f-be56-4f12580767d8">
             <profile xsi:type="esdl:SingleValue" value="39380.8765" id="55ac0941-1a1c-460f-bc82-01fdd7f82daa">
@@ -4362,8 +4362,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061020'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="750" name="Woningen" id="f54e4c6b-e7cf-4b24-bb72-d5df75222a10"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="bf7ece4f-7280-48e7-afde-1c6b9743591c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f54e4c6b-e7cf-4b24-bb72-d5df75222a10" numberOfBuildings="750"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bf7ece4f-7280-48e7-afde-1c6b9743591c" numberOfBuildings="28"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a2fd9e30-040f-4935-b90d-289db07da04a">
           <port xsi:type="esdl:InPort" name="InPort" id="70c49ae6-5f8c-444b-9d83-866940b97130">
             <profile xsi:type="esdl:SingleValue" value="19819.1058" id="50b7be7d-9f24-439c-ba48-dde5172c9cd2">
@@ -4420,8 +4420,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061021'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="221" name="Woningen" id="133e7ff6-ead3-46c8-9b63-03e1fd66f701"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Utiliteiten" id="9959743d-63f6-4c9c-9d99-2a2e46602757"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="133e7ff6-ead3-46c8-9b63-03e1fd66f701" numberOfBuildings="221"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9959743d-63f6-4c9c-9d99-2a2e46602757" numberOfBuildings="12"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f6fd4766-d64e-471c-b060-8fa454c66ed4">
           <port xsi:type="esdl:InPort" name="InPort" id="ddc99ca8-13a3-4d86-bf05-fb2b1abf09bf">
             <profile xsi:type="esdl:SingleValue" value="6509.66656" id="38103638-0657-4bf4-a6c3-095151d135e9">
@@ -4478,8 +4478,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061123'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1478" name="Woningen" id="960d57cc-c09d-45af-a437-7ff5ca2820ac"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="35" name="Utiliteiten" id="d14a15d4-b621-4a72-99b8-2313ef5fed97"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="960d57cc-c09d-45af-a437-7ff5ca2820ac" numberOfBuildings="1478"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d14a15d4-b621-4a72-99b8-2313ef5fed97" numberOfBuildings="35"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c27aa65c-2e07-42d9-9534-4c6f4c11c28b">
           <port xsi:type="esdl:InPort" name="InPort" id="b1ef281f-3fbd-4e9f-b44b-5b82510e115e">
             <profile xsi:type="esdl:SingleValue" value="43484.4041" id="7b6a1084-abde-4808-adda-1b33d0a28de4">
@@ -4536,8 +4536,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061124'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="821" name="Woningen" id="cb2e971d-f1bf-4243-981e-4872b352ed0c"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="73d4ba32-285c-4291-b87d-4efb43faa734"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cb2e971d-f1bf-4243-981e-4872b352ed0c" numberOfBuildings="821"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="73d4ba32-285c-4291-b87d-4efb43faa734" numberOfBuildings="58"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e0ccb595-f85f-4b39-8ac0-b134777a2d11">
           <port xsi:type="esdl:InPort" name="InPort" id="ac3475f5-7e4c-4429-ba50-8cbdd7b5c395">
             <profile xsi:type="esdl:SingleValue" value="20670.7289" id="9be581c3-d999-406d-837d-0743f809165f">
@@ -4594,8 +4594,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061125'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="593" name="Woningen" id="8c29de21-04e7-4f39-af19-75816933f5f1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="8" name="Utiliteiten" id="497a4f2c-64ba-4fe0-a946-39893ed72a74"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="8c29de21-04e7-4f39-af19-75816933f5f1" numberOfBuildings="593"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="497a4f2c-64ba-4fe0-a946-39893ed72a74" numberOfBuildings="8"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5ea7f92b-a3ef-4633-a946-dd3385ccdb52">
           <port xsi:type="esdl:InPort" name="InPort" id="73fa31f4-bb89-4596-be89-fee2d298ea05">
             <profile xsi:type="esdl:SingleValue" value="15986.6145" id="4a80aa3e-f3ed-4894-b858-ea499f524988">
@@ -4652,8 +4652,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061226'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="801" name="Woningen" id="9f571990-3204-4fda-8de9-bd5b2ae0081e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Utiliteiten" id="5ef08493-77d5-4379-9949-1076186a3c9b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9f571990-3204-4fda-8de9-bd5b2ae0081e" numberOfBuildings="801"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5ef08493-77d5-4379-9949-1076186a3c9b" numberOfBuildings="10"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ce4c38fa-8960-4d3f-b98c-f5ff21231178">
           <port xsi:type="esdl:InPort" name="InPort" id="97332fa9-9da2-4172-935b-3bdfe2609a30">
             <profile xsi:type="esdl:SingleValue" value="26270.0698" id="3fe12646-f0c4-4625-a34a-dd0fe4a5ce9d">
@@ -4710,7 +4710,7 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061231'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="120" name="Woningen" id="3db9e160-eb67-4ad5-a4d0-8aa8b2c3ebea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3db9e160-eb67-4ad5-a4d0-8aa8b2c3ebea" numberOfBuildings="120"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="622753f8-ae06-4c48-884b-9a919b861000"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b8931a37-5aca-4f6c-9a18-8e20e62be140">
           <port xsi:type="esdl:InPort" name="InPort" id="e50fdf90-e08c-49e9-ba40-1241c84eb77a">
@@ -4768,8 +4768,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170320'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="995" name="Woningen" id="42dba631-ffed-4ba5-baf5-f75ea18db4e9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="374" name="Utiliteiten" id="5c6c84e8-1e50-4a01-aed7-bb0ad3e5cbab"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="42dba631-ffed-4ba5-baf5-f75ea18db4e9" numberOfBuildings="995"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5c6c84e8-1e50-4a01-aed7-bb0ad3e5cbab" numberOfBuildings="374"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3ce746d4-96da-413a-9ba8-fe5aeaa65117">
           <port xsi:type="esdl:InPort" name="InPort" id="a15466bf-6d79-4047-9b03-efca9dc6be4b">
             <profile xsi:type="esdl:SingleValue" value="34976.1465" id="c9d8ce5f-e08e-469a-a69e-0c8859f883ac">
@@ -4826,8 +4826,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170321'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Woningen" id="7df10ea1-91ec-4b5d-8766-8218433f97f3"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Utiliteiten" id="526abb08-2cad-4f89-86b3-4ec12c382e82"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7df10ea1-91ec-4b5d-8766-8218433f97f3" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="526abb08-2cad-4f89-86b3-4ec12c382e82" numberOfBuildings="6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d5fbd47b-bb5d-4e46-a9c8-548fa54a66e6">
           <port xsi:type="esdl:InPort" name="InPort" id="01610d0b-74a8-4feb-abef-cea02e0bfb73">
             <profile xsi:type="esdl:SingleValue" value="224.842473" id="2395b34a-1791-4af9-81fa-9747eb6bf7be">
@@ -4884,8 +4884,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170322'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="569" name="Woningen" id="ef173d16-fc05-4b95-91bc-834774eda6f7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="60f458e9-9e03-4b94-96be-3eebcca4a083"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ef173d16-fc05-4b95-91bc-834774eda6f7" numberOfBuildings="569"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60f458e9-9e03-4b94-96be-3eebcca4a083" numberOfBuildings="52"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f2f6111e-aa65-432c-b378-d0b99cedca19">
           <port xsi:type="esdl:InPort" name="InPort" id="04b7d0eb-c890-4a57-8032-b752c2835064">
             <profile xsi:type="esdl:SingleValue" value="18276.8253" id="5e7107a1-cdc4-4391-af38-b8f7cb85a37a">
@@ -4942,8 +4942,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170323'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="512" name="Woningen" id="38542aab-3712-44c0-990d-b44b21abdc8d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="723beac5-53ff-4159-9d45-56b07222ebd6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="38542aab-3712-44c0-990d-b44b21abdc8d" numberOfBuildings="512"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="723beac5-53ff-4159-9d45-56b07222ebd6" numberOfBuildings="41"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a6688d65-39e4-46bb-a91e-189541ed91aa">
           <port xsi:type="esdl:InPort" name="InPort" id="9a120db4-943d-4e41-867e-3393770c4390">
             <profile xsi:type="esdl:SingleValue" value="21678.2824" id="48beb722-b952-4b1e-b1f4-469d16870793">
@@ -5000,8 +5000,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170324'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="164" name="Woningen" id="17b4907d-fa3f-48fd-9ad6-6a4d1683355d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="a2e8a70c-e1a6-4ced-b1f6-a08e2b871e18"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="17b4907d-fa3f-48fd-9ad6-6a4d1683355d" numberOfBuildings="164"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a2e8a70c-e1a6-4ced-b1f6-a08e2b871e18" numberOfBuildings="5"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="76e166e6-f302-4162-af70-32150ec42a80">
           <port xsi:type="esdl:InPort" name="InPort" id="06bed689-38ff-4d35-8036-6bb36b33faa2">
             <profile xsi:type="esdl:SingleValue" value="5027.10963" id="f3845560-4f2d-46bd-b084-63c64ad6a3f6">
@@ -5058,8 +5058,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170325'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="154" name="Woningen" id="ddd9220a-ccf0-436f-8559-5fdd4bbea4e4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="2993ca8a-5d74-4b22-a536-05f8f5408f2d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ddd9220a-ccf0-436f-8559-5fdd4bbea4e4" numberOfBuildings="154"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2993ca8a-5d74-4b22-a536-05f8f5408f2d" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="66cb194d-c8ee-40c4-99a9-517828d5d6b5">
           <port xsi:type="esdl:InPort" name="InPort" id="2d855b76-18f6-4624-9ccd-fade87abbccf">
             <profile xsi:type="esdl:SingleValue" value="8388.85339" id="038e3c79-7a85-40c2-bfa6-cfb52653cd93">
@@ -5116,8 +5116,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170326'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Woningen" id="c4dce63c-de79-4f37-8ef9-a3cf841bb61c"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="a3074433-3f5b-4292-9a69-2a876bd37b44"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c4dce63c-de79-4f37-8ef9-a3cf841bb61c" numberOfBuildings="109"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a3074433-3f5b-4292-9a69-2a876bd37b44" numberOfBuildings="7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7095412e-d8bc-4f18-a09e-5d68b5836daa">
           <port xsi:type="esdl:InPort" name="InPort" id="d3addaeb-3625-4c7c-9206-3fa4ede67337">
             <profile xsi:type="esdl:SingleValue" value="6015.00664" id="5b65b5d1-5e71-4e13-b34e-16bf2b8cf109">
@@ -5174,8 +5174,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170327'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="246" name="Woningen" id="69ad7f70-012e-41f5-98bd-9d67e383c4ba"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Utiliteiten" id="1b66c297-9714-4569-8fa8-f79da658ea48"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="69ad7f70-012e-41f5-98bd-9d67e383c4ba" numberOfBuildings="246"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1b66c297-9714-4569-8fa8-f79da658ea48" numberOfBuildings="10"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d0cca960-bb6e-4ec5-bf8b-68845ce623b2">
           <port xsi:type="esdl:InPort" name="InPort" id="99fa8785-41f6-4b8c-8a2a-951ee0f7d60a">
             <profile xsi:type="esdl:SingleValue" value="11121.7391" id="fd161da3-011d-4df2-a153-b32c92bc63b0">
@@ -5232,8 +5232,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170328'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2199" name="Woningen" id="a057fd21-20be-45bb-9fdf-1e24b5d55605"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="203" name="Utiliteiten" id="a0ba26c2-6641-4ee8-b949-19fc1adc2057"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a057fd21-20be-45bb-9fdf-1e24b5d55605" numberOfBuildings="2199"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a0ba26c2-6641-4ee8-b949-19fc1adc2057" numberOfBuildings="203"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f58b78c3-5261-4cd1-aefe-6276392ba359">
           <port xsi:type="esdl:InPort" name="InPort" id="8cd3130b-61da-432c-9c8b-41633c30cdb1">
             <profile xsi:type="esdl:SingleValue" value="71268.1001" id="1b89fa25-4151-4f40-8322-8f32b2c152dd">
@@ -5290,8 +5290,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170329'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="296" name="Woningen" id="cbaad9ae-467c-462e-855f-443738d02dd7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Utiliteiten" id="f32fdabb-e242-436c-bbea-e9beb67aa4df"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cbaad9ae-467c-462e-855f-443738d02dd7" numberOfBuildings="296"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f32fdabb-e242-436c-bbea-e9beb67aa4df" numberOfBuildings="19"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e2e57a53-7570-4b10-94cd-209d7d9ff4b3">
           <port xsi:type="esdl:InPort" name="InPort" id="0b94af0a-e68e-4f56-8403-a783b9d2c98e">
             <profile xsi:type="esdl:SingleValue" value="13878.9932" id="af23dc01-cf06-4992-89c8-0b2692f904ce">
@@ -5348,8 +5348,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570001'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1194" name="Woningen" id="c43d09ec-94c7-420a-aa24-bdf716006a4b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="179" name="Utiliteiten" id="7fd74177-9c62-4fa2-a360-294144de062f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c43d09ec-94c7-420a-aa24-bdf716006a4b" numberOfBuildings="1194"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7fd74177-9c62-4fa2-a360-294144de062f" numberOfBuildings="179"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fb68f680-3ace-49b7-a40d-1d3069223bd1">
           <port xsi:type="esdl:InPort" name="InPort" id="0eba5c36-4096-4eae-bb1c-20299ad78b95">
             <profile xsi:type="esdl:SingleValue" value="36221.6622" id="4dc4b589-12df-4f78-8418-c568e9b6fcb2">
@@ -5406,8 +5406,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570002'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="513" name="Woningen" id="af03c715-26d3-4912-bf56-97c5de7c2389"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="792a5aad-0ff0-4371-843c-82c33f9aa21c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="af03c715-26d3-4912-bf56-97c5de7c2389" numberOfBuildings="513"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="792a5aad-0ff0-4371-843c-82c33f9aa21c" numberOfBuildings="47"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1a615aae-ee6f-4a11-b49c-481a6ef975ab">
           <port xsi:type="esdl:InPort" name="InPort" id="0307719b-e7df-46b9-8ddb-471162e23f49">
             <profile xsi:type="esdl:SingleValue" value="14130.1682" id="a69d872d-e2cc-4a20-b949-cdcc50e3113d">
@@ -5464,8 +5464,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570101'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="118" name="Woningen" id="31a9c90f-2950-4622-a6b8-6b7e6f15b312"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="8c0abc2b-8dc2-41dd-ad70-f7d95f522c6f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="31a9c90f-2950-4622-a6b8-6b7e6f15b312" numberOfBuildings="118"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8c0abc2b-8dc2-41dd-ad70-f7d95f522c6f" numberOfBuildings="51"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="aaf1024e-bd2d-4717-99e2-886a5363d53e">
           <port xsi:type="esdl:InPort" name="InPort" id="dd88821f-db75-4499-9c91-c478ea709d7e">
             <profile xsi:type="esdl:SingleValue" value="4310.29948" id="0f624188-092b-42d5-85f3-cae6ba125e85">
@@ -5522,8 +5522,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570102'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="368" name="Woningen" id="e6b8aa9e-37e3-4300-916d-37b9a16c88a0"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="22" name="Utiliteiten" id="428fbce0-3d18-4645-8293-47552a576691"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e6b8aa9e-37e3-4300-916d-37b9a16c88a0" numberOfBuildings="368"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="428fbce0-3d18-4645-8293-47552a576691" numberOfBuildings="22"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="40b80cd9-6d31-4384-a2b2-4f6afa8b1511">
           <port xsi:type="esdl:InPort" name="InPort" id="d50c6e66-0a3f-40b2-a8de-236382870065">
             <profile xsi:type="esdl:SingleValue" value="10233.3511" id="c66ec866-fdf5-48cf-b6ab-5c1e3fbeeb43">
@@ -5580,8 +5580,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="314" name="Woningen" id="5f27c97c-8262-4106-b10e-c7751ca188d4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="10bbaab0-5f7e-40ed-87e2-d2e8b2ea27a9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5f27c97c-8262-4106-b10e-c7751ca188d4" numberOfBuildings="314"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="10bbaab0-5f7e-40ed-87e2-d2e8b2ea27a9" numberOfBuildings="17"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9c9a51c9-ad2a-4606-914a-aa942ab6a326">
           <port xsi:type="esdl:InPort" name="InPort" id="a2950e0a-b878-40dc-8eac-8b5a802889c8">
             <profile xsi:type="esdl:SingleValue" value="10004.0661" id="9298e69e-1689-4f7b-83d3-93c6842039ee">
@@ -5638,8 +5638,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570104'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="254" name="Woningen" id="704c1f76-bc0d-42f5-b63e-11201851ca01"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="57748d08-85d4-4202-87c7-cfcbc7c3e47a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="704c1f76-bc0d-42f5-b63e-11201851ca01" numberOfBuildings="254"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="57748d08-85d4-4202-87c7-cfcbc7c3e47a" numberOfBuildings="41"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b04d6dbb-05b1-4f81-9c91-09d900a5d7c0">
           <port xsi:type="esdl:InPort" name="InPort" id="a20fda84-6ef1-48fc-8661-25f8cbe84fb9">
             <profile xsi:type="esdl:SingleValue" value="8097.45162" id="18c21cfa-1afe-439f-b7f0-31cc7ee15d37">
@@ -5696,8 +5696,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570201'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1106" name="Woningen" id="b8ed3119-5ced-4231-a130-68b58d077aab"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="26" name="Utiliteiten" id="bd7b6cbe-99e4-43fd-aa83-4889fe29ef96"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b8ed3119-5ced-4231-a130-68b58d077aab" numberOfBuildings="1106"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd7b6cbe-99e4-43fd-aa83-4889fe29ef96" numberOfBuildings="26"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c37aa8a0-d8d7-41cc-b857-57d901e6c76c">
           <port xsi:type="esdl:InPort" name="InPort" id="2e3c8003-d78a-48c8-9327-e8f3b9591802">
             <profile xsi:type="esdl:SingleValue" value="27390.5829" id="6d1c76e6-d88d-4e0e-b081-e99350e1f30a">
@@ -5754,8 +5754,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570202'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="500" name="Woningen" id="e2084626-48ab-4031-a695-0a02be13a64d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="bd98a6ea-38e1-42c8-8a54-66d002233267"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e2084626-48ab-4031-a695-0a02be13a64d" numberOfBuildings="500"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd98a6ea-38e1-42c8-8a54-66d002233267" numberOfBuildings="51"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2792e149-f523-432f-9835-418801b6f047">
           <port xsi:type="esdl:InPort" name="InPort" id="fc27d28e-850b-4357-8eb9-9eddc650c17c">
             <profile xsi:type="esdl:SingleValue" value="11940.2701" id="f7064dff-4437-4d8a-a65a-270cd865c02d">
@@ -5812,8 +5812,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570301'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="424" name="Woningen" id="c16607f4-a5eb-43cd-a109-e5e7c9bdcbab"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="667b39c6-25e7-4419-8d66-6649b6f069dd"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c16607f4-a5eb-43cd-a109-e5e7c9bdcbab" numberOfBuildings="424"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="667b39c6-25e7-4419-8d66-6649b6f069dd" numberOfBuildings="34"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="18f90daa-c551-43de-b659-379c39ffde9d">
           <port xsi:type="esdl:InPort" name="InPort" id="60d4881d-c326-4f64-8f21-eff2e3de29e2">
             <profile xsi:type="esdl:SingleValue" value="10351.8372" id="4e994e28-4a6c-4367-820b-d941bb2725ad">
@@ -5870,8 +5870,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570302'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="930" name="Woningen" id="c26a0ded-9fae-478d-93c1-13ef71c0af52"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Utiliteiten" id="fecac7e6-5de1-48db-a6ff-143c22c6146f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c26a0ded-9fae-478d-93c1-13ef71c0af52" numberOfBuildings="930"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fecac7e6-5de1-48db-a6ff-143c22c6146f" numberOfBuildings="155"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b1bbc2c1-fa67-4bd5-bad2-8cb8aacd747c">
           <port xsi:type="esdl:InPort" name="InPort" id="a131fad5-d245-4fe7-bb42-31e15535a2da">
             <profile xsi:type="esdl:SingleValue" value="24012.7673" id="6643f2ff-4022-485e-9a04-cab3c0b0ef54">
@@ -5928,8 +5928,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570303'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="904" name="Woningen" id="ed6de8b3-7131-4698-bc79-464aa4d4af09"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="100" name="Utiliteiten" id="667d6edc-f030-44ec-94be-a831730b704b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ed6de8b3-7131-4698-bc79-464aa4d4af09" numberOfBuildings="904"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="667d6edc-f030-44ec-94be-a831730b704b" numberOfBuildings="100"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b85d1404-9131-4d6d-bfe8-b4d847642c90">
           <port xsi:type="esdl:InPort" name="InPort" id="9f7212b3-f6ee-419b-abe2-58ff00b77bd5">
             <profile xsi:type="esdl:SingleValue" value="22467.1067" id="0db5bb92-2095-44ef-86b7-bc28e2dad547">
@@ -5986,8 +5986,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570304'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="75" name="Woningen" id="105c384c-355b-42b7-9fa1-8d9354062205"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="333" name="Utiliteiten" id="d7773e1d-fdaa-4e8d-86b3-3655d7478cec"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="105c384c-355b-42b7-9fa1-8d9354062205" numberOfBuildings="75"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d7773e1d-fdaa-4e8d-86b3-3655d7478cec" numberOfBuildings="333"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="74ec2804-f079-4b08-89f9-de4c31687257">
           <port xsi:type="esdl:InPort" name="InPort" id="1335de4f-7f6e-48af-9475-007dca169762">
             <profile xsi:type="esdl:SingleValue" value="2102.95654" id="b71f1840-491a-4eba-adf6-e38bf4c9185b">
@@ -6044,8 +6044,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570401'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="702" name="Woningen" id="5f265df5-85e7-4c56-8a55-ff2d3e0d89c7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="26" name="Utiliteiten" id="8a6e7c54-a66f-44bc-b6df-ac9e002f301b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5f265df5-85e7-4c56-8a55-ff2d3e0d89c7" numberOfBuildings="702"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8a6e7c54-a66f-44bc-b6df-ac9e002f301b" numberOfBuildings="26"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="431c4988-4925-4b1f-a99a-e2d6e60ff51d">
           <port xsi:type="esdl:InPort" name="InPort" id="d7fcecb3-23ec-4409-85c6-a847249e8c5b">
             <profile xsi:type="esdl:SingleValue" value="21010.5754" id="3dcdce63-193b-4e84-b9eb-05ea09cf238a">
@@ -6102,8 +6102,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570402'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="797" name="Woningen" id="4fa960ed-68e6-4e93-b0fc-e2f206e5f5ca"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="ba676530-a960-425b-b296-039d0483dd45"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4fa960ed-68e6-4e93-b0fc-e2f206e5f5ca" numberOfBuildings="797"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ba676530-a960-425b-b296-039d0483dd45" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a9b4918d-27ea-478e-ae43-e3e5c298d12f">
           <port xsi:type="esdl:InPort" name="InPort" id="e1f55cc7-0c6c-442c-a3cb-480877a4c069">
             <profile xsi:type="esdl:SingleValue" value="23041.7366" id="babda41f-6e18-484b-9641-ec984ee9f8a5">
@@ -6160,8 +6160,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570701'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="115" name="Woningen" id="23a7f1f4-6808-4025-87cd-733d1906668d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="29" name="Utiliteiten" id="91779cd5-9f01-4f12-9060-cc4eb7b432fe"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="23a7f1f4-6808-4025-87cd-733d1906668d" numberOfBuildings="115"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="91779cd5-9f01-4f12-9060-cc4eb7b432fe" numberOfBuildings="29"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="68c298d4-6eb0-4270-8393-f745b0cc77f5">
           <port xsi:type="esdl:InPort" name="InPort" id="bdb3c4b6-3071-4e6a-9bdd-c789d7da0353">
             <profile xsi:type="esdl:SingleValue" value="5021.43139" id="73db0aaa-4bb1-4ea9-84be-3caecfd48b35">
@@ -6218,8 +6218,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570801'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="136" name="Woningen" id="abd4fade-61d8-41ba-807a-ff8feda25ff0"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Utiliteiten" id="8edb3f05-ca34-4dcf-b5a1-ca4c2e22a0c9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="abd4fade-61d8-41ba-807a-ff8feda25ff0" numberOfBuildings="136"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8edb3f05-ca34-4dcf-b5a1-ca4c2e22a0c9" numberOfBuildings="109"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1902e1aa-1421-4e14-b2f0-d0c8e0905ab9">
           <port xsi:type="esdl:InPort" name="InPort" id="3e376a73-3599-4fea-804b-63fb5209b753">
             <profile xsi:type="esdl:SingleValue" value="6526.00852" id="90952def-0c92-4bce-9344-f0aa760084fa">
@@ -6276,8 +6276,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570901'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="510" name="Woningen" id="dc46c673-f5c6-4ef0-ae94-0296691c6fe9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="40" name="Utiliteiten" id="2110074d-e3f7-4e6c-855a-8b204723cc18"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="dc46c673-f5c6-4ef0-ae94-0296691c6fe9" numberOfBuildings="510"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2110074d-e3f7-4e6c-855a-8b204723cc18" numberOfBuildings="40"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="269edad4-c790-4b84-91b2-ff74a9aaceba">
           <port xsi:type="esdl:InPort" name="InPort" id="a6640b93-fb83-49b2-8910-909a16add177">
             <profile xsi:type="esdl:SingleValue" value="14451.6159" id="417d08c5-c9d1-44f6-af4f-925ce16c2c24">
@@ -6334,8 +6334,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570902'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Woningen" id="754d7ac7-881e-4b2e-8c1a-63656ee20889"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="a7d52ca9-ab57-4fbf-a653-250235615e01"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="754d7ac7-881e-4b2e-8c1a-63656ee20889" numberOfBuildings="12"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a7d52ca9-ab57-4fbf-a653-250235615e01" numberOfBuildings="31"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7b835662-6f0f-4e98-8611-e266fca51b91">
           <port xsi:type="esdl:InPort" name="InPort" id="392228d4-d7d4-4e46-bc0d-af9784b0377d">
             <profile xsi:type="esdl:SingleValue" value="460.510823" id="26552eb9-08d7-41ba-b830-38935c2dd69c">
@@ -6392,8 +6392,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570903'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="33" name="Woningen" id="83fbde77-f86d-4c5e-a0b7-a02b14bf7e85"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="c37e8077-b60f-4a6e-a7d7-30dae252ad09"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="83fbde77-f86d-4c5e-a0b7-a02b14bf7e85" numberOfBuildings="33"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c37e8077-b60f-4a6e-a7d7-30dae252ad09" numberOfBuildings="5"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b87802c7-fe51-4913-b0eb-4c36cfe0003f">
           <port xsi:type="esdl:InPort" name="InPort" id="501d845b-e8eb-4cc9-a3db-8b23639ef1c4">
             <profile xsi:type="esdl:SingleValue" value="1211.67181" id="131850e4-b6f8-4d63-b6e1-48d729b3c854">
@@ -6450,8 +6450,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960000'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="714" name="Woningen" id="4ad6c9c7-931b-4af4-b06e-7ded895ecb8b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="4504e2af-926e-47da-894a-102317f795f3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4ad6c9c7-931b-4af4-b06e-7ded895ecb8b" numberOfBuildings="714"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4504e2af-926e-47da-894a-102317f795f3" numberOfBuildings="87"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="480f4a0e-9924-413b-a61d-41ae693c7d95">
           <port xsi:type="esdl:InPort" name="InPort" id="e246ec4b-6392-4088-bffc-48b4212e6b88">
             <profile xsi:type="esdl:SingleValue" value="24438.5732" id="1aad8277-92aa-474e-958f-74a527ee9f81">
@@ -6508,8 +6508,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960100'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="158" name="Woningen" id="9903a62f-24a6-403f-8a21-c086ca47ac37"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="25" name="Utiliteiten" id="bd88e07e-eb06-4970-8f59-f207835b326b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9903a62f-24a6-403f-8a21-c086ca47ac37" numberOfBuildings="158"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd88e07e-eb06-4970-8f59-f207835b326b" numberOfBuildings="25"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="81447f27-a00a-4d34-aa4f-1c2a921fbb65">
           <port xsi:type="esdl:InPort" name="InPort" id="526952d6-a841-4a09-8fa3-8963d8aca9a3">
             <profile xsi:type="esdl:SingleValue" value="6404.21852" id="1f406689-e2c7-4c55-b17b-fa0f61b90ac2">
@@ -6566,8 +6566,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960101'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2674" name="Woningen" id="f3521266-ea62-463f-8aad-e794170c979b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="365" name="Utiliteiten" id="7f4f0850-c376-4449-97bd-64c282f03f57"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f3521266-ea62-463f-8aad-e794170c979b" numberOfBuildings="2674"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7f4f0850-c376-4449-97bd-64c282f03f57" numberOfBuildings="365"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="191a3973-8829-4dfa-96e6-f804fafef3c2">
           <port xsi:type="esdl:InPort" name="InPort" id="e27afa5e-4dde-4092-af0f-3fdba74df749">
             <profile xsi:type="esdl:SingleValue" value="79222.4618" id="45c8dc57-c560-4789-9169-56c739beaa0d">
@@ -6624,8 +6624,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960102'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="75" name="Woningen" id="42319685-2d41-4b12-9072-d95c7617d03f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="11" name="Utiliteiten" id="e1259e82-d10c-4343-8260-1c02bab30688"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="42319685-2d41-4b12-9072-d95c7617d03f" numberOfBuildings="75"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e1259e82-d10c-4343-8260-1c02bab30688" numberOfBuildings="11"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="55e25886-32ae-4524-9ce2-3d8b25774da2">
           <port xsi:type="esdl:InPort" name="InPort" id="33435d97-b9b5-4a76-b94b-d363d765de25">
             <profile xsi:type="esdl:SingleValue" value="3280.43798" id="6ee1ec41-d838-4cee-9865-8089e5f7b5dd">
@@ -6682,8 +6682,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Woningen" id="38d089e7-39e4-4654-943d-8b4e97596063"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="11" name="Utiliteiten" id="b03471e3-0df6-407f-aebb-ce9f2afc40eb"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="38d089e7-39e4-4654-943d-8b4e97596063" numberOfBuildings="38"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b03471e3-0df6-407f-aebb-ce9f2afc40eb" numberOfBuildings="11"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="deeffd54-29d3-4b16-9196-c867a0a0de6d">
           <port xsi:type="esdl:InPort" name="InPort" id="3d930815-7918-49b0-8a2a-d274adc039dc">
             <profile xsi:type="esdl:SingleValue" value="1795.86938" id="4352a6a5-20bd-4dc0-aee4-623e4b7758d0">
@@ -6740,8 +6740,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960200'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="120" name="Woningen" id="fb9ef067-82d9-4700-b077-7e14bbdc1844"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="7c3a8ef6-0134-468c-b8c9-cda88a189e85"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fb9ef067-82d9-4700-b077-7e14bbdc1844" numberOfBuildings="120"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7c3a8ef6-0134-468c-b8c9-cda88a189e85" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d95db621-a98f-4d2b-9827-0c5aa4770d95">
           <port xsi:type="esdl:InPort" name="InPort" id="cbf43df0-f8ab-4edf-928c-b16f70a1c2b7">
             <profile xsi:type="esdl:SingleValue" value="4915.44598" id="8691cac7-6feb-435c-a580-f31fcd37b1ec">
@@ -6798,8 +6798,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960201'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="491" name="Woningen" id="dd698cc6-affd-4d7e-8c55-35360e234f7a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="25dc28fb-2f01-48b9-a495-02bdbf6fc7bd"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="dd698cc6-affd-4d7e-8c55-35360e234f7a" numberOfBuildings="491"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="25dc28fb-2f01-48b9-a495-02bdbf6fc7bd" numberOfBuildings="80"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c219922e-02f6-4715-9241-18f71d00b10a">
           <port xsi:type="esdl:InPort" name="InPort" id="48efb772-2bd3-40f3-8bb5-fe15b41687ae">
             <profile xsi:type="esdl:SingleValue" value="16083.6769" id="ba4ffd3d-0c44-4dfe-ab6e-bfcac8dcf3e3">
@@ -6856,8 +6856,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960202'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="56" name="Woningen" id="977f79b3-181d-4319-8561-6bee67deab99"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="50f610f3-0fda-4feb-9965-f79c1af4d85a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="977f79b3-181d-4319-8561-6bee67deab99" numberOfBuildings="56"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="50f610f3-0fda-4feb-9965-f79c1af4d85a" numberOfBuildings="5"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="363003df-9d6a-4ba3-92b3-fe4c508fb66d">
           <port xsi:type="esdl:InPort" name="InPort" id="811a0331-a6b2-4aff-96bf-04447f5f8985">
             <profile xsi:type="esdl:SingleValue" value="2531.89631" id="c8d58584-8466-4714-bc7f-fd3687f9b521">
@@ -6914,8 +6914,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960300'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1090" name="Woningen" id="763e1c19-08e1-485b-b7ae-85fdd0feb3cf"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="475" name="Utiliteiten" id="d8f246fa-a27e-419e-8212-a1851550a18b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="763e1c19-08e1-485b-b7ae-85fdd0feb3cf" numberOfBuildings="1090"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d8f246fa-a27e-419e-8212-a1851550a18b" numberOfBuildings="475"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0cce5fd3-d01e-454f-b6fc-fbc8860ee020">
           <port xsi:type="esdl:InPort" name="InPort" id="46b7d5ca-6842-4e44-8c77-176c6d199d2a">
             <profile xsi:type="esdl:SingleValue" value="42557.8424" id="a7006fac-a486-4304-930b-1a6b52839b73">
@@ -6972,8 +6972,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960400'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2706" name="Woningen" id="7e7e7919-e5de-4357-ba69-c56cfffcfec6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="419" name="Utiliteiten" id="57d6a90c-c277-4704-8dc4-b52db1afc567"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7e7e7919-e5de-4357-ba69-c56cfffcfec6" numberOfBuildings="2706"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="57d6a90c-c277-4704-8dc4-b52db1afc567" numberOfBuildings="419"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="78d6a36f-c0c8-45d0-a24a-3525c921db36">
           <port xsi:type="esdl:InPort" name="InPort" id="92f21666-ebdc-48c9-83fb-6f927cee4321">
             <profile xsi:type="esdl:SingleValue" value="88731.0614" id="a30d8051-4bf5-4f84-ae29-c35e77baa6f3">
@@ -7030,8 +7030,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960401'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="65" name="Woningen" id="9214b2fd-56e4-4971-977c-c6d6d0dc9671"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="10ffcc3b-bdfb-46e2-8f95-95c267d38605"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9214b2fd-56e4-4971-977c-c6d6d0dc9671" numberOfBuildings="65"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="10ffcc3b-bdfb-46e2-8f95-95c267d38605" numberOfBuildings="4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bc4e6ab4-6076-4117-b9c3-3c50a5e72dac">
           <port xsi:type="esdl:InPort" name="InPort" id="57967dd0-af04-4619-961e-38f410da23c1">
             <profile xsi:type="esdl:SingleValue" value="3299.4401" id="aa946b8f-0af7-4350-9eae-94d0c0edb89e">
@@ -7088,8 +7088,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960402'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="137" name="Woningen" id="0952b75c-aae5-48b7-ad66-e7896bce1deb"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="526" name="Utiliteiten" id="7ecb5ecb-565c-4701-9cba-47bee2009d78"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0952b75c-aae5-48b7-ad66-e7896bce1deb" numberOfBuildings="137"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7ecb5ecb-565c-4701-9cba-47bee2009d78" numberOfBuildings="526"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="93f44467-2528-47de-b66c-0dd79a05d5c6">
           <port xsi:type="esdl:InPort" name="InPort" id="4c1eec5a-5e19-4b92-9f42-7d5929f84993">
             <profile xsi:type="esdl:SingleValue" value="6500.14267" id="adeb604c-d879-45ae-b184-fa370f4ba033">
@@ -7146,8 +7146,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960500'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="138" name="Woningen" id="6cee2b0b-7a2b-4a6e-b21c-e726581af56b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="f7c0a905-6ea3-4817-a2bc-f42c11ab1b1c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="6cee2b0b-7a2b-4a6e-b21c-e726581af56b" numberOfBuildings="138"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f7c0a905-6ea3-4817-a2bc-f42c11ab1b1c" numberOfBuildings="7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="924e9c84-2346-4d43-8adb-4ab2ebde9882">
           <port xsi:type="esdl:InPort" name="InPort" id="150b00a9-1c48-4fcf-8900-d9099c2d9ec0">
             <profile xsi:type="esdl:SingleValue" value="6122.3471" id="90e7b1fd-545d-4d08-a343-ffc93d11c487">
@@ -7204,8 +7204,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960601'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="545" name="Woningen" id="2506ddc5-8e63-4708-8463-b08d286ea808"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="185" name="Utiliteiten" id="0cb5dcc3-3baa-472a-8585-a224a1c4fb8a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2506ddc5-8e63-4708-8463-b08d286ea808" numberOfBuildings="545"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0cb5dcc3-3baa-472a-8585-a224a1c4fb8a" numberOfBuildings="185"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e63d2586-b21d-4593-9eaa-db15be10d678">
           <port xsi:type="esdl:InPort" name="InPort" id="3f37b25e-2bca-4667-ab11-a0e3c69967b5">
             <profile xsi:type="esdl:SingleValue" value="18555.6956" id="080d07a2-3931-4425-93ec-d90dee625ec3">
@@ -7262,8 +7262,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960602'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="570" name="Woningen" id="fd719631-7e71-49cb-b949-8bdba287d8a4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="5b82b2ea-5bde-44f7-8caf-616957f8009c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fd719631-7e71-49cb-b949-8bdba287d8a4" numberOfBuildings="570"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5b82b2ea-5bde-44f7-8caf-616957f8009c" numberOfBuildings="34"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="cb771de4-a189-40a1-a62a-0485f2258b3c">
           <port xsi:type="esdl:InPort" name="InPort" id="108e3501-91fa-4dab-af31-5d1c63da9737">
             <profile xsi:type="esdl:SingleValue" value="17846.7774" id="50f76c80-39ce-417e-81b6-a8bebda2344f">
@@ -7320,8 +7320,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960603'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="287" name="Woningen" id="03da3149-a3cf-4fe7-a447-3e7866d8e795"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="a6571762-6d07-47cd-91c3-42b021f7a973"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="03da3149-a3cf-4fe7-a447-3e7866d8e795" numberOfBuildings="287"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a6571762-6d07-47cd-91c3-42b021f7a973" numberOfBuildings="41"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4949d1c1-808a-4ce3-8c73-24106ae8cab1">
           <port xsi:type="esdl:InPort" name="InPort" id="7668b043-038d-4599-9175-08e35fb0de5f">
             <profile xsi:type="esdl:SingleValue" value="13579.3776" id="f7a3f25d-f796-437e-a075-0a5df5c9434b">
@@ -7378,8 +7378,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960604'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="831" name="Woningen" id="bcbaf304-bc74-4501-a39a-26518a585a77"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="94" name="Utiliteiten" id="70b70966-0a32-40c5-9a59-fea9060c6521"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bcbaf304-bc74-4501-a39a-26518a585a77" numberOfBuildings="831"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="70b70966-0a32-40c5-9a59-fea9060c6521" numberOfBuildings="94"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a9df544d-8a7a-420f-bf9c-6e8fd4a51234">
           <port xsi:type="esdl:InPort" name="InPort" id="2ccaf75f-7cea-493b-a199-419da137aa96">
             <profile xsi:type="esdl:SingleValue" value="27146.5456" id="91d9de6d-b628-4cbe-826c-a65594ee8972">
@@ -7436,8 +7436,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420000'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="936" name="Woningen" id="63224530-7ece-49f6-b308-8fec937350d7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="388" name="Utiliteiten" id="43f850f1-ad0f-4dfe-bfb2-40a52db370e2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="63224530-7ece-49f6-b308-8fec937350d7" numberOfBuildings="936"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="43f850f1-ad0f-4dfe-bfb2-40a52db370e2" numberOfBuildings="388"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ed9b1d38-3ed4-4324-b994-c18988e990f4">
           <port xsi:type="esdl:InPort" name="InPort" id="47dfa65a-2610-49bd-8eb8-aba8ba03bb7a">
             <profile xsi:type="esdl:SingleValue" value="25144.6947" id="47000cc4-9444-43c5-8976-5c9a2ae8cef1">
@@ -7494,8 +7494,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420001'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="867" name="Woningen" id="cbfb243a-310b-498e-9040-3005a11dd815"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="152" name="Utiliteiten" id="4acaafee-ffc9-4647-96de-90f82eb84784"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cbfb243a-310b-498e-9040-3005a11dd815" numberOfBuildings="867"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4acaafee-ffc9-4647-96de-90f82eb84784" numberOfBuildings="152"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3cb3045c-9953-426e-914f-b8f2998d1b8d">
           <port xsi:type="esdl:InPort" name="InPort" id="91b7dfe8-d55e-4328-8892-7607317bf97c">
             <profile xsi:type="esdl:SingleValue" value="23414.0504" id="e829da9a-3cf4-446d-a7c0-9669c6bc7ab0">
@@ -7552,8 +7552,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420002'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="632" name="Woningen" id="0db92734-3633-43b7-826c-fe35c56fa0b9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="2f425f56-f3ed-4adf-8fca-759a37c70626"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0db92734-3633-43b7-826c-fe35c56fa0b9" numberOfBuildings="632"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2f425f56-f3ed-4adf-8fca-759a37c70626" numberOfBuildings="87"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="afb61ceb-3eee-4f47-809b-fa33129124a0">
           <port xsi:type="esdl:InPort" name="InPort" id="5f85034f-c5d3-4122-99b8-7a37ee00e3fb">
             <profile xsi:type="esdl:SingleValue" value="18852.9577" id="8548dbc0-29c8-4588-8af5-800509e07be3">
@@ -7610,8 +7610,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420003'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="500" name="Woningen" id="819d51ad-9ad4-4a8d-a2d0-fbfa201b1ba3"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="37" name="Utiliteiten" id="2a4f492e-11c7-4cc0-a199-443f35e22c2f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="819d51ad-9ad4-4a8d-a2d0-fbfa201b1ba3" numberOfBuildings="500"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2a4f492e-11c7-4cc0-a199-443f35e22c2f" numberOfBuildings="37"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bfbf94b9-4ab9-468b-8b65-562028bbf846">
           <port xsi:type="esdl:InPort" name="InPort" id="6446d6ae-d0a8-4e62-99a3-9a9a01bb312e">
             <profile xsi:type="esdl:SingleValue" value="16475.1773" id="28a44107-a4fc-4d4e-89cf-c87cced5f18c">
@@ -7668,8 +7668,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420004'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="564" name="Woningen" id="f1dd4d52-e5cc-4961-88c8-5c8ff40795d7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="393ee8f2-f697-4f19-9939-f93242413d6f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f1dd4d52-e5cc-4961-88c8-5c8ff40795d7" numberOfBuildings="564"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="393ee8f2-f697-4f19-9939-f93242413d6f" numberOfBuildings="52"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7c45d978-9fd2-4c18-93ec-654dce0386f1">
           <port xsi:type="esdl:InPort" name="InPort" id="239c76df-7645-453f-aedc-70058e54849c">
             <profile xsi:type="esdl:SingleValue" value="17158.2529" id="23962b90-7f1f-4113-a744-a02943aa9d6c">
@@ -7726,8 +7726,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420005'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="499" name="Woningen" id="773371f0-bb9b-4815-a588-56a222460028"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="0843ee6a-3f50-44c8-b657-17740bf8161a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="773371f0-bb9b-4815-a588-56a222460028" numberOfBuildings="499"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0843ee6a-3f50-44c8-b657-17740bf8161a" numberOfBuildings="28"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="67f03bdf-b65e-4212-a789-354b882de56f">
           <port xsi:type="esdl:InPort" name="InPort" id="1a99c893-6881-4a15-979a-7e4664b51f5f">
             <profile xsi:type="esdl:SingleValue" value="16282.7428" id="906b4da9-b7b9-4f57-87a3-f7c827d389b8">
@@ -7784,8 +7784,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420006'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="420" name="Woningen" id="6338e182-86d0-4249-aaf9-7494f1adf820"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="8756589d-b600-4fb5-a444-032e60c30945"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="6338e182-86d0-4249-aaf9-7494f1adf820" numberOfBuildings="420"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8756589d-b600-4fb5-a444-032e60c30945" numberOfBuildings="52"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="455233b8-04a9-4c34-a52d-fb1dbddaef92">
           <port xsi:type="esdl:InPort" name="InPort" id="0aad6550-6106-401c-a48d-5b0c92dc3154">
             <profile xsi:type="esdl:SingleValue" value="11925.1251" id="7248b66d-274a-47b7-9746-5e2553069bd7">
@@ -7842,8 +7842,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420007'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="633" name="Woningen" id="0644e34a-11b5-4444-b6a7-ddf02e3e8f9a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="141" name="Utiliteiten" id="969adec4-416e-4f39-ad3f-a6e2c565dd70"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0644e34a-11b5-4444-b6a7-ddf02e3e8f9a" numberOfBuildings="633"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="969adec4-416e-4f39-ad3f-a6e2c565dd70" numberOfBuildings="141"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="622e2fd8-5239-44d8-aa04-26c8077626d5">
           <port xsi:type="esdl:InPort" name="InPort" id="bb0cc0ca-8581-4318-ba73-4b4308a8c393">
             <profile xsi:type="esdl:SingleValue" value="17445.5199" id="2145ce52-7619-4c71-99f4-a5bc78ba5232">
@@ -7900,8 +7900,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420008'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="459" name="Woningen" id="32c74a0f-9222-4f7b-9544-5abcd1942018"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="125" name="Utiliteiten" id="dd6b8589-6088-492a-8040-b7b5c56f524f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="32c74a0f-9222-4f7b-9544-5abcd1942018" numberOfBuildings="459"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="dd6b8589-6088-492a-8040-b7b5c56f524f" numberOfBuildings="125"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d6da469e-a195-493b-93d6-e981da1ccef6">
           <port xsi:type="esdl:InPort" name="InPort" id="a9c1168a-f162-446d-b080-0d62c0b9912d">
             <profile xsi:type="esdl:SingleValue" value="16053.5568" id="a40be449-9a54-4e56-9948-16b28129e7b8">
@@ -7958,8 +7958,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420100'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="315" name="Woningen" id="471ea887-b944-4c7d-9229-2fdf1f4ead3e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="69" name="Utiliteiten" id="93576d54-1a39-460f-8099-2a412de51aa0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="471ea887-b944-4c7d-9229-2fdf1f4ead3e" numberOfBuildings="315"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="93576d54-1a39-460f-8099-2a412de51aa0" numberOfBuildings="69"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8539cf2f-99bf-415d-8034-5c41e9ac0dab">
           <port xsi:type="esdl:InPort" name="InPort" id="a5aac995-b4b6-4373-b5ff-48b33cf2e682">
             <profile xsi:type="esdl:SingleValue" value="11865.1024" id="2f55e6fd-e627-4657-ad59-a0424fdc5c7f">
@@ -8016,8 +8016,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420101'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="245" name="Woningen" id="ecc1b23c-9aa8-4de8-890f-51730876a96d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="57" name="Utiliteiten" id="a9352e2d-b625-4d62-9131-233b39acaa60"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ecc1b23c-9aa8-4de8-890f-51730876a96d" numberOfBuildings="245"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a9352e2d-b625-4d62-9131-233b39acaa60" numberOfBuildings="57"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="56f2ea44-8231-44f9-b8fb-d52aabcf3af3">
           <port xsi:type="esdl:InPort" name="InPort" id="21362ead-cd9a-407e-8a51-668f3c638311">
             <profile xsi:type="esdl:SingleValue" value="7779.99369" id="37cac982-f9d8-40c7-b07a-42dfaf645c7c">
@@ -8074,8 +8074,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420102'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="438" name="Woningen" id="205df6d1-e2b1-4933-8c38-3ddd7a52503b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="d592b189-c8a4-4c56-b53a-4b435e8ff402"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="205df6d1-e2b1-4933-8c38-3ddd7a52503b" numberOfBuildings="438"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d592b189-c8a4-4c56-b53a-4b435e8ff402" numberOfBuildings="51"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b61f9a6c-dc4d-441b-91f0-ec9115b4f22b">
           <port xsi:type="esdl:InPort" name="InPort" id="bc0fdbe2-4e58-44c8-a53b-d9478d88b946">
             <profile xsi:type="esdl:SingleValue" value="15627.7893" id="6fe77f09-31f9-4f9b-96d5-eca48f9b7da6">
@@ -8132,8 +8132,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420103'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="191" name="Woningen" id="2ded6071-93cc-46b0-b823-4303249e24a8"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="8" name="Utiliteiten" id="3852872b-ea4d-4094-b0b6-bc4947a8d22e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2ded6071-93cc-46b0-b823-4303249e24a8" numberOfBuildings="191"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="3852872b-ea4d-4094-b0b6-bc4947a8d22e" numberOfBuildings="8"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ca1d434a-eef8-4b05-98e3-09db6790435a">
           <port xsi:type="esdl:InPort" name="InPort" id="69f04d8a-72a0-469f-9c37-ae23d14acb1c">
             <profile xsi:type="esdl:SingleValue" value="8836.86624" id="6e7e91ca-74aa-4e8a-a8d8-3cd4ec6d22ea">
@@ -8190,8 +8190,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420104'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="431" name="Woningen" id="944b5ab8-6a4d-4752-809c-f7384eda8c02"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="78aa54ec-f597-44b2-b24c-1e5a779f518c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="944b5ab8-6a4d-4752-809c-f7384eda8c02" numberOfBuildings="431"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="78aa54ec-f597-44b2-b24c-1e5a779f518c" numberOfBuildings="24"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0bc0cd7d-016f-46b1-8d41-c9e8eb4806c7">
           <port xsi:type="esdl:InPort" name="InPort" id="1a571fb2-c102-4995-862d-b530b1222a02">
             <profile xsi:type="esdl:SingleValue" value="14530.2271" id="6bc79d8b-deba-4c48-a2dd-88f6ac7ae570">
@@ -8248,8 +8248,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420200'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="f952592a-8d67-401d-b665-7c88f9ade150"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="15" name="Utiliteiten" id="a42a18c6-325b-45a3-965f-f402e305a811"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f952592a-8d67-401d-b665-7c88f9ade150" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a42a18c6-325b-45a3-965f-f402e305a811" numberOfBuildings="15"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f1a8f9c5-4634-493b-a1b3-c715e36881b0">
           <port xsi:type="esdl:InPort" name="InPort" id="e38dba45-e555-4ac0-9e3c-be0d16146dff">
             <profile xsi:type="esdl:SingleValue" value="32.4565637" id="6b7e0fdd-bec8-42e8-8e06-977d12bc90d7">
@@ -8306,8 +8306,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420201'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="444" name="Woningen" id="4b8a2ae3-c09a-4db6-9e0d-095722657682"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="e00b5aac-a4ad-4cce-a2d0-0c356955c935"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4b8a2ae3-c09a-4db6-9e0d-095722657682" numberOfBuildings="444"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e00b5aac-a4ad-4cce-a2d0-0c356955c935" numberOfBuildings="16"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b36f94c1-21d8-4e90-9a36-4cd567bf0a5e">
           <port xsi:type="esdl:InPort" name="InPort" id="94360839-b833-4882-93fb-b3b3ddcc870b">
             <profile xsi:type="esdl:SingleValue" value="16409.1333" id="b40b426c-215a-406a-8901-ed809b34a575">
@@ -8364,8 +8364,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420202'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="410" name="Woningen" id="2865efbf-5180-4e5d-86b9-1b8383032e78"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Utiliteiten" id="a163eeb8-4d06-4fdc-b884-d81d7da82e42"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2865efbf-5180-4e5d-86b9-1b8383032e78" numberOfBuildings="410"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a163eeb8-4d06-4fdc-b884-d81d7da82e42" numberOfBuildings="12"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b51cd061-ac1f-4149-b433-f023fb63f55c">
           <port xsi:type="esdl:InPort" name="InPort" id="8ce59010-77d3-41e7-baa1-ec21471562eb">
             <profile xsi:type="esdl:SingleValue" value="11884.6404" id="f6cf1256-ea1c-498e-a201-8e6ba8234ef6">
@@ -8422,8 +8422,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420203'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="260" name="Woningen" id="befed65b-db3f-49b6-a6be-d5836d8d5cc5"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="2c471dbf-77a5-4929-a1f4-cd69de65e8b1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="befed65b-db3f-49b6-a6be-d5836d8d5cc5" numberOfBuildings="260"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2c471dbf-77a5-4929-a1f4-cd69de65e8b1" numberOfBuildings="24"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="92037824-0525-43e5-a0ed-b196ecf1a225">
           <port xsi:type="esdl:InPort" name="InPort" id="4e00b2cf-9fd4-46c8-b58a-3e661a803d27">
             <profile xsi:type="esdl:SingleValue" value="10038.9413" id="557b8bf8-78bc-4247-b98e-51845627245a">
@@ -8480,8 +8480,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420204'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="531" name="Woningen" id="4f931ac8-664c-4147-b118-42ce563b9e07"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="e67ecbd2-6320-4dd1-8593-6df1d938b0a7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4f931ac8-664c-4147-b118-42ce563b9e07" numberOfBuildings="531"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e67ecbd2-6320-4dd1-8593-6df1d938b0a7" numberOfBuildings="28"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="952fc450-5b1b-44b8-8029-855feead3eb1">
           <port xsi:type="esdl:InPort" name="InPort" id="a0ff070b-ce70-40a7-b3ba-e0a4e05565cd">
             <profile xsi:type="esdl:SingleValue" value="17774.2366" id="2127078f-895d-4ee2-bf77-5c09fe554afc">
@@ -8538,8 +8538,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420205'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="920" name="Woningen" id="4690bea7-0d04-462d-85b4-948e330177cf"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="252" name="Utiliteiten" id="034637de-90c5-44f3-aced-e2f11307109e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4690bea7-0d04-462d-85b4-948e330177cf" numberOfBuildings="920"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="034637de-90c5-44f3-aced-e2f11307109e" numberOfBuildings="252"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="16ee73b2-ad01-4b1f-b560-35288266dd67">
           <port xsi:type="esdl:InPort" name="InPort" id="44547032-73b0-4216-b561-4ef0d5e9611d">
             <profile xsi:type="esdl:SingleValue" value="26622.044" id="43be5480-12c8-4196-9925-4f9549b498ae">
@@ -8596,8 +8596,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420206'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1275" name="Woningen" id="75571748-9f98-4915-aa9b-d06e01ed596e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="437" name="Utiliteiten" id="65b589fa-e0ff-432e-b7af-b5ba2f866652"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="75571748-9f98-4915-aa9b-d06e01ed596e" numberOfBuildings="1275"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="65b589fa-e0ff-432e-b7af-b5ba2f866652" numberOfBuildings="437"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="20f6ea0d-8875-481a-af23-2424d6fe9a50">
           <port xsi:type="esdl:InPort" name="InPort" id="cc32197d-270c-4d65-ba9f-db82fd02fa34">
             <profile xsi:type="esdl:SingleValue" value="34888.6985" id="353d46b4-a6ec-4773-881e-ab32c4d2d69c">
@@ -8654,8 +8654,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420207'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="801" name="Woningen" id="d18eedf5-df5d-497a-b7c7-be5bd0a7e19f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="83" name="Utiliteiten" id="6e7aa02b-e79a-4ab3-8404-605389db6bfd"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d18eedf5-df5d-497a-b7c7-be5bd0a7e19f" numberOfBuildings="801"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6e7aa02b-e79a-4ab3-8404-605389db6bfd" numberOfBuildings="83"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="988aae44-e411-45f1-9638-60f63a749b0b">
           <port xsi:type="esdl:InPort" name="InPort" id="a5f2f3a7-43c6-4e34-9cc5-b713b6359d7a">
             <profile xsi:type="esdl:SingleValue" value="22124.7758" id="3bc47e3a-c9b3-4cc5-b271-28dac52746e8">
@@ -8712,8 +8712,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420208'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="700" name="Woningen" id="675206ff-0f6c-40d2-b5f3-7d1a5d9da2ec"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Utiliteiten" id="5e24d773-a3e5-4bab-9b61-86ea6497b0ac"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="675206ff-0f6c-40d2-b5f3-7d1a5d9da2ec" numberOfBuildings="700"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5e24d773-a3e5-4bab-9b61-86ea6497b0ac" numberOfBuildings="38"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="41f6dfdb-400e-4438-939b-272b67e972e3">
           <port xsi:type="esdl:InPort" name="InPort" id="74b247ed-346d-488f-811a-5587f4b47fa6">
             <profile xsi:type="esdl:SingleValue" value="20451.2407" id="dbbcd4ee-4fd5-4919-91f0-1bd07ca2847b">
@@ -8770,8 +8770,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420209'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1070" name="Woningen" id="9ab7b630-af19-4f59-bd31-b75c3f79a46c"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="261" name="Utiliteiten" id="663bab9a-4219-453d-a78c-ef8770d5a3fa"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9ab7b630-af19-4f59-bd31-b75c3f79a46c" numberOfBuildings="1070"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="663bab9a-4219-453d-a78c-ef8770d5a3fa" numberOfBuildings="261"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7188289f-75ec-4edd-8c4c-5e82307713a6">
           <port xsi:type="esdl:InPort" name="InPort" id="193ba8d8-c8b8-43c9-a57d-b2bd539d22a9">
             <profile xsi:type="esdl:SingleValue" value="26421.2725" id="f62daf0a-228f-42eb-a141-6217b1883217">
@@ -8828,8 +8828,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420300'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="392" name="Woningen" id="ed722272-d704-4ae7-8c8a-355c8faae602"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="64" name="Utiliteiten" id="f098edcd-e8e3-41e0-b1f6-b7fe5ee21b0d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ed722272-d704-4ae7-8c8a-355c8faae602" numberOfBuildings="392"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f098edcd-e8e3-41e0-b1f6-b7fe5ee21b0d" numberOfBuildings="64"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="110c6ac3-b53d-4d8e-8e2f-9f884b1e4406">
           <port xsi:type="esdl:InPort" name="InPort" id="15e08ad4-bcf9-47bf-aedf-7dd531cf9ec5">
             <profile xsi:type="esdl:SingleValue" value="15071.9227" id="72d38a01-f1d9-4bff-b6b8-334325f9aa2d">
@@ -8886,8 +8886,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420301'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Woningen" id="08f0a323-92cd-403d-9586-b0724a7f7284"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="b1cd74d2-c772-4a72-8129-fd4cee5f861b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="08f0a323-92cd-403d-9586-b0724a7f7284" numberOfBuildings="155"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b1cd74d2-c772-4a72-8129-fd4cee5f861b" numberOfBuildings="47"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ea5ed5e8-d9df-4db8-b105-8da596da2597">
           <port xsi:type="esdl:InPort" name="InPort" id="60e5f61b-d753-47a1-8a4d-e5b01eac66b5">
             <profile xsi:type="esdl:SingleValue" value="5467.90437" id="97aa8ef1-b8b9-4d10-82f0-f0b35cfbc64f">
@@ -8944,8 +8944,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420302'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="517" name="Woningen" id="a45086b1-9df2-4cf0-8f7d-e3afc04df200"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="33" name="Utiliteiten" id="09e97592-575a-43df-9f76-207928d07638"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a45086b1-9df2-4cf0-8f7d-e3afc04df200" numberOfBuildings="517"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="09e97592-575a-43df-9f76-207928d07638" numberOfBuildings="33"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="47d9cf07-32d0-4adc-9e15-1ebd72f29e34">
           <port xsi:type="esdl:InPort" name="InPort" id="c3ac8f9d-c4de-4321-9b6b-3f0237c3d928">
             <profile xsi:type="esdl:SingleValue" value="22311.6763" id="28fc0c52-3d77-4562-945d-bac8d85ad23d">
@@ -9002,8 +9002,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420303'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="269" name="Woningen" id="44c1c4b6-0819-408d-a3f1-56b7ad4d5055"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="15" name="Utiliteiten" id="4baed3fb-df6c-4fe0-82f8-b65e8bcf3df6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="44c1c4b6-0819-408d-a3f1-56b7ad4d5055" numberOfBuildings="269"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4baed3fb-df6c-4fe0-82f8-b65e8bcf3df6" numberOfBuildings="15"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0b35ed84-3eeb-4dd5-b6dd-1bc67e19e3ac">
           <port xsi:type="esdl:InPort" name="InPort" id="4f6f2d24-c84b-4d09-9e52-ad9d0c794e4c">
             <profile xsi:type="esdl:SingleValue" value="12244.7209" id="9256674a-0731-48ab-9c4f-744d203b62d9">
@@ -9060,8 +9060,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420304'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="696" name="Woningen" id="07fdbb0a-acf1-4017-a3a3-c8fb91f6b01f"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="123" name="Utiliteiten" id="0b01cf21-866d-4ab9-a3d8-1315008b6157"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="07fdbb0a-acf1-4017-a3a3-c8fb91f6b01f" numberOfBuildings="696"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0b01cf21-866d-4ab9-a3d8-1315008b6157" numberOfBuildings="123"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e6738f7c-4ef2-4ba6-9b06-05e3d4f7ad0f">
           <port xsi:type="esdl:InPort" name="InPort" id="8da66a53-2131-4bef-a916-ed5eb8d38f60">
             <profile xsi:type="esdl:SingleValue" value="18892.182" id="6628af6f-12b2-4bac-978a-5d24c3034b34">
@@ -9118,8 +9118,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420305'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="213" name="Woningen" id="ee4f2c46-fbea-4efa-992c-ebd37a8efbcb"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="20" name="Utiliteiten" id="12072949-2af6-468a-adb9-31f8269b694c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ee4f2c46-fbea-4efa-992c-ebd37a8efbcb" numberOfBuildings="213"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="12072949-2af6-468a-adb9-31f8269b694c" numberOfBuildings="20"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2dc8edda-89a6-40d0-90e2-fe9ac0cd391b">
           <port xsi:type="esdl:InPort" name="InPort" id="cff9bdcf-5f37-466b-9d37-e99a13c39879">
             <profile xsi:type="esdl:SingleValue" value="8474.39937" id="b3258cb7-a98c-4dd7-b4b2-837d62bd62b9">
@@ -9176,8 +9176,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420306'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="107" name="Woningen" id="5fcc23d7-fbc9-47b1-8bdc-3cf71a976245"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="23" name="Utiliteiten" id="cfcdf8d2-c81c-41b9-bc89-be5620be47f2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5fcc23d7-fbc9-47b1-8bdc-3cf71a976245" numberOfBuildings="107"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="cfcdf8d2-c81c-41b9-bc89-be5620be47f2" numberOfBuildings="23"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3958cab3-8c63-451b-b2d4-dcacb2f72745">
           <port xsi:type="esdl:InPort" name="InPort" id="07abdfae-bad5-42c7-b4ff-535fd5ea408f">
             <profile xsi:type="esdl:SingleValue" value="4422.6309" id="614903ee-fd50-4697-9611-c985668fe7b9">
@@ -9234,8 +9234,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420400'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="639" name="Woningen" id="05cad2a6-fb49-4c2d-9c90-981bd7fa7e5d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="73" name="Utiliteiten" id="5ff03bfa-776b-40a4-b257-55b60e3bc5b6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="05cad2a6-fb49-4c2d-9c90-981bd7fa7e5d" numberOfBuildings="639"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5ff03bfa-776b-40a4-b257-55b60e3bc5b6" numberOfBuildings="73"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bedf9d8e-c8e4-4be4-bf99-5daf32536ea3">
           <port xsi:type="esdl:InPort" name="InPort" id="37426ce3-f971-457f-b02a-327f912798e2">
             <profile xsi:type="esdl:SingleValue" value="20653.8306" id="1a43069a-bdad-4372-8043-ab0a6d5784bf">
@@ -9292,8 +9292,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420401'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="535" name="Woningen" id="3862337d-885a-49d4-8f1d-3a5287c436fb"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="44" name="Utiliteiten" id="01317d4e-00cd-4f47-8f98-635208d701c3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3862337d-885a-49d4-8f1d-3a5287c436fb" numberOfBuildings="535"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="01317d4e-00cd-4f47-8f98-635208d701c3" numberOfBuildings="44"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ffaa90c-d685-49d9-b2dc-4eeb5620f9c2">
           <port xsi:type="esdl:InPort" name="InPort" id="42264dba-22b6-4d1e-ab57-da40e49b8bb6">
             <profile xsi:type="esdl:SingleValue" value="16963.7953" id="9c38f25b-8623-4344-955b-9f98aa18369d">
@@ -9350,8 +9350,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420402'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="773" name="Woningen" id="c5f4d0bb-f903-444f-b2c0-c3adc4a84f72"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="229" name="Utiliteiten" id="eac2170b-01a2-43a7-bb98-118466526165"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c5f4d0bb-f903-444f-b2c0-c3adc4a84f72" numberOfBuildings="773"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="eac2170b-01a2-43a7-bb98-118466526165" numberOfBuildings="229"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2b3f4e7e-7c7f-4ea3-9873-c6e045b3916e">
           <port xsi:type="esdl:InPort" name="InPort" id="c525a8fe-5780-44b4-818c-9f6be4d760a7">
             <profile xsi:type="esdl:SingleValue" value="27609.1211" id="586d1127-9590-4156-b75b-cc3c4853452a">
@@ -9408,8 +9408,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420403'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="324" name="Woningen" id="ad34ea91-465a-49ad-91c9-e559eb7e1039"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="70525b1e-3661-4f75-be69-b504de16ea79"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ad34ea91-465a-49ad-91c9-e559eb7e1039" numberOfBuildings="324"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="70525b1e-3661-4f75-be69-b504de16ea79" numberOfBuildings="28"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c84048b7-dc6b-422b-8476-28572097db1a">
           <port xsi:type="esdl:InPort" name="InPort" id="991f782f-ca0e-4067-8628-4fa47d7396af">
             <profile xsi:type="esdl:SingleValue" value="10089.4591" id="243f4641-5fd7-493e-b5fc-102c968e3ace">
@@ -9466,8 +9466,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420404'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="527" name="Woningen" id="bce37506-6cb4-4db8-8bb8-40282c4f260b"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="ba907704-9435-497d-9629-e5e1974327ea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bce37506-6cb4-4db8-8bb8-40282c4f260b" numberOfBuildings="527"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ba907704-9435-497d-9629-e5e1974327ea" numberOfBuildings="34"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="22c56d22-5373-4063-8b7d-1121c2f05e48">
           <port xsi:type="esdl:InPort" name="InPort" id="899be4d7-16fb-49e0-936e-b45655de59cb">
             <profile xsi:type="esdl:SingleValue" value="16094.3768" id="ac6a4ae0-fce3-4ee8-b6bf-906e3d0304b9">
@@ -9524,8 +9524,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420408'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="63912d44-a69e-4d06-81b6-93e47c509e1e"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="328ecc8d-e0b5-4eba-8a03-b947c2f67202"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="63912d44-a69e-4d06-81b6-93e47c509e1e" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="328ecc8d-e0b5-4eba-8a03-b947c2f67202" numberOfBuildings="31"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bea95f91-eec1-47f9-abcf-55028cb7d915">
           <port xsi:type="esdl:InPort" name="InPort" id="6809e387-d1f2-4e4f-94ab-a9c9a8ee7279">
             <profile xsi:type="esdl:SingleValue" value="195.918593" id="c9513cb0-c8b5-4a44-868e-785c61c50b42">
@@ -9582,7 +9582,7 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420409'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="af027871-c5fb-4de2-aa74-ea343589b16e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="af027871-c5fb-4de2-aa74-ea343589b16e" numberOfBuildings="1"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="76b0c6b6-5906-4101-81ae-6246b1bdd899"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ce5da65-5a87-43c6-8e09-613994b9b8a0">
           <port xsi:type="esdl:InPort" name="InPort" id="bad20d9f-b56f-49d4-b9e9-9fc0f6a3602c">
@@ -9640,8 +9640,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420410'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="74" name="Woningen" id="292a2401-dbfb-47f5-a149-8ca1e06910b1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="06c0b311-b708-4f45-aa7a-f94f060fd318"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="292a2401-dbfb-47f5-a149-8ca1e06910b1" numberOfBuildings="74"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="06c0b311-b708-4f45-aa7a-f94f060fd318" numberOfBuildings="17"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="41efeab0-2f09-4283-bd16-52a1f3a605f8">
           <port xsi:type="esdl:InPort" name="InPort" id="25356f59-37a0-4511-8194-c27ff78a924d">
             <profile xsi:type="esdl:SingleValue" value="3373.30139" id="e16f375d-73ce-41f5-8954-2cd2bbb628c6">
@@ -9698,8 +9698,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420501'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="836" name="Woningen" id="4490ca3b-dbb1-4c94-8259-5b6f18f35202"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="235" name="Utiliteiten" id="d49fcfab-f2a6-4db2-a369-012dae607422"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4490ca3b-dbb1-4c94-8259-5b6f18f35202" numberOfBuildings="836"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d49fcfab-f2a6-4db2-a369-012dae607422" numberOfBuildings="235"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1c4842ac-ee1b-4a8c-98df-289a84f96d91">
           <port xsi:type="esdl:InPort" name="InPort" id="c7314912-76c6-4eb3-a87e-7b3d6f963ea5">
             <profile xsi:type="esdl:SingleValue" value="26695.6158" id="a3088a2b-5bd1-41cb-8863-a3b460696d7d">
@@ -9756,8 +9756,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420502'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1687" name="Woningen" id="d8b7c2fc-6645-4b01-9cb5-30cc42232c98"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="246" name="Utiliteiten" id="fd7877e2-79a7-434c-af90-6a76df9057db"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d8b7c2fc-6645-4b01-9cb5-30cc42232c98" numberOfBuildings="1687"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fd7877e2-79a7-434c-af90-6a76df9057db" numberOfBuildings="246"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="27fd8263-70b6-4312-bcf4-4df4ff1e301d">
           <port xsi:type="esdl:InPort" name="InPort" id="efabff61-58b2-47d9-98e6-f5e845df5dc1">
             <profile xsi:type="esdl:SingleValue" value="48988.6617" id="fa687313-f197-4419-95e6-dac487e0723a">
@@ -9814,8 +9814,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420503'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="181" name="Woningen" id="e84010ab-29a8-443f-927a-e8c6b20ec7c1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="ca65f7ce-1fd1-49f4-828a-e0c8a6e44b9b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e84010ab-29a8-443f-927a-e8c6b20ec7c1" numberOfBuildings="181"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ca65f7ce-1fd1-49f4-828a-e0c8a6e44b9b" numberOfBuildings="16"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9c453226-241e-4ea7-ad57-448d3f77f2eb">
           <port xsi:type="esdl:InPort" name="InPort" id="9d07db25-e2fa-4c12-927c-6ba1380b7c56">
             <profile xsi:type="esdl:SingleValue" value="7433.39708" id="e162d54d-8a1e-430a-b646-cd34418d80cd">
@@ -9872,8 +9872,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420504'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Woningen" id="84119895-2306-469d-b768-d6e7973430d1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="156" name="Utiliteiten" id="329f593b-a0eb-4d4a-9c41-17b876ad9758"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84119895-2306-469d-b768-d6e7973430d1" numberOfBuildings="10"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="329f593b-a0eb-4d4a-9c41-17b876ad9758" numberOfBuildings="156"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="83ad520c-06a6-4bd3-aa59-f4d2ad7c4042">
           <port xsi:type="esdl:InPort" name="InPort" id="f88b1730-6aaf-4cbe-8bc2-053866cb7fc8">
             <profile xsi:type="esdl:SingleValue" value="396.652361" id="fd543e69-5b10-4390-acfb-3efe2739369e">
@@ -9930,8 +9930,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420506'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="253" name="Woningen" id="84202f4b-6188-4fea-a90b-0e02e7fbf92a"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="65" name="Utiliteiten" id="693709c7-d404-4812-8b65-683a925e1037"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84202f4b-6188-4fea-a90b-0e02e7fbf92a" numberOfBuildings="253"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="693709c7-d404-4812-8b65-683a925e1037" numberOfBuildings="65"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="89ac3140-3a05-4a57-a64f-715b24cc680e">
           <port xsi:type="esdl:InPort" name="InPort" id="bb81ad87-b673-474c-a46c-a43eb56aa171">
             <profile xsi:type="esdl:SingleValue" value="9761.59215" id="e6d18bdb-1cdb-49f8-bfda-d6d80a3c8626">
@@ -9988,8 +9988,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420507'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="549" name="Woningen" id="864a0cc8-97d0-4d49-9627-38f59e4dcce9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="68" name="Utiliteiten" id="1744101a-d326-4beb-b0fa-ef6fe9f9566e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="864a0cc8-97d0-4d49-9627-38f59e4dcce9" numberOfBuildings="549"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1744101a-d326-4beb-b0fa-ef6fe9f9566e" numberOfBuildings="68"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2b2413bf-225b-4e78-89af-79c6e1327114">
           <port xsi:type="esdl:InPort" name="InPort" id="72e65231-7172-4084-8cf0-b02114c283a5">
             <profile xsi:type="esdl:SingleValue" value="19023.8191" id="13f09afc-6edd-4a50-a156-e7094c755fca">
@@ -10046,8 +10046,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420508'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1054" name="Woningen" id="7ea01253-15c2-4bfe-8bc5-240f57bfa77c"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="133" name="Utiliteiten" id="3916b121-bc01-4ae7-81b1-eca494965244"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7ea01253-15c2-4bfe-8bc5-240f57bfa77c" numberOfBuildings="1054"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="3916b121-bc01-4ae7-81b1-eca494965244" numberOfBuildings="133"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="30fc7e40-7638-4401-83d3-773fad33cfe2">
           <port xsi:type="esdl:InPort" name="InPort" id="e11f7f5f-a4cf-436a-be8a-d92ebf6958df">
             <profile xsi:type="esdl:SingleValue" value="34357.4048" id="a1eda2c5-6c6d-4689-9ee3-aab8d2509be0">
@@ -10104,8 +10104,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420509'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="716" name="Woningen" id="0a3dd904-42b1-4482-ab9a-5fb0915a0abd"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="110" name="Utiliteiten" id="1206ba04-cf95-474a-ad0b-29f739126076"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0a3dd904-42b1-4482-ab9a-5fb0915a0abd" numberOfBuildings="716"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1206ba04-cf95-474a-ad0b-29f739126076" numberOfBuildings="110"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="81c88261-bdf4-44aa-bc12-5e4fe8a7264e">
           <port xsi:type="esdl:InPort" name="InPort" id="d2112554-701f-4a0f-82c0-4bd89f01ffee">
             <profile xsi:type="esdl:SingleValue" value="22842.754" id="95d735a4-332f-4642-84fa-ceb51638574b">
@@ -10162,8 +10162,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420510'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="911" name="Woningen" id="c113b614-4461-415a-8a88-e45bd819cb91"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="c6e7a9c7-a007-4bff-a2c5-b99766325adf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c113b614-4461-415a-8a88-e45bd819cb91" numberOfBuildings="911"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c6e7a9c7-a007-4bff-a2c5-b99766325adf" numberOfBuildings="80"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="368df278-f437-466a-85b8-7b9a2a13212f">
           <port xsi:type="esdl:InPort" name="InPort" id="c838b548-a570-41bb-8876-62987baba7d5">
             <profile xsi:type="esdl:SingleValue" value="33151.617" id="9129f5e2-e26d-4901-a0d0-1970e8d188f4">
@@ -10220,8 +10220,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420511'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="96" name="Woningen" id="36d2a143-392a-42ec-8738-08e30a82e6c1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="8b862c74-9955-4636-9624-c425c763cab7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="36d2a143-392a-42ec-8738-08e30a82e6c1" numberOfBuildings="96"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8b862c74-9955-4636-9624-c425c763cab7" numberOfBuildings="3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a774836d-82cd-4938-bf6c-bc523c232aeb">
           <port xsi:type="esdl:InPort" name="InPort" id="3d5c0ac0-f46b-45f6-9b93-54105356266d">
             <profile xsi:type="esdl:SingleValue" value="5050.63068" id="d6674ba1-9f00-4658-8bdf-0a15a807a2ea">
@@ -10278,8 +10278,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420512'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="259" name="Woningen" id="820e1e42-d751-4067-8106-8631c3d5f102"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="104" name="Utiliteiten" id="01d430a7-8eed-4e51-936e-0dea1b86fdea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="820e1e42-d751-4067-8106-8631c3d5f102" numberOfBuildings="259"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="01d430a7-8eed-4e51-936e-0dea1b86fdea" numberOfBuildings="104"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2e3b2fd0-4e33-4ede-850c-1ff39af17f04">
           <port xsi:type="esdl:InPort" name="InPort" id="49c22e32-7b38-4c3e-a0c5-c83ce2d6b2c0">
             <profile xsi:type="esdl:SingleValue" value="11111.1358" id="98058a3f-ffae-48c8-8e6a-7a68b4d8980c">
@@ -10336,8 +10336,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420513'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="25" name="Woningen" id="811df938-a5f7-4932-bfaf-e2dd656a20ab"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="add57b6b-af71-4948-9d09-5180b77bafea"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="811df938-a5f7-4932-bfaf-e2dd656a20ab" numberOfBuildings="25"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="add57b6b-af71-4948-9d09-5180b77bafea" numberOfBuildings="17"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="08c03b5e-c47b-4d5f-878d-8cc412acd28a">
           <port xsi:type="esdl:InPort" name="InPort" id="e5e051e2-6250-4944-8d19-b77eb0115102">
             <profile xsi:type="esdl:SingleValue" value="1147.08298" id="7d7700cb-4cf9-475d-abc3-817cc8f875a1">
@@ -10394,7 +10394,7 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420515'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="46" name="Woningen" id="283f38e3-a46f-433a-9247-508c331da6ef"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="283f38e3-a46f-433a-9247-508c331da6ef" numberOfBuildings="46"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="48ebb3cf-bead-4afe-a811-ffd54cb601c1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d2afecf7-6b24-4d35-8467-fb79eae452f7">
           <port xsi:type="esdl:InPort" name="InPort" id="5689a369-24df-4f9e-a9c6-1a0a7a566ae8">
@@ -10453,7 +10453,7 @@
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420555'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5819b727-028e-4ed8-bf4e-aa64c42808a2"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="86" name="Utiliteiten" id="37b2741a-4e44-4596-9fb1-1d8dca5de68a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="37b2741a-4e44-4596-9fb1-1d8dca5de68a" numberOfBuildings="86"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8d5138f4-9add-4602-a940-b9cd62000b55">
           <port xsi:type="esdl:InPort" name="InPort" id="2a7f0a74-8628-4b25-91c9-f1489d22d209">
             <profile xsi:type="esdl:SingleValue" id="00c3fa75-3d10-48a7-8941-8b819235693c">
@@ -10510,8 +10510,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420565'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="511" name="Woningen" id="3853a39c-0d4b-4126-bcc8-534c66db2daf"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="106" name="Utiliteiten" id="4831629f-45c0-4155-9660-684c6f437252"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3853a39c-0d4b-4126-bcc8-534c66db2daf" numberOfBuildings="511"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4831629f-45c0-4155-9660-684c6f437252" numberOfBuildings="106"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7d0fa457-2257-458b-ba20-eeb53629abd8">
           <port xsi:type="esdl:InPort" name="InPort" id="adfd469c-18ba-48ba-876a-b0f2b475185f">
             <profile xsi:type="esdl:SingleValue" value="12827.5284" id="32762f5c-60b0-4b96-b94d-4414a40439d1">
@@ -10568,8 +10568,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420575'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="183" name="Woningen" id="397e56dd-d11d-4615-b4ba-820e58683627"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="78" name="Utiliteiten" id="c9dfd1bc-6424-4917-8ce3-52e5c6b91919"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="397e56dd-d11d-4615-b4ba-820e58683627" numberOfBuildings="183"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c9dfd1bc-6424-4917-8ce3-52e5c6b91919" numberOfBuildings="78"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f70e7fd3-8729-4ea9-806c-2023c0b7518e">
           <port xsi:type="esdl:InPort" name="InPort" id="45337d6e-518c-4a90-a8b6-148d3de6ddc1">
             <profile xsi:type="esdl:SingleValue" value="5355.71592" id="3128b905-aac5-4500-8c64-961fd18ee4cf">
@@ -10626,8 +10626,8 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420585'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="405" name="Woningen" id="7412788c-e88c-41c5-9452-099c7f118c94"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="60536e42-ba6a-451f-b49e-f7026f99d2eb"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7412788c-e88c-41c5-9452-099c7f118c94" numberOfBuildings="405"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60536e42-ba6a-451f-b49e-f7026f99d2eb" numberOfBuildings="7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b2546bcd-abbc-4a8a-bcf5-0540cc330fcf">
           <port xsi:type="esdl:InPort" name="InPort" id="a5edad73-5224-405f-9764-d1b207367dd3">
             <profile xsi:type="esdl:SingleValue" value="11426.6664" id="2b270550-519d-48fd-97fa-e2a07f1321bb">
@@ -10742,7 +10742,7 @@
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04069997'">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="70" name="Woningen" id="04a4f9c9-c1a2-4b1d-b7ef-2aced3dd48bc"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="04a4f9c9-c1a2-4b1d-b7ef-2aced3dd48bc" numberOfBuildings="70"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7eaff184-45d3-4bb6-8448-2d68927ccdc9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0db5efb7-54ae-4065-9d31-7ebda3c484ae">
           <port xsi:type="esdl:InPort" name="InPort" id="886a24fb-b5b3-412c-95a2-ea81ec249e27">
@@ -10801,7 +10801,7 @@
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19429997'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d09791ac-2edf-4294-8ec9-e416dfbdddc9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="b187d83a-f8a2-4210-aba6-ec24d4717753"/>
+        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b187d83a-f8a2-4210-aba6-ec24d4717753" numberOfBuildings="1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="93f69d28-0182-4d8d-bc12-fb43ee79c92c">
           <port xsi:type="esdl:InPort" name="InPort" id="02a30a79-ac90-4232-a386-0d2f97d7ec67">
             <profile xsi:type="esdl:SingleValue" id="803ef44d-2b67-494b-af2a-d74bc1bfe894">
