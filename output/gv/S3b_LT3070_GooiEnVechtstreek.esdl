@@ -1,19 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <esdl:EnergySystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esdl="http://www.tno.nl/esdl" name="Vesta Resultaten">
-  <instance aggrType="PER_COMMODITY" name="y2030">
+  <energySystemInformation id="energy_system_information">
+    <quantityAndUnits id="quantity_and_units"/>
+  </energySystemInformation>
+  <instance name="y2030" aggrType="PER_COMMODITY">
     <area name="GooiEnVechtstreek">
       <KPIs id="kpis" description="KPIs">
-        <kpi xsi:type="esdl:DoubleKPI" name="Elektriciteitsopwek uit hernieuwbare bronnen" id="5488c5e5-44ce-4385-b263-6d910ff04eb5" value="39292545.437246524">
-          <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="MEGA" physicalQuantity="ENERGY" id="energy_demand" description="MJ" unit="JOULE"/>
+        <kpi xsi:type="esdl:DoubleKPI" value="39292545.437246524" name="Elektriciteitsopwek uit hernieuwbare bronnen" id="f81d0fe9-8692-4dba-abe8-d7ba947654b0">
           <target value="1080000000.0"/>
+          <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="MEGA" physicalQuantity="ENERGY" id="energy_demand" description="MJ" unit="JOULE"/>
         </kpi>
-        <kpi xsi:type="esdl:DoubleKPI" name="Aandeel hernieuwbare elektriciteit op eindgebruik" id="ee9eba86-2237-4272-bd46-6faf08933bdc" value="0.7809391591507198">
-          <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="ENERGY" id="share_of_energy_demand" unit="PERCENT" description="%"/>
+        <kpi xsi:type="esdl:DoubleKPI" value="0.7809391591507198" name="Aandeel hernieuwbare elektriciteit op eindgebruik" id="30bd989f-2c38-4c90-afad-6ed76ebccd3e">
+          <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" unit="PERCENT" description="%" physicalQuantity="ENERGY" id="share_of_energy_demand"/>
         </kpi>
       </KPIs>
       <area scope="NEIGHBOURHOOD" id="'BU03760101'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="82fbc950-1097-431b-9837-b5ff42d0f789" numberOfBuildings="1815"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="23994526-9dd8-462f-8451-ca97dc830b20" numberOfBuildings="98"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1815" name="Woningen" id="82fbc950-1097-431b-9837-b5ff42d0f789"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="98" name="Utiliteiten" id="23994526-9dd8-462f-8451-ca97dc830b20"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="482b13f0-cd8f-4b2a-9ae4-09a689710e96">
           <port xsi:type="esdl:InPort" name="InPort" id="de3c85ff-bbac-4f34-b532-87179fa2908d">
             <profile xsi:type="esdl:SingleValue" value="50928.0025" id="e8ff880a-feb3-4f79-90a4-5a9c09982039">
@@ -64,14 +67,14 @@
           </port>
         </asset>
         <KPIs id="97c925aa-4fca-4256-ac33-bbb53462ab5f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="10922515-3a31-42fd-992f-fa113a7c0098"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6edf15b4-eb69-40af-90b4-93f49392f9ac"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2252279.66" id="1cf6b0f8-6fc4-4490-8b08-fb4be3ace452"/>
+          <kpi xsi:type="esdl:StringKPI" id="10922515-3a31-42fd-992f-fa113a7c0098" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6edf15b4-eb69-40af-90b4-93f49392f9ac" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1cf6b0f8-6fc4-4490-8b08-fb4be3ace452" name="Maatschappelijke_kosten" value="2252279.66"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760102'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f2a7e835-22df-4256-8364-90593df80e33" numberOfBuildings="2235"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6cf2f80e-3c43-4e78-9279-feb268cddd16" numberOfBuildings="187"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2235" name="Woningen" id="f2a7e835-22df-4256-8364-90593df80e33"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="187" name="Utiliteiten" id="6cf2f80e-3c43-4e78-9279-feb268cddd16"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fd6408a5-3c56-4691-9bbe-937507a4f01e">
           <port xsi:type="esdl:InPort" name="InPort" id="2f5fc201-de93-48e5-a8c1-0c32b992120a">
             <profile xsi:type="esdl:SingleValue" value="96213.7776" id="04ce6d4c-341b-46e3-ad81-73eb7572ffab">
@@ -122,14 +125,14 @@
           </port>
         </asset>
         <KPIs id="a4719454-4a8e-458f-acb3-27f780c9f25a">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3785fdaa-baf2-420e-b1aa-9f8672a81d22"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7371a3e5-6be4-4874-b303-db30239f0b5e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="6218152.34" id="119431a8-88e3-45d0-b5b6-409e14ef82ac"/>
+          <kpi xsi:type="esdl:StringKPI" id="3785fdaa-baf2-420e-b1aa-9f8672a81d22" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7371a3e5-6be4-4874-b303-db30239f0b5e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="119431a8-88e3-45d0-b5b6-409e14ef82ac" name="Maatschappelijke_kosten" value="6218152.34"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ec5bcc8c-0e5d-40c0-937a-392e5a2b1400" numberOfBuildings="1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="33a9e9d0-3df9-40d8-a563-f61bcb2931af" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="ec5bcc8c-0e5d-40c0-937a-392e5a2b1400"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="33a9e9d0-3df9-40d8-a563-f61bcb2931af"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9de0df3c-836a-4fb2-ada4-0c590bc4190a">
           <port xsi:type="esdl:InPort" name="InPort" id="34a83d70-b3c5-4760-b18a-8ddc73f65f7e">
             <profile xsi:type="esdl:SingleValue" value="58.5272069" id="7efa380f-ac60-401b-8755-c01e56c10dac">
@@ -180,14 +183,14 @@
           </port>
         </asset>
         <KPIs id="cee40914-f7ad-4bd4-8400-5e7f1598cb57">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bb1e89eb-6f6b-4c43-ab85-31cc11830580"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a7688bbb-8906-41ef-8bdd-373efa268394"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="45285.0551" id="b1efc03b-336d-41c2-956c-4dfca8de9202"/>
+          <kpi xsi:type="esdl:StringKPI" id="bb1e89eb-6f6b-4c43-ab85-31cc11830580" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a7688bbb-8906-41ef-8bdd-373efa268394" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b1efc03b-336d-41c2-956c-4dfca8de9202" name="Maatschappelijke_kosten" value="45285.0551"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760104'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="687da90d-9d7d-4802-94dd-b128800f6f9f" numberOfBuildings="816"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e973a6c2-0444-49cd-bc64-30ff4631156f" numberOfBuildings="116"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="816" name="Woningen" id="687da90d-9d7d-4802-94dd-b128800f6f9f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="116" name="Utiliteiten" id="e973a6c2-0444-49cd-bc64-30ff4631156f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e877aca9-95f6-4aa5-84fa-5ad57f3820d0">
           <port xsi:type="esdl:InPort" name="InPort" id="519627bf-b07a-4a46-81d2-e26d0b35cd7d">
             <profile xsi:type="esdl:SingleValue" value="23665.4668" id="a3c83069-8c8a-4aaf-bf6e-976587ed0b9c">
@@ -238,14 +241,14 @@
           </port>
         </asset>
         <KPIs id="6e58b3c6-0a53-4e1b-9820-b2ba19c7af89">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f68b9c3b-9fe3-4c1c-ac42-0fd7d7f0d27a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="39327766-2647-4e31-a5a4-93974b870ef1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1114752.29" id="65100ab6-402a-4cf0-a2dc-c40a77fda7b6"/>
+          <kpi xsi:type="esdl:StringKPI" id="f68b9c3b-9fe3-4c1c-ac42-0fd7d7f0d27a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="39327766-2647-4e31-a5a4-93974b870ef1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="65100ab6-402a-4cf0-a2dc-c40a77fda7b6" name="Maatschappelijke_kosten" value="1114752.29"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760105'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ac7154f5-3386-48e6-9b67-84bfffa2a30a" numberOfBuildings="56"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="442b49a3-2556-46ef-bf46-6fde8964c27c" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="56" name="Woningen" id="ac7154f5-3386-48e6-9b67-84bfffa2a30a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="442b49a3-2556-46ef-bf46-6fde8964c27c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fd945a37-14fe-40e3-9b25-68eb3ee5ac8e">
           <port xsi:type="esdl:InPort" name="InPort" id="46ecfba8-87fd-4a34-b130-9480b21c2606">
             <profile xsi:type="esdl:SingleValue" value="2912.37631" id="aabb76af-8d63-4040-89ed-74f4980c6308">
@@ -296,13 +299,13 @@
           </port>
         </asset>
         <KPIs id="2789d604-403d-4c21-8bc0-bc36cba5e436">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fca0d511-da87-45bc-9ccd-19e9f7946a09"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="904a92cf-a576-474e-a029-2d53b829a8b5"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="890073.014" id="cb61e1bb-73df-4634-b3b2-c2c61bfa262a"/>
+          <kpi xsi:type="esdl:StringKPI" id="fca0d511-da87-45bc-9ccd-19e9f7946a09" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="904a92cf-a576-474e-a029-2d53b829a8b5" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cb61e1bb-73df-4634-b3b2-c2c61bfa262a" name="Maatschappelijke_kosten" value="890073.014"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760106'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d5d2fcbe-0d64-4c5d-9a9a-66abd9e55dff" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="d5d2fcbe-0d64-4c5d-9a9a-66abd9e55dff"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ade0532e-4902-4455-8d05-9ed5d4e22e4b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d24be202-fdfe-40c1-a6fe-9e4390e1b24e">
           <port xsi:type="esdl:InPort" name="InPort" id="9bac43ca-1048-4c52-bba3-73cd091e84f1">
@@ -354,9 +357,9 @@
           </port>
         </asset>
         <KPIs id="3b1be8a1-8060-4b42-8563-e49f53a0a99c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="58703c7d-82a7-4e0e-9868-0f5a28d2a5db"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="008099c6-aa52-40f7-987b-c931d39a5d89"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2858.81886" id="14e9b6e6-288c-42fc-ad6d-e9576f394623"/>
+          <kpi xsi:type="esdl:StringKPI" id="58703c7d-82a7-4e0e-9868-0f5a28d2a5db" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="008099c6-aa52-40f7-987b-c931d39a5d89" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="14e9b6e6-288c-42fc-ad6d-e9576f394623" name="Maatschappelijke_kosten" value="2858.81886"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760107'">
@@ -412,14 +415,14 @@
           </port>
         </asset>
         <KPIs id="32b835e0-f5f8-4dca-88dc-34cc8191cd18">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="35835529-9671-4bac-9287-72b1ccdee76a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7e7a54f4-1200-458d-9392-f19b923cc1ec"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="" id="9425160e-6fa3-4308-9562-252bd557dc21"/>
+          <kpi xsi:type="esdl:StringKPI" id="35835529-9671-4bac-9287-72b1ccdee76a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7e7a54f4-1200-458d-9392-f19b923cc1ec" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9425160e-6fa3-4308-9562-252bd557dc21" name="Maatschappelijke_kosten" value=""/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760108'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d707068f-b868-4e92-944b-ca1e95b22c03"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c6e1b58b-6ed1-4f20-bf9d-e78fae135738" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="c6e1b58b-6ed1-4f20-bf9d-e78fae135738"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1d6f7be7-2a3c-464f-8cf6-3d7985d54821">
           <port xsi:type="esdl:InPort" name="InPort" id="621289aa-f2a4-4842-8bc3-95d08e81658c">
             <profile xsi:type="esdl:SingleValue" id="98da488f-78c9-4c01-b9b6-96ec1f676a38">
@@ -470,14 +473,14 @@
           </port>
         </asset>
         <KPIs id="cdc30f96-909c-4453-8085-1be8f6f94794">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e7a29b91-41e8-4255-8f2e-6c912b5c348d"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="602bdf73-5368-4ef9-a659-199a89143b6e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="9228.75368" id="f48b9f7c-3cc6-42d2-8ac7-42ec6330783a"/>
+          <kpi xsi:type="esdl:StringKPI" id="e7a29b91-41e8-4255-8f2e-6c912b5c348d" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="602bdf73-5368-4ef9-a659-199a89143b6e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f48b9f7c-3cc6-42d2-8ac7-42ec6330783a" name="Maatschappelijke_kosten" value="9228.75368"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03760109'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="aec94aa1-7417-447b-8020-e9d31ac14283" numberOfBuildings="1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7bb33303-8575-4714-b450-9db068029975" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="aec94aa1-7417-447b-8020-e9d31ac14283"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="7bb33303-8575-4714-b450-9db068029975"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="59e86a8c-18a0-4e72-a841-ccd76bb1341c">
           <port xsi:type="esdl:InPort" name="InPort" id="b1b2a749-a7e9-41b4-92ec-38bbc283bae4">
             <profile xsi:type="esdl:SingleValue" value="39.8692338" id="b9404c9e-431f-4c89-8aee-063c437e63f3">
@@ -528,14 +531,14 @@
           </port>
         </asset>
         <KPIs id="5dbc5126-2e31-4b67-9903-773c5badc2b2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="86fd83c8-4165-4c55-8391-08614064bda8"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d0d210b1-b918-4a38-bb4a-a67c7acd8a3c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="20624.4895" id="153b8c17-8070-47d0-b53f-a88435cc3251"/>
+          <kpi xsi:type="esdl:StringKPI" id="86fd83c8-4165-4c55-8391-08614064bda8" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d0d210b1-b918-4a38-bb4a-a67c7acd8a3c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="153b8c17-8070-47d0-b53f-a88435cc3251" name="Maatschappelijke_kosten" value="20624.4895"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020101'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ea123f45-b962-4fbd-8e97-2070707e1b0d" numberOfBuildings="1893"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1544e819-4b84-4162-b3f2-d99014aa9874" numberOfBuildings="546"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1893" name="Woningen" id="ea123f45-b962-4fbd-8e97-2070707e1b0d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="546" name="Utiliteiten" id="1544e819-4b84-4162-b3f2-d99014aa9874"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4d6b787f-7371-444b-b9c3-909eba10a34f">
           <port xsi:type="esdl:InPort" name="InPort" id="8b49fc7a-389d-4e1f-91ee-e1f292e8757b">
             <profile xsi:type="esdl:SingleValue" value="48317.4849" id="4e1d8bf4-f079-47f4-9221-0cf1a2cdfce3">
@@ -586,14 +589,14 @@
           </port>
         </asset>
         <KPIs id="ea4fb06b-9c1f-41a4-93c3-73053f15d348">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ba9a8b7c-6ed0-469c-98f9-55617a027d40"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="86ea44f4-21c9-4c03-9173-eaf5ed2307b8"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="6961620.11" id="9ae0cf33-de85-4f25-886e-493e825c77fa"/>
+          <kpi xsi:type="esdl:StringKPI" id="ba9a8b7c-6ed0-469c-98f9-55617a027d40" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="86ea44f4-21c9-4c03-9173-eaf5ed2307b8" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9ae0cf33-de85-4f25-886e-493e825c77fa" name="Maatschappelijke_kosten" value="6961620.11"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020102'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="27f5eddd-e038-435c-8a24-639297cff932" numberOfBuildings="1522"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d7736c5f-c486-419f-94bf-efe055c3e8ea" numberOfBuildings="203"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1522" name="Woningen" id="27f5eddd-e038-435c-8a24-639297cff932"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="203" name="Utiliteiten" id="d7736c5f-c486-419f-94bf-efe055c3e8ea"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e7192db0-8dcb-4a1b-a9c1-8339d9ec655c">
           <port xsi:type="esdl:InPort" name="InPort" id="979274ac-8464-41d7-8bf7-978209f2a5fb">
             <profile xsi:type="esdl:SingleValue" value="39587.1614" id="ab6373c2-f9c0-485f-a0e6-da4da1cfce9c">
@@ -644,14 +647,14 @@
           </port>
         </asset>
         <KPIs id="2aa286d6-d60c-457d-9e77-c63d23851ee6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a942360f-0d51-414b-9144-c5770ee91204"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="01b8fcf2-8c43-4720-abd6-ec29fe981034"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2161620.68" id="92c406a2-e23a-4664-9a7b-1c50790c1931"/>
+          <kpi xsi:type="esdl:StringKPI" id="a942360f-0d51-414b-9144-c5770ee91204" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="01b8fcf2-8c43-4720-abd6-ec29fe981034" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="92c406a2-e23a-4664-9a7b-1c50790c1931" name="Maatschappelijke_kosten" value="2161620.68"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e80780bd-c551-4b92-b819-6b87ed34b3f7" numberOfBuildings="836"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b62ed23c-fe3a-4a87-9303-5c8823432e48" numberOfBuildings="58"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="836" name="Woningen" id="e80780bd-c551-4b92-b819-6b87ed34b3f7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="b62ed23c-fe3a-4a87-9303-5c8823432e48"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2cc3b04e-a4cc-4edc-9aca-a08c8a0e1297">
           <port xsi:type="esdl:InPort" name="InPort" id="d816b6a8-a144-458e-9ed7-a3ab5531de6d">
             <profile xsi:type="esdl:SingleValue" value="24984.5313" id="9ff65aaa-0627-41a8-9a98-702cc5dc176f">
@@ -702,14 +705,14 @@
           </port>
         </asset>
         <KPIs id="cdf6967d-4fc8-4ca8-9110-5e203ccf4cf8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e04fd428-6e63-4551-b2b2-33e06a85c266"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="43b63370-854a-46d3-bd07-ca4dfe220fdb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1751808.16" id="827f1fe4-653e-44bc-88bc-35f0de6fc1dd"/>
+          <kpi xsi:type="esdl:StringKPI" id="e04fd428-6e63-4551-b2b2-33e06a85c266" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="43b63370-854a-46d3-bd07-ca4dfe220fdb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="827f1fe4-653e-44bc-88bc-35f0de6fc1dd" name="Maatschappelijke_kosten" value="1751808.16"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020104'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="25c623a8-16ee-44bc-9979-3e20e9879115" numberOfBuildings="936"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5a23ca18-cde7-4dab-8d78-29bd4ae73a1d" numberOfBuildings="263"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="936" name="Woningen" id="25c623a8-16ee-44bc-9979-3e20e9879115"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="263" name="Utiliteiten" id="5a23ca18-cde7-4dab-8d78-29bd4ae73a1d"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2fced2d3-e14f-43dc-b899-235a63ac3b94">
           <port xsi:type="esdl:InPort" name="InPort" id="ed943497-35f6-4893-b015-e9bb0ec450cb">
             <profile xsi:type="esdl:SingleValue" value="24113.2231" id="f252235e-76af-4646-82e7-2c5bbdcbac69">
@@ -760,14 +763,14 @@
           </port>
         </asset>
         <KPIs id="fc2094ed-24a5-4c13-a758-3a5546a5c54f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="af7183ad-a9d9-4cf4-b697-1a0f3da7ad17"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="32d34914-47d0-4bec-b7b6-252e55b2c082"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3273990.05" id="7c6e1f9f-b23b-4d7b-8316-7ec8e7475c24"/>
+          <kpi xsi:type="esdl:StringKPI" id="af7183ad-a9d9-4cf4-b697-1a0f3da7ad17" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="32d34914-47d0-4bec-b7b6-252e55b2c082" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7c6e1f9f-b23b-4d7b-8316-7ec8e7475c24" name="Maatschappelijke_kosten" value="3273990.05"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020201'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e640c7ec-16c1-405f-a51b-f56228dd39f8" numberOfBuildings="1530"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ca3e7ff2-68a1-4fac-af41-2ab24a6383ec" numberOfBuildings="211"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1530" name="Woningen" id="e640c7ec-16c1-405f-a51b-f56228dd39f8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="211" name="Utiliteiten" id="ca3e7ff2-68a1-4fac-af41-2ab24a6383ec"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5d15548e-4355-4d36-928d-12e253bbfb64">
           <port xsi:type="esdl:InPort" name="InPort" id="62842b3d-1c00-4afb-a9a3-40e49e49ae21">
             <profile xsi:type="esdl:SingleValue" value="53120.8575" id="f0bf4b2e-011b-450e-a8e3-5dd618eb5ca6">
@@ -818,14 +821,14 @@
           </port>
         </asset>
         <KPIs id="48a597e1-7305-47cb-b57a-24745b5cec6f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="506b02c7-7324-4900-86f4-90847cc92405"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="bc877b57-2e96-4c3e-9587-56ef57f41660"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="4743464.88" id="aeef1338-061a-415f-ac36-f3934093d0b0"/>
+          <kpi xsi:type="esdl:StringKPI" id="506b02c7-7324-4900-86f4-90847cc92405" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bc877b57-2e96-4c3e-9587-56ef57f41660" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="aeef1338-061a-415f-ac36-f3934093d0b0" name="Maatschappelijke_kosten" value="4743464.88"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020202'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2dff3369-329f-4aa3-a75d-1c04790b7bdf" numberOfBuildings="641"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="aab60e65-cab6-44ed-8056-28dc306759ea" numberOfBuildings="89"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="641" name="Woningen" id="2dff3369-329f-4aa3-a75d-1c04790b7bdf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="89" name="Utiliteiten" id="aab60e65-cab6-44ed-8056-28dc306759ea"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="28ea09ef-a539-41a0-924b-5ba2afd272ff">
           <port xsi:type="esdl:InPort" name="InPort" id="f8524f7d-be8d-4d17-a610-954cc410aee8">
             <profile xsi:type="esdl:SingleValue" value="26602.4314" id="b0dc82e7-a975-4f1a-9f99-a7c4c8ee79d0">
@@ -876,14 +879,14 @@
           </port>
         </asset>
         <KPIs id="b434339c-8da3-40d3-911a-1f5bab5dc3af">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="0479f212-bab8-4efd-b044-3819d6ba2ba1"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="42b21a19-f136-46fa-a6b2-33348ad2b0bb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2919774.25" id="3bdfbdd1-b520-43a0-bfe7-e355fd4ad9fd"/>
+          <kpi xsi:type="esdl:StringKPI" id="0479f212-bab8-4efd-b044-3819d6ba2ba1" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="42b21a19-f136-46fa-a6b2-33348ad2b0bb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3bdfbdd1-b520-43a0-bfe7-e355fd4ad9fd" name="Maatschappelijke_kosten" value="2919774.25"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020203'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b3c0461d-3527-4464-b693-a81df2c2d15a" numberOfBuildings="471"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="849ab975-b793-431c-b7ed-899e826363f2" numberOfBuildings="58"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="471" name="Woningen" id="b3c0461d-3527-4464-b693-a81df2c2d15a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="849ab975-b793-431c-b7ed-899e826363f2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9e9b9714-8915-4ce6-afd1-3cc9f0374dc2">
           <port xsi:type="esdl:InPort" name="InPort" id="740c0c5d-a9dd-4aa8-9cb7-579397955a79">
             <profile xsi:type="esdl:SingleValue" value="14473.1811" id="c3002c71-4ac3-4f0b-87da-4fdd7a7d4f0f">
@@ -934,14 +937,14 @@
           </port>
         </asset>
         <KPIs id="6ee6059a-9ade-40e5-812a-cb6b62e208a7">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3c62e642-e808-4ff4-a8dd-d7f6b8f36129"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6fc95060-5fc1-4c75-845b-109d52a806d1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2701797.92" id="844e5ac6-c1f2-43df-9d45-8c92e4db8f9a"/>
+          <kpi xsi:type="esdl:StringKPI" id="3c62e642-e808-4ff4-a8dd-d7f6b8f36129" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6fc95060-5fc1-4c75-845b-109d52a806d1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="844e5ac6-c1f2-43df-9d45-8c92e4db8f9a" name="Maatschappelijke_kosten" value="2701797.92"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020204'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1a808e9f-32b9-48d1-ad81-6460b3afafff" numberOfBuildings="577"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="adb25680-948e-4cd8-acff-face0828ff03" numberOfBuildings="57"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="577" name="Woningen" id="1a808e9f-32b9-48d1-ad81-6460b3afafff"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="57" name="Utiliteiten" id="adb25680-948e-4cd8-acff-face0828ff03"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="653ab55e-c603-42dd-8bfe-2f7b487eed3c">
           <port xsi:type="esdl:InPort" name="InPort" id="f039160b-a3bd-44b2-9c78-7b0c5430ea87">
             <profile xsi:type="esdl:SingleValue" value="23918.9951" id="046e434d-d210-42b0-9778-55599d17a76f">
@@ -992,14 +995,14 @@
           </port>
         </asset>
         <KPIs id="30f67c44-b843-4a3c-a2b0-4ca26c5e1188">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e7183138-c9f1-4543-aa6f-a7b93dfa3a05"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ca86c267-509b-4451-9f9e-1b51e3ec5c17"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2481614.81" id="33584719-601d-4307-8885-b1bdf25f3fd2"/>
+          <kpi xsi:type="esdl:StringKPI" id="e7183138-c9f1-4543-aa6f-a7b93dfa3a05" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ca86c267-509b-4451-9f9e-1b51e3ec5c17" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="33584719-601d-4307-8885-b1bdf25f3fd2" name="Maatschappelijke_kosten" value="2481614.81"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020205'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0474fa8e-2b34-4207-b7c2-c7d64f520def" numberOfBuildings="286"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="00867509-fece-49a0-8cc4-39826efa18e3" numberOfBuildings="24"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="286" name="Woningen" id="0474fa8e-2b34-4207-b7c2-c7d64f520def"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="00867509-fece-49a0-8cc4-39826efa18e3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7f2fd715-8063-47ab-a339-4e198578ae82">
           <port xsi:type="esdl:InPort" name="InPort" id="6b622410-f9a9-44e6-9cb9-d0e694d4792e">
             <profile xsi:type="esdl:SingleValue" value="12109.0263" id="799f93b4-a391-492e-a336-939d1389dcc7">
@@ -1050,14 +1053,14 @@
           </port>
         </asset>
         <KPIs id="15bb6d22-a9c2-49ff-931f-ff607eb27b74">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="81427a56-b1df-4fd6-b6ef-a353d89f94d5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="76e88fb3-1b08-4895-9920-cae4d4fa632d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1019152.8" id="1b1a7988-61b4-49ca-b049-425d225660f2"/>
+          <kpi xsi:type="esdl:StringKPI" id="81427a56-b1df-4fd6-b6ef-a353d89f94d5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="76e88fb3-1b08-4895-9920-cae4d4fa632d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1b1a7988-61b4-49ca-b049-425d225660f2" name="Maatschappelijke_kosten" value="1019152.8"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020206'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b6431cb5-331c-4cf2-9a91-28405cf9834f" numberOfBuildings="7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c01859ee-2175-43d2-a668-2c1db664e687" numberOfBuildings="102"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Woningen" id="b6431cb5-331c-4cf2-9a91-28405cf9834f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="102" name="Utiliteiten" id="c01859ee-2175-43d2-a668-2c1db664e687"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e9e57e9e-1b5e-4a3f-9e61-ad64f3ff792b">
           <port xsi:type="esdl:InPort" name="InPort" id="2af12ce5-5501-4dba-9d31-17765d3c4acf">
             <profile xsi:type="esdl:SingleValue" value="371.201843" id="66d526cd-724d-44ff-91ef-1015ae615112">
@@ -1108,14 +1111,14 @@
           </port>
         </asset>
         <KPIs id="81168b2c-1d31-42f9-8d44-243c714a184c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c863024a-cb9c-4dc8-a706-87ea93997d76"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d9150c65-6a05-4f7b-86f6-7864c716a5e1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="5666884.93" id="ffc1ea1b-d8e2-4309-b5c1-8f75cfc4c5df"/>
+          <kpi xsi:type="esdl:StringKPI" id="c863024a-cb9c-4dc8-a706-87ea93997d76" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d9150c65-6a05-4f7b-86f6-7864c716a5e1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ffc1ea1b-d8e2-4309-b5c1-8f75cfc4c5df" name="Maatschappelijke_kosten" value="5666884.93"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020301'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0c61fb2c-3834-4584-ab63-9e578085e387" numberOfBuildings="16"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6f342b7a-b6ac-4782-adbf-bc46ef2cbd96" numberOfBuildings="119"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Woningen" id="0c61fb2c-3834-4584-ab63-9e578085e387"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="119" name="Utiliteiten" id="6f342b7a-b6ac-4782-adbf-bc46ef2cbd96"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="79eb6d30-fda6-48b4-b0ef-82ab0c7bad6c">
           <port xsi:type="esdl:InPort" name="InPort" id="863e7676-d0ac-47cd-8f0b-d1d5c7f7ba04">
             <profile xsi:type="esdl:SingleValue" value="454.13772" id="0b23087f-a740-4101-8f9c-8c3eb13a1ebf">
@@ -1166,14 +1169,14 @@
           </port>
         </asset>
         <KPIs id="faeac084-da15-4f17-a749-29cd830f174c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="9df475e8-6dd8-49b7-9359-89d2583e4627"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b1e0c8c5-ae39-4875-afa9-8f5a85c2e2a6"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1461900.65" id="98290b40-ab10-4a89-af82-aa3518b9a93b"/>
+          <kpi xsi:type="esdl:StringKPI" id="9df475e8-6dd8-49b7-9359-89d2583e4627" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b1e0c8c5-ae39-4875-afa9-8f5a85c2e2a6" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="98290b40-ab10-4a89-af82-aa3518b9a93b" name="Maatschappelijke_kosten" value="1461900.65"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020302'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73718b1b-ead8-40a3-9f6c-70e5dada9765" numberOfBuildings="616"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7961ec71-9c78-4623-92c5-27a370eb3379" numberOfBuildings="9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="616" name="Woningen" id="73718b1b-ead8-40a3-9f6c-70e5dada9765"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="9" name="Utiliteiten" id="7961ec71-9c78-4623-92c5-27a370eb3379"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="14719da8-fe23-49d6-9afc-fd4c81d3c844">
           <port xsi:type="esdl:InPort" name="InPort" id="c5bea524-aaaa-4630-822d-b3671414fffa">
             <profile xsi:type="esdl:SingleValue" value="19395.018" id="246b2ea6-de41-40dd-8e7b-0fdfcbe50c6f">
@@ -1224,14 +1227,14 @@
           </port>
         </asset>
         <KPIs id="71f7676a-3c3d-4204-9282-e4425c01f0d3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="41d6f416-ea97-4db3-8f88-1edd2dd0b3f6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="464c30e4-a866-4eb2-92f4-a950a070a81b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="993369.95" id="24ddf9b8-1758-4ca3-a510-5505a3573e30"/>
+          <kpi xsi:type="esdl:StringKPI" id="41d6f416-ea97-4db3-8f88-1edd2dd0b3f6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="464c30e4-a866-4eb2-92f4-a950a070a81b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="24ddf9b8-1758-4ca3-a510-5505a3573e30" name="Maatschappelijke_kosten" value="993369.95"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020303'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3ac03278-3d98-4553-a9e2-06c43f091650" numberOfBuildings="845"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6055eba8-07ee-483f-bf55-943b3e4f95ac" numberOfBuildings="80"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="845" name="Woningen" id="3ac03278-3d98-4553-a9e2-06c43f091650"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="6055eba8-07ee-483f-bf55-943b3e4f95ac"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b0161b93-c66f-4aec-9580-00dc32d48e21">
           <port xsi:type="esdl:InPort" name="InPort" id="46747b9f-d6a1-4c87-980e-d7485b187833">
             <profile xsi:type="esdl:SingleValue" value="23255.1904" id="da9b3e8a-dd22-4d76-9953-298c00d8a4d8">
@@ -1282,14 +1285,14 @@
           </port>
         </asset>
         <KPIs id="954f314f-01d8-4dc1-bd82-b3a688586967">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3c0ffd3b-c6be-4e7c-81a3-85f82ff2f60b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="990e992f-da39-45ca-acad-3cc260d78be8"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1364080.74" id="8246aced-be10-4c35-ba03-579d308e6d18"/>
+          <kpi xsi:type="esdl:StringKPI" id="3c0ffd3b-c6be-4e7c-81a3-85f82ff2f60b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="990e992f-da39-45ca-acad-3cc260d78be8" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8246aced-be10-4c35-ba03-579d308e6d18" name="Maatschappelijke_kosten" value="1364080.74"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020304'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="04f3b9d3-9def-4929-a73d-636c80b107ee" numberOfBuildings="3034"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6a4c507c-161e-43b2-83ea-286ca608cac9" numberOfBuildings="488"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3034" name="Woningen" id="04f3b9d3-9def-4929-a73d-636c80b107ee"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="488" name="Utiliteiten" id="6a4c507c-161e-43b2-83ea-286ca608cac9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="40ee9b88-0b6c-48b2-ba8e-280bfd6d93cb">
           <port xsi:type="esdl:InPort" name="InPort" id="4e38a6ba-d7b7-4851-a09d-3ad457fc3e3b">
             <profile xsi:type="esdl:SingleValue" value="74618.5623" id="d23901d3-a45d-4c05-9b6d-2b503f1fced9">
@@ -1340,14 +1343,14 @@
           </port>
         </asset>
         <KPIs id="93de802b-8ef5-44e6-9551-38e03d7f273b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a77f5636-c118-407a-a7e0-41236e301673"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="bf64be5e-18f8-4169-b776-65baa21d26e2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="5036688.94" id="5d7bc37e-6545-4f06-a39d-9663e6c62da1"/>
+          <kpi xsi:type="esdl:StringKPI" id="a77f5636-c118-407a-a7e0-41236e301673" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bf64be5e-18f8-4169-b776-65baa21d26e2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5d7bc37e-6545-4f06-a39d-9663e6c62da1" name="Maatschappelijke_kosten" value="5036688.94"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020401'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9d9925e6-e047-4c41-a4f1-69d0834d42b6" numberOfBuildings="1300"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bcb1c51c-78fd-45e5-acee-75d203cecd8e" numberOfBuildings="216"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1300" name="Woningen" id="9d9925e6-e047-4c41-a4f1-69d0834d42b6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="216" name="Utiliteiten" id="bcb1c51c-78fd-45e5-acee-75d203cecd8e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="931c4f05-f6a3-47c9-9b96-0cb37ffe0143">
           <port xsi:type="esdl:InPort" name="InPort" id="e0bbc659-9fbe-4638-a149-714bdc011cbf">
             <profile xsi:type="esdl:SingleValue" value="41125.5134" id="61857d32-3264-4c7a-be18-e40cb5399526">
@@ -1398,14 +1401,14 @@
           </port>
         </asset>
         <KPIs id="e67e15a9-8d38-460d-98a7-075bfaec9389">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="72f92f74-0371-4c47-86c1-b4a35ac3e17f"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="bd7a8b21-e3b8-4318-866d-5ffd77b0aad4"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2469872.42" id="2cb07508-01cb-4b5b-974e-2e258ce52546"/>
+          <kpi xsi:type="esdl:StringKPI" id="72f92f74-0371-4c47-86c1-b4a35ac3e17f" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bd7a8b21-e3b8-4318-866d-5ffd77b0aad4" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2cb07508-01cb-4b5b-974e-2e258ce52546" name="Maatschappelijke_kosten" value="2469872.42"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020402'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5fdeaf2f-8195-4dac-b068-762b44eefca4" numberOfBuildings="2307"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f86c672f-6608-41af-8960-860be3395cf3" numberOfBuildings="156"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2307" name="Woningen" id="5fdeaf2f-8195-4dac-b068-762b44eefca4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="156" name="Utiliteiten" id="f86c672f-6608-41af-8960-860be3395cf3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b7ce27b5-7214-4d2c-bef3-8929095d577d">
           <port xsi:type="esdl:InPort" name="InPort" id="5b03884d-5e7d-4db1-88f1-bb888ab6b304">
             <profile xsi:type="esdl:SingleValue" value="71612.1586" id="cb220779-3966-4df8-b905-46f74794502e">
@@ -1456,14 +1459,14 @@
           </port>
         </asset>
         <KPIs id="e9158e7f-c000-457a-8e1c-8f5e142626f6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="57db9202-c823-4389-a00d-c406401870c8"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="1190a5af-9382-4637-ae76-d7c3bb79a3e3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="4546661.17" id="69b3dd96-43d7-4956-8d67-b0e42caee7a9"/>
+          <kpi xsi:type="esdl:StringKPI" id="57db9202-c823-4389-a00d-c406401870c8" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1190a5af-9382-4637-ae76-d7c3bb79a3e3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="69b3dd96-43d7-4956-8d67-b0e42caee7a9" name="Maatschappelijke_kosten" value="4546661.17"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020403'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2eadfce2-2942-4e0a-9483-7e4a216c9947" numberOfBuildings="810"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9c92cbe0-dbfe-448c-9259-9cce940a9bbe" numberOfBuildings="127"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="810" name="Woningen" id="2eadfce2-2942-4e0a-9483-7e4a216c9947"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="127" name="Utiliteiten" id="9c92cbe0-dbfe-448c-9259-9cce940a9bbe"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="27ce2ae7-4433-4d25-a091-6055021a5c06">
           <port xsi:type="esdl:InPort" name="InPort" id="b5304eac-f37e-44d4-a1a0-7f33b2d7fac2">
             <profile xsi:type="esdl:SingleValue" value="29677.8339" id="d2405c19-08c9-4364-8b7e-a02ac3709fbd">
@@ -1514,14 +1517,14 @@
           </port>
         </asset>
         <KPIs id="f9fc310a-aae7-40ae-ac9d-e4d0a302155b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="acc2a28e-5b65-4caf-b0bf-48750fcb4176"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="834f48b5-ca40-4634-b2bd-23de11e4adf3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1749492.61" id="db9564fe-7db3-4280-8b95-bd375941df99"/>
+          <kpi xsi:type="esdl:StringKPI" id="acc2a28e-5b65-4caf-b0bf-48750fcb4176" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="834f48b5-ca40-4634-b2bd-23de11e4adf3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="db9564fe-7db3-4280-8b95-bd375941df99" name="Maatschappelijke_kosten" value="1749492.61"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020404'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73f89da9-3626-4b27-89a2-07b230af33c0" numberOfBuildings="1620"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c827624d-2920-4e1d-9492-863529dca064" numberOfBuildings="256"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1620" name="Woningen" id="73f89da9-3626-4b27-89a2-07b230af33c0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="256" name="Utiliteiten" id="c827624d-2920-4e1d-9492-863529dca064"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4d05b759-4b3c-47b3-a424-40e815b3a1d1">
           <port xsi:type="esdl:InPort" name="InPort" id="e53ad108-ac64-4bbf-8692-ebf14bb5ba5b">
             <profile xsi:type="esdl:SingleValue" value="51560.6657" id="731c7592-9a12-4499-b493-1f5eead3453e">
@@ -1572,14 +1575,14 @@
           </port>
         </asset>
         <KPIs id="10c020a0-74c6-4dae-a85f-082ced13a5bb">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fd67a2b2-0a4b-4917-a898-6c553da5bb61"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="82ce285f-1eee-4fad-ba4f-8479282b9062"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3185206.07" id="229fe24a-dea9-4396-9f25-2fd849a84a87"/>
+          <kpi xsi:type="esdl:StringKPI" id="fd67a2b2-0a4b-4917-a898-6c553da5bb61" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="82ce285f-1eee-4fad-ba4f-8479282b9062" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="229fe24a-dea9-4396-9f25-2fd849a84a87" name="Maatschappelijke_kosten" value="3185206.07"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020405'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9163dbba-970e-4cae-b6dd-5b79176badbf" numberOfBuildings="2277"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60b63f3e-6bd0-4bcc-b527-4f49d1b256e8" numberOfBuildings="429"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2277" name="Woningen" id="9163dbba-970e-4cae-b6dd-5b79176badbf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="429" name="Utiliteiten" id="60b63f3e-6bd0-4bcc-b527-4f49d1b256e8"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e06daf67-4c09-4892-89d8-a3fc8eb10ead">
           <port xsi:type="esdl:InPort" name="InPort" id="8734bc4f-aba8-4a6b-ac53-9eed17f65837">
             <profile xsi:type="esdl:SingleValue" value="60993.1032" id="9efc8942-bce2-4434-baad-a71cb336614e">
@@ -1630,14 +1633,14 @@
           </port>
         </asset>
         <KPIs id="c304986f-4dbc-4770-901a-33eac2c54267">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="08216e88-2c0d-40a4-9f0f-bd6ca022347a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="47b09b67-d8b8-4a52-a0a9-1a20aa0148b3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3292513.24" id="fde91f96-7874-4f6f-83df-bdd775811c39"/>
+          <kpi xsi:type="esdl:StringKPI" id="08216e88-2c0d-40a4-9f0f-bd6ca022347a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="47b09b67-d8b8-4a52-a0a9-1a20aa0148b3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fde91f96-7874-4f6f-83df-bdd775811c39" name="Maatschappelijke_kosten" value="3292513.24"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020501'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7ccaf301-4513-49ce-8393-d9142be656d0" numberOfBuildings="1437"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="00461c1b-1326-4eda-9a7b-5a318c0f736b" numberOfBuildings="247"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1437" name="Woningen" id="7ccaf301-4513-49ce-8393-d9142be656d0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="247" name="Utiliteiten" id="00461c1b-1326-4eda-9a7b-5a318c0f736b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="10848e80-ebdb-48f5-add5-baf5922896d6">
           <port xsi:type="esdl:InPort" name="InPort" id="e93cc7df-7919-4628-aca7-469142d95a6c">
             <profile xsi:type="esdl:SingleValue" value="56105.6432" id="85ff1cb7-9473-457c-8a02-50de5c40ad79">
@@ -1688,14 +1691,14 @@
           </port>
         </asset>
         <KPIs id="b584c081-e831-4010-bca4-faea8c833c03">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1fa6056e-079b-4bb8-95d1-a8cf5551344a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="8f9ff45f-30c2-4f06-82ca-96ae237b54e7"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="5360172.69" id="dd578b03-708f-49c2-8a66-b01981cb47c9"/>
+          <kpi xsi:type="esdl:StringKPI" id="1fa6056e-079b-4bb8-95d1-a8cf5551344a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8f9ff45f-30c2-4f06-82ca-96ae237b54e7" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dd578b03-708f-49c2-8a66-b01981cb47c9" name="Maatschappelijke_kosten" value="5360172.69"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020502'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a5cf7139-0610-40c7-9d65-edfd5e47b203" numberOfBuildings="624"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f0448940-4dd0-4999-b1ac-164113f7954b" numberOfBuildings="51"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="624" name="Woningen" id="a5cf7139-0610-40c7-9d65-edfd5e47b203"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="f0448940-4dd0-4999-b1ac-164113f7954b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d5122833-26c5-4ee8-9e9d-118f5785ab85">
           <port xsi:type="esdl:InPort" name="InPort" id="dd5e2495-a1b6-4efc-9d05-7110e1426a5a">
             <profile xsi:type="esdl:SingleValue" value="22729.0371" id="79ca71ca-0772-4c10-94d1-0c134d566efd">
@@ -1746,14 +1749,14 @@
           </port>
         </asset>
         <KPIs id="963966cc-dbd3-4528-8ed9-bbc132350caf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bc7e0e23-7a34-4f66-8f3e-d6809f0eebf4"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7a98af31-948d-4870-bfaf-7f50792d55b8"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1544427.53" id="a4dee0b7-93dc-4a4a-afa2-d9442beef3ce"/>
+          <kpi xsi:type="esdl:StringKPI" id="bc7e0e23-7a34-4f66-8f3e-d6809f0eebf4" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7a98af31-948d-4870-bfaf-7f50792d55b8" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a4dee0b7-93dc-4a4a-afa2-d9442beef3ce" name="Maatschappelijke_kosten" value="1544427.53"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020503'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="89b30c57-9258-4a26-8452-05d5df9340c3" numberOfBuildings="240"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7e1e3bdc-adef-4380-8a0d-cc47e26b4d95" numberOfBuildings="155"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="240" name="Woningen" id="89b30c57-9258-4a26-8452-05d5df9340c3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Utiliteiten" id="7e1e3bdc-adef-4380-8a0d-cc47e26b4d95"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5dfe195c-0f1f-4b10-959b-01861a6ad39f">
           <port xsi:type="esdl:InPort" name="InPort" id="3c2f8fcb-617d-4b67-8d73-27ab55808af5">
             <profile xsi:type="esdl:SingleValue" value="8793.4007" id="755c8f1f-b04f-4eb0-849b-109a890c1ecf">
@@ -1804,14 +1807,14 @@
           </port>
         </asset>
         <KPIs id="2087b5e8-5cf2-4f84-bcbf-452dfc074d3c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="2bc525fc-305b-45fa-ac2a-ebce11282cb5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6fc13c73-550a-4a66-9826-15aa6998db2e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3076797.74" id="67695c8b-32e9-4346-afaa-01d86f7d6ee7"/>
+          <kpi xsi:type="esdl:StringKPI" id="2bc525fc-305b-45fa-ac2a-ebce11282cb5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6fc13c73-550a-4a66-9826-15aa6998db2e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="67695c8b-32e9-4346-afaa-01d86f7d6ee7" name="Maatschappelijke_kosten" value="3076797.74"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020504'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="29d62eed-848b-4975-93b4-de004f595cf4" numberOfBuildings="97"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d4066c40-1b20-4913-857f-e94898cdfe6c" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="97" name="Woningen" id="29d62eed-848b-4975-93b4-de004f595cf4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="d4066c40-1b20-4913-857f-e94898cdfe6c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="55b9d2dc-1629-4362-b968-602cf7575b87">
           <port xsi:type="esdl:InPort" name="InPort" id="dcd5dfd8-7633-4279-bbb8-a3cc46e87bc5">
             <profile xsi:type="esdl:SingleValue" value="5212.31401" id="07f26e82-fdcd-473b-a980-3415bddbbcef">
@@ -1862,14 +1865,14 @@
           </port>
         </asset>
         <KPIs id="ededfc3b-8f60-45aa-851f-3034b2e905d4">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="5c4d3c12-c783-4b79-bda1-4b9cdaea3646"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0278d216-7694-40c5-86b0-67f4d08aaab1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="504533.046" id="ed1730cb-36ec-4058-a195-c50928c5b63f"/>
+          <kpi xsi:type="esdl:StringKPI" id="5c4d3c12-c783-4b79-bda1-4b9cdaea3646" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0278d216-7694-40c5-86b0-67f4d08aaab1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ed1730cb-36ec-4058-a195-c50928c5b63f" name="Maatschappelijke_kosten" value="504533.046"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020505'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ea2ee7ef-0ff4-471a-88d4-17fe723574c6" numberOfBuildings="1933"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c3c85d8a-0855-4d0c-9b05-a9b5c7877996" numberOfBuildings="209"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1933" name="Woningen" id="ea2ee7ef-0ff4-471a-88d4-17fe723574c6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="209" name="Utiliteiten" id="c3c85d8a-0855-4d0c-9b05-a9b5c7877996"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="65823da0-d0b6-4beb-830d-959e3d0ff391">
           <port xsi:type="esdl:InPort" name="InPort" id="f5d217a0-ad06-4a34-aa43-ba01a6dc2d89">
             <profile xsi:type="esdl:SingleValue" value="44600.0435" id="207abf8b-0bbe-48e6-bf2c-edc079bfa26c">
@@ -1920,14 +1923,14 @@
           </port>
         </asset>
         <KPIs id="81bc8498-42f4-4859-aa3d-40e26bfb7bf2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="80af8800-546e-4413-ac75-c7162420de00"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="644e0d64-2c79-4e0e-b9ca-3c2cfd13a091"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2088735.6" id="d6e161c3-e364-4d00-99e4-e11688052858"/>
+          <kpi xsi:type="esdl:StringKPI" id="80af8800-546e-4413-ac75-c7162420de00" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="644e0d64-2c79-4e0e-b9ca-3c2cfd13a091" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d6e161c3-e364-4d00-99e4-e11688052858" name="Maatschappelijke_kosten" value="2088735.6"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020506'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84093a1e-72c0-4a8c-b382-9b3435023a8d"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="44ef3ec3-972f-4308-b3a0-0b21e12f02b1" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="44ef3ec3-972f-4308-b3a0-0b21e12f02b1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="45906952-7ac1-46f9-922c-07756ff30e2b">
           <port xsi:type="esdl:InPort" name="InPort" id="ca6abe31-86de-4093-b3fa-0b81e63712e8">
             <profile xsi:type="esdl:SingleValue" id="4debeee2-e222-4181-965a-85fbcef88e3c">
@@ -1978,14 +1981,14 @@
           </port>
         </asset>
         <KPIs id="85e6ebcc-c04f-4c81-a350-24c1f6dadfb8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6dd09e17-aaf5-48f7-89af-cc2ce0a45132"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ad555212-1cce-4059-ae79-24b8a95d5abf"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="50268.9533" id="ef5f2956-ff47-4a64-83c5-c819712c566f"/>
+          <kpi xsi:type="esdl:StringKPI" id="6dd09e17-aaf5-48f7-89af-cc2ce0a45132" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ad555212-1cce-4059-ae79-24b8a95d5abf" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ef5f2956-ff47-4a64-83c5-c819712c566f" name="Maatschappelijke_kosten" value="50268.9533"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020601'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="214087a5-9508-4953-b4bd-97ae3162a9b6" numberOfBuildings="1200"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0a419429-5089-4057-b2fc-63b190a824a0" numberOfBuildings="111"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1200" name="Woningen" id="214087a5-9508-4953-b4bd-97ae3162a9b6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="111" name="Utiliteiten" id="0a419429-5089-4057-b2fc-63b190a824a0"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="54fc3da1-5b5b-43ae-b202-d3f3b3f7a7f9">
           <port xsi:type="esdl:InPort" name="InPort" id="87fe982f-cc20-4647-ac85-3af8a66e8349">
             <profile xsi:type="esdl:SingleValue" value="36318.0494" id="f77210c9-f9e4-4e36-985f-429eb0d69ab3">
@@ -2036,14 +2039,14 @@
           </port>
         </asset>
         <KPIs id="479bf464-0256-471e-a25c-edb425c9dbbf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="72f9b8dd-fd86-4665-9365-60e2bbb0c550"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="00c457b3-70b7-413d-abce-84760972b826"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2809238.69" id="afdcecaf-191a-40e8-b4e4-f54ec1887c1a"/>
+          <kpi xsi:type="esdl:StringKPI" id="72f9b8dd-fd86-4665-9365-60e2bbb0c550" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="00c457b3-70b7-413d-abce-84760972b826" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="afdcecaf-191a-40e8-b4e4-f54ec1887c1a" name="Maatschappelijke_kosten" value="2809238.69"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020602'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3a169ea6-6abf-4b5b-93e4-732edbd0bbb1" numberOfBuildings="1066"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="12b1247d-fa4e-4f39-b86c-ae84cba31a27" numberOfBuildings="47"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1066" name="Woningen" id="3a169ea6-6abf-4b5b-93e4-732edbd0bbb1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="12b1247d-fa4e-4f39-b86c-ae84cba31a27"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="54a01dbf-3377-4159-a771-00783fd94c3c">
           <port xsi:type="esdl:InPort" name="InPort" id="4d7e5ef3-3e90-41b7-b1c8-596528cb19b6">
             <profile xsi:type="esdl:SingleValue" value="29766.6981" id="f0000cda-96ae-4268-859d-86a91844ee70">
@@ -2094,14 +2097,14 @@
           </port>
         </asset>
         <KPIs id="1b5c9475-c05a-483e-86ed-aecdfb9f80fa">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c98e47d1-66e5-4935-8cfd-4165ed0590d0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="5700db8f-e0b5-415a-b0d1-d3d54ac6d252"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2028557.08" id="ca606d28-5972-46c2-90d1-a7cae1fdb453"/>
+          <kpi xsi:type="esdl:StringKPI" id="c98e47d1-66e5-4935-8cfd-4165ed0590d0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5700db8f-e0b5-415a-b0d1-d3d54ac6d252" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ca606d28-5972-46c2-90d1-a7cae1fdb453" name="Maatschappelijke_kosten" value="2028557.08"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020603'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="73aab9f6-abe3-4920-881a-ee5b1ffb0024" numberOfBuildings="1916"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="88276a5f-11c7-4439-8b85-1ad854c3e63b" numberOfBuildings="142"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1916" name="Woningen" id="73aab9f6-abe3-4920-881a-ee5b1ffb0024"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="142" name="Utiliteiten" id="88276a5f-11c7-4439-8b85-1ad854c3e63b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fe437b9a-7885-4393-839b-63024d2101ef">
           <port xsi:type="esdl:InPort" name="InPort" id="7b05bb09-27dd-4b88-96dd-9044cd60e948">
             <profile xsi:type="esdl:SingleValue" value="51569.3427" id="19d214f2-e1e6-4347-b41e-01dece36eb27">
@@ -2152,14 +2155,14 @@
           </port>
         </asset>
         <KPIs id="fbf58509-7709-45dd-8b11-c5bf686be51c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="defa41e0-f4a0-491d-9bd0-7583ac2a619b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="da1136f3-77cd-4379-a5eb-6e7c07bce83f"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2930121.35" id="a2a3852b-856e-4ef6-b800-8692bf3fccf2"/>
+          <kpi xsi:type="esdl:StringKPI" id="defa41e0-f4a0-491d-9bd0-7583ac2a619b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="da1136f3-77cd-4379-a5eb-6e7c07bce83f" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a2a3852b-856e-4ef6-b800-8692bf3fccf2" name="Maatschappelijke_kosten" value="2930121.35"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020604'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cb89918a-3c42-4200-b7c1-b226163bc2dc" numberOfBuildings="2251"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f051e1c5-e70c-4c26-a276-23c149feb03c" numberOfBuildings="84"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2251" name="Woningen" id="cb89918a-3c42-4200-b7c1-b226163bc2dc"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="84" name="Utiliteiten" id="f051e1c5-e70c-4c26-a276-23c149feb03c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bf2262cb-1de9-4989-8303-ab591f972353">
           <port xsi:type="esdl:InPort" name="InPort" id="5b8745b7-15d7-42b7-9ee3-71775c7360db">
             <profile xsi:type="esdl:SingleValue" value="57926.9243" id="b7498453-e2b1-4076-80bf-c4151b3b23c8">
@@ -2210,14 +2213,14 @@
           </port>
         </asset>
         <KPIs id="bdb27b5d-b483-4408-bb82-edb89a536881">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b840a15d-ea03-48f0-b64e-f2d2c7e9aef3"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e6b0e78a-c004-4677-b1e5-813f925d8ada"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2870596.94" id="850e1054-e2db-406c-b1fb-785535bfb7b3"/>
+          <kpi xsi:type="esdl:StringKPI" id="b840a15d-ea03-48f0-b64e-f2d2c7e9aef3" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e6b0e78a-c004-4677-b1e5-813f925d8ada" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="850e1054-e2db-406c-b1fb-785535bfb7b3" name="Maatschappelijke_kosten" value="2870596.94"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020605'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e810adcf-9ed5-44f8-8668-93570e05dd8e" numberOfBuildings="2403"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b8a8845c-5734-4ed8-a3ec-bebbde300ea0" numberOfBuildings="226"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2403" name="Woningen" id="e810adcf-9ed5-44f8-8668-93570e05dd8e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="226" name="Utiliteiten" id="b8a8845c-5734-4ed8-a3ec-bebbde300ea0"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c2ded861-b586-408f-a1e1-4b59afff138a">
           <port xsi:type="esdl:InPort" name="InPort" id="945e8426-3432-4da6-bedf-43a95dffbca1">
             <profile xsi:type="esdl:SingleValue" value="73794.3787" id="9dc8d2d1-4d70-4e82-84fe-ff2d0063ac9c">
@@ -2268,14 +2271,14 @@
           </port>
         </asset>
         <KPIs id="490f1636-89be-4563-9636-12616709ea89">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="d10b34cb-b8fd-4e7a-8b6a-7c06a871fb00"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d69ecbd2-a554-4570-92fc-07f4f5b9ed6d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="4678601.06" id="270256a1-a47c-4466-9655-20e6a4312a84"/>
+          <kpi xsi:type="esdl:StringKPI" id="d10b34cb-b8fd-4e7a-8b6a-7c06a871fb00" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d69ecbd2-a554-4570-92fc-07f4f5b9ed6d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="270256a1-a47c-4466-9655-20e6a4312a84" name="Maatschappelijke_kosten" value="4678601.06"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020606'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d6998ba7-ceb2-4d84-9aa5-17af67605cd4" numberOfBuildings="204"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="323caafc-7dab-41f8-82c3-34446173d6c4" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="204" name="Woningen" id="d6998ba7-ceb2-4d84-9aa5-17af67605cd4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="323caafc-7dab-41f8-82c3-34446173d6c4"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="73dc01d8-6de3-42f9-8256-76c0a837f797">
           <port xsi:type="esdl:InPort" name="InPort" id="85da8ca5-1e02-44c9-b382-4d78a584c17a">
             <profile xsi:type="esdl:SingleValue" value="5913.81136" id="0bf1f56a-bfc7-466b-ba3b-949f96e3d424">
@@ -2326,14 +2329,14 @@
           </port>
         </asset>
         <KPIs id="a4ff4c0a-db17-4fe1-bdff-5e7548dcea48">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6c140e8a-4ae0-496d-9aa0-a70be876e4eb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f55b2807-2df0-4643-b5a1-44e4e18b595e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="279946.255" id="d76a3d1e-e426-4fe3-8624-dad9619be354"/>
+          <kpi xsi:type="esdl:StringKPI" id="6c140e8a-4ae0-496d-9aa0-a70be876e4eb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f55b2807-2df0-4643-b5a1-44e4e18b595e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d76a3d1e-e426-4fe3-8624-dad9619be354" name="Maatschappelijke_kosten" value="279946.255"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020701'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="817eeb2e-053d-4cd3-b6d0-a9ac2c045a5c" numberOfBuildings="890"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="abf324be-6c74-4cc2-a56c-43844153d3f2" numberOfBuildings="38"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="890" name="Woningen" id="817eeb2e-053d-4cd3-b6d0-a9ac2c045a5c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Utiliteiten" id="abf324be-6c74-4cc2-a56c-43844153d3f2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d509de72-b585-48bf-a40a-975bf6a078ca">
           <port xsi:type="esdl:InPort" name="InPort" id="48752362-fc6f-477a-ad97-a2866876a3f2">
             <profile xsi:type="esdl:SingleValue" value="31019.7828" id="fccfe12e-b98b-4766-9efb-e5582e36eac9">
@@ -2384,14 +2387,14 @@
           </port>
         </asset>
         <KPIs id="9eacb055-5cdd-4e36-bc2b-651ae07fdd95">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e0fc686e-75eb-464f-b6a3-49722763be68"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="cabdc693-bac8-43e9-ad86-b2035a767e68"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2322982.8" id="9991c9a7-0064-4458-97d7-e26995c2a08c"/>
+          <kpi xsi:type="esdl:StringKPI" id="e0fc686e-75eb-464f-b6a3-49722763be68" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cabdc693-bac8-43e9-ad86-b2035a767e68" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9991c9a7-0064-4458-97d7-e26995c2a08c" name="Maatschappelijke_kosten" value="2322982.8"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020702'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2ae36fa4-1370-494d-82e7-e04a0812dc94" numberOfBuildings="767"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9274a486-289f-4181-a6d0-5c5223256d6b" numberOfBuildings="82"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="767" name="Woningen" id="2ae36fa4-1370-494d-82e7-e04a0812dc94"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="82" name="Utiliteiten" id="9274a486-289f-4181-a6d0-5c5223256d6b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f7249794-c921-408e-ac56-96dc5e76443f">
           <port xsi:type="esdl:InPort" name="InPort" id="c2be51c3-fbaa-4013-bcf9-bc8b63fa1c2c">
             <profile xsi:type="esdl:SingleValue" value="24615.7487" id="52eff6da-e4a5-4d26-996c-cad2bbb34a9d">
@@ -2442,14 +2445,14 @@
           </port>
         </asset>
         <KPIs id="8860321f-4c0e-4e6e-a559-c261e32ae699">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="def36851-d434-4210-b1b1-dc193b82eac2"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f9553fc1-4b2c-4d79-88cd-5ee33f75064d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1572222.11" id="8be3dc88-a38d-4a59-80d8-b23ef709cbcd"/>
+          <kpi xsi:type="esdl:StringKPI" id="def36851-d434-4210-b1b1-dc193b82eac2" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f9553fc1-4b2c-4d79-88cd-5ee33f75064d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8be3dc88-a38d-4a59-80d8-b23ef709cbcd" name="Maatschappelijke_kosten" value="1572222.11"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020703'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d3a2dccf-836b-4954-a2dd-dbaa3ee802f8" numberOfBuildings="3684"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f18bef09-296a-4e97-8af0-1ab36d5979b9" numberOfBuildings="276"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3684" name="Woningen" id="d3a2dccf-836b-4954-a2dd-dbaa3ee802f8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="276" name="Utiliteiten" id="f18bef09-296a-4e97-8af0-1ab36d5979b9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3216a280-6dd9-44ba-9e52-a3b2c3a2e0dd">
           <port xsi:type="esdl:InPort" name="InPort" id="9af23175-e972-4b9b-8a35-3b8661d5be7f">
             <profile xsi:type="esdl:SingleValue" value="95280.0374" id="c6670358-4f2d-4bd4-9a13-bc39605bb329">
@@ -2500,14 +2503,14 @@
           </port>
         </asset>
         <KPIs id="baa82589-506c-4776-99bc-3bf845923c97">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="beb0d6fd-bde8-46be-9476-510a6297025a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a4c4dc61-8558-4bd9-9b9b-77dba2c43a78"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="5124973.66" id="95e50c09-34de-457a-b37e-7fc169083419"/>
+          <kpi xsi:type="esdl:StringKPI" id="beb0d6fd-bde8-46be-9476-510a6297025a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a4c4dc61-8558-4bd9-9b9b-77dba2c43a78" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="95e50c09-34de-457a-b37e-7fc169083419" name="Maatschappelijke_kosten" value="5124973.66"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020704'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e0e5db84-02be-4834-b22e-b53b202dbeba" numberOfBuildings="9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="93200182-0759-4e75-af4e-6639f421d55e" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="9" name="Woningen" id="e0e5db84-02be-4834-b22e-b53b202dbeba"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="93200182-0759-4e75-af4e-6639f421d55e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c08bb831-ae0d-4033-951f-15e663385e92">
           <port xsi:type="esdl:InPort" name="InPort" id="1a23124f-2eee-4ce9-b81f-c545be603eb8">
             <profile xsi:type="esdl:SingleValue" value="471.756956" id="7f3795c9-16d2-48b7-a30d-0dee6d052d6c">
@@ -2558,14 +2561,14 @@
           </port>
         </asset>
         <KPIs id="f6a1ae89-6b45-4bae-abe4-80424e318e75">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="dd069f18-95fb-4439-846d-78e7671a367a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="85f4a364-b6f8-4ad4-b22b-0ba40837f28c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="85951.8742" id="6ccb9948-7508-40dc-9a5a-ef80a06f44e9"/>
+          <kpi xsi:type="esdl:StringKPI" id="dd069f18-95fb-4439-846d-78e7671a367a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="85f4a364-b6f8-4ad4-b22b-0ba40837f28c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6ccb9948-7508-40dc-9a5a-ef80a06f44e9" name="Maatschappelijke_kosten" value="85951.8742"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020801'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="11dc7d8e-90ec-4674-94ad-80a1db0d3a64" numberOfBuildings="1827"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="40ba5bcf-957d-460c-b70b-a6342cece0ef" numberOfBuildings="86"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1827" name="Woningen" id="11dc7d8e-90ec-4674-94ad-80a1db0d3a64"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="86" name="Utiliteiten" id="40ba5bcf-957d-460c-b70b-a6342cece0ef"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="50d613de-5bb5-45a8-817c-99f25a6d6640">
           <port xsi:type="esdl:InPort" name="InPort" id="576f3959-1d47-44c4-9fe6-bc37d957aa04">
             <profile xsi:type="esdl:SingleValue" value="56953.2684" id="78911b20-04fe-49d0-be03-33776c96757a">
@@ -2616,14 +2619,14 @@
           </port>
         </asset>
         <KPIs id="4967dd05-5514-45c8-a410-c4dc4b229f77">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3e62eb9e-b175-496c-a25f-b81562914a09"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a1f84943-2d02-43ca-8c3d-044305da482b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3135963.67" id="3931b72c-19c8-4a3f-b2cb-ad3e5b03d642"/>
+          <kpi xsi:type="esdl:StringKPI" id="3e62eb9e-b175-496c-a25f-b81562914a09" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a1f84943-2d02-43ca-8c3d-044305da482b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3931b72c-19c8-4a3f-b2cb-ad3e5b03d642" name="Maatschappelijke_kosten" value="3135963.67"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020901'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cedcc7f1-f2cf-425a-924b-f50f325afc44" numberOfBuildings="12"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="deb7ce36-22e7-4cce-9765-77e76f7e8257" numberOfBuildings="22"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Woningen" id="cedcc7f1-f2cf-425a-924b-f50f325afc44"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="22" name="Utiliteiten" id="deb7ce36-22e7-4cce-9765-77e76f7e8257"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ad4ceb3-3488-488a-a228-57496c23b21f">
           <port xsi:type="esdl:InPort" name="InPort" id="dcc3af7c-7db3-401d-8130-c7cdcf81cb4d">
             <profile xsi:type="esdl:SingleValue" value="574.024295" id="dc17b8ff-6598-4197-85ff-f3966eca4022">
@@ -2674,14 +2677,14 @@
           </port>
         </asset>
         <KPIs id="43b96b87-cb56-4bf2-a1e9-28da347d73fd">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c1153125-2aa9-4236-b6c2-ca019fac4e37"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="654c99c4-c04b-4bdf-80e2-ead70e73df3b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="442038.672" id="c6e56052-968b-42c9-bd80-9002498480de"/>
+          <kpi xsi:type="esdl:StringKPI" id="c1153125-2aa9-4236-b6c2-ca019fac4e37" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="654c99c4-c04b-4bdf-80e2-ead70e73df3b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c6e56052-968b-42c9-bd80-9002498480de" name="Maatschappelijke_kosten" value="442038.672"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020902'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a04a721f-c521-4c75-9b07-0fbbab39a009"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a0ba6eea-1082-4dc3-aca0-8c7cee171705" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="a0ba6eea-1082-4dc3-aca0-8c7cee171705"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e102cb60-d051-4c46-8945-215db3566c1f">
           <port xsi:type="esdl:InPort" name="InPort" id="050c3acd-0eb5-4cda-a68c-d9d3d98fdbff">
             <profile xsi:type="esdl:SingleValue" id="0912500a-c5a8-4e8c-971b-90519fb4460c">
@@ -2732,14 +2735,14 @@
           </port>
         </asset>
         <KPIs id="587c2c1d-d4d0-4c98-907c-46e1c2e38523">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="107099ff-281f-421e-992a-3e2f1ae25b40"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="63e2c989-38e7-460c-bed7-4b8f06984283"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="54601.2901" id="84688993-0649-4f07-90a4-949fd56dd45d"/>
+          <kpi xsi:type="esdl:StringKPI" id="107099ff-281f-421e-992a-3e2f1ae25b40" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="63e2c989-38e7-460c-bed7-4b8f06984283" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="84688993-0649-4f07-90a4-949fd56dd45d" name="Maatschappelijke_kosten" value="54601.2901"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020903'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5c9cddd5-1e8b-437b-bf2f-8bd22e45bf38" numberOfBuildings="19"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fcbc4b1c-d1b7-401b-8a6e-a1ad01943092" numberOfBuildings="35"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Woningen" id="5c9cddd5-1e8b-437b-bf2f-8bd22e45bf38"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="35" name="Utiliteiten" id="fcbc4b1c-d1b7-401b-8a6e-a1ad01943092"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c8731d4f-509d-4e05-b368-0252495fb400">
           <port xsi:type="esdl:InPort" name="InPort" id="2aee7fb7-8802-43c0-9ab2-3da0e9b2f641">
             <profile xsi:type="esdl:SingleValue" value="787.445027" id="eed3d9a4-89e9-4f80-934b-96c89d236721">
@@ -2790,14 +2793,14 @@
           </port>
         </asset>
         <KPIs id="91c38fea-d65b-4a01-9f9b-2de2e4e18abc">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="d475e189-9650-44a3-ba70-79af4fada08b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="98978b54-570b-4d93-af20-7861ccb6fd78"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="936926.904" id="7a7d843d-0f28-4238-bf26-b7deff3ea291"/>
+          <kpi xsi:type="esdl:StringKPI" id="d475e189-9650-44a3-ba70-79af4fada08b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="98978b54-570b-4d93-af20-7861ccb6fd78" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7a7d843d-0f28-4238-bf26-b7deff3ea291" name="Maatschappelijke_kosten" value="936926.904"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020904'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="72c98c21-e624-415e-9832-0f27d22f9823" numberOfBuildings="37"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d21caf80-85c6-4468-aa66-77198d938d0c" numberOfBuildings="13"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="37" name="Woningen" id="72c98c21-e624-415e-9832-0f27d22f9823"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="13" name="Utiliteiten" id="d21caf80-85c6-4468-aa66-77198d938d0c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a0b501ab-5c8f-4f10-827c-4dcc8bfbb352">
           <port xsi:type="esdl:InPort" name="InPort" id="a66f6dd4-7bfb-4e46-a771-615dff1c999f">
             <profile xsi:type="esdl:SingleValue" value="1859.26003" id="507ea137-54cd-498c-bbd9-89bf82bfc4a1">
@@ -2848,14 +2851,14 @@
           </port>
         </asset>
         <KPIs id="9439093d-dc30-4246-9031-eb2ccdef3e5c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="2c51a954-9187-4504-bdf9-efc54bccbce4"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0d6c7b65-d96e-4a08-a6d2-f219a1fe7cb1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="376988.681" id="7eeeae25-2a9c-4d87-a6ae-9db0bcf8ac19"/>
+          <kpi xsi:type="esdl:StringKPI" id="2c51a954-9187-4504-bdf9-efc54bccbce4" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0d6c7b65-d96e-4a08-a6d2-f219a1fe7cb1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7eeeae25-2a9c-4d87-a6ae-9db0bcf8ac19" name="Maatschappelijke_kosten" value="376988.681"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020905'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1e3b5f3a-b7b2-4026-9cc7-d12f865580f5" numberOfBuildings="134"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="95b74664-d634-4eb2-9574-3a1a5872fecf" numberOfBuildings="87"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="134" name="Woningen" id="1e3b5f3a-b7b2-4026-9cc7-d12f865580f5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="95b74664-d634-4eb2-9574-3a1a5872fecf"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="89f1d40e-3258-4c67-953b-323ddfb25251">
           <port xsi:type="esdl:InPort" name="InPort" id="49221f37-a725-4914-9967-86709f670926">
             <profile xsi:type="esdl:SingleValue" value="4559.80346" id="b5888df2-3749-44e2-a864-f95976534522">
@@ -2906,14 +2909,14 @@
           </port>
         </asset>
         <KPIs id="c3609e62-e984-466a-9aed-903ba88cc42f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fa1d64d2-a30e-43d8-bb6c-07c4fd97684a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7f1f0a24-9113-4157-8445-f26815afaec1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1410634.74" id="3eb1b9d0-4469-4046-8093-9ec6aa2cc34d"/>
+          <kpi xsi:type="esdl:StringKPI" id="fa1d64d2-a30e-43d8-bb6c-07c4fd97684a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7f1f0a24-9113-4157-8445-f26815afaec1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3eb1b9d0-4469-4046-8093-9ec6aa2cc34d" name="Maatschappelijke_kosten" value="1410634.74"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020906'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e5cf75c5-9098-4d4b-8ecf-865ae6c74876" numberOfBuildings="6"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f43fa47b-c414-4286-8fd8-57bf19a5390a" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Woningen" id="e5cf75c5-9098-4d4b-8ecf-865ae6c74876"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="f43fa47b-c414-4286-8fd8-57bf19a5390a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1fbd6465-485e-41d1-9ffc-526627f65705">
           <port xsi:type="esdl:InPort" name="InPort" id="ab2451aa-27b3-4aae-b38e-c2b0b50338da">
             <profile xsi:type="esdl:SingleValue" value="331.881863" id="0eb14461-0e3b-4a61-b046-ae3141f7d9ca">
@@ -2964,14 +2967,14 @@
           </port>
         </asset>
         <KPIs id="e013897d-47fd-475e-9204-b09c0229c1a9">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="304dc37d-3c2f-4ac6-9cd0-d69c6a3077b5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="2c52352d-731d-462f-832c-97ab40732c58"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="77778.6771" id="ae62fb8f-bf30-4d02-b67e-1a09ba88488b"/>
+          <kpi xsi:type="esdl:StringKPI" id="304dc37d-3c2f-4ac6-9cd0-d69c6a3077b5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2c52352d-731d-462f-832c-97ab40732c58" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ae62fb8f-bf30-4d02-b67e-1a09ba88488b" name="Maatschappelijke_kosten" value="77778.6771"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04020907'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bfdfbe8b-2330-4955-8788-a23e4953ae97" numberOfBuildings="4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ed0ca48c-37b2-4196-a7cc-f01cad8faed2" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="bfdfbe8b-2330-4955-8788-a23e4953ae97"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="ed0ca48c-37b2-4196-a7cc-f01cad8faed2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="39ff1ee1-bb28-4a34-8fb1-39c51a148355">
           <port xsi:type="esdl:InPort" name="InPort" id="019cdc43-b75e-471b-94bc-0348e178178c">
             <profile xsi:type="esdl:SingleValue" value="193.282714" id="f522bb32-f47b-462b-b081-03d2aa950203">
@@ -3022,14 +3025,14 @@
           </port>
         </asset>
         <KPIs id="a9b3b1f1-1822-4d65-b532-7f020d5e899e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fa1b6423-195a-4003-909e-abd7d8366db6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="db1af6a3-3be2-44bc-9ab1-1a85bb811685"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="61441.6219" id="f4412a81-34f3-4dc6-9f2e-0c1262d91bfe"/>
+          <kpi xsi:type="esdl:StringKPI" id="fa1b6423-195a-4003-909e-abd7d8366db6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="db1af6a3-3be2-44bc-9ab1-1a85bb811685" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f4412a81-34f3-4dc6-9f2e-0c1262d91bfe" name="Maatschappelijke_kosten" value="61441.6219"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060001'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5b2779df-71dd-47df-b8d8-62f99c869762" numberOfBuildings="1673"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ced3d601-d2ce-45cb-80a8-7c800c509e90" numberOfBuildings="229"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1673" name="Woningen" id="5b2779df-71dd-47df-b8d8-62f99c869762"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="229" name="Utiliteiten" id="ced3d601-d2ce-45cb-80a8-7c800c509e90"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e63cb4db-c272-4ff5-96c5-5df2ec8f0d2c">
           <port xsi:type="esdl:InPort" name="InPort" id="a76ad7f0-b330-433b-97f7-d82298056c1c">
             <profile xsi:type="esdl:SingleValue" value="53921.8674" id="350d5211-eba5-4141-a2c0-387775b83357">
@@ -3080,14 +3083,14 @@
           </port>
         </asset>
         <KPIs id="81601a8e-2d6d-44b8-986a-1e09ac569303">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="79ab89af-df12-4a1e-82d8-e21c8bd76de6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f9cce6b0-f4a5-4481-a96f-fb4e64de04c6"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3706119.48" id="fcaaaa1a-f56f-4f4d-9fc8-6f7c50ffb505"/>
+          <kpi xsi:type="esdl:StringKPI" id="79ab89af-df12-4a1e-82d8-e21c8bd76de6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f9cce6b0-f4a5-4481-a96f-fb4e64de04c6" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fcaaaa1a-f56f-4f4d-9fc8-6f7c50ffb505" name="Maatschappelijke_kosten" value="3706119.48"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060002'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bde105fe-78db-4da3-9561-78ca949d3556" numberOfBuildings="1250"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ee438c52-fa3e-4ba3-a27d-ce6b23be27da" numberOfBuildings="66"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1250" name="Woningen" id="bde105fe-78db-4da3-9561-78ca949d3556"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="66" name="Utiliteiten" id="ee438c52-fa3e-4ba3-a27d-ce6b23be27da"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="aa931f10-5205-428a-8db8-a44bffb05d2a">
           <port xsi:type="esdl:InPort" name="InPort" id="9ac7b038-64b8-434c-998f-6296fa807897">
             <profile xsi:type="esdl:SingleValue" value="41222.9357" id="3bdf3fa3-c2ea-4892-af97-844e6de3f321">
@@ -3138,14 +3141,14 @@
           </port>
         </asset>
         <KPIs id="56c2ab4a-e283-481b-ac89-522036a7ff26">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="60bc8378-4464-4143-9706-7cb552409028"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="5d076f0e-722f-42de-8201-11bf6f0512b5"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2611745.08" id="1ebaafcb-ab00-4e7c-bd82-6b6cacfd0dcc"/>
+          <kpi xsi:type="esdl:StringKPI" id="60bc8378-4464-4143-9706-7cb552409028" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5d076f0e-722f-42de-8201-11bf6f0512b5" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1ebaafcb-ab00-4e7c-bd82-6b6cacfd0dcc" name="Maatschappelijke_kosten" value="2611745.08"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="10634222-1af0-45f2-86ce-13a4f3ea7325" numberOfBuildings="1008"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a17a62ab-560b-4b6d-9a67-b6f1a6c36b00" numberOfBuildings="34"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1008" name="Woningen" id="10634222-1af0-45f2-86ce-13a4f3ea7325"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="a17a62ab-560b-4b6d-9a67-b6f1a6c36b00"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d0e8e532-3741-488e-8e48-37aab65aea5b">
           <port xsi:type="esdl:InPort" name="InPort" id="7e173fa0-ac27-4a3d-9260-2e94da39da66">
             <profile xsi:type="esdl:SingleValue" value="36211.2267" id="9092de91-235e-4891-8d71-6592a3ac5fca">
@@ -3196,14 +3199,14 @@
           </port>
         </asset>
         <KPIs id="d0a9906b-4e3b-4b2d-b32d-408ca00da90b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="5078ef71-6955-4416-b73e-9fe704b75de9"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="92fbc99c-832c-48cd-9d26-9a248cf5bf66"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2332887.46" id="c3539ed5-235a-41fb-815a-bf11dc36f850"/>
+          <kpi xsi:type="esdl:StringKPI" id="5078ef71-6955-4416-b73e-9fe704b75de9" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="92fbc99c-832c-48cd-9d26-9a248cf5bf66" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c3539ed5-235a-41fb-815a-bf11dc36f850" name="Maatschappelijke_kosten" value="2332887.46"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060204'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fedb9911-c523-41f3-8ae7-c8cb8fc3ebd5" numberOfBuildings="94"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0aa2bf29-946e-413f-841b-471f61ca644a" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="94" name="Woningen" id="fedb9911-c523-41f3-8ae7-c8cb8fc3ebd5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="0aa2bf29-946e-413f-841b-471f61ca644a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="897bebf1-a930-4082-bb11-563b1f504cdf">
           <port xsi:type="esdl:InPort" name="InPort" id="4361cf03-626b-4626-b5f8-ef2f58883f07">
             <profile xsi:type="esdl:SingleValue" value="5172.76544" id="b9c1774e-f338-4ac3-a10e-663b0efc59b6">
@@ -3254,14 +3257,14 @@
           </port>
         </asset>
         <KPIs id="7992b26d-6dba-47e9-a422-a6e30a310995">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="aabee1f4-6a18-4c73-90b4-e652a0956ad0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ab4efc10-3f0f-4abf-a985-7fd736e16e66"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="486093.027" id="37e04840-afa4-4521-b92f-d803bb1981cc"/>
+          <kpi xsi:type="esdl:StringKPI" id="aabee1f4-6a18-4c73-90b4-e652a0956ad0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ab4efc10-3f0f-4abf-a985-7fd736e16e66" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="37e04840-afa4-4521-b92f-d803bb1981cc" name="Maatschappelijke_kosten" value="486093.027"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060205'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0a85b5a0-bf5b-4b92-9d40-44fb3eb167a6" numberOfBuildings="109"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="913d5438-e64a-44aa-a654-67a77b84cf38" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Woningen" id="0a85b5a0-bf5b-4b92-9d40-44fb3eb167a6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="913d5438-e64a-44aa-a654-67a77b84cf38"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="84b85d91-2776-48b0-8250-61b52ea5b4ad">
           <port xsi:type="esdl:InPort" name="InPort" id="09655af9-17a7-470a-8e24-dfc3e5e4a2f4">
             <profile xsi:type="esdl:SingleValue" value="5292.42189" id="7e383aab-e07c-4621-85c4-290cfbb2cfdf">
@@ -3312,14 +3315,14 @@
           </port>
         </asset>
         <KPIs id="3f709d11-46c1-4396-879c-c955758c0a23">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="84bf5e08-552b-4adf-89e6-db4cc982f68d"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="92a2b60a-a9f7-4618-b04a-ca32108a98c3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="535007.569" id="fd86fde5-f520-4f84-b7bb-e468db23178a"/>
+          <kpi xsi:type="esdl:StringKPI" id="84bf5e08-552b-4adf-89e6-db4cc982f68d" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="92a2b60a-a9f7-4618-b04a-ca32108a98c3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fd86fde5-f520-4f84-b7bb-e468db23178a" name="Maatschappelijke_kosten" value="535007.569"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060206'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9ef6293b-2d11-4555-bb47-7c88a053ee72" numberOfBuildings="149"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f934e767-1085-4118-becc-e5bef3841a1a" numberOfBuildings="16"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="149" name="Woningen" id="9ef6293b-2d11-4555-bb47-7c88a053ee72"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="f934e767-1085-4118-becc-e5bef3841a1a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1277e309-45d1-4758-8bf9-9be1d987d5b8">
           <port xsi:type="esdl:InPort" name="InPort" id="46e4a990-2dc8-47b6-8ee9-d3f0bf37a9f2">
             <profile xsi:type="esdl:SingleValue" value="8120.03986" id="148f5de2-6288-4c83-9615-cf395a323184">
@@ -3370,14 +3373,14 @@
           </port>
         </asset>
         <KPIs id="1424ba5c-389a-4778-a6df-e41ee68235e2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e12ed211-a232-4781-acea-7d732654ef89"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="dda4282e-f9fa-4a18-9926-a0f80a50444f"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1088128.23" id="accae0cb-949b-4ffe-aeb7-5577acde4b83"/>
+          <kpi xsi:type="esdl:StringKPI" id="e12ed211-a232-4781-acea-7d732654ef89" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dda4282e-f9fa-4a18-9926-a0f80a50444f" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="accae0cb-949b-4ffe-aeb7-5577acde4b83" name="Maatschappelijke_kosten" value="1088128.23"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060307'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b1ce37a4-1fd1-472a-bc03-c89f5f2a549e" numberOfBuildings="32"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b026dc64-c15a-4bf1-8547-65e8aa3bc012" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="32" name="Woningen" id="b1ce37a4-1fd1-472a-bc03-c89f5f2a549e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="b026dc64-c15a-4bf1-8547-65e8aa3bc012"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3a71abc2-7f11-4c43-85b9-19c0c08211eb">
           <port xsi:type="esdl:InPort" name="InPort" id="5a1226d0-6fa4-4796-b5dd-7579cc76f280">
             <profile xsi:type="esdl:SingleValue" value="1619.70548" id="e8a3aa0b-3ef0-4387-9e91-ac8b604e56a9">
@@ -3428,14 +3431,14 @@
           </port>
         </asset>
         <KPIs id="84c4961c-12a0-49cd-ba13-823dc808756f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ca7f0ff7-c7a8-4d46-8c24-7098d3df031c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3e9855e6-1aa2-472f-96f3-56c09d1c3573"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="172580.99" id="05671324-dfb2-4bb4-92dd-bb0cc6e9ecbe"/>
+          <kpi xsi:type="esdl:StringKPI" id="ca7f0ff7-c7a8-4d46-8c24-7098d3df031c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3e9855e6-1aa2-472f-96f3-56c09d1c3573" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="05671324-dfb2-4bb4-92dd-bb0cc6e9ecbe" name="Maatschappelijke_kosten" value="172580.99"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060308'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9349c8c8-cbf2-4204-b01b-c83efcfa9a1b" numberOfBuildings="63"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1b05f1fc-078a-458c-b820-72716bd3d432" numberOfBuildings="6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="63" name="Woningen" id="9349c8c8-cbf2-4204-b01b-c83efcfa9a1b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Utiliteiten" id="1b05f1fc-078a-458c-b820-72716bd3d432"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8a370605-02b7-493c-a9ac-802c399e0c69">
           <port xsi:type="esdl:InPort" name="InPort" id="f36a4c61-617c-4841-938f-197b97841010">
             <profile xsi:type="esdl:SingleValue" value="3348.25342" id="3280c156-4878-4dd9-903a-1da396bf6b9b">
@@ -3486,14 +3489,14 @@
           </port>
         </asset>
         <KPIs id="2e2e7e87-a81b-49c6-a99f-487b754e6a8b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="84631117-5d34-4d17-a002-f0c1420f99ca"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d91dd24d-cbfa-4cfe-a1f2-733225b8b383"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="290250.167" id="c71a688d-1c71-4ae3-b7da-405341c394f7"/>
+          <kpi xsi:type="esdl:StringKPI" id="84631117-5d34-4d17-a002-f0c1420f99ca" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d91dd24d-cbfa-4cfe-a1f2-733225b8b383" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c71a688d-1c71-4ae3-b7da-405341c394f7" name="Maatschappelijke_kosten" value="290250.167"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060327'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d40e35a8-8127-4f14-a51a-153234a15802" numberOfBuildings="7"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6ce70b11-60ee-43b2-9595-751dd97e0f89" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Woningen" id="d40e35a8-8127-4f14-a51a-153234a15802"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="6ce70b11-60ee-43b2-9595-751dd97e0f89"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9f00dd5c-e1dc-40e2-af5c-20b16773b9ac">
           <port xsi:type="esdl:InPort" name="InPort" id="12e1b4cb-c453-4acc-9530-a29f81124f06">
             <profile xsi:type="esdl:SingleValue" value="371.472758" id="e92184a7-ac01-45ba-9987-e3b7c714c873">
@@ -3544,14 +3547,14 @@
           </port>
         </asset>
         <KPIs id="f8cc3e3b-8add-4c0a-a61e-ee214c3f3c72">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bce824d3-46f7-4279-b71e-41f10cafc842"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7322519a-1062-49d3-a71b-11075c778888"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="64771.9585" id="626d19a7-8108-4d0d-b6ae-e9257ea668a2"/>
+          <kpi xsi:type="esdl:StringKPI" id="bce824d3-46f7-4279-b71e-41f10cafc842" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7322519a-1062-49d3-a71b-11075c778888" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="626d19a7-8108-4d0d-b6ae-e9257ea668a2" name="Maatschappelijke_kosten" value="64771.9585"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060328'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="edc1f675-d380-4563-99df-20610025df4a" numberOfBuildings="1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="97c8cb3c-d1a2-4c2e-bfe2-edc0a127af91" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="edc1f675-d380-4563-99df-20610025df4a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="97c8cb3c-d1a2-4c2e-bfe2-edc0a127af91"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d78a70b3-2893-4675-8707-1089aeb53c1c">
           <port xsi:type="esdl:InPort" name="InPort" id="4a6f0fa3-9db4-4a28-a2dc-89dca5a2aa6a">
             <profile xsi:type="esdl:SingleValue" value="58.8603755" id="aaefe4aa-c6ad-48c3-a2c3-dea047330532">
@@ -3602,14 +3605,14 @@
           </port>
         </asset>
         <KPIs id="e70dbf1a-53ce-43b1-92b2-e11b3ef45a4e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e68a3d28-d467-43cd-8c89-b9e81799a451"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="895522ff-9858-40a6-927e-75bd23411609"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="8799.471" id="1545a45e-a6d6-4bda-9557-7b4e85220f9b"/>
+          <kpi xsi:type="esdl:StringKPI" id="e68a3d28-d467-43cd-8c89-b9e81799a451" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="895522ff-9858-40a6-927e-75bd23411609" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1545a45e-a6d6-4bda-9557-7b4e85220f9b" name="Maatschappelijke_kosten" value="8799.471"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060329'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="67ac0591-2380-426a-baf0-8cc94d256458" numberOfBuildings="4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="756ff652-ff09-49f1-80f3-20c66f005b93" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="67ac0591-2380-426a-baf0-8cc94d256458"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="756ff652-ff09-49f1-80f3-20c66f005b93"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b9367d14-f74e-40d7-be4d-7f36d2cd871d">
           <port xsi:type="esdl:InPort" name="InPort" id="c23c250a-c4c7-4437-891a-4e09607033eb">
             <profile xsi:type="esdl:SingleValue" value="163.316272" id="57ac286d-7aad-407a-bf25-f75de9bd7eb9">
@@ -3660,14 +3663,14 @@
           </port>
         </asset>
         <KPIs id="ab2481b2-f4ca-40f1-9658-7012ef625e55">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="77802ed9-8e73-4e10-9a2f-971dfc8da48e"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="fcbaf458-4c0f-4858-b9a9-7330102ed40b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="73276.2885" id="4625b57e-0479-4b37-841e-d428900c3be8"/>
+          <kpi xsi:type="esdl:StringKPI" id="77802ed9-8e73-4e10-9a2f-971dfc8da48e" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fcbaf458-4c0f-4858-b9a9-7330102ed40b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="4625b57e-0479-4b37-841e-d428900c3be8" name="Maatschappelijke_kosten" value="73276.2885"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060330'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="edbaf380-2d6c-4ce0-ae13-a2ac58b69bc0" numberOfBuildings="42"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="aa71e152-df29-4a0c-bfc0-3612909e7c1e" numberOfBuildings="2"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="42" name="Woningen" id="edbaf380-2d6c-4ce0-ae13-a2ac58b69bc0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" name="Utiliteiten" id="aa71e152-df29-4a0c-bfc0-3612909e7c1e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e728b465-89d9-429c-8384-edca94d2a860">
           <port xsi:type="esdl:InPort" name="InPort" id="b948fb81-446c-44b7-a247-128147c7fcfb">
             <profile xsi:type="esdl:SingleValue" value="1913.05287" id="b8f78ae4-6938-48ca-af60-6d5e8f67251a">
@@ -3718,14 +3721,14 @@
           </port>
         </asset>
         <KPIs id="c16346d0-6b64-4269-b21c-b29781fc9c18">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="888de0da-05c1-45cf-a328-fd8a969a3fba"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f4f7dda5-f956-480d-a04a-f8d86575ff33"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="155963.153" id="f67d496e-d908-4835-81fb-3f27fc30bf51"/>
+          <kpi xsi:type="esdl:StringKPI" id="888de0da-05c1-45cf-a328-fd8a969a3fba" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f4f7dda5-f956-480d-a04a-f8d86575ff33" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f67d496e-d908-4835-81fb-3f27fc30bf51" name="Maatschappelijke_kosten" value="155963.153"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060409'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f50dc54b-5e53-4c21-b5b0-3b710bf23019" numberOfBuildings="244"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="43627b27-8a0b-4648-af7d-4face8ba7f45" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="244" name="Woningen" id="f50dc54b-5e53-4c21-b5b0-3b710bf23019"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="43627b27-8a0b-4648-af7d-4face8ba7f45"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4a9e37ea-7ee8-4cdc-b00f-fae60f0123ac">
           <port xsi:type="esdl:InPort" name="InPort" id="177cf39c-645c-48bd-b5ce-3d0be8ad597d">
             <profile xsi:type="esdl:SingleValue" value="11231.1116" id="137318e6-5ecd-48c5-8efb-042262b0d93e">
@@ -3776,14 +3779,14 @@
           </port>
         </asset>
         <KPIs id="5d635321-4903-4d34-b0c9-65342b09674f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6294890e-766a-4abc-8c8d-36c93300fcb7"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="23828af5-39d0-401f-a1ec-5dfa4f280de5"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="743606.268" id="3caca96a-7054-4cad-83e7-5e24349a6caa"/>
+          <kpi xsi:type="esdl:StringKPI" id="6294890e-766a-4abc-8c8d-36c93300fcb7" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="23828af5-39d0-401f-a1ec-5dfa4f280de5" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3caca96a-7054-4cad-83e7-5e24349a6caa" name="Maatschappelijke_kosten" value="743606.268"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060410'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="1afc0973-7c12-4a3f-80f2-f7a766d55fff" numberOfBuildings="980"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a41efc42-947f-41de-a0ca-7b97f14adc13" numberOfBuildings="50"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="980" name="Woningen" id="1afc0973-7c12-4a3f-80f2-f7a766d55fff"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="50" name="Utiliteiten" id="a41efc42-947f-41de-a0ca-7b97f14adc13"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e4cfb5e8-c18c-4e53-9820-ccddbdc12a8c">
           <port xsi:type="esdl:InPort" name="InPort" id="8d5f8b2a-7f23-4984-8a97-2644c7ae8d1b">
             <profile xsi:type="esdl:SingleValue" value="35716.3313" id="446e94c3-3d75-4d86-bb25-2fe2155bdb6a">
@@ -3834,14 +3837,14 @@
           </port>
         </asset>
         <KPIs id="0e2e00a1-bb31-4c5f-bcc4-4b9116559def">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="4947ff39-25fd-42d5-8702-c1827a407611"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e5e9bb54-4252-4826-9632-326eb5656976"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2366450.61" id="ec4295fd-b73c-4c76-a1f7-3a9b4df49427"/>
+          <kpi xsi:type="esdl:StringKPI" id="4947ff39-25fd-42d5-8702-c1827a407611" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e5e9bb54-4252-4826-9632-326eb5656976" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ec4295fd-b73c-4c76-a1f7-3a9b4df49427" name="Maatschappelijke_kosten" value="2366450.61"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060511'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="82ae655a-f7db-4a5d-9b83-b8b076194106" numberOfBuildings="359"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="79b5e63b-adc5-4dfe-8477-8c3ed231a884" numberOfBuildings="19"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="359" name="Woningen" id="82ae655a-f7db-4a5d-9b83-b8b076194106"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Utiliteiten" id="79b5e63b-adc5-4dfe-8477-8c3ed231a884"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f4be57ac-8055-485a-9ce2-ef743680e6ed">
           <port xsi:type="esdl:InPort" name="InPort" id="ff45c14f-d7c9-41ac-ad30-3c2c32518579">
             <profile xsi:type="esdl:SingleValue" value="9770.8668" id="1b99b9af-28c0-4eac-acf2-3d308a56733f">
@@ -3892,14 +3895,14 @@
           </port>
         </asset>
         <KPIs id="c80673eb-34ae-4401-b228-c151e103990b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="4f4076d2-3937-41fa-8991-545adec1d7db"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="2f4716a8-e7af-4446-96e1-e5c3f04a62e3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="661790.951" id="06372cbc-41f2-44a0-8a64-2e76e967b21f"/>
+          <kpi xsi:type="esdl:StringKPI" id="4f4076d2-3937-41fa-8991-545adec1d7db" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2f4716a8-e7af-4446-96e1-e5c3f04a62e3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="06372cbc-41f2-44a0-8a64-2e76e967b21f" name="Maatschappelijke_kosten" value="661790.951"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060512'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f1562133-1114-4256-b091-978af2379bc7" numberOfBuildings="34"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="48d8b231-e23b-4b89-b898-1dfa5ffc6dcc" numberOfBuildings="31"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Woningen" id="f1562133-1114-4256-b091-978af2379bc7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="48d8b231-e23b-4b89-b898-1dfa5ffc6dcc"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5a2deee7-294e-4ff4-8a3c-f7f46e504864">
           <port xsi:type="esdl:InPort" name="InPort" id="e2617709-9665-46e1-929d-46a189e027a4">
             <profile xsi:type="esdl:SingleValue" value="724.66823" id="b2c4ad02-d35e-45be-9bf5-ad8b30814698">
@@ -3950,14 +3953,14 @@
           </port>
         </asset>
         <KPIs id="b0a130e5-1401-41a3-a1c4-3b034a042936">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="87edafba-bce3-43ef-a616-92e586135760"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="779db738-75ff-4981-9667-1b3e2611d875"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="459303.403" id="262a499b-6ea6-44e7-9351-1f657e63b39d"/>
+          <kpi xsi:type="esdl:StringKPI" id="87edafba-bce3-43ef-a616-92e586135760" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="779db738-75ff-4981-9667-1b3e2611d875" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="262a499b-6ea6-44e7-9351-1f657e63b39d" name="Maatschappelijke_kosten" value="459303.403"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060513'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="06bc8679-5030-46cf-b36e-6ee992ea176f" numberOfBuildings="232"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="009aef35-bae2-4cfc-b037-8e2c2b743be6" numberOfBuildings="128"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="232" name="Woningen" id="06bc8679-5030-46cf-b36e-6ee992ea176f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="128" name="Utiliteiten" id="009aef35-bae2-4cfc-b037-8e2c2b743be6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="784e8a6e-2975-4f5f-809f-87e35e9b98b9">
           <port xsi:type="esdl:InPort" name="InPort" id="c29c9e13-e190-4e03-b464-54c04e4412f7">
             <profile xsi:type="esdl:SingleValue" value="5881.21547" id="e893f435-a7e7-4f1d-95d4-59dba8677670">
@@ -4008,14 +4011,14 @@
           </port>
         </asset>
         <KPIs id="143e09c5-8530-4edf-8646-6d4b863a4243">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="4caf44b8-522a-4851-b090-b03c091f59d2"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="20e6c90f-ff7a-42f0-9588-0579ccf0608f"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2239971.03" id="8b2e389b-83ed-4c74-88a9-026d60d0ab60"/>
+          <kpi xsi:type="esdl:StringKPI" id="4caf44b8-522a-4851-b090-b03c091f59d2" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="20e6c90f-ff7a-42f0-9588-0579ccf0608f" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8b2e389b-83ed-4c74-88a9-026d60d0ab60" name="Maatschappelijke_kosten" value="2239971.03"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060614'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="21addb10-4726-4add-ad06-463f304a8687" numberOfBuildings="1331"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a3ff31f3-74c3-4e8d-8389-134b89d9dcf8" numberOfBuildings="97"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1331" name="Woningen" id="21addb10-4726-4add-ad06-463f304a8687"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="97" name="Utiliteiten" id="a3ff31f3-74c3-4e8d-8389-134b89d9dcf8"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="71acb09a-4a29-4a7f-bffd-a333831aa182">
           <port xsi:type="esdl:InPort" name="InPort" id="138eb970-eab2-4d85-9598-f6a793b9f6a8">
             <profile xsi:type="esdl:SingleValue" value="33836.336" id="aa0e2514-98a6-4159-bafc-b394956971e8">
@@ -4066,14 +4069,14 @@
           </port>
         </asset>
         <KPIs id="d933cb3d-1e19-47ef-bb51-29279731ddd8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1cb21153-7e1d-4e3c-9d5b-287c58029a3f"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3879c196-151c-4c82-aaae-140c949e9161"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2082618.61" id="912e39d5-4c08-461e-87db-264966da0815"/>
+          <kpi xsi:type="esdl:StringKPI" id="1cb21153-7e1d-4e3c-9d5b-287c58029a3f" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3879c196-151c-4c82-aaae-140c949e9161" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="912e39d5-4c08-461e-87db-264966da0815" name="Maatschappelijke_kosten" value="2082618.61"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060615'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="78b9eca0-220f-4a68-af28-7954ba0d09e6" numberOfBuildings="559"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="da86d44a-dcb7-4715-be46-caf521598c78" numberOfBuildings="45"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="559" name="Woningen" id="78b9eca0-220f-4a68-af28-7954ba0d09e6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="45" name="Utiliteiten" id="da86d44a-dcb7-4715-be46-caf521598c78"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="77b754a1-7e6e-4b2f-a378-bc816144d100">
           <port xsi:type="esdl:InPort" name="InPort" id="cc447f64-0370-4f25-b8bf-d72efc406d8a">
             <profile xsi:type="esdl:SingleValue" value="16741.3727" id="ccfd87f6-49be-4cc3-b5a4-4b68eb49e148">
@@ -4124,14 +4127,14 @@
           </port>
         </asset>
         <KPIs id="8d5f1c1e-c61b-4109-976f-56b2bca41ebf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ef3508bc-7a70-4157-afe7-9ef67c1f9729"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b3aba357-674e-41c9-a61b-8e6e6fa9a0d3"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1037698.81" id="ba0114cb-77ab-462d-b00d-377d963b46c1"/>
+          <kpi xsi:type="esdl:StringKPI" id="ef3508bc-7a70-4157-afe7-9ef67c1f9729" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b3aba357-674e-41c9-a61b-8e6e6fa9a0d3" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ba0114cb-77ab-462d-b00d-377d963b46c1" name="Maatschappelijke_kosten" value="1037698.81"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060716'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="8a066830-8ad4-4c32-93b1-0c4a02b0cec1" numberOfBuildings="1599"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="98d713ec-e0b8-479d-ab71-99ebc18f7475" numberOfBuildings="289"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1599" name="Woningen" id="8a066830-8ad4-4c32-93b1-0c4a02b0cec1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="289" name="Utiliteiten" id="98d713ec-e0b8-479d-ab71-99ebc18f7475"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2666710f-4684-44d8-8b3c-98cabffc4b14">
           <port xsi:type="esdl:InPort" name="InPort" id="e17e3191-d190-4a3d-8f1d-a8861fa161a1">
             <profile xsi:type="esdl:SingleValue" value="47173.0765" id="79fab1ce-34a2-488c-a1a6-074a3c7f6549">
@@ -4182,14 +4185,14 @@
           </port>
         </asset>
         <KPIs id="0eb50a99-5714-450b-9275-654afddafee8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="dd741d59-a30f-4d2c-9b8b-1abf415c8229"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="8ee4f768-b577-403e-b06d-fd3f2f10dedc"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2905527.59" id="208c9850-bac9-4dce-84d3-57755e20bdd1"/>
+          <kpi xsi:type="esdl:StringKPI" id="dd741d59-a30f-4d2c-9b8b-1abf415c8229" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8ee4f768-b577-403e-b06d-fd3f2f10dedc" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="208c9850-bac9-4dce-84d3-57755e20bdd1" name="Maatschappelijke_kosten" value="2905527.59"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060817'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="df7d3adf-5ac2-446c-81a9-fc1fcefdaf43" numberOfBuildings="1453"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e3adb333-aad7-470a-a544-95858e6a88cf" numberOfBuildings="168"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1453" name="Woningen" id="df7d3adf-5ac2-446c-81a9-fc1fcefdaf43"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="168" name="Utiliteiten" id="e3adb333-aad7-470a-a544-95858e6a88cf"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="6d8ee8cb-8aba-410c-9821-b8aabfd54567">
           <port xsi:type="esdl:InPort" name="InPort" id="fafe7107-297b-492e-a0f2-f7ac0918f0ee">
             <profile xsi:type="esdl:SingleValue" value="41769.6387" id="8eec53cb-759a-4186-8186-d1fe265cb849">
@@ -4240,14 +4243,14 @@
           </port>
         </asset>
         <KPIs id="e9f74dab-e346-4767-9f23-e520b942f605">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="78099673-6d81-4c7b-9e94-e492ddc1862f"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3250c835-3e82-4a15-bdfe-90cc949017ad"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2330110.63" id="bff49910-3560-412b-ad68-38445d6a3b4e"/>
+          <kpi xsi:type="esdl:StringKPI" id="78099673-6d81-4c7b-9e94-e492ddc1862f" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3250c835-3e82-4a15-bdfe-90cc949017ad" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bff49910-3560-412b-ad68-38445d6a3b4e" name="Maatschappelijke_kosten" value="2330110.63"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060818'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9e5972c3-5c11-467c-879e-a0fed5103af8" numberOfBuildings="1366"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b7ea35f5-2ce6-4a66-a034-a5820f3ee814" numberOfBuildings="80"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1366" name="Woningen" id="9e5972c3-5c11-467c-879e-a0fed5103af8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="b7ea35f5-2ce6-4a66-a034-a5820f3ee814"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="955567ec-2917-4d43-970a-085a3ffce7b4">
           <port xsi:type="esdl:InPort" name="InPort" id="445337b9-e59b-4c0a-846b-0c6be106721f">
             <profile xsi:type="esdl:SingleValue" value="37497.4427" id="489b08d8-05fa-4c64-984f-a8c71cc3c93d">
@@ -4298,14 +4301,14 @@
           </port>
         </asset>
         <KPIs id="9ba58891-1d00-4f10-aafe-7a83e73b7323">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bee653bc-f195-411d-90aa-c73e96ab6825"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="fdba8eef-70aa-4ae0-8b79-0db2dfa3905e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2200740.09" id="dc26b99f-b5b7-404c-8cbb-81195cd81622"/>
+          <kpi xsi:type="esdl:StringKPI" id="bee653bc-f195-411d-90aa-c73e96ab6825" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fdba8eef-70aa-4ae0-8b79-0db2dfa3905e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dc26b99f-b5b7-404c-8cbb-81195cd81622" name="Maatschappelijke_kosten" value="2200740.09"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04060919'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2fd97ce7-3235-42c0-8316-646421963351" numberOfBuildings="1409"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bc71d298-04d1-4491-9d18-37bd05b3b90c" numberOfBuildings="60"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1409" name="Woningen" id="2fd97ce7-3235-42c0-8316-646421963351"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="60" name="Utiliteiten" id="bc71d298-04d1-4491-9d18-37bd05b3b90c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="cbff7da3-9346-4863-8a76-5998da8e8599">
           <port xsi:type="esdl:InPort" name="InPort" id="bd675a2b-d8cb-414f-be56-4f12580767d8">
             <profile xsi:type="esdl:SingleValue" value="39380.8765" id="55ac0941-1a1c-460f-bc82-01fdd7f82daa">
@@ -4356,14 +4359,14 @@
           </port>
         </asset>
         <KPIs id="bd3ed62e-041f-4235-9c22-957b6862ed70">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c91fa690-f43d-4d1c-bf13-64a01edc2857"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7458fe48-35ae-4396-9442-354ea737808a"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2028920.8" id="5621d5cf-2c0b-4479-8ca5-1a62eba4188f"/>
+          <kpi xsi:type="esdl:StringKPI" id="c91fa690-f43d-4d1c-bf13-64a01edc2857" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7458fe48-35ae-4396-9442-354ea737808a" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5621d5cf-2c0b-4479-8ca5-1a62eba4188f" name="Maatschappelijke_kosten" value="2028920.8"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061020'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f54e4c6b-e7cf-4b24-bb72-d5df75222a10" numberOfBuildings="750"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bf7ece4f-7280-48e7-afde-1c6b9743591c" numberOfBuildings="28"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="750" name="Woningen" id="f54e4c6b-e7cf-4b24-bb72-d5df75222a10"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="bf7ece4f-7280-48e7-afde-1c6b9743591c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a2fd9e30-040f-4935-b90d-289db07da04a">
           <port xsi:type="esdl:InPort" name="InPort" id="70c49ae6-5f8c-444b-9d83-866940b97130">
             <profile xsi:type="esdl:SingleValue" value="19819.1058" id="50b7be7d-9f24-439c-ba48-dde5172c9cd2">
@@ -4414,14 +4417,14 @@
           </port>
         </asset>
         <KPIs id="5e060116-ee7c-4f3c-b7e8-37378dcc69bf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="152f887a-f14a-4deb-829c-f3d0f655edb0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="99eb0b8b-8571-41f8-af9e-2a9070e5eaf5"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="952017.805" id="8080474b-946f-4c91-b89b-b9150d01495b"/>
+          <kpi xsi:type="esdl:StringKPI" id="152f887a-f14a-4deb-829c-f3d0f655edb0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="99eb0b8b-8571-41f8-af9e-2a9070e5eaf5" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8080474b-946f-4c91-b89b-b9150d01495b" name="Maatschappelijke_kosten" value="952017.805"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061021'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="133e7ff6-ead3-46c8-9b63-03e1fd66f701" numberOfBuildings="221"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="9959743d-63f6-4c9c-9d99-2a2e46602757" numberOfBuildings="12"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="221" name="Woningen" id="133e7ff6-ead3-46c8-9b63-03e1fd66f701"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Utiliteiten" id="9959743d-63f6-4c9c-9d99-2a2e46602757"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f6fd4766-d64e-471c-b060-8fa454c66ed4">
           <port xsi:type="esdl:InPort" name="InPort" id="ddc99ca8-13a3-4d86-bf05-fb2b1abf09bf">
             <profile xsi:type="esdl:SingleValue" value="6509.66656" id="38103638-0657-4bf4-a6c3-095151d135e9">
@@ -4472,14 +4475,14 @@
           </port>
         </asset>
         <KPIs id="0ac6849e-8ed0-4ef8-bf05-2e96ea908f90">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c1a2efb5-bee5-4d51-a803-374ffb9422ad"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d797c882-bfa2-4356-9466-cc068e8be2cb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="303475.698" id="9f274154-4d17-429e-b9de-16106e5582af"/>
+          <kpi xsi:type="esdl:StringKPI" id="c1a2efb5-bee5-4d51-a803-374ffb9422ad" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d797c882-bfa2-4356-9466-cc068e8be2cb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9f274154-4d17-429e-b9de-16106e5582af" name="Maatschappelijke_kosten" value="303475.698"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061123'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="960d57cc-c09d-45af-a437-7ff5ca2820ac" numberOfBuildings="1478"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d14a15d4-b621-4a72-99b8-2313ef5fed97" numberOfBuildings="35"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1478" name="Woningen" id="960d57cc-c09d-45af-a437-7ff5ca2820ac"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="35" name="Utiliteiten" id="d14a15d4-b621-4a72-99b8-2313ef5fed97"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c27aa65c-2e07-42d9-9534-4c6f4c11c28b">
           <port xsi:type="esdl:InPort" name="InPort" id="b1ef281f-3fbd-4e9f-b44b-5b82510e115e">
             <profile xsi:type="esdl:SingleValue" value="43484.4041" id="7b6a1084-abde-4808-adda-1b33d0a28de4">
@@ -4530,14 +4533,14 @@
           </port>
         </asset>
         <KPIs id="9aa0854f-3a0d-44af-9b90-dda6cb284d0a">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ba13bad6-940a-442d-981e-f2f05df53bfc"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6ae75a08-c788-49a7-a50d-222dbe55d87c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2227069.34" id="3e631ca4-17dd-4cad-8571-d95f516c9586"/>
+          <kpi xsi:type="esdl:StringKPI" id="ba13bad6-940a-442d-981e-f2f05df53bfc" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6ae75a08-c788-49a7-a50d-222dbe55d87c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3e631ca4-17dd-4cad-8571-d95f516c9586" name="Maatschappelijke_kosten" value="2227069.34"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061124'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cb2e971d-f1bf-4243-981e-4872b352ed0c" numberOfBuildings="821"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="73d4ba32-285c-4291-b87d-4efb43faa734" numberOfBuildings="58"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="821" name="Woningen" id="cb2e971d-f1bf-4243-981e-4872b352ed0c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="58" name="Utiliteiten" id="73d4ba32-285c-4291-b87d-4efb43faa734"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e0ccb595-f85f-4b39-8ac0-b134777a2d11">
           <port xsi:type="esdl:InPort" name="InPort" id="ac3475f5-7e4c-4429-ba50-8cbdd7b5c395">
             <profile xsi:type="esdl:SingleValue" value="20670.7289" id="9be581c3-d999-406d-837d-0743f809165f">
@@ -4588,14 +4591,14 @@
           </port>
         </asset>
         <KPIs id="79be7078-b99b-4861-b32d-342fd17c961d">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="060cfe82-6ba3-4efd-a008-28f179b8446c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="58971b07-9838-47af-957a-26bfcfa1f6bf"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1128667.97" id="f9a0d41d-ea8f-4f05-94bf-3ea0fdcc87d3"/>
+          <kpi xsi:type="esdl:StringKPI" id="060cfe82-6ba3-4efd-a008-28f179b8446c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="58971b07-9838-47af-957a-26bfcfa1f6bf" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f9a0d41d-ea8f-4f05-94bf-3ea0fdcc87d3" name="Maatschappelijke_kosten" value="1128667.97"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061125'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="8c29de21-04e7-4f39-af19-75816933f5f1" numberOfBuildings="593"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="497a4f2c-64ba-4fe0-a946-39893ed72a74" numberOfBuildings="8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="593" name="Woningen" id="8c29de21-04e7-4f39-af19-75816933f5f1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="8" name="Utiliteiten" id="497a4f2c-64ba-4fe0-a946-39893ed72a74"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="5ea7f92b-a3ef-4633-a946-dd3385ccdb52">
           <port xsi:type="esdl:InPort" name="InPort" id="73fa31f4-bb89-4596-be89-fee2d298ea05">
             <profile xsi:type="esdl:SingleValue" value="15986.6145" id="4a80aa3e-f3ed-4894-b858-ea499f524988">
@@ -4646,14 +4649,14 @@
           </port>
         </asset>
         <KPIs id="3af1c917-419a-4f01-a396-fdae63bf4aee">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b44fb29a-b879-4480-9439-908b976b0448"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="49aa34f6-549a-486f-a016-d17aff81fe07"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="857190.717" id="8f2e1f1e-692d-48bf-bf7d-b19de987edf0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b44fb29a-b879-4480-9439-908b976b0448" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="49aa34f6-549a-486f-a016-d17aff81fe07" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8f2e1f1e-692d-48bf-bf7d-b19de987edf0" name="Maatschappelijke_kosten" value="857190.717"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061226'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9f571990-3204-4fda-8de9-bd5b2ae0081e" numberOfBuildings="801"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5ef08493-77d5-4379-9949-1076186a3c9b" numberOfBuildings="10"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="801" name="Woningen" id="9f571990-3204-4fda-8de9-bd5b2ae0081e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Utiliteiten" id="5ef08493-77d5-4379-9949-1076186a3c9b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ce4c38fa-8960-4d3f-b98c-f5ff21231178">
           <port xsi:type="esdl:InPort" name="InPort" id="97332fa9-9da2-4172-935b-3bdfe2609a30">
             <profile xsi:type="esdl:SingleValue" value="26270.0698" id="3fe12646-f0c4-4625-a34a-dd0fe4a5ce9d">
@@ -4704,13 +4707,13 @@
           </port>
         </asset>
         <KPIs id="f952ca32-14c3-469b-93a8-5b35cc9f7b34">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6c92cfba-cf34-4a1d-96ec-e01b09ba70db"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="eb89eeaf-a266-4827-abf9-ad6aecf1a832"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1135130.21" id="5a08da03-d654-418d-b81b-4e26bc83ee9a"/>
+          <kpi xsi:type="esdl:StringKPI" id="6c92cfba-cf34-4a1d-96ec-e01b09ba70db" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="eb89eeaf-a266-4827-abf9-ad6aecf1a832" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5a08da03-d654-418d-b81b-4e26bc83ee9a" name="Maatschappelijke_kosten" value="1135130.21"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04061231'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3db9e160-eb67-4ad5-a4d0-8aa8b2c3ebea" numberOfBuildings="120"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="120" name="Woningen" id="3db9e160-eb67-4ad5-a4d0-8aa8b2c3ebea"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="622753f8-ae06-4c48-884b-9a919b861000"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b8931a37-5aca-4f6c-9a18-8e20e62be140">
           <port xsi:type="esdl:InPort" name="InPort" id="e50fdf90-e08c-49e9-ba40-1241c84eb77a">
@@ -4762,14 +4765,14 @@
           </port>
         </asset>
         <KPIs id="37f14a01-d64d-429a-865a-febde30103ec">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="18788c9a-360d-4133-a97b-0f5363d21763"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="969a0bed-731f-4aa1-89bd-1a9903751b6a"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="186449.06" id="5355546e-814c-4d3d-8f4d-b04f14f6963d"/>
+          <kpi xsi:type="esdl:StringKPI" id="18788c9a-360d-4133-a97b-0f5363d21763" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="969a0bed-731f-4aa1-89bd-1a9903751b6a" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5355546e-814c-4d3d-8f4d-b04f14f6963d" name="Maatschappelijke_kosten" value="186449.06"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170320'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="42dba631-ffed-4ba5-baf5-f75ea18db4e9" numberOfBuildings="995"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5c6c84e8-1e50-4a01-aed7-bb0ad3e5cbab" numberOfBuildings="374"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="995" name="Woningen" id="42dba631-ffed-4ba5-baf5-f75ea18db4e9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="374" name="Utiliteiten" id="5c6c84e8-1e50-4a01-aed7-bb0ad3e5cbab"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3ce746d4-96da-413a-9ba8-fe5aeaa65117">
           <port xsi:type="esdl:InPort" name="InPort" id="a15466bf-6d79-4047-9b03-efca9dc6be4b">
             <profile xsi:type="esdl:SingleValue" value="34976.1465" id="c9d8ce5f-e08e-469a-a69e-0c8859f883ac">
@@ -4820,14 +4823,14 @@
           </port>
         </asset>
         <KPIs id="04857de5-7753-4a82-a294-c01e34ba5d15">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b5eb5b7b-dac0-420a-ad51-5c6af77d14cb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="cf1ace87-a080-410d-ac6d-779d68a495ef"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3181715.22" id="7b30b9d0-21eb-414f-86f6-4fe436193bd5"/>
+          <kpi xsi:type="esdl:StringKPI" id="b5eb5b7b-dac0-420a-ad51-5c6af77d14cb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cf1ace87-a080-410d-ac6d-779d68a495ef" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7b30b9d0-21eb-414f-86f6-4fe436193bd5" name="Maatschappelijke_kosten" value="3181715.22"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170321'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7df10ea1-91ec-4b5d-8766-8218433f97f3" numberOfBuildings="5"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="526abb08-2cad-4f89-86b3-4ec12c382e82" numberOfBuildings="6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Woningen" id="7df10ea1-91ec-4b5d-8766-8218433f97f3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="6" name="Utiliteiten" id="526abb08-2cad-4f89-86b3-4ec12c382e82"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d5fbd47b-bb5d-4e46-a9c8-548fa54a66e6">
           <port xsi:type="esdl:InPort" name="InPort" id="01610d0b-74a8-4feb-abef-cea02e0bfb73">
             <profile xsi:type="esdl:SingleValue" value="224.842473" id="2395b34a-1791-4af9-81fa-9747eb6bf7be">
@@ -4878,14 +4881,14 @@
           </port>
         </asset>
         <KPIs id="fb541bc9-c82f-4e85-b2f7-6d57fb7916c8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="2519e6fc-245d-4799-b510-3f289a14dced"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="cbe19c97-c0bf-4d45-b8ae-490b060b659b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="556979.524" id="27e1a78b-cdaf-4990-b8ae-92ee758429ae"/>
+          <kpi xsi:type="esdl:StringKPI" id="2519e6fc-245d-4799-b510-3f289a14dced" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cbe19c97-c0bf-4d45-b8ae-490b060b659b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="27e1a78b-cdaf-4990-b8ae-92ee758429ae" name="Maatschappelijke_kosten" value="556979.524"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170322'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ef173d16-fc05-4b95-91bc-834774eda6f7" numberOfBuildings="569"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60f458e9-9e03-4b94-96be-3eebcca4a083" numberOfBuildings="52"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="569" name="Woningen" id="ef173d16-fc05-4b95-91bc-834774eda6f7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="60f458e9-9e03-4b94-96be-3eebcca4a083"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f2f6111e-aa65-432c-b378-d0b99cedca19">
           <port xsi:type="esdl:InPort" name="InPort" id="04b7d0eb-c890-4a57-8032-b752c2835064">
             <profile xsi:type="esdl:SingleValue" value="18276.8253" id="5e7107a1-cdc4-4391-af38-b8f7cb85a37a">
@@ -4936,14 +4939,14 @@
           </port>
         </asset>
         <KPIs id="96339cb0-7359-46ff-9c16-9b774d7172f7">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="03be4ec4-6dca-4dff-bbb9-84951a65237a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="8eb52678-23b5-452f-b051-59ce605dafe1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1062816.65" id="e19e9765-cd57-4957-9fb6-1aa043ae3a4a"/>
+          <kpi xsi:type="esdl:StringKPI" id="03be4ec4-6dca-4dff-bbb9-84951a65237a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8eb52678-23b5-452f-b051-59ce605dafe1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e19e9765-cd57-4957-9fb6-1aa043ae3a4a" name="Maatschappelijke_kosten" value="1062816.65"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170323'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="38542aab-3712-44c0-990d-b44b21abdc8d" numberOfBuildings="512"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="723beac5-53ff-4159-9d45-56b07222ebd6" numberOfBuildings="41"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="512" name="Woningen" id="38542aab-3712-44c0-990d-b44b21abdc8d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="723beac5-53ff-4159-9d45-56b07222ebd6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a6688d65-39e4-46bb-a91e-189541ed91aa">
           <port xsi:type="esdl:InPort" name="InPort" id="9a120db4-943d-4e41-867e-3393770c4390">
             <profile xsi:type="esdl:SingleValue" value="21678.2824" id="48beb722-b952-4b1e-b1f4-469d16870793">
@@ -4994,14 +4997,14 @@
           </port>
         </asset>
         <KPIs id="c625522f-ec43-4754-b01f-53212d0749f7">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="180fd2d4-3b1c-4b81-8e44-01b93086e8a5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6ee2f0b4-6057-4010-9a9b-b7bc5b91978d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1468481.16" id="b71923cb-b41f-4fe7-9ebd-9296efa423c4"/>
+          <kpi xsi:type="esdl:StringKPI" id="180fd2d4-3b1c-4b81-8e44-01b93086e8a5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6ee2f0b4-6057-4010-9a9b-b7bc5b91978d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b71923cb-b41f-4fe7-9ebd-9296efa423c4" name="Maatschappelijke_kosten" value="1468481.16"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170324'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="17b4907d-fa3f-48fd-9ad6-6a4d1683355d" numberOfBuildings="164"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a2e8a70c-e1a6-4ced-b1f6-a08e2b871e18" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="164" name="Woningen" id="17b4907d-fa3f-48fd-9ad6-6a4d1683355d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="a2e8a70c-e1a6-4ced-b1f6-a08e2b871e18"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="76e166e6-f302-4162-af70-32150ec42a80">
           <port xsi:type="esdl:InPort" name="InPort" id="06bed689-38ff-4d35-8036-6bb36b33faa2">
             <profile xsi:type="esdl:SingleValue" value="5027.10963" id="f3845560-4f2d-46bd-b084-63c64ad6a3f6">
@@ -5052,14 +5055,14 @@
           </port>
         </asset>
         <KPIs id="9018cd55-78ba-40d8-9632-88e599a3e196">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="9a926e5a-4617-4eea-8c1d-15538598b599"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ac141d29-92d0-4dd9-93cb-254e3ce24190"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="214535.996" id="10263102-eae7-493e-a009-e2549406499b"/>
+          <kpi xsi:type="esdl:StringKPI" id="9a926e5a-4617-4eea-8c1d-15538598b599" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ac141d29-92d0-4dd9-93cb-254e3ce24190" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="10263102-eae7-493e-a009-e2549406499b" name="Maatschappelijke_kosten" value="214535.996"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170325'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ddd9220a-ccf0-436f-8559-5fdd4bbea4e4" numberOfBuildings="154"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2993ca8a-5d74-4b22-a536-05f8f5408f2d" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="154" name="Woningen" id="ddd9220a-ccf0-436f-8559-5fdd4bbea4e4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="2993ca8a-5d74-4b22-a536-05f8f5408f2d"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="66cb194d-c8ee-40c4-99a9-517828d5d6b5">
           <port xsi:type="esdl:InPort" name="InPort" id="2d855b76-18f6-4624-9ccd-fade87abbccf">
             <profile xsi:type="esdl:SingleValue" value="8388.85339" id="038e3c79-7a85-40c2-bfa6-cfb52653cd93">
@@ -5110,14 +5113,14 @@
           </port>
         </asset>
         <KPIs id="fb1b58bc-7163-43a8-a11e-eb0345d01cfc">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="13c1dd39-28af-41c7-ab90-e01d36f8d052"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b40c20b4-03a5-4e35-84f1-748323cd3ef6"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="648696.468" id="445071e5-9d8e-47d5-a3e2-8b3c3320c48f"/>
+          <kpi xsi:type="esdl:StringKPI" id="13c1dd39-28af-41c7-ab90-e01d36f8d052" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b40c20b4-03a5-4e35-84f1-748323cd3ef6" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="445071e5-9d8e-47d5-a3e2-8b3c3320c48f" name="Maatschappelijke_kosten" value="648696.468"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170326'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c4dce63c-de79-4f37-8ef9-a3cf841bb61c" numberOfBuildings="109"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a3074433-3f5b-4292-9a69-2a876bd37b44" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Woningen" id="c4dce63c-de79-4f37-8ef9-a3cf841bb61c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="a3074433-3f5b-4292-9a69-2a876bd37b44"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7095412e-d8bc-4f18-a09e-5d68b5836daa">
           <port xsi:type="esdl:InPort" name="InPort" id="d3addaeb-3625-4c7c-9206-3fa4ede67337">
             <profile xsi:type="esdl:SingleValue" value="6015.00664" id="5b65b5d1-5e71-4e13-b34e-16bf2b8cf109">
@@ -5168,14 +5171,14 @@
           </port>
         </asset>
         <KPIs id="dd786474-9a09-40c7-b37b-10536cc80759">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f2c29f2c-3c16-47a0-9bc3-b81aa2c4e537"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="24140b6b-5678-4c84-a40b-f7ae3a8ef32b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="571677.244" id="ada9f0e8-ab84-430f-aea6-75c5aca7b140"/>
+          <kpi xsi:type="esdl:StringKPI" id="f2c29f2c-3c16-47a0-9bc3-b81aa2c4e537" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="24140b6b-5678-4c84-a40b-f7ae3a8ef32b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ada9f0e8-ab84-430f-aea6-75c5aca7b140" name="Maatschappelijke_kosten" value="571677.244"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170327'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="69ad7f70-012e-41f5-98bd-9d67e383c4ba" numberOfBuildings="246"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1b66c297-9714-4569-8fa8-f79da658ea48" numberOfBuildings="10"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="246" name="Woningen" id="69ad7f70-012e-41f5-98bd-9d67e383c4ba"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Utiliteiten" id="1b66c297-9714-4569-8fa8-f79da658ea48"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d0cca960-bb6e-4ec5-bf8b-68845ce623b2">
           <port xsi:type="esdl:InPort" name="InPort" id="99fa8785-41f6-4b8c-8a2a-951ee0f7d60a">
             <profile xsi:type="esdl:SingleValue" value="11121.7391" id="fd161da3-011d-4df2-a153-b32c92bc63b0">
@@ -5226,14 +5229,14 @@
           </port>
         </asset>
         <KPIs id="8bb4aa55-d2bc-4ea7-90cd-977fa0246f2e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6d2c5717-f9d2-4e96-9679-7ef4c8b165aa"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e07b4663-68c3-4034-8db3-1cd56a62e300"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1062668.26" id="39908f88-bc08-41db-9260-b23c681528b5"/>
+          <kpi xsi:type="esdl:StringKPI" id="6d2c5717-f9d2-4e96-9679-7ef4c8b165aa" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e07b4663-68c3-4034-8db3-1cd56a62e300" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="39908f88-bc08-41db-9260-b23c681528b5" name="Maatschappelijke_kosten" value="1062668.26"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170328'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a057fd21-20be-45bb-9fdf-1e24b5d55605" numberOfBuildings="2199"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a0ba26c2-6641-4ee8-b949-19fc1adc2057" numberOfBuildings="203"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2199" name="Woningen" id="a057fd21-20be-45bb-9fdf-1e24b5d55605"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="203" name="Utiliteiten" id="a0ba26c2-6641-4ee8-b949-19fc1adc2057"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f58b78c3-5261-4cd1-aefe-6276392ba359">
           <port xsi:type="esdl:InPort" name="InPort" id="8cd3130b-61da-432c-9c8b-41633c30cdb1">
             <profile xsi:type="esdl:SingleValue" value="71268.1001" id="1b89fa25-4151-4f40-8322-8f32b2c152dd">
@@ -5284,14 +5287,14 @@
           </port>
         </asset>
         <KPIs id="4c0477b2-29bf-4026-ba71-31b2af6411f7">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="640c596e-ab36-4276-b34e-af6d62c0fd97"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d3884c30-7df4-462f-a609-118b936cea1d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3982276.44" id="dcd9ddf9-592a-44b6-a009-f91bf8e0de40"/>
+          <kpi xsi:type="esdl:StringKPI" id="640c596e-ab36-4276-b34e-af6d62c0fd97" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d3884c30-7df4-462f-a609-118b936cea1d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dcd9ddf9-592a-44b6-a009-f91bf8e0de40" name="Maatschappelijke_kosten" value="3982276.44"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04170329'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cbaad9ae-467c-462e-855f-443738d02dd7" numberOfBuildings="296"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f32fdabb-e242-436c-bbea-e9beb67aa4df" numberOfBuildings="19"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="296" name="Woningen" id="cbaad9ae-467c-462e-855f-443738d02dd7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="19" name="Utiliteiten" id="f32fdabb-e242-436c-bbea-e9beb67aa4df"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e2e57a53-7570-4b10-94cd-209d7d9ff4b3">
           <port xsi:type="esdl:InPort" name="InPort" id="0b94af0a-e68e-4f56-8403-a783b9d2c98e">
             <profile xsi:type="esdl:SingleValue" value="13878.9932" id="af23dc01-cf06-4992-89c8-0b2692f904ce">
@@ -5342,14 +5345,14 @@
           </port>
         </asset>
         <KPIs id="7de787fb-df39-4bce-8c82-eb5be6cfed23">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="94285993-1310-42bf-8a62-02af9c3984db"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="aaf0269f-938a-436f-881c-9bd635c0ab75"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1104132.48" id="f6157334-ccb6-49ce-ad81-4eeda050b448"/>
+          <kpi xsi:type="esdl:StringKPI" id="94285993-1310-42bf-8a62-02af9c3984db" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="aaf0269f-938a-436f-881c-9bd635c0ab75" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f6157334-ccb6-49ce-ad81-4eeda050b448" name="Maatschappelijke_kosten" value="1104132.48"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570001'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c43d09ec-94c7-420a-aa24-bdf716006a4b" numberOfBuildings="1194"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7fd74177-9c62-4fa2-a360-294144de062f" numberOfBuildings="179"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1194" name="Woningen" id="c43d09ec-94c7-420a-aa24-bdf716006a4b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="179" name="Utiliteiten" id="7fd74177-9c62-4fa2-a360-294144de062f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="fb68f680-3ace-49b7-a40d-1d3069223bd1">
           <port xsi:type="esdl:InPort" name="InPort" id="0eba5c36-4096-4eae-bb1c-20299ad78b95">
             <profile xsi:type="esdl:SingleValue" value="36221.6622" id="4dc4b589-12df-4f78-8418-c568e9b6fcb2">
@@ -5400,14 +5403,14 @@
           </port>
         </asset>
         <KPIs id="0587ff55-065e-48e6-b56b-c985a4e1b785">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="8cdad5a1-5684-41e5-a834-18019b06f5dd"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="dd5b6a06-8fd7-48fc-b9c1-4a63c12a34fb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2671437.26" id="5c7fa8cf-e772-413f-93eb-7bf071f8c5a1"/>
+          <kpi xsi:type="esdl:StringKPI" id="8cdad5a1-5684-41e5-a834-18019b06f5dd" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dd5b6a06-8fd7-48fc-b9c1-4a63c12a34fb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5c7fa8cf-e772-413f-93eb-7bf071f8c5a1" name="Maatschappelijke_kosten" value="2671437.26"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570002'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="af03c715-26d3-4912-bf56-97c5de7c2389" numberOfBuildings="513"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="792a5aad-0ff0-4371-843c-82c33f9aa21c" numberOfBuildings="47"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="513" name="Woningen" id="af03c715-26d3-4912-bf56-97c5de7c2389"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="792a5aad-0ff0-4371-843c-82c33f9aa21c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1a615aae-ee6f-4a11-b49c-481a6ef975ab">
           <port xsi:type="esdl:InPort" name="InPort" id="0307719b-e7df-46b9-8ddb-471162e23f49">
             <profile xsi:type="esdl:SingleValue" value="14130.1682" id="a69d872d-e2cc-4a20-b949-cdcc50e3113d">
@@ -5458,14 +5461,14 @@
           </port>
         </asset>
         <KPIs id="43c3a0e5-164e-4ddc-b92d-a45267d8d515">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bc27e208-7c6f-4c80-a235-269047ce5794"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="099384eb-af9d-4589-9210-32150839ae03"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="775189.983" id="79ee49bd-668c-4564-bea8-d2a613582fae"/>
+          <kpi xsi:type="esdl:StringKPI" id="bc27e208-7c6f-4c80-a235-269047ce5794" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="099384eb-af9d-4589-9210-32150839ae03" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="79ee49bd-668c-4564-bea8-d2a613582fae" name="Maatschappelijke_kosten" value="775189.983"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570101'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="31a9c90f-2950-4622-a6b8-6b7e6f15b312" numberOfBuildings="118"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8c0abc2b-8dc2-41dd-ad70-f7d95f522c6f" numberOfBuildings="51"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="118" name="Woningen" id="31a9c90f-2950-4622-a6b8-6b7e6f15b312"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="8c0abc2b-8dc2-41dd-ad70-f7d95f522c6f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="aaf1024e-bd2d-4717-99e2-886a5363d53e">
           <port xsi:type="esdl:InPort" name="InPort" id="dd88821f-db75-4499-9c91-c478ea709d7e">
             <profile xsi:type="esdl:SingleValue" value="4310.29948" id="0f624188-092b-42d5-85f3-cae6ba125e85">
@@ -5516,14 +5519,14 @@
           </port>
         </asset>
         <KPIs id="8d24b04b-18d9-42b0-9ee8-2924bc56c112">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="114d67b3-e43a-436a-8b0f-e28a18984b3e"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="eae3b6e1-bdde-4839-987b-a7d7f5dc8062"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1499505.26" id="ee97ab46-c756-4a89-8cf4-133f48c50071"/>
+          <kpi xsi:type="esdl:StringKPI" id="114d67b3-e43a-436a-8b0f-e28a18984b3e" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="eae3b6e1-bdde-4839-987b-a7d7f5dc8062" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ee97ab46-c756-4a89-8cf4-133f48c50071" name="Maatschappelijke_kosten" value="1499505.26"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570102'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e6b8aa9e-37e3-4300-916d-37b9a16c88a0" numberOfBuildings="368"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="428fbce0-3d18-4645-8293-47552a576691" numberOfBuildings="22"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="368" name="Woningen" id="e6b8aa9e-37e3-4300-916d-37b9a16c88a0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="22" name="Utiliteiten" id="428fbce0-3d18-4645-8293-47552a576691"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="40b80cd9-6d31-4384-a2b2-4f6afa8b1511">
           <port xsi:type="esdl:InPort" name="InPort" id="d50c6e66-0a3f-40b2-a8de-236382870065">
             <profile xsi:type="esdl:SingleValue" value="10233.3511" id="c66ec866-fdf5-48cf-b6ab-5c1e3fbeeb43">
@@ -5574,14 +5577,14 @@
           </port>
         </asset>
         <KPIs id="126db199-db71-46d6-b239-8029b891cd25">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="96106b94-dd1b-4ee7-85f1-04bba49c61e0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="c8bd0417-e5d4-4061-9ba9-a92ae98db4c0"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="629484.318" id="27f8198a-e427-4921-857e-20458dfe5849"/>
+          <kpi xsi:type="esdl:StringKPI" id="96106b94-dd1b-4ee7-85f1-04bba49c61e0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c8bd0417-e5d4-4061-9ba9-a92ae98db4c0" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="27f8198a-e427-4921-857e-20458dfe5849" name="Maatschappelijke_kosten" value="629484.318"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5f27c97c-8262-4106-b10e-c7751ca188d4" numberOfBuildings="314"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="10bbaab0-5f7e-40ed-87e2-d2e8b2ea27a9" numberOfBuildings="17"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="314" name="Woningen" id="5f27c97c-8262-4106-b10e-c7751ca188d4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="10bbaab0-5f7e-40ed-87e2-d2e8b2ea27a9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9c9a51c9-ad2a-4606-914a-aa942ab6a326">
           <port xsi:type="esdl:InPort" name="InPort" id="a2950e0a-b878-40dc-8eac-8b5a802889c8">
             <profile xsi:type="esdl:SingleValue" value="10004.0661" id="9298e69e-1689-4f7b-83d3-93c6842039ee">
@@ -5632,14 +5635,14 @@
           </port>
         </asset>
         <KPIs id="72e140a8-bbda-46bc-8210-410803562ede">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="96659aef-72eb-4162-bcf2-e79303d2cfe6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f2af15ac-2e5d-403f-a4f5-5b0187f9dc7e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="626966.863" id="fca190a0-b1bb-4e12-a050-eb410e4246e6"/>
+          <kpi xsi:type="esdl:StringKPI" id="96659aef-72eb-4162-bcf2-e79303d2cfe6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f2af15ac-2e5d-403f-a4f5-5b0187f9dc7e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fca190a0-b1bb-4e12-a050-eb410e4246e6" name="Maatschappelijke_kosten" value="626966.863"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570104'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="704c1f76-bc0d-42f5-b63e-11201851ca01" numberOfBuildings="254"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="57748d08-85d4-4202-87c7-cfcbc7c3e47a" numberOfBuildings="41"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="254" name="Woningen" id="704c1f76-bc0d-42f5-b63e-11201851ca01"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="57748d08-85d4-4202-87c7-cfcbc7c3e47a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b04d6dbb-05b1-4f81-9c91-09d900a5d7c0">
           <port xsi:type="esdl:InPort" name="InPort" id="a20fda84-6ef1-48fc-8661-25f8cbe84fb9">
             <profile xsi:type="esdl:SingleValue" value="8097.45162" id="18c21cfa-1afe-439f-b7f0-31cc7ee15d37">
@@ -5690,14 +5693,14 @@
           </port>
         </asset>
         <KPIs id="f9bc1cbd-87ec-4e14-9ebf-5dcfa24236aa">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a4bda85d-d2dd-47cf-8477-da7c0871bdcb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="55bf81cc-3381-4d22-be00-48b92ec7781b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="471195.636" id="0fd2dc9e-8db9-4f10-bb93-f010e25438c6"/>
+          <kpi xsi:type="esdl:StringKPI" id="a4bda85d-d2dd-47cf-8477-da7c0871bdcb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="55bf81cc-3381-4d22-be00-48b92ec7781b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0fd2dc9e-8db9-4f10-bb93-f010e25438c6" name="Maatschappelijke_kosten" value="471195.636"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570201'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="b8ed3119-5ced-4231-a130-68b58d077aab" numberOfBuildings="1106"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd7b6cbe-99e4-43fd-aa83-4889fe29ef96" numberOfBuildings="26"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1106" name="Woningen" id="b8ed3119-5ced-4231-a130-68b58d077aab"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="26" name="Utiliteiten" id="bd7b6cbe-99e4-43fd-aa83-4889fe29ef96"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c37aa8a0-d8d7-41cc-b857-57d901e6c76c">
           <port xsi:type="esdl:InPort" name="InPort" id="2e3c8003-d78a-48c8-9327-e8f3b9591802">
             <profile xsi:type="esdl:SingleValue" value="27390.5829" id="6d1c76e6-d88d-4e0e-b081-e99350e1f30a">
@@ -5748,14 +5751,14 @@
           </port>
         </asset>
         <KPIs id="72b696b6-dd83-4c45-8b41-77be4a0de265">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="476fbf70-1f0f-4dce-ade0-48a439c57312"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e4fb38e2-cb76-417a-bbb2-38f84d662c86"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1230666.03" id="08bc2d38-c091-4dea-a579-14c1d69e33d7"/>
+          <kpi xsi:type="esdl:StringKPI" id="476fbf70-1f0f-4dce-ade0-48a439c57312" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e4fb38e2-cb76-417a-bbb2-38f84d662c86" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="08bc2d38-c091-4dea-a579-14c1d69e33d7" name="Maatschappelijke_kosten" value="1230666.03"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570202'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e2084626-48ab-4031-a695-0a02be13a64d" numberOfBuildings="500"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd98a6ea-38e1-42c8-8a54-66d002233267" numberOfBuildings="51"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="500" name="Woningen" id="e2084626-48ab-4031-a695-0a02be13a64d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="bd98a6ea-38e1-42c8-8a54-66d002233267"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2792e149-f523-432f-9835-418801b6f047">
           <port xsi:type="esdl:InPort" name="InPort" id="fc27d28e-850b-4357-8eb9-9eddc650c17c">
             <profile xsi:type="esdl:SingleValue" value="11940.2701" id="f7064dff-4437-4d8a-a65a-270cd865c02d">
@@ -5806,14 +5809,14 @@
           </port>
         </asset>
         <KPIs id="002d214b-1828-4090-9f82-9cac2d5cedac">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="56ce45ed-9649-4468-8936-72267303921a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f2134d65-ff51-441e-a25a-88670e66b794"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="690659.199" id="973962bf-1838-4c2d-827d-ad97d4997642"/>
+          <kpi xsi:type="esdl:StringKPI" id="56ce45ed-9649-4468-8936-72267303921a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f2134d65-ff51-441e-a25a-88670e66b794" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="973962bf-1838-4c2d-827d-ad97d4997642" name="Maatschappelijke_kosten" value="690659.199"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570301'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c16607f4-a5eb-43cd-a109-e5e7c9bdcbab" numberOfBuildings="424"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="667b39c6-25e7-4419-8d66-6649b6f069dd" numberOfBuildings="34"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="424" name="Woningen" id="c16607f4-a5eb-43cd-a109-e5e7c9bdcbab"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="667b39c6-25e7-4419-8d66-6649b6f069dd"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="18f90daa-c551-43de-b659-379c39ffde9d">
           <port xsi:type="esdl:InPort" name="InPort" id="60d4881d-c326-4f64-8f21-eff2e3de29e2">
             <profile xsi:type="esdl:SingleValue" value="10351.8372" id="4e994e28-4a6c-4367-820b-d941bb2725ad">
@@ -5864,14 +5867,14 @@
           </port>
         </asset>
         <KPIs id="94969666-5da6-4a73-b5b6-83ccb92c4911">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ae4d0e37-cd24-49ab-93f1-6fb6f9a7e851"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="11183745-ecc9-4fae-82e1-153c29876865"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="511580.893" id="cb2fe4ee-da24-4abb-b234-f383a4606aca"/>
+          <kpi xsi:type="esdl:StringKPI" id="ae4d0e37-cd24-49ab-93f1-6fb6f9a7e851" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="11183745-ecc9-4fae-82e1-153c29876865" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cb2fe4ee-da24-4abb-b234-f383a4606aca" name="Maatschappelijke_kosten" value="511580.893"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570302'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c26a0ded-9fae-478d-93c1-13ef71c0af52" numberOfBuildings="930"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fecac7e6-5de1-48db-a6ff-143c22c6146f" numberOfBuildings="155"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="930" name="Woningen" id="c26a0ded-9fae-478d-93c1-13ef71c0af52"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Utiliteiten" id="fecac7e6-5de1-48db-a6ff-143c22c6146f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b1bbc2c1-fa67-4bd5-bad2-8cb8aacd747c">
           <port xsi:type="esdl:InPort" name="InPort" id="a131fad5-d245-4fe7-bb42-31e15535a2da">
             <profile xsi:type="esdl:SingleValue" value="24012.7673" id="6643f2ff-4022-485e-9a04-cab3c0b0ef54">
@@ -5922,14 +5925,14 @@
           </port>
         </asset>
         <KPIs id="a58a4bcf-475d-4a88-87c0-a7ca5a3941f3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="99babaa3-7bd0-48eb-b19e-1c435a9c8fea"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="32e1a5c7-9779-4b72-91c4-d4dd668edcc1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1400967.18" id="1a611124-39c1-4326-a6d2-a6b130e55dad"/>
+          <kpi xsi:type="esdl:StringKPI" id="99babaa3-7bd0-48eb-b19e-1c435a9c8fea" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="32e1a5c7-9779-4b72-91c4-d4dd668edcc1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1a611124-39c1-4326-a6d2-a6b130e55dad" name="Maatschappelijke_kosten" value="1400967.18"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570303'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ed6de8b3-7131-4698-bc79-464aa4d4af09" numberOfBuildings="904"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="667d6edc-f030-44ec-94be-a831730b704b" numberOfBuildings="100"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="904" name="Woningen" id="ed6de8b3-7131-4698-bc79-464aa4d4af09"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="100" name="Utiliteiten" id="667d6edc-f030-44ec-94be-a831730b704b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b85d1404-9131-4d6d-bfe8-b4d847642c90">
           <port xsi:type="esdl:InPort" name="InPort" id="9f7212b3-f6ee-419b-abe2-58ff00b77bd5">
             <profile xsi:type="esdl:SingleValue" value="22467.1067" id="0db5bb92-2095-44ef-86b7-bc28e2dad547">
@@ -5980,14 +5983,14 @@
           </port>
         </asset>
         <KPIs id="43fd88dc-a75b-47b6-98c1-3a90a0f84b1e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1521ae21-335a-40b7-90f5-bde979b32ef0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="309f1703-e31d-47cb-9856-30d971b075d9"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1162157.83" id="da8d2d72-0cfd-4b57-b423-6a779c6b5aa9"/>
+          <kpi xsi:type="esdl:StringKPI" id="1521ae21-335a-40b7-90f5-bde979b32ef0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="309f1703-e31d-47cb-9856-30d971b075d9" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="da8d2d72-0cfd-4b57-b423-6a779c6b5aa9" name="Maatschappelijke_kosten" value="1162157.83"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570304'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="105c384c-355b-42b7-9fa1-8d9354062205" numberOfBuildings="75"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d7773e1d-fdaa-4e8d-86b3-3655d7478cec" numberOfBuildings="333"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="75" name="Woningen" id="105c384c-355b-42b7-9fa1-8d9354062205"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="333" name="Utiliteiten" id="d7773e1d-fdaa-4e8d-86b3-3655d7478cec"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="74ec2804-f079-4b08-89f9-de4c31687257">
           <port xsi:type="esdl:InPort" name="InPort" id="1335de4f-7f6e-48af-9475-007dca169762">
             <profile xsi:type="esdl:SingleValue" value="2102.95654" id="b71f1840-491a-4eba-adf6-e38bf4c9185b">
@@ -6038,14 +6041,14 @@
           </port>
         </asset>
         <KPIs id="31a1f337-39d2-4881-a1ef-3f93da21527e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fb722119-d04b-4d02-bbd9-d0ef2a5c6228"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a6149e18-34d7-4181-98d0-083f523f7363"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="4475343.26" id="2aad7d1a-2e6e-435e-b5e7-06f7a7527fff"/>
+          <kpi xsi:type="esdl:StringKPI" id="fb722119-d04b-4d02-bbd9-d0ef2a5c6228" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a6149e18-34d7-4181-98d0-083f523f7363" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2aad7d1a-2e6e-435e-b5e7-06f7a7527fff" name="Maatschappelijke_kosten" value="4475343.26"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570401'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5f265df5-85e7-4c56-8a55-ff2d3e0d89c7" numberOfBuildings="702"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8a6e7c54-a66f-44bc-b6df-ac9e002f301b" numberOfBuildings="26"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="702" name="Woningen" id="5f265df5-85e7-4c56-8a55-ff2d3e0d89c7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="26" name="Utiliteiten" id="8a6e7c54-a66f-44bc-b6df-ac9e002f301b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="431c4988-4925-4b1f-a99a-e2d6e60ff51d">
           <port xsi:type="esdl:InPort" name="InPort" id="d7fcecb3-23ec-4409-85c6-a847249e8c5b">
             <profile xsi:type="esdl:SingleValue" value="21010.5754" id="3dcdce63-193b-4e84-b9eb-05ea09cf238a">
@@ -6096,14 +6099,14 @@
           </port>
         </asset>
         <KPIs id="67c83066-fbdd-418c-b8df-d872aaa9f7d9">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="2cc02a87-c541-4b69-b8b2-8c6af86fd991"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a2674f5c-5c2a-45e6-9517-b89499d6fd60"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1217216.29" id="f4a17254-5ec6-4d75-aa63-18b524709db1"/>
+          <kpi xsi:type="esdl:StringKPI" id="2cc02a87-c541-4b69-b8b2-8c6af86fd991" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a2674f5c-5c2a-45e6-9517-b89499d6fd60" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f4a17254-5ec6-4d75-aa63-18b524709db1" name="Maatschappelijke_kosten" value="1217216.29"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570402'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4fa960ed-68e6-4e93-b0fc-e2f206e5f5ca" numberOfBuildings="797"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ba676530-a960-425b-b296-039d0483dd45" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="797" name="Woningen" id="4fa960ed-68e6-4e93-b0fc-e2f206e5f5ca"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="ba676530-a960-425b-b296-039d0483dd45"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a9b4918d-27ea-478e-ae43-e3e5c298d12f">
           <port xsi:type="esdl:InPort" name="InPort" id="e1f55cc7-0c6c-442c-a3cb-480877a4c069">
             <profile xsi:type="esdl:SingleValue" value="23041.7366" id="babda41f-6e18-484b-9641-ec984ee9f8a5">
@@ -6154,14 +6157,14 @@
           </port>
         </asset>
         <KPIs id="36894d7e-757d-47fc-940e-e39f73d67112">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6d8049cd-3989-4529-ad64-c73b3711cd67"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="09ce9ea3-4f42-4708-ab09-a35f543d7da0"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1115478.92" id="e55f927a-f6a3-4fc9-9fa0-fc6e7e6e352b"/>
+          <kpi xsi:type="esdl:StringKPI" id="6d8049cd-3989-4529-ad64-c73b3711cd67" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="09ce9ea3-4f42-4708-ab09-a35f543d7da0" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e55f927a-f6a3-4fc9-9fa0-fc6e7e6e352b" name="Maatschappelijke_kosten" value="1115478.92"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570701'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="23a7f1f4-6808-4025-87cd-733d1906668d" numberOfBuildings="115"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="91779cd5-9f01-4f12-9060-cc4eb7b432fe" numberOfBuildings="29"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="115" name="Woningen" id="23a7f1f4-6808-4025-87cd-733d1906668d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="29" name="Utiliteiten" id="91779cd5-9f01-4f12-9060-cc4eb7b432fe"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="68c298d4-6eb0-4270-8393-f745b0cc77f5">
           <port xsi:type="esdl:InPort" name="InPort" id="bdb3c4b6-3071-4e6a-9bdd-c789d7da0353">
             <profile xsi:type="esdl:SingleValue" value="5021.43139" id="73db0aaa-4bb1-4ea9-84be-3caecfd48b35">
@@ -6212,14 +6215,14 @@
           </port>
         </asset>
         <KPIs id="48b0977b-a20a-423e-878c-20d0a818b245">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f2ffc466-e1b6-4d31-95ff-9d6a2ef0de07"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="4b501a97-10be-4842-873b-8efbb30aa5c0"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="586016.143" id="a351e033-98d1-4a2b-9111-5b3565622565"/>
+          <kpi xsi:type="esdl:StringKPI" id="f2ffc466-e1b6-4d31-95ff-9d6a2ef0de07" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="4b501a97-10be-4842-873b-8efbb30aa5c0" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a351e033-98d1-4a2b-9111-5b3565622565" name="Maatschappelijke_kosten" value="586016.143"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570801'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="abd4fade-61d8-41ba-807a-ff8feda25ff0" numberOfBuildings="136"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8edb3f05-ca34-4dcf-b5a1-ca4c2e22a0c9" numberOfBuildings="109"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="136" name="Woningen" id="abd4fade-61d8-41ba-807a-ff8feda25ff0"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="109" name="Utiliteiten" id="8edb3f05-ca34-4dcf-b5a1-ca4c2e22a0c9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1902e1aa-1421-4e14-b2f0-d0c8e0905ab9">
           <port xsi:type="esdl:InPort" name="InPort" id="3e376a73-3599-4fea-804b-63fb5209b753">
             <profile xsi:type="esdl:SingleValue" value="6526.00852" id="90952def-0c92-4bce-9344-f0aa760084fa">
@@ -6270,14 +6273,14 @@
           </port>
         </asset>
         <KPIs id="162ce732-90db-4c9e-b68b-7f17d9c00faf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f02565e0-c168-40b6-9f80-92c08636c86b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="84edee92-9d9a-4465-9b05-2b901658586e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="894303.293" id="be8c49d3-4e3b-4acd-b929-c07ea255a6b9"/>
+          <kpi xsi:type="esdl:StringKPI" id="f02565e0-c168-40b6-9f80-92c08636c86b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="84edee92-9d9a-4465-9b05-2b901658586e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="be8c49d3-4e3b-4acd-b929-c07ea255a6b9" name="Maatschappelijke_kosten" value="894303.293"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570901'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="dc46c673-f5c6-4ef0-ae94-0296691c6fe9" numberOfBuildings="510"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2110074d-e3f7-4e6c-855a-8b204723cc18" numberOfBuildings="40"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="510" name="Woningen" id="dc46c673-f5c6-4ef0-ae94-0296691c6fe9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="40" name="Utiliteiten" id="2110074d-e3f7-4e6c-855a-8b204723cc18"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="269edad4-c790-4b84-91b2-ff74a9aaceba">
           <port xsi:type="esdl:InPort" name="InPort" id="a6640b93-fb83-49b2-8910-909a16add177">
             <profile xsi:type="esdl:SingleValue" value="14451.6159" id="417d08c5-c9d1-44f6-af4f-925ce16c2c24">
@@ -6328,14 +6331,14 @@
           </port>
         </asset>
         <KPIs id="88cc8673-280f-49ce-ad33-c22dd0ac3e5a">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="9b8f874b-6ac9-444f-8b1a-7e164f59774b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="9f85860b-b90f-4652-b1de-a33d61e8612e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="693478.811" id="b9c18cf8-d34f-4b31-a7a9-c70ce27cf88b"/>
+          <kpi xsi:type="esdl:StringKPI" id="9b8f874b-6ac9-444f-8b1a-7e164f59774b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9f85860b-b90f-4652-b1de-a33d61e8612e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b9c18cf8-d34f-4b31-a7a9-c70ce27cf88b" name="Maatschappelijke_kosten" value="693478.811"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570902'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="754d7ac7-881e-4b2e-8c1a-63656ee20889" numberOfBuildings="12"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a7d52ca9-ab57-4fbf-a653-250235615e01" numberOfBuildings="31"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Woningen" id="754d7ac7-881e-4b2e-8c1a-63656ee20889"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="a7d52ca9-ab57-4fbf-a653-250235615e01"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7b835662-6f0f-4e98-8611-e266fca51b91">
           <port xsi:type="esdl:InPort" name="InPort" id="392228d4-d7d4-4e46-bc0d-af9784b0377d">
             <profile xsi:type="esdl:SingleValue" value="460.510823" id="26552eb9-08d7-41ba-b830-38935c2dd69c">
@@ -6386,14 +6389,14 @@
           </port>
         </asset>
         <KPIs id="8068202f-218e-407f-8352-e21bd6a658f3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1fae7c70-4872-4c8b-be16-5be5301e0e2a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="85ec9fb9-e6bd-4bc5-be36-30f7b8bb1f4c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="392885.076" id="c4a472bd-9ad9-4ba7-88a2-4a8057c57496"/>
+          <kpi xsi:type="esdl:StringKPI" id="1fae7c70-4872-4c8b-be16-5be5301e0e2a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="85ec9fb9-e6bd-4bc5-be36-30f7b8bb1f4c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c4a472bd-9ad9-4ba7-88a2-4a8057c57496" name="Maatschappelijke_kosten" value="392885.076"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04570903'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="83fbde77-f86d-4c5e-a0b7-a02b14bf7e85" numberOfBuildings="33"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c37e8077-b60f-4a6e-a7d7-30dae252ad09" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="33" name="Woningen" id="83fbde77-f86d-4c5e-a0b7-a02b14bf7e85"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="c37e8077-b60f-4a6e-a7d7-30dae252ad09"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b87802c7-fe51-4913-b0eb-4c36cfe0003f">
           <port xsi:type="esdl:InPort" name="InPort" id="501d845b-e8eb-4cc9-a3db-8b23639ef1c4">
             <profile xsi:type="esdl:SingleValue" value="1211.67181" id="131850e4-b6f8-4d63-b6e1-48d729b3c854">
@@ -6444,14 +6447,14 @@
           </port>
         </asset>
         <KPIs id="fd110ae4-ae91-4a46-957e-4f4f0ff4cdc3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="5767053c-b239-49bc-a508-874d3139f4a4"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="817aa270-2591-4270-89cd-fb029565848c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="271818.722" id="1c8de885-8bea-471b-bf3f-53391fe58682"/>
+          <kpi xsi:type="esdl:StringKPI" id="5767053c-b239-49bc-a508-874d3139f4a4" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="817aa270-2591-4270-89cd-fb029565848c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1c8de885-8bea-471b-bf3f-53391fe58682" name="Maatschappelijke_kosten" value="271818.722"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960000'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4ad6c9c7-931b-4af4-b06e-7ded895ecb8b" numberOfBuildings="714"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4504e2af-926e-47da-894a-102317f795f3" numberOfBuildings="87"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="714" name="Woningen" id="4ad6c9c7-931b-4af4-b06e-7ded895ecb8b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="4504e2af-926e-47da-894a-102317f795f3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="480f4a0e-9924-413b-a61d-41ae693c7d95">
           <port xsi:type="esdl:InPort" name="InPort" id="e246ec4b-6392-4088-bffc-48b4212e6b88">
             <profile xsi:type="esdl:SingleValue" value="24438.5732" id="1aad8277-92aa-474e-958f-74a527ee9f81">
@@ -6502,14 +6505,14 @@
           </port>
         </asset>
         <KPIs id="b309079a-4974-42d0-b386-b995d43481da">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="5fdc9e59-33bd-4bbb-8dd5-d456c4b7631d"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="dc68b7ae-9954-4cf0-94bb-1a7e36acdacd"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2254290.74" id="a102d00b-e51f-4fc7-b425-b0ac940ee572"/>
+          <kpi xsi:type="esdl:StringKPI" id="5fdc9e59-33bd-4bbb-8dd5-d456c4b7631d" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="dc68b7ae-9954-4cf0-94bb-1a7e36acdacd" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a102d00b-e51f-4fc7-b425-b0ac940ee572" name="Maatschappelijke_kosten" value="2254290.74"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960100'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9903a62f-24a6-403f-8a21-c086ca47ac37" numberOfBuildings="158"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="bd88e07e-eb06-4970-8f59-f207835b326b" numberOfBuildings="25"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="158" name="Woningen" id="9903a62f-24a6-403f-8a21-c086ca47ac37"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="25" name="Utiliteiten" id="bd88e07e-eb06-4970-8f59-f207835b326b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="81447f27-a00a-4d34-aa4f-1c2a921fbb65">
           <port xsi:type="esdl:InPort" name="InPort" id="526952d6-a841-4a09-8fa3-8963d8aca9a3">
             <profile xsi:type="esdl:SingleValue" value="6404.21852" id="1f406689-e2c7-4c55-b17b-fa0f61b90ac2">
@@ -6560,14 +6563,14 @@
           </port>
         </asset>
         <KPIs id="ad420c7d-5791-4e99-a825-49cce675cb88">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="504e76bb-7105-4884-b044-b254753a0986"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b53411a4-c7e6-4b30-a3e7-d3133a8371e2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="551969.201" id="785c7144-5eae-4912-ae16-cfefcee50d6d"/>
+          <kpi xsi:type="esdl:StringKPI" id="504e76bb-7105-4884-b044-b254753a0986" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b53411a4-c7e6-4b30-a3e7-d3133a8371e2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="785c7144-5eae-4912-ae16-cfefcee50d6d" name="Maatschappelijke_kosten" value="551969.201"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960101'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f3521266-ea62-463f-8aad-e794170c979b" numberOfBuildings="2674"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7f4f0850-c376-4449-97bd-64c282f03f57" numberOfBuildings="365"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2674" name="Woningen" id="f3521266-ea62-463f-8aad-e794170c979b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="365" name="Utiliteiten" id="7f4f0850-c376-4449-97bd-64c282f03f57"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="191a3973-8829-4dfa-96e6-f804fafef3c2">
           <port xsi:type="esdl:InPort" name="InPort" id="e27afa5e-4dde-4092-af0f-3fdba74df749">
             <profile xsi:type="esdl:SingleValue" value="79222.4618" id="45c8dc57-c560-4789-9169-56c739beaa0d">
@@ -6618,14 +6621,14 @@
           </port>
         </asset>
         <KPIs id="c8b3ab28-50d3-46de-978b-8b592d97f293">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="4c09f40b-c8d2-4440-ab2c-3380f868b46f"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="1f5caa37-f2dc-4e5a-8d80-68543c329e10"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="4249859.3" id="8ae14a93-a733-4e39-b5c9-afaf2a015c36"/>
+          <kpi xsi:type="esdl:StringKPI" id="4c09f40b-c8d2-4440-ab2c-3380f868b46f" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1f5caa37-f2dc-4e5a-8d80-68543c329e10" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8ae14a93-a733-4e39-b5c9-afaf2a015c36" name="Maatschappelijke_kosten" value="4249859.3"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960102'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="42319685-2d41-4b12-9072-d95c7617d03f" numberOfBuildings="75"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e1259e82-d10c-4343-8260-1c02bab30688" numberOfBuildings="11"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="75" name="Woningen" id="42319685-2d41-4b12-9072-d95c7617d03f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="11" name="Utiliteiten" id="e1259e82-d10c-4343-8260-1c02bab30688"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="55e25886-32ae-4524-9ce2-3d8b25774da2">
           <port xsi:type="esdl:InPort" name="InPort" id="33435d97-b9b5-4a76-b94b-d363d765de25">
             <profile xsi:type="esdl:SingleValue" value="3280.43798" id="6ee1ec41-d838-4cee-9865-8089e5f7b5dd">
@@ -6676,14 +6679,14 @@
           </port>
         </asset>
         <KPIs id="daa76582-9919-43f6-95bf-1d0119f97ee8">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="99c86537-c1fa-4e0d-b30a-21f84aad5282"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f02546ae-b06f-4ed1-a69a-767c1bd4cc60"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="278939.398" id="a2a05ede-bb01-44ed-b912-705b339280b8"/>
+          <kpi xsi:type="esdl:StringKPI" id="99c86537-c1fa-4e0d-b30a-21f84aad5282" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f02546ae-b06f-4ed1-a69a-767c1bd4cc60" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a2a05ede-bb01-44ed-b912-705b339280b8" name="Maatschappelijke_kosten" value="278939.398"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="38d089e7-39e4-4654-943d-8b4e97596063" numberOfBuildings="38"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b03471e3-0df6-407f-aebb-ce9f2afc40eb" numberOfBuildings="11"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Woningen" id="38d089e7-39e4-4654-943d-8b4e97596063"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="11" name="Utiliteiten" id="b03471e3-0df6-407f-aebb-ce9f2afc40eb"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="deeffd54-29d3-4b16-9196-c867a0a0de6d">
           <port xsi:type="esdl:InPort" name="InPort" id="3d930815-7918-49b0-8a2a-d274adc039dc">
             <profile xsi:type="esdl:SingleValue" value="1795.86938" id="4352a6a5-20bd-4dc0-aee4-623e4b7758d0">
@@ -6734,14 +6737,14 @@
           </port>
         </asset>
         <KPIs id="ae51b20d-6bd9-4115-878f-914b79515d78">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="dbfc2726-ea49-4f4a-85e5-a48f5392200c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="a0d19773-f124-4c0c-84f3-f1080579db9c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="187764.1" id="f977add2-1719-4c3a-be4f-447991bcaeb8"/>
+          <kpi xsi:type="esdl:StringKPI" id="dbfc2726-ea49-4f4a-85e5-a48f5392200c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a0d19773-f124-4c0c-84f3-f1080579db9c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f977add2-1719-4c3a-be4f-447991bcaeb8" name="Maatschappelijke_kosten" value="187764.1"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960200'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fb9ef067-82d9-4700-b077-7e14bbdc1844" numberOfBuildings="120"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7c3a8ef6-0134-468c-b8c9-cda88a189e85" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="120" name="Woningen" id="fb9ef067-82d9-4700-b077-7e14bbdc1844"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="7c3a8ef6-0134-468c-b8c9-cda88a189e85"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d95db621-a98f-4d2b-9827-0c5aa4770d95">
           <port xsi:type="esdl:InPort" name="InPort" id="cbf43df0-f8ab-4edf-928c-b16f70a1c2b7">
             <profile xsi:type="esdl:SingleValue" value="4915.44598" id="8691cac7-6feb-435c-a580-f31fcd37b1ec">
@@ -6792,14 +6795,14 @@
           </port>
         </asset>
         <KPIs id="fb8120b9-67f4-4e8e-bcfc-4a521b85e6b3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="99f915c1-2e57-4f63-b16f-e09f5c5214e9"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b5a1cc84-5199-47d8-adb1-49c486b3aa70"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="309749.462" id="b18f7b13-6b31-433a-8dda-ef0b385d8661"/>
+          <kpi xsi:type="esdl:StringKPI" id="99f915c1-2e57-4f63-b16f-e09f5c5214e9" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b5a1cc84-5199-47d8-adb1-49c486b3aa70" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b18f7b13-6b31-433a-8dda-ef0b385d8661" name="Maatschappelijke_kosten" value="309749.462"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960201'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="dd698cc6-affd-4d7e-8c55-35360e234f7a" numberOfBuildings="491"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="25dc28fb-2f01-48b9-a495-02bdbf6fc7bd" numberOfBuildings="80"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="491" name="Woningen" id="dd698cc6-affd-4d7e-8c55-35360e234f7a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="25dc28fb-2f01-48b9-a495-02bdbf6fc7bd"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c219922e-02f6-4715-9241-18f71d00b10a">
           <port xsi:type="esdl:InPort" name="InPort" id="48efb772-2bd3-40f3-8bb5-fe15b41687ae">
             <profile xsi:type="esdl:SingleValue" value="16083.6769" id="ba4ffd3d-0c44-4dfe-ab6e-bfcac8dcf3e3">
@@ -6850,14 +6853,14 @@
           </port>
         </asset>
         <KPIs id="3532b20b-d8ee-45fc-a8e0-6d18303f7791">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a4b75ad4-ae6f-4eb9-b650-ea0b79c8b278"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6fa5ba96-a844-48c3-a0a1-22402541e0c2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1142463.56" id="a68a8d83-3b63-49bc-a317-2a7bae4b5913"/>
+          <kpi xsi:type="esdl:StringKPI" id="a4b75ad4-ae6f-4eb9-b650-ea0b79c8b278" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6fa5ba96-a844-48c3-a0a1-22402541e0c2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a68a8d83-3b63-49bc-a317-2a7bae4b5913" name="Maatschappelijke_kosten" value="1142463.56"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960202'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="977f79b3-181d-4319-8561-6bee67deab99" numberOfBuildings="56"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="50f610f3-0fda-4feb-9965-f79c1af4d85a" numberOfBuildings="5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="56" name="Woningen" id="977f79b3-181d-4319-8561-6bee67deab99"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5" name="Utiliteiten" id="50f610f3-0fda-4feb-9965-f79c1af4d85a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="363003df-9d6a-4ba3-92b3-fe4c508fb66d">
           <port xsi:type="esdl:InPort" name="InPort" id="811a0331-a6b2-4aff-96bf-04447f5f8985">
             <profile xsi:type="esdl:SingleValue" value="2531.89631" id="c8d58584-8466-4714-bc7f-fd3687f9b521">
@@ -6908,14 +6911,14 @@
           </port>
         </asset>
         <KPIs id="80634fba-86ff-4a79-8f86-312d65b21f39">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="25253c84-e36f-41f6-ac43-234b1ae8ce36"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="c433adcb-740f-4b23-b424-a669bd0ac6e1"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="180504.349" id="f965c467-94d1-40b1-921e-b3fb951711d8"/>
+          <kpi xsi:type="esdl:StringKPI" id="25253c84-e36f-41f6-ac43-234b1ae8ce36" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c433adcb-740f-4b23-b424-a669bd0ac6e1" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f965c467-94d1-40b1-921e-b3fb951711d8" name="Maatschappelijke_kosten" value="180504.349"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960300'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="763e1c19-08e1-485b-b7ae-85fdd0feb3cf" numberOfBuildings="1090"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d8f246fa-a27e-419e-8212-a1851550a18b" numberOfBuildings="475"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1090" name="Woningen" id="763e1c19-08e1-485b-b7ae-85fdd0feb3cf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="475" name="Utiliteiten" id="d8f246fa-a27e-419e-8212-a1851550a18b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0cce5fd3-d01e-454f-b6fc-fbc8860ee020">
           <port xsi:type="esdl:InPort" name="InPort" id="46b7d5ca-6842-4e44-8c77-176c6d199d2a">
             <profile xsi:type="esdl:SingleValue" value="42557.8424" id="a7006fac-a486-4304-930b-1a6b52839b73">
@@ -6966,14 +6969,14 @@
           </port>
         </asset>
         <KPIs id="2267d2d9-fadc-4cbd-b7c4-a4a8345c8d23">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="64d4fa9e-56f6-4961-bd6e-c6936fda57f9"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="bc7ab219-3532-4220-b4d6-51a050200f69"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3629571.35" id="76c0d559-1207-45ff-9ee8-7180fb7411d7"/>
+          <kpi xsi:type="esdl:StringKPI" id="64d4fa9e-56f6-4961-bd6e-c6936fda57f9" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bc7ab219-3532-4220-b4d6-51a050200f69" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="76c0d559-1207-45ff-9ee8-7180fb7411d7" name="Maatschappelijke_kosten" value="3629571.35"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960400'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7e7e7919-e5de-4357-ba69-c56cfffcfec6" numberOfBuildings="2706"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="57d6a90c-c277-4704-8dc4-b52db1afc567" numberOfBuildings="419"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2706" name="Woningen" id="7e7e7919-e5de-4357-ba69-c56cfffcfec6"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="419" name="Utiliteiten" id="57d6a90c-c277-4704-8dc4-b52db1afc567"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="78d6a36f-c0c8-45d0-a24a-3525c921db36">
           <port xsi:type="esdl:InPort" name="InPort" id="92f21666-ebdc-48c9-83fb-6f927cee4321">
             <profile xsi:type="esdl:SingleValue" value="88731.0614" id="a30d8051-4bf5-4f84-ae29-c35e77baa6f3">
@@ -7024,14 +7027,14 @@
           </port>
         </asset>
         <KPIs id="96bfce42-3185-47d3-9151-994954194490">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="28ca9c21-6986-4841-9780-7599948846b8"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="32bb2f6e-b8ef-47e7-b88f-e05f67c477fd"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="6861842.47" id="2c53c5a0-9d00-457b-84b5-72ef6b45556c"/>
+          <kpi xsi:type="esdl:StringKPI" id="28ca9c21-6986-4841-9780-7599948846b8" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="32bb2f6e-b8ef-47e7-b88f-e05f67c477fd" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2c53c5a0-9d00-457b-84b5-72ef6b45556c" name="Maatschappelijke_kosten" value="6861842.47"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960401'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9214b2fd-56e4-4971-977c-c6d6d0dc9671" numberOfBuildings="65"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="10ffcc3b-bdfb-46e2-8f95-95c267d38605" numberOfBuildings="4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="65" name="Woningen" id="9214b2fd-56e4-4971-977c-c6d6d0dc9671"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Utiliteiten" id="10ffcc3b-bdfb-46e2-8f95-95c267d38605"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bc4e6ab4-6076-4117-b9c3-3c50a5e72dac">
           <port xsi:type="esdl:InPort" name="InPort" id="57967dd0-af04-4619-961e-38f410da23c1">
             <profile xsi:type="esdl:SingleValue" value="3299.4401" id="aa946b8f-0af7-4350-9eae-94d0c0edb89e">
@@ -7082,14 +7085,14 @@
           </port>
         </asset>
         <KPIs id="e7d00bd8-f037-4ace-bcac-beff5c4d1ff3">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3db2f897-4ac5-47bf-b9b7-ec905c77ebbb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="15b181ee-a367-4519-b9e2-f3469b7ec835"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="206024.933" id="650f2b41-88d1-4836-ac36-54546cf49dc2"/>
+          <kpi xsi:type="esdl:StringKPI" id="3db2f897-4ac5-47bf-b9b7-ec905c77ebbb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="15b181ee-a367-4519-b9e2-f3469b7ec835" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="650f2b41-88d1-4836-ac36-54546cf49dc2" name="Maatschappelijke_kosten" value="206024.933"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960402'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0952b75c-aae5-48b7-ad66-e7896bce1deb" numberOfBuildings="137"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7ecb5ecb-565c-4701-9cba-47bee2009d78" numberOfBuildings="526"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="137" name="Woningen" id="0952b75c-aae5-48b7-ad66-e7896bce1deb"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="526" name="Utiliteiten" id="7ecb5ecb-565c-4701-9cba-47bee2009d78"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="93f44467-2528-47de-b66c-0dd79a05d5c6">
           <port xsi:type="esdl:InPort" name="InPort" id="4c1eec5a-5e19-4b92-9f42-7d5929f84993">
             <profile xsi:type="esdl:SingleValue" value="6500.14267" id="adeb604c-d879-45ae-b184-fa370f4ba033">
@@ -7140,14 +7143,14 @@
           </port>
         </asset>
         <KPIs id="58c825a5-10d2-47f0-a0a6-4c6e85e0efdc">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="02531e70-9c93-4ef9-a4d9-9a2caeab2ee7"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3336417c-5cf9-4802-8e95-f9542c4dfaa2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="889657.72" id="5099c807-9924-4721-b01f-2494a40b0488"/>
+          <kpi xsi:type="esdl:StringKPI" id="02531e70-9c93-4ef9-a4d9-9a2caeab2ee7" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3336417c-5cf9-4802-8e95-f9542c4dfaa2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5099c807-9924-4721-b01f-2494a40b0488" name="Maatschappelijke_kosten" value="889657.72"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960500'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="6cee2b0b-7a2b-4a6e-b21c-e726581af56b" numberOfBuildings="138"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f7c0a905-6ea3-4817-a2bc-f42c11ab1b1c" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="138" name="Woningen" id="6cee2b0b-7a2b-4a6e-b21c-e726581af56b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="f7c0a905-6ea3-4817-a2bc-f42c11ab1b1c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="924e9c84-2346-4d43-8adb-4ab2ebde9882">
           <port xsi:type="esdl:InPort" name="InPort" id="150b00a9-1c48-4fcf-8900-d9099c2d9ec0">
             <profile xsi:type="esdl:SingleValue" value="6122.3471" id="90e7b1fd-545d-4d08-a343-ffc93d11c487">
@@ -7198,14 +7201,14 @@
           </port>
         </asset>
         <KPIs id="c63822b6-2ca4-4443-8762-abfe75f56097">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e79a7c99-7f0b-4cf2-87f9-76ba59b08d9c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="991c5602-8df8-462a-96c5-eb8ece1c5ca2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="370721.16" id="56110da1-354d-480f-9ff7-48da3222339c"/>
+          <kpi xsi:type="esdl:StringKPI" id="e79a7c99-7f0b-4cf2-87f9-76ba59b08d9c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="991c5602-8df8-462a-96c5-eb8ece1c5ca2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="56110da1-354d-480f-9ff7-48da3222339c" name="Maatschappelijke_kosten" value="370721.16"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960601'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2506ddc5-8e63-4708-8463-b08d286ea808" numberOfBuildings="545"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0cb5dcc3-3baa-472a-8585-a224a1c4fb8a" numberOfBuildings="185"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="545" name="Woningen" id="2506ddc5-8e63-4708-8463-b08d286ea808"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="185" name="Utiliteiten" id="0cb5dcc3-3baa-472a-8585-a224a1c4fb8a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e63d2586-b21d-4593-9eaa-db15be10d678">
           <port xsi:type="esdl:InPort" name="InPort" id="3f37b25e-2bca-4667-ab11-a0e3c69967b5">
             <profile xsi:type="esdl:SingleValue" value="18555.6956" id="080d07a2-3931-4425-93ec-d90dee625ec3">
@@ -7256,14 +7259,14 @@
           </port>
         </asset>
         <KPIs id="8d989375-4269-41b9-b259-1ac97f5615b0">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e8ca06d4-5c23-401f-bb11-9de140472493"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="faa504e4-9975-4598-bbb4-92f382f7a65c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1470442.03" id="bbc15bcf-40b1-4e45-b64d-c13bfc56335e"/>
+          <kpi xsi:type="esdl:StringKPI" id="e8ca06d4-5c23-401f-bb11-9de140472493" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="faa504e4-9975-4598-bbb4-92f382f7a65c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bbc15bcf-40b1-4e45-b64d-c13bfc56335e" name="Maatschappelijke_kosten" value="1470442.03"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960602'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="fd719631-7e71-49cb-b949-8bdba287d8a4" numberOfBuildings="570"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5b82b2ea-5bde-44f7-8caf-616957f8009c" numberOfBuildings="34"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="570" name="Woningen" id="fd719631-7e71-49cb-b949-8bdba287d8a4"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="5b82b2ea-5bde-44f7-8caf-616957f8009c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="cb771de4-a189-40a1-a62a-0485f2258b3c">
           <port xsi:type="esdl:InPort" name="InPort" id="108e3501-91fa-4dab-af31-5d1c63da9737">
             <profile xsi:type="esdl:SingleValue" value="17846.7774" id="50f76c80-39ce-417e-81b6-a8bebda2344f">
@@ -7314,14 +7317,14 @@
           </port>
         </asset>
         <KPIs id="ab5aa227-3bf0-4b09-9838-f1765068ade2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="8eb49cfb-2d62-4301-9d5e-94f3f9de17eb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="c2a102f9-2ac5-42e1-9851-262f2866f25b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1068051.83" id="b23e165f-2c44-46ee-8abc-207b787965da"/>
+          <kpi xsi:type="esdl:StringKPI" id="8eb49cfb-2d62-4301-9d5e-94f3f9de17eb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c2a102f9-2ac5-42e1-9851-262f2866f25b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b23e165f-2c44-46ee-8abc-207b787965da" name="Maatschappelijke_kosten" value="1068051.83"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960603'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="03da3149-a3cf-4fe7-a447-3e7866d8e795" numberOfBuildings="287"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a6571762-6d07-47cd-91c3-42b021f7a973" numberOfBuildings="41"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="287" name="Woningen" id="03da3149-a3cf-4fe7-a447-3e7866d8e795"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="41" name="Utiliteiten" id="a6571762-6d07-47cd-91c3-42b021f7a973"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="4949d1c1-808a-4ce3-8c73-24106ae8cab1">
           <port xsi:type="esdl:InPort" name="InPort" id="7668b043-038d-4599-9175-08e35fb0de5f">
             <profile xsi:type="esdl:SingleValue" value="13579.3776" id="f7a3f25d-f796-437e-a075-0a5df5c9434b">
@@ -7372,14 +7375,14 @@
           </port>
         </asset>
         <KPIs id="016f04af-6944-48bf-afe8-f9fa995ed73f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="dbe94cf9-4003-4e15-aac1-721864c224f5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ad582772-b08d-4324-95cf-eaccc601369c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1343993.52" id="e0e3abc8-9cc7-419e-9157-6c35cec267f1"/>
+          <kpi xsi:type="esdl:StringKPI" id="dbe94cf9-4003-4e15-aac1-721864c224f5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ad582772-b08d-4324-95cf-eaccc601369c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e0e3abc8-9cc7-419e-9157-6c35cec267f1" name="Maatschappelijke_kosten" value="1343993.52"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU16960604'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bcbaf304-bc74-4501-a39a-26518a585a77" numberOfBuildings="831"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="70b70966-0a32-40c5-9a59-fea9060c6521" numberOfBuildings="94"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="831" name="Woningen" id="bcbaf304-bc74-4501-a39a-26518a585a77"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="94" name="Utiliteiten" id="70b70966-0a32-40c5-9a59-fea9060c6521"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a9df544d-8a7a-420f-bf9c-6e8fd4a51234">
           <port xsi:type="esdl:InPort" name="InPort" id="2ccaf75f-7cea-493b-a199-419da137aa96">
             <profile xsi:type="esdl:SingleValue" value="27146.5456" id="91d9de6d-b628-4cbe-826c-a65594ee8972">
@@ -7430,14 +7433,14 @@
           </port>
         </asset>
         <KPIs id="eab092fa-1a04-4567-bf9f-952daa5a9871">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c23d5439-ae4d-4026-89a7-385370756b72"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="76e5982b-fcfc-41a9-a4bf-511154fbf4c6"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1750836.96" id="799ba0bd-4113-4f32-9fe6-669d9556931c"/>
+          <kpi xsi:type="esdl:StringKPI" id="c23d5439-ae4d-4026-89a7-385370756b72" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="76e5982b-fcfc-41a9-a4bf-511154fbf4c6" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="799ba0bd-4113-4f32-9fe6-669d9556931c" name="Maatschappelijke_kosten" value="1750836.96"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420000'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="63224530-7ece-49f6-b308-8fec937350d7" numberOfBuildings="936"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="43f850f1-ad0f-4dfe-bfb2-40a52db370e2" numberOfBuildings="388"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="936" name="Woningen" id="63224530-7ece-49f6-b308-8fec937350d7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="388" name="Utiliteiten" id="43f850f1-ad0f-4dfe-bfb2-40a52db370e2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ed9b1d38-3ed4-4324-b994-c18988e990f4">
           <port xsi:type="esdl:InPort" name="InPort" id="47dfa65a-2610-49bd-8eb8-aba8ba03bb7a">
             <profile xsi:type="esdl:SingleValue" value="25144.6947" id="47000cc4-9444-43c5-8976-5c9a2ae8cef1">
@@ -7488,14 +7491,14 @@
           </port>
         </asset>
         <KPIs id="201a2811-b99e-4e14-9305-ab878e3f91de">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a6a6f3df-e769-41ec-b0c9-48b24c3f5be6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f55736ee-92b7-4bba-99a2-b94c843aae7f"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2854382.73" id="8c22a958-2665-4af2-a287-94ffaff285b3"/>
+          <kpi xsi:type="esdl:StringKPI" id="a6a6f3df-e769-41ec-b0c9-48b24c3f5be6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f55736ee-92b7-4bba-99a2-b94c843aae7f" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8c22a958-2665-4af2-a287-94ffaff285b3" name="Maatschappelijke_kosten" value="2854382.73"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420001'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="cbfb243a-310b-498e-9040-3005a11dd815" numberOfBuildings="867"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4acaafee-ffc9-4647-96de-90f82eb84784" numberOfBuildings="152"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="867" name="Woningen" id="cbfb243a-310b-498e-9040-3005a11dd815"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="152" name="Utiliteiten" id="4acaafee-ffc9-4647-96de-90f82eb84784"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3cb3045c-9953-426e-914f-b8f2998d1b8d">
           <port xsi:type="esdl:InPort" name="InPort" id="91b7dfe8-d55e-4328-8892-7607317bf97c">
             <profile xsi:type="esdl:SingleValue" value="23414.0504" id="e829da9a-3cf4-446d-a7c0-9669c6bc7ab0">
@@ -7546,14 +7549,14 @@
           </port>
         </asset>
         <KPIs id="16c33b15-5706-48a5-abea-9d9f9c7a9cb6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="34366575-b4d2-4c46-bce7-8ebbaac6b1ac"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="245e8416-7bed-4060-924f-dcf1336285e6"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1995960.44" id="1f97706f-73ba-404e-93bc-880144e55d7b"/>
+          <kpi xsi:type="esdl:StringKPI" id="34366575-b4d2-4c46-bce7-8ebbaac6b1ac" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="245e8416-7bed-4060-924f-dcf1336285e6" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1f97706f-73ba-404e-93bc-880144e55d7b" name="Maatschappelijke_kosten" value="1995960.44"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420002'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0db92734-3633-43b7-826c-fe35c56fa0b9" numberOfBuildings="632"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2f425f56-f3ed-4adf-8fca-759a37c70626" numberOfBuildings="87"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="632" name="Woningen" id="0db92734-3633-43b7-826c-fe35c56fa0b9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="87" name="Utiliteiten" id="2f425f56-f3ed-4adf-8fca-759a37c70626"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="afb61ceb-3eee-4f47-809b-fa33129124a0">
           <port xsi:type="esdl:InPort" name="InPort" id="5f85034f-c5d3-4122-99b8-7a37ee00e3fb">
             <profile xsi:type="esdl:SingleValue" value="18852.9577" id="8548dbc0-29c8-4588-8af5-800509e07be3">
@@ -7604,14 +7607,14 @@
           </port>
         </asset>
         <KPIs id="fca9ec1e-f573-487e-ab0d-118249522340">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="3c1ea08b-80b7-4724-9485-993a9628e132"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="44e3b434-31e0-49c7-94e7-36a8c1474ead"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1360134.92" id="71d05543-e701-4557-bc54-51eaceeafc2d"/>
+          <kpi xsi:type="esdl:StringKPI" id="3c1ea08b-80b7-4724-9485-993a9628e132" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="44e3b434-31e0-49c7-94e7-36a8c1474ead" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="71d05543-e701-4557-bc54-51eaceeafc2d" name="Maatschappelijke_kosten" value="1360134.92"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420003'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="819d51ad-9ad4-4a8d-a2d0-fbfa201b1ba3" numberOfBuildings="500"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2a4f492e-11c7-4cc0-a199-443f35e22c2f" numberOfBuildings="37"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="500" name="Woningen" id="819d51ad-9ad4-4a8d-a2d0-fbfa201b1ba3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="37" name="Utiliteiten" id="2a4f492e-11c7-4cc0-a199-443f35e22c2f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bfbf94b9-4ab9-468b-8b65-562028bbf846">
           <port xsi:type="esdl:InPort" name="InPort" id="6446d6ae-d0a8-4e62-99a3-9a9a01bb312e">
             <profile xsi:type="esdl:SingleValue" value="16475.1773" id="28a44107-a4fc-4d4e-89cf-c87cced5f18c">
@@ -7662,14 +7665,14 @@
           </port>
         </asset>
         <KPIs id="226b88fd-972e-4e99-ae65-e7c774a42cb6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="d511db00-0fec-4c46-b0f2-1b74e38c905e"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="68689866-19b0-4120-8a4b-0f95113f7961"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1062943.05" id="9b8db14e-fe39-4ccb-9a19-03d6ed856872"/>
+          <kpi xsi:type="esdl:StringKPI" id="d511db00-0fec-4c46-b0f2-1b74e38c905e" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="68689866-19b0-4120-8a4b-0f95113f7961" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9b8db14e-fe39-4ccb-9a19-03d6ed856872" name="Maatschappelijke_kosten" value="1062943.05"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420004'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f1dd4d52-e5cc-4961-88c8-5c8ff40795d7" numberOfBuildings="564"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="393ee8f2-f697-4f19-9939-f93242413d6f" numberOfBuildings="52"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="564" name="Woningen" id="f1dd4d52-e5cc-4961-88c8-5c8ff40795d7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="393ee8f2-f697-4f19-9939-f93242413d6f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7c45d978-9fd2-4c18-93ec-654dce0386f1">
           <port xsi:type="esdl:InPort" name="InPort" id="239c76df-7645-453f-aedc-70058e54849c">
             <profile xsi:type="esdl:SingleValue" value="17158.2529" id="23962b90-7f1f-4113-a744-a02943aa9d6c">
@@ -7720,14 +7723,14 @@
           </port>
         </asset>
         <KPIs id="8098c5c6-ad48-4d34-8269-7440d172d2bd">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="72544fa5-8bb3-43bc-b70b-462573093a44"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="cc119992-40eb-467e-80cf-3772f5d1199f"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1097756.29" id="8964d1c6-f7e4-41d4-8ecc-c714ed1fabdf"/>
+          <kpi xsi:type="esdl:StringKPI" id="72544fa5-8bb3-43bc-b70b-462573093a44" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cc119992-40eb-467e-80cf-3772f5d1199f" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8964d1c6-f7e4-41d4-8ecc-c714ed1fabdf" name="Maatschappelijke_kosten" value="1097756.29"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420005'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="773371f0-bb9b-4815-a588-56a222460028" numberOfBuildings="499"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0843ee6a-3f50-44c8-b657-17740bf8161a" numberOfBuildings="28"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="499" name="Woningen" id="773371f0-bb9b-4815-a588-56a222460028"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="0843ee6a-3f50-44c8-b657-17740bf8161a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="67f03bdf-b65e-4212-a789-354b882de56f">
           <port xsi:type="esdl:InPort" name="InPort" id="1a99c893-6881-4a15-979a-7e4664b51f5f">
             <profile xsi:type="esdl:SingleValue" value="16282.7428" id="906b4da9-b7b9-4f57-87a3-f7c827d389b8">
@@ -7778,14 +7781,14 @@
           </port>
         </asset>
         <KPIs id="84e78ae8-7cf6-4350-89b1-84f037a6bf88">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="6f551f26-79b4-497d-9236-fefb58e3e21b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="45d1d8d8-3276-47ec-bf35-71ae571b889d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1016006.57" id="d3b16d51-b582-471e-81f7-5bf46cbc95ed"/>
+          <kpi xsi:type="esdl:StringKPI" id="6f551f26-79b4-497d-9236-fefb58e3e21b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="45d1d8d8-3276-47ec-bf35-71ae571b889d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d3b16d51-b582-471e-81f7-5bf46cbc95ed" name="Maatschappelijke_kosten" value="1016006.57"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420006'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="6338e182-86d0-4249-aaf9-7494f1adf820" numberOfBuildings="420"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8756589d-b600-4fb5-a444-032e60c30945" numberOfBuildings="52"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="420" name="Woningen" id="6338e182-86d0-4249-aaf9-7494f1adf820"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="52" name="Utiliteiten" id="8756589d-b600-4fb5-a444-032e60c30945"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="455233b8-04a9-4c34-a52d-fb1dbddaef92">
           <port xsi:type="esdl:InPort" name="InPort" id="0aad6550-6106-401c-a48d-5b0c92dc3154">
             <profile xsi:type="esdl:SingleValue" value="11925.1251" id="7248b66d-274a-47b7-9746-5e2553069bd7">
@@ -7836,14 +7839,14 @@
           </port>
         </asset>
         <KPIs id="c06bdccb-7c6d-4aa3-b996-781341dd2c8f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ec232f3f-de15-4a66-b21d-db5dd16ae659"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="87477c1f-0bfa-4724-aa3c-0e9327ce04cd"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="855323.913" id="d2e72e1c-8c2f-4ef9-8b44-ccdffd8e9098"/>
+          <kpi xsi:type="esdl:StringKPI" id="ec232f3f-de15-4a66-b21d-db5dd16ae659" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="87477c1f-0bfa-4724-aa3c-0e9327ce04cd" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d2e72e1c-8c2f-4ef9-8b44-ccdffd8e9098" name="Maatschappelijke_kosten" value="855323.913"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420007'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0644e34a-11b5-4444-b6a7-ddf02e3e8f9a" numberOfBuildings="633"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="969adec4-416e-4f39-ad3f-a6e2c565dd70" numberOfBuildings="141"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="633" name="Woningen" id="0644e34a-11b5-4444-b6a7-ddf02e3e8f9a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="141" name="Utiliteiten" id="969adec4-416e-4f39-ad3f-a6e2c565dd70"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="622e2fd8-5239-44d8-aa04-26c8077626d5">
           <port xsi:type="esdl:InPort" name="InPort" id="bb0cc0ca-8581-4318-ba73-4b4308a8c393">
             <profile xsi:type="esdl:SingleValue" value="17445.5199" id="2145ce52-7619-4c71-99f4-a5bc78ba5232">
@@ -7894,14 +7897,14 @@
           </port>
         </asset>
         <KPIs id="dd78fb3d-c981-42ac-bb47-31983af2d778">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="824b731c-6850-4cc3-bdaf-31e76318201c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3d816e68-21bf-4536-a05d-6a5865bb4a0b"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1114046.6" id="e738d5da-f715-46d3-aea5-9c556c33c7aa"/>
+          <kpi xsi:type="esdl:StringKPI" id="824b731c-6850-4cc3-bdaf-31e76318201c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3d816e68-21bf-4536-a05d-6a5865bb4a0b" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e738d5da-f715-46d3-aea5-9c556c33c7aa" name="Maatschappelijke_kosten" value="1114046.6"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420008'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="32c74a0f-9222-4f7b-9544-5abcd1942018" numberOfBuildings="459"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="dd6b8589-6088-492a-8040-b7b5c56f524f" numberOfBuildings="125"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="459" name="Woningen" id="32c74a0f-9222-4f7b-9544-5abcd1942018"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="125" name="Utiliteiten" id="dd6b8589-6088-492a-8040-b7b5c56f524f"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d6da469e-a195-493b-93d6-e981da1ccef6">
           <port xsi:type="esdl:InPort" name="InPort" id="a9c1168a-f162-446d-b080-0d62c0b9912d">
             <profile xsi:type="esdl:SingleValue" value="16053.5568" id="a40be449-9a54-4e56-9948-16b28129e7b8">
@@ -7952,14 +7955,14 @@
           </port>
         </asset>
         <KPIs id="c802af5f-e8e0-4f90-aebc-e0fbeb4e8f21">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bd2c1e8b-4a8e-4081-883d-3cbd73f12914"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e3b10b6f-3f7e-4bec-98e4-c06ad521c084"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1221938.47" id="f6287dc0-561d-4810-855b-3924f530c9ad"/>
+          <kpi xsi:type="esdl:StringKPI" id="bd2c1e8b-4a8e-4081-883d-3cbd73f12914" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e3b10b6f-3f7e-4bec-98e4-c06ad521c084" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f6287dc0-561d-4810-855b-3924f530c9ad" name="Maatschappelijke_kosten" value="1221938.47"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420100'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="471ea887-b944-4c7d-9229-2fdf1f4ead3e" numberOfBuildings="315"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="93576d54-1a39-460f-8099-2a412de51aa0" numberOfBuildings="69"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="315" name="Woningen" id="471ea887-b944-4c7d-9229-2fdf1f4ead3e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="69" name="Utiliteiten" id="93576d54-1a39-460f-8099-2a412de51aa0"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8539cf2f-99bf-415d-8034-5c41e9ac0dab">
           <port xsi:type="esdl:InPort" name="InPort" id="a5aac995-b4b6-4373-b5ff-48b33cf2e682">
             <profile xsi:type="esdl:SingleValue" value="11865.1024" id="2f55e6fd-e627-4657-ad59-a0424fdc5c7f">
@@ -8010,14 +8013,14 @@
           </port>
         </asset>
         <KPIs id="443244bb-065c-4a35-9ddc-9b2682718860">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1a50cb67-f68b-4276-b514-13cafb97f91e"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0d908631-8ed8-46ea-aab8-892a8b3b5676"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="926817.761" id="c76471ae-aba4-4c21-b829-ce07b002a261"/>
+          <kpi xsi:type="esdl:StringKPI" id="1a50cb67-f68b-4276-b514-13cafb97f91e" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0d908631-8ed8-46ea-aab8-892a8b3b5676" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c76471ae-aba4-4c21-b829-ce07b002a261" name="Maatschappelijke_kosten" value="926817.761"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420101'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ecc1b23c-9aa8-4de8-890f-51730876a96d" numberOfBuildings="245"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a9352e2d-b625-4d62-9131-233b39acaa60" numberOfBuildings="57"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="245" name="Woningen" id="ecc1b23c-9aa8-4de8-890f-51730876a96d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="57" name="Utiliteiten" id="a9352e2d-b625-4d62-9131-233b39acaa60"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="56f2ea44-8231-44f9-b8fb-d52aabcf3af3">
           <port xsi:type="esdl:InPort" name="InPort" id="21362ead-cd9a-407e-8a51-668f3c638311">
             <profile xsi:type="esdl:SingleValue" value="7779.99369" id="37cac982-f9d8-40c7-b07a-42dfaf645c7c">
@@ -8068,14 +8071,14 @@
           </port>
         </asset>
         <KPIs id="354627ea-b6a9-4376-bde8-3c983868304f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="df83e08c-0a5f-4574-af78-957c49946449"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="191d171a-659e-4c10-b595-7baecd362dca"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="716753.82" id="1092bb19-17bb-4a8c-b9aa-ac92921f9264"/>
+          <kpi xsi:type="esdl:StringKPI" id="df83e08c-0a5f-4574-af78-957c49946449" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="191d171a-659e-4c10-b595-7baecd362dca" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1092bb19-17bb-4a8c-b9aa-ac92921f9264" name="Maatschappelijke_kosten" value="716753.82"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420102'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="205df6d1-e2b1-4933-8c38-3ddd7a52503b" numberOfBuildings="438"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d592b189-c8a4-4c56-b53a-4b435e8ff402" numberOfBuildings="51"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="438" name="Woningen" id="205df6d1-e2b1-4933-8c38-3ddd7a52503b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="51" name="Utiliteiten" id="d592b189-c8a4-4c56-b53a-4b435e8ff402"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b61f9a6c-dc4d-441b-91f0-ec9115b4f22b">
           <port xsi:type="esdl:InPort" name="InPort" id="bc0fdbe2-4e58-44c8-a53b-d9478d88b946">
             <profile xsi:type="esdl:SingleValue" value="15627.7893" id="6fe77f09-31f9-4f9b-96d5-eca48f9b7da6">
@@ -8126,14 +8129,14 @@
           </port>
         </asset>
         <KPIs id="f39b0f40-b112-4ce8-b1e6-2857b4bbb623">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="bb931248-ee48-4a1d-94e6-79fbc4dbb620"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="17221fdb-bb94-4bab-a4fb-cf41b63bf8aa"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1175167.7" id="24dbb36c-71d4-43b7-99c0-522850fb9115"/>
+          <kpi xsi:type="esdl:StringKPI" id="bb931248-ee48-4a1d-94e6-79fbc4dbb620" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="17221fdb-bb94-4bab-a4fb-cf41b63bf8aa" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="24dbb36c-71d4-43b7-99c0-522850fb9115" name="Maatschappelijke_kosten" value="1175167.7"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420103'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2ded6071-93cc-46b0-b823-4303249e24a8" numberOfBuildings="191"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="3852872b-ea4d-4094-b0b6-bc4947a8d22e" numberOfBuildings="8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="191" name="Woningen" id="2ded6071-93cc-46b0-b823-4303249e24a8"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="8" name="Utiliteiten" id="3852872b-ea4d-4094-b0b6-bc4947a8d22e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ca1d434a-eef8-4b05-98e3-09db6790435a">
           <port xsi:type="esdl:InPort" name="InPort" id="69f04d8a-72a0-469f-9c37-ae23d14acb1c">
             <profile xsi:type="esdl:SingleValue" value="8836.86624" id="6e7e91ca-74aa-4e8a-a8d8-3cd4ec6d22ea">
@@ -8184,14 +8187,14 @@
           </port>
         </asset>
         <KPIs id="680d0915-93f6-4cf3-b881-ea9964e1d26f">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="06c22444-fc19-4b07-a1ca-0d77610f6492"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="19d23656-e3a1-485b-8034-fd52e4e34187"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="597950.432" id="a57420f9-bd30-4a0f-ac5f-2934450ed8bb"/>
+          <kpi xsi:type="esdl:StringKPI" id="06c22444-fc19-4b07-a1ca-0d77610f6492" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="19d23656-e3a1-485b-8034-fd52e4e34187" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="a57420f9-bd30-4a0f-ac5f-2934450ed8bb" name="Maatschappelijke_kosten" value="597950.432"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420104'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="944b5ab8-6a4d-4752-809c-f7384eda8c02" numberOfBuildings="431"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="78aa54ec-f597-44b2-b24c-1e5a779f518c" numberOfBuildings="24"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="431" name="Woningen" id="944b5ab8-6a4d-4752-809c-f7384eda8c02"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="78aa54ec-f597-44b2-b24c-1e5a779f518c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0bc0cd7d-016f-46b1-8d41-c9e8eb4806c7">
           <port xsi:type="esdl:InPort" name="InPort" id="1a571fb2-c102-4995-862d-b530b1222a02">
             <profile xsi:type="esdl:SingleValue" value="14530.2271" id="6bc79d8b-deba-4c48-a2dd-88f6ac7ae570">
@@ -8242,14 +8245,14 @@
           </port>
         </asset>
         <KPIs id="c67f7e65-e56d-4ef1-a7d8-de4745088239">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1655fd38-4f7c-419c-9d2e-7ecfbcd29af7"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="62af542a-696d-49c4-b536-d5702c2a9695"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1056069.64" id="2a5bd24d-f876-4fbd-b923-6cb8a251b794"/>
+          <kpi xsi:type="esdl:StringKPI" id="1655fd38-4f7c-419c-9d2e-7ecfbcd29af7" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="62af542a-696d-49c4-b536-d5702c2a9695" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2a5bd24d-f876-4fbd-b923-6cb8a251b794" name="Maatschappelijke_kosten" value="1056069.64"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420200'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="f952592a-8d67-401d-b665-7c88f9ade150" numberOfBuildings="1"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a42a18c6-325b-45a3-965f-f402e305a811" numberOfBuildings="15"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="f952592a-8d67-401d-b665-7c88f9ade150"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="15" name="Utiliteiten" id="a42a18c6-325b-45a3-965f-f402e305a811"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f1a8f9c5-4634-493b-a1b3-c715e36881b0">
           <port xsi:type="esdl:InPort" name="InPort" id="e38dba45-e555-4ac0-9e3c-be0d16146dff">
             <profile xsi:type="esdl:SingleValue" value="32.4565637" id="6b7e0fdd-bec8-42e8-8e06-977d12bc90d7">
@@ -8300,14 +8303,14 @@
           </port>
         </asset>
         <KPIs id="cb88a58e-74d9-4536-94b6-dc0f5decfe32">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="337a45c0-cc35-4d9a-87e0-274af6d93841"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="12d17cde-ce02-4755-a37f-3afe21866eab"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="285036.705" id="77f36332-3916-42d9-9d0e-cfd8fc0f4d03"/>
+          <kpi xsi:type="esdl:StringKPI" id="337a45c0-cc35-4d9a-87e0-274af6d93841" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="12d17cde-ce02-4755-a37f-3afe21866eab" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="77f36332-3916-42d9-9d0e-cfd8fc0f4d03" name="Maatschappelijke_kosten" value="285036.705"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420201'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4b8a2ae3-c09a-4db6-9e0d-095722657682" numberOfBuildings="444"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e00b5aac-a4ad-4cce-a2d0-0c356955c935" numberOfBuildings="16"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="444" name="Woningen" id="4b8a2ae3-c09a-4db6-9e0d-095722657682"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="e00b5aac-a4ad-4cce-a2d0-0c356955c935"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b36f94c1-21d8-4e90-9a36-4cd567bf0a5e">
           <port xsi:type="esdl:InPort" name="InPort" id="94360839-b833-4882-93fb-b3b3ddcc870b">
             <profile xsi:type="esdl:SingleValue" value="16409.1333" id="b40b426c-215a-406a-8901-ed809b34a575">
@@ -8358,14 +8361,14 @@
           </port>
         </asset>
         <KPIs id="287ea2ef-e153-4d93-a3ff-7569565cfe3d">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1fec921b-2d20-4570-bbac-65b7e1a2e978"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0701bbae-4481-4d4a-befd-87e90e7bf754"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="937178.702" id="90024b25-b52c-45d0-8a78-67c0c8f98db5"/>
+          <kpi xsi:type="esdl:StringKPI" id="1fec921b-2d20-4570-bbac-65b7e1a2e978" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0701bbae-4481-4d4a-befd-87e90e7bf754" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="90024b25-b52c-45d0-8a78-67c0c8f98db5" name="Maatschappelijke_kosten" value="937178.702"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420202'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="2865efbf-5180-4e5d-86b9-1b8383032e78" numberOfBuildings="410"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="a163eeb8-4d06-4fdc-b884-d81d7da82e42" numberOfBuildings="12"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="410" name="Woningen" id="2865efbf-5180-4e5d-86b9-1b8383032e78"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="12" name="Utiliteiten" id="a163eeb8-4d06-4fdc-b884-d81d7da82e42"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b51cd061-ac1f-4149-b433-f023fb63f55c">
           <port xsi:type="esdl:InPort" name="InPort" id="8ce59010-77d3-41e7-baa1-ec21471562eb">
             <profile xsi:type="esdl:SingleValue" value="11884.6404" id="f6cf1256-ea1c-498e-a201-8e6ba8234ef6">
@@ -8416,14 +8419,14 @@
           </port>
         </asset>
         <KPIs id="cca2b5ed-ab2d-44b6-bdba-1442dfcaa382">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="a81d5843-497b-4d5f-8217-06058f00725a"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="75e3ec82-e648-44b9-a42a-f71bfbd0ac33"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="600410.095" id="1de38c2c-6b47-44ee-adbc-17ac7847bea3"/>
+          <kpi xsi:type="esdl:StringKPI" id="a81d5843-497b-4d5f-8217-06058f00725a" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="75e3ec82-e648-44b9-a42a-f71bfbd0ac33" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1de38c2c-6b47-44ee-adbc-17ac7847bea3" name="Maatschappelijke_kosten" value="600410.095"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420203'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="befed65b-db3f-49b6-a6be-d5836d8d5cc5" numberOfBuildings="260"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="2c471dbf-77a5-4929-a1f4-cd69de65e8b1" numberOfBuildings="24"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="260" name="Woningen" id="befed65b-db3f-49b6-a6be-d5836d8d5cc5"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="24" name="Utiliteiten" id="2c471dbf-77a5-4929-a1f4-cd69de65e8b1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="92037824-0525-43e5-a0ed-b196ecf1a225">
           <port xsi:type="esdl:InPort" name="InPort" id="4e00b2cf-9fd4-46c8-b58a-3e661a803d27">
             <profile xsi:type="esdl:SingleValue" value="10038.9413" id="557b8bf8-78bc-4247-b98e-51845627245a">
@@ -8474,14 +8477,14 @@
           </port>
         </asset>
         <KPIs id="e73087dd-3f24-4418-a8ac-b8dcb11c51ac">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b60c694b-62b4-4486-82ab-b5dc2bc11df7"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ba29707b-279c-4a07-bc5e-5d03e6dbde27"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="564717.655" id="cea80bc6-d289-4e77-ad2e-88a3985ccc6c"/>
+          <kpi xsi:type="esdl:StringKPI" id="b60c694b-62b4-4486-82ab-b5dc2bc11df7" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ba29707b-279c-4a07-bc5e-5d03e6dbde27" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="cea80bc6-d289-4e77-ad2e-88a3985ccc6c" name="Maatschappelijke_kosten" value="564717.655"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420204'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4f931ac8-664c-4147-b118-42ce563b9e07" numberOfBuildings="531"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="e67ecbd2-6320-4dd1-8593-6df1d938b0a7" numberOfBuildings="28"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="531" name="Woningen" id="4f931ac8-664c-4147-b118-42ce563b9e07"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="e67ecbd2-6320-4dd1-8593-6df1d938b0a7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="952fc450-5b1b-44b8-8029-855feead3eb1">
           <port xsi:type="esdl:InPort" name="InPort" id="a0ff070b-ce70-40a7-b3ba-e0a4e05565cd">
             <profile xsi:type="esdl:SingleValue" value="17774.2366" id="2127078f-895d-4ee2-bf77-5c09fe554afc">
@@ -8532,14 +8535,14 @@
           </port>
         </asset>
         <KPIs id="efed381d-019e-46f5-b545-c6063e600a62">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="64a5713d-d93d-40b1-965f-b49979416766"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0a31e6f2-2884-452f-adb8-ce7a824f0f94"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1132193.7" id="90880b2f-ee79-4872-add7-28879cd9ce37"/>
+          <kpi xsi:type="esdl:StringKPI" id="64a5713d-d93d-40b1-965f-b49979416766" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0a31e6f2-2884-452f-adb8-ce7a824f0f94" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="90880b2f-ee79-4872-add7-28879cd9ce37" name="Maatschappelijke_kosten" value="1132193.7"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420205'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4690bea7-0d04-462d-85b4-948e330177cf" numberOfBuildings="920"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="034637de-90c5-44f3-aced-e2f11307109e" numberOfBuildings="252"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="920" name="Woningen" id="4690bea7-0d04-462d-85b4-948e330177cf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="252" name="Utiliteiten" id="034637de-90c5-44f3-aced-e2f11307109e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="16ee73b2-ad01-4b1f-b560-35288266dd67">
           <port xsi:type="esdl:InPort" name="InPort" id="44547032-73b0-4216-b561-4ef0d5e9611d">
             <profile xsi:type="esdl:SingleValue" value="26622.044" id="43be5480-12c8-4196-9925-4f9549b498ae">
@@ -8590,14 +8593,14 @@
           </port>
         </asset>
         <KPIs id="ac735f77-b10f-4e5e-927f-94d19b0df9b7">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="27f2cd85-00dc-4ec7-90ad-eb75b821de04"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b1b49bc4-7427-4069-8238-23525991027c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1611342.67" id="697e837b-6324-4a5e-b6da-2bf68b9ccee1"/>
+          <kpi xsi:type="esdl:StringKPI" id="27f2cd85-00dc-4ec7-90ad-eb75b821de04" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b1b49bc4-7427-4069-8238-23525991027c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="697e837b-6324-4a5e-b6da-2bf68b9ccee1" name="Maatschappelijke_kosten" value="1611342.67"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420206'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="75571748-9f98-4915-aa9b-d06e01ed596e" numberOfBuildings="1275"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="65b589fa-e0ff-432e-b7af-b5ba2f866652" numberOfBuildings="437"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1275" name="Woningen" id="75571748-9f98-4915-aa9b-d06e01ed596e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="437" name="Utiliteiten" id="65b589fa-e0ff-432e-b7af-b5ba2f866652"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="20f6ea0d-8875-481a-af23-2424d6fe9a50">
           <port xsi:type="esdl:InPort" name="InPort" id="cc32197d-270c-4d65-ba9f-db82fd02fa34">
             <profile xsi:type="esdl:SingleValue" value="34888.6985" id="353d46b4-a6ec-4773-881e-ab32c4d2d69c">
@@ -8648,14 +8651,14 @@
           </port>
         </asset>
         <KPIs id="365a2f13-5d23-48dd-a099-170a1ec94b5e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="241f4443-6f1b-40cc-b8c9-e6ace4f393ee"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="4c1c30f2-b52b-4d35-a8c1-700cbcc7b81c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2348233.94" id="52883c20-a574-4046-9d72-bc1c3c004463"/>
+          <kpi xsi:type="esdl:StringKPI" id="241f4443-6f1b-40cc-b8c9-e6ace4f393ee" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="4c1c30f2-b52b-4d35-a8c1-700cbcc7b81c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="52883c20-a574-4046-9d72-bc1c3c004463" name="Maatschappelijke_kosten" value="2348233.94"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420207'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d18eedf5-df5d-497a-b7c7-be5bd0a7e19f" numberOfBuildings="801"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="6e7aa02b-e79a-4ab3-8404-605389db6bfd" numberOfBuildings="83"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="801" name="Woningen" id="d18eedf5-df5d-497a-b7c7-be5bd0a7e19f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="83" name="Utiliteiten" id="6e7aa02b-e79a-4ab3-8404-605389db6bfd"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="988aae44-e411-45f1-9638-60f63a749b0b">
           <port xsi:type="esdl:InPort" name="InPort" id="a5f2f3a7-43c6-4e34-9cc5-b713b6359d7a">
             <profile xsi:type="esdl:SingleValue" value="22124.7758" id="3bc47e3a-c9b3-4cc5-b271-28dac52746e8">
@@ -8706,14 +8709,14 @@
           </port>
         </asset>
         <KPIs id="cca762ab-cb96-4e01-8ffb-718ea7aaf0de">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e3d1cbfb-fee8-4cfe-a749-d7cd4d89e9d2"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="34bb1549-193d-4161-8c84-9e3ae24e0edb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1296439.44" id="8b466fd2-793d-480c-9d9e-e18a812f3c5a"/>
+          <kpi xsi:type="esdl:StringKPI" id="e3d1cbfb-fee8-4cfe-a749-d7cd4d89e9d2" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="34bb1549-193d-4161-8c84-9e3ae24e0edb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8b466fd2-793d-480c-9d9e-e18a812f3c5a" name="Maatschappelijke_kosten" value="1296439.44"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420208'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="675206ff-0f6c-40d2-b5f3-7d1a5d9da2ec" numberOfBuildings="700"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5e24d773-a3e5-4bab-9b61-86ea6497b0ac" numberOfBuildings="38"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="700" name="Woningen" id="675206ff-0f6c-40d2-b5f3-7d1a5d9da2ec"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="38" name="Utiliteiten" id="5e24d773-a3e5-4bab-9b61-86ea6497b0ac"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="41f6dfdb-400e-4438-939b-272b67e972e3">
           <port xsi:type="esdl:InPort" name="InPort" id="74b247ed-346d-488f-811a-5587f4b47fa6">
             <profile xsi:type="esdl:SingleValue" value="20451.2407" id="dbbcd4ee-4fd5-4919-91f0-1bd07ca2847b">
@@ -8764,14 +8767,14 @@
           </port>
         </asset>
         <KPIs id="e78b22c3-c0fd-44b5-b937-4a6d734452e2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="57a64751-937c-4886-8414-62f8ebd4f3ec"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="808889f4-ffef-4566-9f89-46f9f8a30509"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1137461.12" id="b5898c69-b04c-4cd3-abc4-b0648a7ef6f7"/>
+          <kpi xsi:type="esdl:StringKPI" id="57a64751-937c-4886-8414-62f8ebd4f3ec" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="808889f4-ffef-4566-9f89-46f9f8a30509" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b5898c69-b04c-4cd3-abc4-b0648a7ef6f7" name="Maatschappelijke_kosten" value="1137461.12"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420209'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="9ab7b630-af19-4f59-bd31-b75c3f79a46c" numberOfBuildings="1070"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="663bab9a-4219-453d-a78c-ef8770d5a3fa" numberOfBuildings="261"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1070" name="Woningen" id="9ab7b630-af19-4f59-bd31-b75c3f79a46c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="261" name="Utiliteiten" id="663bab9a-4219-453d-a78c-ef8770d5a3fa"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7188289f-75ec-4edd-8c4c-5e82307713a6">
           <port xsi:type="esdl:InPort" name="InPort" id="193ba8d8-c8b8-43c9-a57d-b2bd539d22a9">
             <profile xsi:type="esdl:SingleValue" value="26421.2725" id="f62daf0a-228f-42eb-a141-6217b1883217">
@@ -8822,14 +8825,14 @@
           </port>
         </asset>
         <KPIs id="932b57ca-9474-4898-b95f-f7cfcc990f65">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f7820246-2418-4b88-820b-95fa9257c842"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3a72d4e7-4c98-4363-bbe7-6f34933638e2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1740534.81" id="2b49da8e-f404-444b-bc56-2664e5321ba0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f7820246-2418-4b88-820b-95fa9257c842" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3a72d4e7-4c98-4363-bbe7-6f34933638e2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2b49da8e-f404-444b-bc56-2664e5321ba0" name="Maatschappelijke_kosten" value="1740534.81"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420300'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ed722272-d704-4ae7-8c8a-355c8faae602" numberOfBuildings="392"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="f098edcd-e8e3-41e0-b1f6-b7fe5ee21b0d" numberOfBuildings="64"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="392" name="Woningen" id="ed722272-d704-4ae7-8c8a-355c8faae602"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="64" name="Utiliteiten" id="f098edcd-e8e3-41e0-b1f6-b7fe5ee21b0d"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="110c6ac3-b53d-4d8e-8e2f-9f884b1e4406">
           <port xsi:type="esdl:InPort" name="InPort" id="15e08ad4-bcf9-47bf-aedf-7dd531cf9ec5">
             <profile xsi:type="esdl:SingleValue" value="15071.9227" id="72d38a01-f1d9-4bff-b6b8-334325f9aa2d">
@@ -8880,14 +8883,14 @@
           </port>
         </asset>
         <KPIs id="1e914135-cc80-48da-be52-76e9e468797b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="33240307-2021-4364-9c20-ef088e604d63"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="0810db28-4615-41db-97c9-d594c8de2655"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1087220.4" id="1cc05a4b-8e30-44d2-8e4e-102297d151c4"/>
+          <kpi xsi:type="esdl:StringKPI" id="33240307-2021-4364-9c20-ef088e604d63" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0810db28-4615-41db-97c9-d594c8de2655" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="1cc05a4b-8e30-44d2-8e4e-102297d151c4" name="Maatschappelijke_kosten" value="1087220.4"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420301'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="08f0a323-92cd-403d-9586-b0724a7f7284" numberOfBuildings="155"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b1cd74d2-c772-4a72-8129-fd4cee5f861b" numberOfBuildings="47"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="155" name="Woningen" id="08f0a323-92cd-403d-9586-b0724a7f7284"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="47" name="Utiliteiten" id="b1cd74d2-c772-4a72-8129-fd4cee5f861b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="ea5ed5e8-d9df-4db8-b105-8da596da2597">
           <port xsi:type="esdl:InPort" name="InPort" id="60e5f61b-d753-47a1-8a4d-e5b01eac66b5">
             <profile xsi:type="esdl:SingleValue" value="5467.90437" id="97aa8ef1-b8b9-4d10-82f0-f0b35cfbc64f">
@@ -8938,14 +8941,14 @@
           </port>
         </asset>
         <KPIs id="260380b1-124f-44f5-b246-4be23e91412e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="80709aea-82d6-44f9-a58f-3d781b2ca6be"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="be476cc2-72b8-432f-a97c-0b9ed26de1b2"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="383712.696" id="c9bc5e7e-06e9-4451-9910-8c01ae71a20b"/>
+          <kpi xsi:type="esdl:StringKPI" id="80709aea-82d6-44f9-a58f-3d781b2ca6be" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="be476cc2-72b8-432f-a97c-0b9ed26de1b2" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c9bc5e7e-06e9-4451-9910-8c01ae71a20b" name="Maatschappelijke_kosten" value="383712.696"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420302'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="a45086b1-9df2-4cf0-8f7d-e3afc04df200" numberOfBuildings="517"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="09e97592-575a-43df-9f76-207928d07638" numberOfBuildings="33"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="517" name="Woningen" id="a45086b1-9df2-4cf0-8f7d-e3afc04df200"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="33" name="Utiliteiten" id="09e97592-575a-43df-9f76-207928d07638"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="47d9cf07-32d0-4adc-9e15-1ebd72f29e34">
           <port xsi:type="esdl:InPort" name="InPort" id="c3ac8f9d-c4de-4321-9b6b-3f0237c3d928">
             <profile xsi:type="esdl:SingleValue" value="22311.6763" id="28fc0c52-3d77-4562-945d-bac8d85ad23d">
@@ -8996,14 +8999,14 @@
           </port>
         </asset>
         <KPIs id="ac06dd96-518f-4eed-9362-1ffcd2405fec">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="029368fb-ebd2-43d8-bf73-d1c15625bcb5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="2fdcbf82-cff3-4f6f-9644-bb31e27fd745"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1446728.96" id="6757d5d1-bc5e-4d45-a6c4-8a4a2425bf56"/>
+          <kpi xsi:type="esdl:StringKPI" id="029368fb-ebd2-43d8-bf73-d1c15625bcb5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="2fdcbf82-cff3-4f6f-9644-bb31e27fd745" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6757d5d1-bc5e-4d45-a6c4-8a4a2425bf56" name="Maatschappelijke_kosten" value="1446728.96"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420303'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="44c1c4b6-0819-408d-a3f1-56b7ad4d5055" numberOfBuildings="269"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4baed3fb-df6c-4fe0-82f8-b65e8bcf3df6" numberOfBuildings="15"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="269" name="Woningen" id="44c1c4b6-0819-408d-a3f1-56b7ad4d5055"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="15" name="Utiliteiten" id="4baed3fb-df6c-4fe0-82f8-b65e8bcf3df6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0b35ed84-3eeb-4dd5-b6dd-1bc67e19e3ac">
           <port xsi:type="esdl:InPort" name="InPort" id="4f6f2d24-c84b-4d09-9e52-ad9d0c794e4c">
             <profile xsi:type="esdl:SingleValue" value="12244.7209" id="9256674a-0731-48ab-9c4f-744d203b62d9">
@@ -9054,14 +9057,14 @@
           </port>
         </asset>
         <KPIs id="ff5e4f91-77c0-49b4-9056-abf464158028">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ac29a230-d74b-4ef0-912e-ea5a41a367b6"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="5c6751cd-d541-41c9-9517-d6e16979a896"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="822463.72" id="b917c016-da99-4209-8f81-3dc914c8333e"/>
+          <kpi xsi:type="esdl:StringKPI" id="ac29a230-d74b-4ef0-912e-ea5a41a367b6" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5c6751cd-d541-41c9-9517-d6e16979a896" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b917c016-da99-4209-8f81-3dc914c8333e" name="Maatschappelijke_kosten" value="822463.72"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420304'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="07fdbb0a-acf1-4017-a3a3-c8fb91f6b01f" numberOfBuildings="696"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="0b01cf21-866d-4ab9-a3d8-1315008b6157" numberOfBuildings="123"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="696" name="Woningen" id="07fdbb0a-acf1-4017-a3a3-c8fb91f6b01f"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="123" name="Utiliteiten" id="0b01cf21-866d-4ab9-a3d8-1315008b6157"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="e6738f7c-4ef2-4ba6-9b06-05e3d4f7ad0f">
           <port xsi:type="esdl:InPort" name="InPort" id="8da66a53-2131-4bef-a916-ed5eb8d38f60">
             <profile xsi:type="esdl:SingleValue" value="18892.182" id="6628af6f-12b2-4bac-978a-5d24c3034b34">
@@ -9112,14 +9115,14 @@
           </port>
         </asset>
         <KPIs id="93433a78-039f-41c5-98df-0ad8320f6445">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b624f653-4e32-4a76-866e-95706644ff84"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="baa3520f-9df7-4802-a165-1a755018ffd5"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1456119.13" id="68b10be1-d49e-4c8f-8920-cfd39d75db10"/>
+          <kpi xsi:type="esdl:StringKPI" id="b624f653-4e32-4a76-866e-95706644ff84" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="baa3520f-9df7-4802-a165-1a755018ffd5" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="68b10be1-d49e-4c8f-8920-cfd39d75db10" name="Maatschappelijke_kosten" value="1456119.13"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420305'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ee4f2c46-fbea-4efa-992c-ebd37a8efbcb" numberOfBuildings="213"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="12072949-2af6-468a-adb9-31f8269b694c" numberOfBuildings="20"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="213" name="Woningen" id="ee4f2c46-fbea-4efa-992c-ebd37a8efbcb"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="20" name="Utiliteiten" id="12072949-2af6-468a-adb9-31f8269b694c"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2dc8edda-89a6-40d0-90e2-fe9ac0cd391b">
           <port xsi:type="esdl:InPort" name="InPort" id="cff9bdcf-5f37-466b-9d37-e99a13c39879">
             <profile xsi:type="esdl:SingleValue" value="8474.39937" id="b3258cb7-a98c-4dd7-b4b2-837d62bd62b9">
@@ -9170,14 +9173,14 @@
           </port>
         </asset>
         <KPIs id="a79afaa1-4210-477b-b557-a3e3d0467891">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c9610eaa-bcc4-4cf1-902d-ae462d5330e5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e485d34d-4f36-44d1-8ac3-d63810d3032d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="600871.685" id="c530d6b9-3c37-48d2-92de-0694adfaa7de"/>
+          <kpi xsi:type="esdl:StringKPI" id="c9610eaa-bcc4-4cf1-902d-ae462d5330e5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e485d34d-4f36-44d1-8ac3-d63810d3032d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="c530d6b9-3c37-48d2-92de-0694adfaa7de" name="Maatschappelijke_kosten" value="600871.685"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420306'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5fcc23d7-fbc9-47b1-8bdc-3cf71a976245" numberOfBuildings="107"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="cfcdf8d2-c81c-41b9-bc89-be5620be47f2" numberOfBuildings="23"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="107" name="Woningen" id="5fcc23d7-fbc9-47b1-8bdc-3cf71a976245"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="23" name="Utiliteiten" id="cfcdf8d2-c81c-41b9-bc89-be5620be47f2"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="3958cab3-8c63-451b-b2d4-dcacb2f72745">
           <port xsi:type="esdl:InPort" name="InPort" id="07abdfae-bad5-42c7-b4ff-535fd5ea408f">
             <profile xsi:type="esdl:SingleValue" value="4422.6309" id="614903ee-fd50-4697-9611-c985668fe7b9">
@@ -9228,14 +9231,14 @@
           </port>
         </asset>
         <KPIs id="bc241400-6c99-44f9-9d1f-7198723e8746">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="591dc355-e501-4fd6-9603-219a0f7161e5"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="66fdae0a-3837-430c-80b6-e11d65489434"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="840325.141" id="73d0ce84-ca41-4600-a6d3-4a67f38a3b75"/>
+          <kpi xsi:type="esdl:StringKPI" id="591dc355-e501-4fd6-9603-219a0f7161e5" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="66fdae0a-3837-430c-80b6-e11d65489434" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="73d0ce84-ca41-4600-a6d3-4a67f38a3b75" name="Maatschappelijke_kosten" value="840325.141"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420400'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="05cad2a6-fb49-4c2d-9c90-981bd7fa7e5d" numberOfBuildings="639"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="5ff03bfa-776b-40a4-b257-55b60e3bc5b6" numberOfBuildings="73"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="639" name="Woningen" id="05cad2a6-fb49-4c2d-9c90-981bd7fa7e5d"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="73" name="Utiliteiten" id="5ff03bfa-776b-40a4-b257-55b60e3bc5b6"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bedf9d8e-c8e4-4be4-bf99-5daf32536ea3">
           <port xsi:type="esdl:InPort" name="InPort" id="37426ce3-f971-457f-b02a-327f912798e2">
             <profile xsi:type="esdl:SingleValue" value="20653.8306" id="1a43069a-bdad-4372-8043-ab0a6d5784bf">
@@ -9286,14 +9289,14 @@
           </port>
         </asset>
         <KPIs id="97c0985f-d5ca-4a1f-af6d-db7d5c4a8083">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="24a0b739-7608-4a8f-b842-c3a11913a31f"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f59d4b34-49c2-4b1b-bc52-6f3025b8fe80"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1491242.46" id="19dc8b9d-af5a-4c0b-ba04-1a3c8ffa8725"/>
+          <kpi xsi:type="esdl:StringKPI" id="24a0b739-7608-4a8f-b842-c3a11913a31f" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f59d4b34-49c2-4b1b-bc52-6f3025b8fe80" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="19dc8b9d-af5a-4c0b-ba04-1a3c8ffa8725" name="Maatschappelijke_kosten" value="1491242.46"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420401'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3862337d-885a-49d4-8f1d-3a5287c436fb" numberOfBuildings="535"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="01317d4e-00cd-4f47-8f98-635208d701c3" numberOfBuildings="44"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="535" name="Woningen" id="3862337d-885a-49d4-8f1d-3a5287c436fb"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="44" name="Utiliteiten" id="01317d4e-00cd-4f47-8f98-635208d701c3"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ffaa90c-d685-49d9-b2dc-4eeb5620f9c2">
           <port xsi:type="esdl:InPort" name="InPort" id="42264dba-22b6-4d1e-ab57-da40e49b8bb6">
             <profile xsi:type="esdl:SingleValue" value="16963.7953" id="9c38f25b-8623-4344-955b-9f98aa18369d">
@@ -9344,14 +9347,14 @@
           </port>
         </asset>
         <KPIs id="e7b4d24f-7481-4672-8555-73dc88b2ebff">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="4e5d574f-9f0a-431c-884e-744ab49a914d"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="fee4bea7-a194-4ae5-aec8-855a47ce9d1e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1202756.44" id="899f79bc-7a21-4533-9732-53037e496446"/>
+          <kpi xsi:type="esdl:StringKPI" id="4e5d574f-9f0a-431c-884e-744ab49a914d" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fee4bea7-a194-4ae5-aec8-855a47ce9d1e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="899f79bc-7a21-4533-9732-53037e496446" name="Maatschappelijke_kosten" value="1202756.44"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420402'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c5f4d0bb-f903-444f-b2c0-c3adc4a84f72" numberOfBuildings="773"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="eac2170b-01a2-43a7-bb98-118466526165" numberOfBuildings="229"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="773" name="Woningen" id="c5f4d0bb-f903-444f-b2c0-c3adc4a84f72"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="229" name="Utiliteiten" id="eac2170b-01a2-43a7-bb98-118466526165"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2b3f4e7e-7c7f-4ea3-9873-c6e045b3916e">
           <port xsi:type="esdl:InPort" name="InPort" id="c525a8fe-5780-44b4-818c-9f6be4d760a7">
             <profile xsi:type="esdl:SingleValue" value="27609.1211" id="586d1127-9590-4156-b75b-cc3c4853452a">
@@ -9402,14 +9405,14 @@
           </port>
         </asset>
         <KPIs id="d5e8f9d5-264a-4818-87f9-5ccf1311aaf1">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f813d211-9fb8-45cb-a75a-2a1bf6683c7e"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="eaf04be1-01c8-46d4-9a93-7c1476767d46"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1884153.93" id="e5e94fb7-e188-4fa0-b425-9e25a2cbd138"/>
+          <kpi xsi:type="esdl:StringKPI" id="f813d211-9fb8-45cb-a75a-2a1bf6683c7e" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="eaf04be1-01c8-46d4-9a93-7c1476767d46" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e5e94fb7-e188-4fa0-b425-9e25a2cbd138" name="Maatschappelijke_kosten" value="1884153.93"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420403'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="ad34ea91-465a-49ad-91c9-e559eb7e1039" numberOfBuildings="324"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="70525b1e-3661-4f75-be69-b504de16ea79" numberOfBuildings="28"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="324" name="Woningen" id="ad34ea91-465a-49ad-91c9-e559eb7e1039"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="28" name="Utiliteiten" id="70525b1e-3661-4f75-be69-b504de16ea79"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="c84048b7-dc6b-422b-8476-28572097db1a">
           <port xsi:type="esdl:InPort" name="InPort" id="991f782f-ca0e-4067-8628-4fa47d7396af">
             <profile xsi:type="esdl:SingleValue" value="10089.4591" id="243f4641-5fd7-493e-b5fc-102c968e3ace">
@@ -9460,14 +9463,14 @@
           </port>
         </asset>
         <KPIs id="912f0ebf-38b9-479e-a23d-a000cf3feeff">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="962679be-e50f-46e7-a980-f752bcb9f0e9"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="41f69eda-0e6c-4472-95ca-c124b2782962"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="590995.599" id="24207bea-f00d-4c8d-b8e9-086492cbfe5e"/>
+          <kpi xsi:type="esdl:StringKPI" id="962679be-e50f-46e7-a980-f752bcb9f0e9" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="41f69eda-0e6c-4472-95ca-c124b2782962" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="24207bea-f00d-4c8d-b8e9-086492cbfe5e" name="Maatschappelijke_kosten" value="590995.599"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420404'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="bce37506-6cb4-4db8-8bb8-40282c4f260b" numberOfBuildings="527"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ba907704-9435-497d-9629-e5e1974327ea" numberOfBuildings="34"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="527" name="Woningen" id="bce37506-6cb4-4db8-8bb8-40282c4f260b"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="34" name="Utiliteiten" id="ba907704-9435-497d-9629-e5e1974327ea"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="22c56d22-5373-4063-8b7d-1121c2f05e48">
           <port xsi:type="esdl:InPort" name="InPort" id="899be4d7-16fb-49e0-936e-b45655de59cb">
             <profile xsi:type="esdl:SingleValue" value="16094.3768" id="ac6a4ae0-fce3-4ee8-b6bf-906e3d0304b9">
@@ -9518,14 +9521,14 @@
           </port>
         </asset>
         <KPIs id="9e4ef678-b2df-4342-973e-3a3d18024278">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="51cea216-fed5-48bc-8946-879a1768b2e0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="9f7c5b63-368f-4e8d-b48e-83ca7980d78c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="821990.856" id="bcb4693e-e810-42df-aca5-dff02ca1e346"/>
+          <kpi xsi:type="esdl:StringKPI" id="51cea216-fed5-48bc-8946-879a1768b2e0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9f7c5b63-368f-4e8d-b48e-83ca7980d78c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bcb4693e-e810-42df-aca5-dff02ca1e346" name="Maatschappelijke_kosten" value="821990.856"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420408'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="63912d44-a69e-4d06-81b6-93e47c509e1e" numberOfBuildings="4"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="328ecc8d-e0b5-4eba-8a03-b947c2f67202" numberOfBuildings="31"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="4" name="Woningen" id="63912d44-a69e-4d06-81b6-93e47c509e1e"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="31" name="Utiliteiten" id="328ecc8d-e0b5-4eba-8a03-b947c2f67202"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="bea95f91-eec1-47f9-abcf-55028cb7d915">
           <port xsi:type="esdl:InPort" name="InPort" id="6809e387-d1f2-4e4f-94ab-a9c9a8ee7279">
             <profile xsi:type="esdl:SingleValue" value="195.918593" id="c9513cb0-c8b5-4a44-868e-785c61c50b42">
@@ -9576,13 +9579,13 @@
           </port>
         </asset>
         <KPIs id="9b7bd037-dd98-460d-8de6-9497c4178be2">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="0850c3f4-1242-47dd-a02e-1f3886a99f64"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="178aec59-93f3-425a-a3d9-e33d058519f7"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="518119.008" id="144f0cf0-dcf6-47d5-959e-0116413a1a03"/>
+          <kpi xsi:type="esdl:StringKPI" id="0850c3f4-1242-47dd-a02e-1f3886a99f64" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="178aec59-93f3-425a-a3d9-e33d058519f7" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="144f0cf0-dcf6-47d5-959e-0116413a1a03" name="Maatschappelijke_kosten" value="518119.008"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420409'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="af027871-c5fb-4de2-aa74-ea343589b16e" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Woningen" id="af027871-c5fb-4de2-aa74-ea343589b16e"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="76b0c6b6-5906-4101-81ae-6246b1bdd899"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9ce5da65-5a87-43c6-8e09-613994b9b8a0">
           <port xsi:type="esdl:InPort" name="InPort" id="bad20d9f-b56f-49d4-b9e9-9fc0f6a3602c">
@@ -9634,14 +9637,14 @@
           </port>
         </asset>
         <KPIs id="e1c16183-c398-46ab-a750-c9193804b0a1">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="fc831536-7443-49a4-bf72-654fb2913fc4"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7b8fe83d-863b-4eae-a1c2-dcf4e5fb4318"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="44245.8465" id="673d5df0-fd49-4e66-bfba-ef6618707d16"/>
+          <kpi xsi:type="esdl:StringKPI" id="fc831536-7443-49a4-bf72-654fb2913fc4" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7b8fe83d-863b-4eae-a1c2-dcf4e5fb4318" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="673d5df0-fd49-4e66-bfba-ef6618707d16" name="Maatschappelijke_kosten" value="44245.8465"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420410'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="292a2401-dbfb-47f5-a149-8ca1e06910b1" numberOfBuildings="74"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="06c0b311-b708-4f45-aa7a-f94f060fd318" numberOfBuildings="17"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="74" name="Woningen" id="292a2401-dbfb-47f5-a149-8ca1e06910b1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="06c0b311-b708-4f45-aa7a-f94f060fd318"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="41efeab0-2f09-4283-bd16-52a1f3a605f8">
           <port xsi:type="esdl:InPort" name="InPort" id="25356f59-37a0-4511-8194-c27ff78a924d">
             <profile xsi:type="esdl:SingleValue" value="3373.30139" id="e16f375d-73ce-41f5-8954-2cd2bbb628c6">
@@ -9692,14 +9695,14 @@
           </port>
         </asset>
         <KPIs id="1bce317a-e447-410e-b225-e098419bd133">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="cb58fe3b-473f-41c8-bac8-478055ae7c09"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3a6deaf8-587e-4375-a45b-1ae23a8dae08"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="680616.739" id="b6be20bf-84c1-48f1-9dc2-dc2685b84974"/>
+          <kpi xsi:type="esdl:StringKPI" id="cb58fe3b-473f-41c8-bac8-478055ae7c09" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3a6deaf8-587e-4375-a45b-1ae23a8dae08" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b6be20bf-84c1-48f1-9dc2-dc2685b84974" name="Maatschappelijke_kosten" value="680616.739"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420501'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="4490ca3b-dbb1-4c94-8259-5b6f18f35202" numberOfBuildings="836"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="d49fcfab-f2a6-4db2-a369-012dae607422" numberOfBuildings="235"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="836" name="Woningen" id="4490ca3b-dbb1-4c94-8259-5b6f18f35202"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="235" name="Utiliteiten" id="d49fcfab-f2a6-4db2-a369-012dae607422"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="1c4842ac-ee1b-4a8c-98df-289a84f96d91">
           <port xsi:type="esdl:InPort" name="InPort" id="c7314912-76c6-4eb3-a87e-7b3d6f963ea5">
             <profile xsi:type="esdl:SingleValue" value="26695.6158" id="a3088a2b-5bd1-41cb-8863-a3b460696d7d">
@@ -9750,14 +9753,14 @@
           </port>
         </asset>
         <KPIs id="059ec6d4-6bbf-4325-9434-8e6c2fd236cc">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="0aecaca4-f09b-407a-9cbc-c9ad1e94aaa2"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="d0171a38-2c13-4d5e-8fcc-cabcbacbcd93"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1983826.33" id="f5435fe4-2b70-4654-812d-bd3ea81b0d12"/>
+          <kpi xsi:type="esdl:StringKPI" id="0aecaca4-f09b-407a-9cbc-c9ad1e94aaa2" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d0171a38-2c13-4d5e-8fcc-cabcbacbcd93" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f5435fe4-2b70-4654-812d-bd3ea81b0d12" name="Maatschappelijke_kosten" value="1983826.33"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420502'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d8b7c2fc-6645-4b01-9cb5-30cc42232c98" numberOfBuildings="1687"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="fd7877e2-79a7-434c-af90-6a76df9057db" numberOfBuildings="246"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1687" name="Woningen" id="d8b7c2fc-6645-4b01-9cb5-30cc42232c98"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="246" name="Utiliteiten" id="fd7877e2-79a7-434c-af90-6a76df9057db"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="27fd8263-70b6-4312-bcf4-4df4ff1e301d">
           <port xsi:type="esdl:InPort" name="InPort" id="efabff61-58b2-47d9-98e6-f5e845df5dc1">
             <profile xsi:type="esdl:SingleValue" value="48988.6617" id="fa687313-f197-4419-95e6-dac487e0723a">
@@ -9808,14 +9811,14 @@
           </port>
         </asset>
         <KPIs id="29f5263a-fc71-41e5-8b44-3cb4651e2e16">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="46dffb76-268a-4c2e-90dc-ade3e0bb47f8"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="00043bf8-60cb-4122-985a-07cfe2e2140d"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="3036601.85" id="828c1939-073e-4842-b8a6-ad1ee872afdb"/>
+          <kpi xsi:type="esdl:StringKPI" id="46dffb76-268a-4c2e-90dc-ade3e0bb47f8" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="00043bf8-60cb-4122-985a-07cfe2e2140d" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="828c1939-073e-4842-b8a6-ad1ee872afdb" name="Maatschappelijke_kosten" value="3036601.85"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420503'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="e84010ab-29a8-443f-927a-e8c6b20ec7c1" numberOfBuildings="181"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="ca65f7ce-1fd1-49f4-828a-e0c8a6e44b9b" numberOfBuildings="16"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="181" name="Woningen" id="e84010ab-29a8-443f-927a-e8c6b20ec7c1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="16" name="Utiliteiten" id="ca65f7ce-1fd1-49f4-828a-e0c8a6e44b9b"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="9c453226-241e-4ea7-ad57-448d3f77f2eb">
           <port xsi:type="esdl:InPort" name="InPort" id="9d07db25-e2fa-4c12-927c-6ba1380b7c56">
             <profile xsi:type="esdl:SingleValue" value="7433.39708" id="e162d54d-8a1e-430a-b646-cd34418d80cd">
@@ -9866,14 +9869,14 @@
           </port>
         </asset>
         <KPIs id="91ce51c0-ba3b-4566-b204-7c6f1f1cff6e">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="ea798291-c264-4d89-b2d2-aafd0baf333b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="5f6bc398-7acd-4ee8-a175-8bf2ab52da7c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="494734.824" id="9521c854-5857-4db5-ae88-18181c9f46c6"/>
+          <kpi xsi:type="esdl:StringKPI" id="ea798291-c264-4d89-b2d2-aafd0baf333b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="5f6bc398-7acd-4ee8-a175-8bf2ab52da7c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="9521c854-5857-4db5-ae88-18181c9f46c6" name="Maatschappelijke_kosten" value="494734.824"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420504'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84119895-2306-469d-b768-d6e7973430d1" numberOfBuildings="10"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="329f593b-a0eb-4d4a-9c41-17b876ad9758" numberOfBuildings="156"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="10" name="Woningen" id="84119895-2306-469d-b768-d6e7973430d1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="156" name="Utiliteiten" id="329f593b-a0eb-4d4a-9c41-17b876ad9758"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="83ad520c-06a6-4bd3-aa59-f4d2ad7c4042">
           <port xsi:type="esdl:InPort" name="InPort" id="f88b1730-6aaf-4cbe-8bc2-053866cb7fc8">
             <profile xsi:type="esdl:SingleValue" value="396.652361" id="fd543e69-5b10-4390-acfb-3efe2739369e">
@@ -9924,14 +9927,14 @@
           </port>
         </asset>
         <KPIs id="f7258c3a-8e89-49a4-ac7c-06d11b44b059">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="243ed73c-e71c-4c06-bd1b-3a518f9a0931"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="e880b982-dda3-429f-a4d1-4db7911d9e93"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1237437.36" id="4d303e08-f59f-4069-9779-3c1aba684d9e"/>
+          <kpi xsi:type="esdl:StringKPI" id="243ed73c-e71c-4c06-bd1b-3a518f9a0931" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="e880b982-dda3-429f-a4d1-4db7911d9e93" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="4d303e08-f59f-4069-9779-3c1aba684d9e" name="Maatschappelijke_kosten" value="1237437.36"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420506'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="84202f4b-6188-4fea-a90b-0e02e7fbf92a" numberOfBuildings="253"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="693709c7-d404-4812-8b65-683a925e1037" numberOfBuildings="65"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="253" name="Woningen" id="84202f4b-6188-4fea-a90b-0e02e7fbf92a"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="65" name="Utiliteiten" id="693709c7-d404-4812-8b65-683a925e1037"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="89ac3140-3a05-4a57-a64f-715b24cc680e">
           <port xsi:type="esdl:InPort" name="InPort" id="bb81ad87-b673-474c-a46c-a43eb56aa171">
             <profile xsi:type="esdl:SingleValue" value="9761.59215" id="e6d18bdb-1cdb-49f8-bfda-d6d80a3c8626">
@@ -9982,14 +9985,14 @@
           </port>
         </asset>
         <KPIs id="a78cc277-6eff-451f-90ba-851ca5a98788">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="743212b3-62cb-46a1-be39-8ca9be67d592"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="ab77e16d-33f0-47bf-b5bd-2877e4501758"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="569335.57" id="560dda54-ce7f-4908-9439-de37d36a838f"/>
+          <kpi xsi:type="esdl:StringKPI" id="743212b3-62cb-46a1-be39-8ca9be67d592" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="ab77e16d-33f0-47bf-b5bd-2877e4501758" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="560dda54-ce7f-4908-9439-de37d36a838f" name="Maatschappelijke_kosten" value="569335.57"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420507'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="864a0cc8-97d0-4d49-9627-38f59e4dcce9" numberOfBuildings="549"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1744101a-d326-4beb-b0fa-ef6fe9f9566e" numberOfBuildings="68"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="549" name="Woningen" id="864a0cc8-97d0-4d49-9627-38f59e4dcce9"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="68" name="Utiliteiten" id="1744101a-d326-4beb-b0fa-ef6fe9f9566e"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2b2413bf-225b-4e78-89af-79c6e1327114">
           <port xsi:type="esdl:InPort" name="InPort" id="72e65231-7172-4084-8cf0-b02114c283a5">
             <profile xsi:type="esdl:SingleValue" value="19023.8191" id="13f09afc-6edd-4a50-a156-e7094c755fca">
@@ -10040,14 +10043,14 @@
           </port>
         </asset>
         <KPIs id="e119d610-1d91-4592-9557-dd4bd700d3bf">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="43fc5394-d2c5-4040-98dd-5aafd57b3c65"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="424195f2-ad42-436d-a9be-6be131648ac0"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1157330.41" id="0b67e5f6-ebe5-440d-83b5-d752879b80a7"/>
+          <kpi xsi:type="esdl:StringKPI" id="43fc5394-d2c5-4040-98dd-5aafd57b3c65" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="424195f2-ad42-436d-a9be-6be131648ac0" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="0b67e5f6-ebe5-440d-83b5-d752879b80a7" name="Maatschappelijke_kosten" value="1157330.41"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420508'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7ea01253-15c2-4bfe-8bc5-240f57bfa77c" numberOfBuildings="1054"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="3916b121-bc01-4ae7-81b1-eca494965244" numberOfBuildings="133"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1054" name="Woningen" id="7ea01253-15c2-4bfe-8bc5-240f57bfa77c"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="133" name="Utiliteiten" id="3916b121-bc01-4ae7-81b1-eca494965244"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="30fc7e40-7638-4401-83d3-773fad33cfe2">
           <port xsi:type="esdl:InPort" name="InPort" id="e11f7f5f-a4cf-436a-be8a-d92ebf6958df">
             <profile xsi:type="esdl:SingleValue" value="34357.4048" id="a1eda2c5-6c6d-4689-9ee3-aab8d2509be0">
@@ -10098,14 +10101,14 @@
           </port>
         </asset>
         <KPIs id="6a6d1c73-78e2-4646-92ab-67fc0cdbfb5d">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="d5ca5896-d1c2-4bb9-b3b8-41c976446ff2"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="4e3b751c-7612-4bd6-957d-d24f217e3144"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2090029.52" id="bcd2fc77-d69d-4826-912d-9cf87c04870f"/>
+          <kpi xsi:type="esdl:StringKPI" id="d5ca5896-d1c2-4bb9-b3b8-41c976446ff2" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="4e3b751c-7612-4bd6-957d-d24f217e3144" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bcd2fc77-d69d-4826-912d-9cf87c04870f" name="Maatschappelijke_kosten" value="2090029.52"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420509'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="0a3dd904-42b1-4482-ab9a-5fb0915a0abd" numberOfBuildings="716"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="1206ba04-cf95-474a-ad0b-29f739126076" numberOfBuildings="110"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="716" name="Woningen" id="0a3dd904-42b1-4482-ab9a-5fb0915a0abd"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="110" name="Utiliteiten" id="1206ba04-cf95-474a-ad0b-29f739126076"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="81c88261-bdf4-44aa-bc12-5e4fe8a7264e">
           <port xsi:type="esdl:InPort" name="InPort" id="d2112554-701f-4a0f-82c0-4bd89f01ffee">
             <profile xsi:type="esdl:SingleValue" value="22842.754" id="95d735a4-332f-4642-84fa-ceb51638574b">
@@ -10156,14 +10159,14 @@
           </port>
         </asset>
         <KPIs id="ec012a88-5ffb-41cb-94e5-26eac1fbc277">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="7430c8b9-75e4-4ad0-8c5e-4f5adbe72f90"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3a1e0ed3-4eef-46b6-897b-57c5c5718e7a"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1829323.27" id="bea39863-3a90-42ca-b0ab-fea5fe44661c"/>
+          <kpi xsi:type="esdl:StringKPI" id="7430c8b9-75e4-4ad0-8c5e-4f5adbe72f90" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3a1e0ed3-4eef-46b6-897b-57c5c5718e7a" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="bea39863-3a90-42ca-b0ab-fea5fe44661c" name="Maatschappelijke_kosten" value="1829323.27"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420510'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="c113b614-4461-415a-8a88-e45bd819cb91" numberOfBuildings="911"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c6e7a9c7-a007-4bff-a2c5-b99766325adf" numberOfBuildings="80"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="911" name="Woningen" id="c113b614-4461-415a-8a88-e45bd819cb91"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="80" name="Utiliteiten" id="c6e7a9c7-a007-4bff-a2c5-b99766325adf"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="368df278-f437-466a-85b8-7b9a2a13212f">
           <port xsi:type="esdl:InPort" name="InPort" id="c838b548-a570-41bb-8876-62987baba7d5">
             <profile xsi:type="esdl:SingleValue" value="33151.617" id="9129f5e2-e26d-4901-a0d0-1970e8d188f4">
@@ -10214,14 +10217,14 @@
           </port>
         </asset>
         <KPIs id="a7e5845c-4397-4b4b-a04c-b3ce0151551c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="1e37bf26-f4e8-4061-864d-16e6a5f09060"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="f8ad3e5d-363a-4b86-9c6a-8f53c17591c8"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="2067113.96" id="529ff303-d187-49f1-99ca-edbf1ec2fea3"/>
+          <kpi xsi:type="esdl:StringKPI" id="1e37bf26-f4e8-4061-864d-16e6a5f09060" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="f8ad3e5d-363a-4b86-9c6a-8f53c17591c8" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="529ff303-d187-49f1-99ca-edbf1ec2fea3" name="Maatschappelijke_kosten" value="2067113.96"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420511'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="36d2a143-392a-42ec-8738-08e30a82e6c1" numberOfBuildings="96"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="8b862c74-9955-4636-9624-c425c763cab7" numberOfBuildings="3"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="96" name="Woningen" id="36d2a143-392a-42ec-8738-08e30a82e6c1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" name="Utiliteiten" id="8b862c74-9955-4636-9624-c425c763cab7"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="a774836d-82cd-4938-bf6c-bc523c232aeb">
           <port xsi:type="esdl:InPort" name="InPort" id="3d5c0ac0-f46b-45f6-9b93-54105356266d">
             <profile xsi:type="esdl:SingleValue" value="5050.63068" id="d6674ba1-9f00-4658-8bdf-0a15a807a2ea">
@@ -10272,14 +10275,14 @@
           </port>
         </asset>
         <KPIs id="51c1acb8-b844-4096-8367-e59de186e71d">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="7dd9cf49-6f74-4f06-abac-b5bccf750bf1"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="daf6ac24-d2e8-4b39-b2e6-3590652b73e7"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="405371.177" id="6450df45-f4f2-41ca-9b2e-16068fb9665d"/>
+          <kpi xsi:type="esdl:StringKPI" id="7dd9cf49-6f74-4f06-abac-b5bccf750bf1" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="daf6ac24-d2e8-4b39-b2e6-3590652b73e7" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6450df45-f4f2-41ca-9b2e-16068fb9665d" name="Maatschappelijke_kosten" value="405371.177"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420512'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="820e1e42-d751-4067-8106-8631c3d5f102" numberOfBuildings="259"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="01d430a7-8eed-4e51-936e-0dea1b86fdea" numberOfBuildings="104"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="259" name="Woningen" id="820e1e42-d751-4067-8106-8631c3d5f102"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="104" name="Utiliteiten" id="01d430a7-8eed-4e51-936e-0dea1b86fdea"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="2e3b2fd0-4e33-4ede-850c-1ff39af17f04">
           <port xsi:type="esdl:InPort" name="InPort" id="49c22e32-7b38-4c3e-a0c5-c83ce2d6b2c0">
             <profile xsi:type="esdl:SingleValue" value="11111.1358" id="98058a3f-ffae-48c8-8e6a-7a68b4d8980c">
@@ -10330,14 +10333,14 @@
           </port>
         </asset>
         <KPIs id="d9299e4e-8fa3-4553-9d44-f272ea523f29">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="d2bae8e5-e95c-4e89-9475-697c5d44031c"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="143994b0-dcd5-4222-b66e-02a7f9ce78c8"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="1615043.52" id="77e8c237-45af-4c3c-be64-1226fc1ab8c5"/>
+          <kpi xsi:type="esdl:StringKPI" id="d2bae8e5-e95c-4e89-9475-697c5d44031c" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="143994b0-dcd5-4222-b66e-02a7f9ce78c8" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="77e8c237-45af-4c3c-be64-1226fc1ab8c5" name="Maatschappelijke_kosten" value="1615043.52"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420513'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="811df938-a5f7-4932-bfaf-e2dd656a20ab" numberOfBuildings="25"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="add57b6b-af71-4948-9d09-5180b77bafea" numberOfBuildings="17"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="25" name="Woningen" id="811df938-a5f7-4932-bfaf-e2dd656a20ab"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="17" name="Utiliteiten" id="add57b6b-af71-4948-9d09-5180b77bafea"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="08c03b5e-c47b-4d5f-878d-8cc412acd28a">
           <port xsi:type="esdl:InPort" name="InPort" id="e5e051e2-6250-4944-8d19-b77eb0115102">
             <profile xsi:type="esdl:SingleValue" value="1147.08298" id="7d7700cb-4cf9-475d-abc3-817cc8f875a1">
@@ -10388,13 +10391,13 @@
           </port>
         </asset>
         <KPIs id="293a87c8-4c7a-4c3b-bcbf-81dfb19f245c">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="04df82de-1ec0-4ebf-82bd-68ba36da4162"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="6cbd2db8-ed23-4c83-969b-1220c0cd781e"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="173665.633" id="d6d721e3-d5d3-4383-bcfe-9a3fc9c2bc66"/>
+          <kpi xsi:type="esdl:StringKPI" id="04df82de-1ec0-4ebf-82bd-68ba36da4162" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="6cbd2db8-ed23-4c83-969b-1220c0cd781e" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="d6d721e3-d5d3-4383-bcfe-9a3fc9c2bc66" name="Maatschappelijke_kosten" value="173665.633"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420515'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="283f38e3-a46f-433a-9247-508c331da6ef" numberOfBuildings="46"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="46" name="Woningen" id="283f38e3-a46f-433a-9247-508c331da6ef"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="48ebb3cf-bead-4afe-a811-ffd54cb601c1"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="d2afecf7-6b24-4d35-8467-fb79eae452f7">
           <port xsi:type="esdl:InPort" name="InPort" id="5689a369-24df-4f9e-a9c6-1a0a7a566ae8">
@@ -10446,14 +10449,14 @@
           </port>
         </asset>
         <KPIs id="67b43499-0787-43f2-8d76-33bc2fbc8c0b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="de83a9e4-947c-434e-adc7-9fcb77434323"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="8b0b73f6-b05e-456f-8ba9-0991ebf9ef91"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="159459.987" id="3f81b730-1a69-4136-9ecd-3f71e5378e28"/>
+          <kpi xsi:type="esdl:StringKPI" id="de83a9e4-947c-434e-adc7-9fcb77434323" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="8b0b73f6-b05e-456f-8ba9-0991ebf9ef91" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3f81b730-1a69-4136-9ecd-3f71e5378e28" name="Maatschappelijke_kosten" value="159459.987"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420555'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="5819b727-028e-4ed8-bf4e-aa64c42808a2"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="37b2741a-4e44-4596-9fb1-1d8dca5de68a" numberOfBuildings="86"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="86" name="Utiliteiten" id="37b2741a-4e44-4596-9fb1-1d8dca5de68a"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="8d5138f4-9add-4602-a940-b9cd62000b55">
           <port xsi:type="esdl:InPort" name="InPort" id="2a7f0a74-8628-4b25-91c9-f1489d22d209">
             <profile xsi:type="esdl:SingleValue" id="00c3fa75-3d10-48a7-8941-8b819235693c">
@@ -10504,14 +10507,14 @@
           </port>
         </asset>
         <KPIs id="9928a652-69f5-40e5-9092-acad1a443592">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="e4209849-518c-4a32-bafe-a79d49d89a61"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="631d61a7-29ba-42bf-a0a6-f4043e9e5ace"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="895106.651" id="b1152c80-b766-49fb-94f8-6121a753c55b"/>
+          <kpi xsi:type="esdl:StringKPI" id="e4209849-518c-4a32-bafe-a79d49d89a61" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="631d61a7-29ba-42bf-a0a6-f4043e9e5ace" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b1152c80-b766-49fb-94f8-6121a753c55b" name="Maatschappelijke_kosten" value="895106.651"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420565'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="3853a39c-0d4b-4126-bcc8-534c66db2daf" numberOfBuildings="511"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="4831629f-45c0-4155-9660-684c6f437252" numberOfBuildings="106"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="511" name="Woningen" id="3853a39c-0d4b-4126-bcc8-534c66db2daf"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="106" name="Utiliteiten" id="4831629f-45c0-4155-9660-684c6f437252"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="7d0fa457-2257-458b-ba20-eeb53629abd8">
           <port xsi:type="esdl:InPort" name="InPort" id="adfd469c-18ba-48ba-876a-b0f2b475185f">
             <profile xsi:type="esdl:SingleValue" value="12827.5284" id="32762f5c-60b0-4b96-b94d-4414a40439d1">
@@ -10562,14 +10565,14 @@
           </port>
         </asset>
         <KPIs id="01fe262a-43cf-4ff3-8be8-ecb11520d39b">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="b16776cb-5693-46b1-bdad-fdcda031d478"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="7cbe3a02-aa04-45bf-a28b-7c55478039cb"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="618268.072" id="72185b69-c3de-4b0c-a201-f7de4fe269ce"/>
+          <kpi xsi:type="esdl:StringKPI" id="b16776cb-5693-46b1-bdad-fdcda031d478" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="7cbe3a02-aa04-45bf-a28b-7c55478039cb" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="72185b69-c3de-4b0c-a201-f7de4fe269ce" name="Maatschappelijke_kosten" value="618268.072"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420575'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="397e56dd-d11d-4615-b4ba-820e58683627" numberOfBuildings="183"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="c9dfd1bc-6424-4917-8ce3-52e5c6b91919" numberOfBuildings="78"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="183" name="Woningen" id="397e56dd-d11d-4615-b4ba-820e58683627"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="78" name="Utiliteiten" id="c9dfd1bc-6424-4917-8ce3-52e5c6b91919"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="f70e7fd3-8729-4ea9-806c-2023c0b7518e">
           <port xsi:type="esdl:InPort" name="InPort" id="45337d6e-518c-4a90-a8b6-148d3de6ddc1">
             <profile xsi:type="esdl:SingleValue" value="5355.71592" id="3128b905-aac5-4500-8c64-961fd18ee4cf">
@@ -10620,14 +10623,14 @@
           </port>
         </asset>
         <KPIs id="f3cabf49-4e42-4a46-a8b9-f61b22d43fb9">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="c6591d5f-d8ed-4949-a5a3-05506346fa0b"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="58c8b4ee-6733-4ba6-b595-c6ad5b0a65c7"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="260267.132" id="3a19fe75-559b-442a-97d4-661c95140c3b"/>
+          <kpi xsi:type="esdl:StringKPI" id="c6591d5f-d8ed-4949-a5a3-05506346fa0b" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="58c8b4ee-6733-4ba6-b595-c6ad5b0a65c7" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3a19fe75-559b-442a-97d4-661c95140c3b" name="Maatschappelijke_kosten" value="260267.132"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19420585'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="7412788c-e88c-41c5-9452-099c7f118c94" numberOfBuildings="405"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="60536e42-ba6a-451f-b49e-f7026f99d2eb" numberOfBuildings="7"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="405" name="Woningen" id="7412788c-e88c-41c5-9452-099c7f118c94"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="7" name="Utiliteiten" id="60536e42-ba6a-451f-b49e-f7026f99d2eb"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="b2546bcd-abbc-4a8a-bcf5-0540cc330fcf">
           <port xsi:type="esdl:InPort" name="InPort" id="a5edad73-5224-405f-9764-d1b207367dd3">
             <profile xsi:type="esdl:SingleValue" value="11426.6664" id="2b270550-519d-48fd-97fa-e2a07f1321bb">
@@ -10678,9 +10681,9 @@
           </port>
         </asset>
         <KPIs id="46295f00-86a7-4e6b-a031-fa7dc91a2e33">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="f6abccaf-1582-46c4-afba-29ac76eb3591"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="26d3170a-a276-4676-a0a9-e9498ed7a534"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="549046.828" id="fca4a3be-5689-4649-9dab-833d32ae06ec"/>
+          <kpi xsi:type="esdl:StringKPI" id="f6abccaf-1582-46c4-afba-29ac76eb3591" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="26d3170a-a276-4676-a0a9-e9498ed7a534" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="fca4a3be-5689-4649-9dab-833d32ae06ec" name="Maatschappelijke_kosten" value="549046.828"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU03769997'">
@@ -10736,13 +10739,13 @@
           </port>
         </asset>
         <KPIs id="876c8a85-4325-45f0-ab12-1b01396e43f9">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="11c8e5b2-ae9b-46d3-b75c-ab3d33bdc957"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="b7eafc27-bdca-4490-af3a-e0e354152a01"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="" id="475e7ddd-8503-4b71-88b4-2f540c992310"/>
+          <kpi xsi:type="esdl:StringKPI" id="11c8e5b2-ae9b-46d3-b75c-ab3d33bdc957" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="b7eafc27-bdca-4490-af3a-e0e354152a01" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="475e7ddd-8503-4b71-88b4-2f540c992310" name="Maatschappelijke_kosten" value=""/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU04069997'">
-        <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="04a4f9c9-c1a2-4b1d-b7ef-2aced3dd48bc" numberOfBuildings="70"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="70" name="Woningen" id="04a4f9c9-c1a2-4b1d-b7ef-2aced3dd48bc"/>
         <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="7eaff184-45d3-4bb6-8448-2d68927ccdc9"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="0db5efb7-54ae-4065-9d31-7ebda3c484ae">
           <port xsi:type="esdl:InPort" name="InPort" id="886a24fb-b5b3-412c-95a2-ea81ec249e27">
@@ -10794,14 +10797,14 @@
           </port>
         </asset>
         <KPIs id="9a5761af-485c-4b5c-964b-558976af2fe6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="9fed6e6c-5151-4901-9953-715e3f1b98b0"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="3b467bbf-4939-4116-8ea2-3f46ec5bc62c"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="142225.762" id="3b416db2-4cd6-4f97-b502-d0b2bb0ef3cf"/>
+          <kpi xsi:type="esdl:StringKPI" id="9fed6e6c-5151-4901-9953-715e3f1b98b0" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3b467bbf-4939-4116-8ea2-3f46ec5bc62c" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="3b416db2-4cd6-4f97-b502-d0b2bb0ef3cf" name="Maatschappelijke_kosten" value="142225.762"/>
         </KPIs>
       </area>
       <area scope="NEIGHBOURHOOD" id="'BU19429997'">
         <asset xsi:type="esdl:AggregatedBuilding" name="Woningen" id="d09791ac-2edf-4294-8ec9-e416dfbdddc9"/>
-        <asset xsi:type="esdl:AggregatedBuilding" name="Utiliteiten" id="b187d83a-f8a2-4210-aba6-ec24d4717753" numberOfBuildings="1"/>
+        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1" name="Utiliteiten" id="b187d83a-f8a2-4210-aba6-ec24d4717753"/>
         <asset xsi:type="esdl:HeatingDemand" name="Vraag_Warmte_totaal" id="93f69d28-0182-4d8d-bc12-fb43ee79c92c">
           <port xsi:type="esdl:InPort" name="InPort" id="02a30a79-ac90-4232-a386-0d2f97d7ec67">
             <profile xsi:type="esdl:SingleValue" id="803ef44d-2b67-494b-af2a-d74bc1bfe894">
@@ -10852,14 +10855,11 @@
           </port>
         </asset>
         <KPIs id="b7a008ba-1a0c-4f86-8ecd-aedbd783e3e6">
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_gas" value="0" id="983f7ff0-1a37-4ca5-89a8-71cf417e22bb"/>
-          <kpi xsi:type="esdl:StringKPI" name="CO2_uitstoot_elek" value="0" id="376f64c7-39f2-4107-a94c-4b3f1cf0ff06"/>
-          <kpi xsi:type="esdl:StringKPI" name="Maatschappelijke_kosten" value="43585.5059" id="38cd65f0-c1e9-42cd-8e03-0d6e1644a400"/>
+          <kpi xsi:type="esdl:StringKPI" id="983f7ff0-1a37-4ca5-89a8-71cf417e22bb" name="CO2_uitstoot_gas" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="376f64c7-39f2-4107-a94c-4b3f1cf0ff06" name="CO2_uitstoot_elek" value="0"/>
+          <kpi xsi:type="esdl:StringKPI" id="38cd65f0-c1e9-42cd-8e03-0d6e1644a400" name="Maatschappelijke_kosten" value="43585.5059"/>
         </KPIs>
       </area>
     </area>
   </instance>
-  <energySystemInformation id="energy_system_information">
-    <quantityAndUnits id="quantity_and_units"/>
-  </energySystemInformation>
 </esdl:EnergySystem>

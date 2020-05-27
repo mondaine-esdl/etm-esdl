@@ -37,7 +37,9 @@ def create_etm_scenario(regional_data, supply):
     # Connect to ETM API
     etm = connect_to_etm()
     # Create scenario
-    etm.create_new_scenario('Mondaine', 'RGNH03_gooi_en_vechtstreek', 2050)
+    # area = 'RGNH03_gooi_en_vechtstreek'
+    area = 'haven_stad'
+    etm.create_new_scenario('Mondaine', area, 2050)
 
     print('\nETM scenario_id: {}'.format(etm.scenario_id))
 
@@ -45,27 +47,34 @@ def create_etm_scenario(regional_data, supply):
         'residences': {}, 'services': {}
     }
 
-    for building_type in ['residences']:
-        if regional_data[building_type]['heating_demand']['total'] != 0:
-            shares[building_type]['residual_heat'] = (
-                (regional_data[building_type]['heating_demand']['LT'] +
-                 regional_data[building_type]['heating_demand']['MT']) /
-                regional_data[building_type]['heating_demand']['total']) * 100.
-        else:
-            shares[building_type]['residual_heat'] = 0
+    if regional_data['residences']['number_of_buildings'] != 0:
+        total_number_of_buildings = regional_data['residences']['number_of_buildings']
+        for heating_option in ['all_electric', 'district_heating', 'hybrid_heatpump', 'gas_boiler']:
+            number_of_buildings = regional_data['residences']['heating_options'][heating_option]
+            shares['residences'][heating_option] = number_of_buildings / total_number_of_buildings * 100.
+            shares['services'][heating_option] = number_of_buildings / total_number_of_buildings * 100.
 
-        if regional_data[building_type]['heating_demand']['total'] != 0:
-            shares[building_type]['gas'] = (
-                regional_data[building_type]['gas_demand'] /
-                regional_data[building_type]['heating_demand']['total']) * 100.
-        else:
-            shares[building_type]['gas'] = 0
+    # for building_type in ['residences']:
+    #     if regional_data[building_type]['heating_demand']['total'] != 0:
+    #         shares[building_type]['residual_heat'] = (
+    #             (regional_data[building_type]['heating_demand']['LT'] +
+    #              regional_data[building_type]['heating_demand']['MT']) /
+    #             regional_data[building_type]['heating_demand']['total']) * 100.
+    #     else:
+    #         shares[building_type]['residual_heat'] = 0
+    #
+    #     if regional_data[building_type]['heating_demand']['total'] != 0:
+    #         shares[building_type]['gas'] = (
+    #             regional_data[building_type]['gas_demand'] /
+    #             regional_data[building_type]['heating_demand']['total']) * 100.
+    #     else:
+    #         shares[building_type]['gas'] = 0
+    #
+    #     shares[building_type]['electricity'] = (
+    #         max(100. - (shares[building_type]['residual_heat'] +
+    #             shares[building_type]['gas']), 0))
 
-        shares[building_type]['electricity'] = (
-            max(100. - (shares[building_type]['residual_heat'] +
-                shares[building_type]['gas']), 0))
-
-    # Change the user values (slider settings) based on the energy system (from PICO)
+    # Change the user values (slider settings) based on the energy system
     user_values = {
         'households_number_of_residences': regional_data['residences']['number_of_buildings'],
         'households_insulation_level_apartments': 30.,
@@ -73,24 +82,25 @@ def create_etm_scenario(regional_data, supply):
         'households_insulation_level_detached_houses': 30.,
         'households_insulation_level_semi_detached_houses': 30.,
         'households_insulation_level_terraced_houses': 30.,
-        'households_heater_combined_network_gas_share': shares['residences']['gas'],
-        'households_heater_district_heating_steam_hot_water_share': shares['residences']['residual_heat'],
-        'households_heater_heatpump_air_water_electricity_share': shares['residences']['electricity'],
-        'households_heater_heatpump_ground_water_electricity_share': 0.,
-        'households_heater_hybrid_heatpump_air_water_electricity_share': 0.,
-        'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share': 0.,
-        'households_heater_wood_pellets_share': 0.,
-        'households_heater_network_gas_share': 0.,
-        'households_heater_electricity_share': 0.,
+        'households_heater_combined_network_gas_share': shares['residences']['gas_boiler'],
+        'households_heater_district_heating_steam_hot_water_share': shares['residences']['district_heating'],
+        'households_heater_heatpump_air_water_electricity_share': shares['residences']['all_electric'],
+        # 'households_heater_heatpump_ground_water_electricity_share': 0.,
+        'households_heater_hybrid_heatpump_air_water_electricity_share': shares['residences']['hybrid_heatpump'],
+        # 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share': 0.,
+        # 'households_heater_wood_pellets_share': 0.,
+        # 'households_heater_network_gas_share': 0.,
+        # 'households_heater_electricity_share': 0.,
         'buildings_insulation_level': 52.,
-        # 'buildings_space_heater_network_gas_share': shares['services']['gas'],
-        # 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': shares['services']['electricity'],
-        # 'buildings_space_heater_heatpump_air_water_network_gas_share': 0.,
+        'buildings_space_heater_network_gas_share': shares['services']['gas_boiler'],
+        'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': shares['services']['all_electric'] + shares['services']['hybrid_heatpump'] * .7,
+        'buildings_space_heater_heatpump_air_water_network_gas_share': shares['services']['hybrid_heatpump'] * .3,
         # 'buildings_space_heater_electricity_share': 0.,
         # 'buildings_space_heater_wood_pellets_share': 0.,
-        # 'buildings_space_heater_district_heating_steam_hot_water_share': shares['services']['residual_heat']
+        'buildings_space_heater_district_heating_steam_hot_water_share': shares['services']['district_heating'],
         'capacity_of_energy_power_wind_turbine_inland': supply['wind']['capacity'],
-        'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity']
+        'capacity_of_energy_power_solar_pv_solar_radiation': supply['solar']['capacity'],
+        'green_gas_total_share': 100.
     }
 
     # Determine the metrics (KPIs and relevant slider queries)
@@ -203,15 +213,21 @@ def aggregate_to_region(esh, neighbourhoods):
         'name': area_name,
         'residences': {
             'number_of_buildings': 0,
-            'heating_demand': {'total': 0., 'MT': 0., 'LT': 0.},
-            'electricity_demand': 0.,
-            'gas_demand': 0.
+            'heating_options': {
+                'all_electric': 0,
+                'district_heating': 0,
+                'hybrid_heatpump': 0,
+                'gas_boiler': 0,
+            }
         },
         'services': {
             'number_of_buildings': 0,
-            'heating_demand': {'total': 0., 'MT': 0., 'LT': 0.},
-            'electricity_demand': 0.,
-            'gas_demand': 0.
+            'heating_options': {
+                'all_electric': 0,
+                'district_heating': 0,
+                'hybrid_heatpump': 0,
+                'gas_boiler': 0,
+            }
         }
     }
 
@@ -223,23 +239,19 @@ def aggregate_to_region(esh, neighbourhoods):
             except:
                 pass
             try:
-                region[building_type]['heating_demand']['total'] += neighbourhood[building_type]['heating_demand']['total']
+                region[building_type]['heating_options']['all_electric'] += neighbourhood[building_type]['heating_options']['all_electric']
             except:
                 pass
             try:
-                region[building_type]['heating_demand']['MT'] += neighbourhood[building_type]['heating_demand']['MT']
+                region[building_type]['heating_options']['district_heating'] += neighbourhood[building_type]['heating_options']['district_heating']
             except:
                 pass
             try:
-                region[building_type]['heating_demand']['LT'] += neighbourhood[building_type]['heating_demand']['LT']
+                region[building_type]['heating_options']['hybrid_heatpump'] += neighbourhood[building_type]['heating_options']['hybrid_heatpump']
             except:
                 pass
             try:
-                region[building_type]['electricity_demand'] += neighbourhood[building_type]['electricity_demand']
-            except:
-                pass
-            try:
-                region[building_type]['gas_demand'] += neighbourhood[building_type]['gas_demand']
+                region[building_type]['heating_options']['gas_boiler'] += neighbourhood[building_type]['heating_options']['gas_boiler']
             except:
                 pass
 
@@ -258,46 +270,78 @@ def parse_aggregated_building(esh, asset):
     # Get number of residences
     number_of_buildings = asset.numberOfBuildings
 
+    # Create data object for this neighbourhood
+    data = {
+        'number_of_buildings': number_of_buildings,
+        'heating_options': {
+            'all_electric': 0,
+            'district_heating': 0,
+            'hybrid_heatpump': 0,
+            'gas_boiler': 0,
+        }
+    }
+
+    # Get number of buildings per heating option
+    if asset.name.endswith('ewp'):
+        data['heating_options']['all_electric'] += number_of_buildings
+    elif asset.name.endswith('lt') or asset.name.endswith('lt_buurtwko'):
+        data['heating_options']['district_heating'] += number_of_buildings
+    elif asset.name.endswith('lt_lt30_30') or asset.name.endswith('lt_lt30_70'):
+        data['heating_options']['district_heating'] += number_of_buildings
+    elif asset.name.endswith('mt'):
+        data['heating_options']['district_heating'] += number_of_buildings
+    elif asset.name.endswith('restwarmte'):
+        data['heating_options']['district_heating'] += number_of_buildings
+    elif asset.name.endswith('geothermie'):
+        data['heating_options']['district_heating'] += number_of_buildings
+    elif asset.name.endswith('hr_hg'):
+        data['heating_options']['gas_boiler'] += number_of_buildings
+    elif asset.name.endswith('hr_hg'):
+        data['heating_options']['gas_boiler'] += number_of_buildings
+    elif asset.name.endswith('hwp_hg'):
+        data['heating_options']['hybrid_heatpump'] += number_of_buildings
+
+
     # Get demands for residences
-    electricity_demand = esh.get_assets_of_type(asset, esh.esdl.ElectricityDemand)
-    gas_demand = esh.get_assets_of_type(asset, esh.esdl.GasDemand)
-    heating_demand = esh.get_assets_of_type(asset, esh.esdl.HeatingDemand)
+    # electricity_demand = esh.get_assets_of_type(asset, esh.esdl.ElectricityDemand)
+    # gas_demand = esh.get_assets_of_type(asset, esh.esdl.GasDemand)
+    # heating_demand = esh.get_assets_of_type(asset, esh.esdl.HeatingDemand)
 
     # Distinguish different types of heating demand (total, MT, HT)
-    total_heating_demand = 0.
-    MT_heating_demand = 0.
-    LT_heating_demand = 0.
+    # total_heating_demand = 0.
+    # MT_heating_demand = 0.
+    # LT_heating_demand = 0.
 
-    for demand in heating_demand:
-        if demand.name == 'Vraag_Warmte_totaal':
-            total_heating_demand = demand.port[0].profile[0].value
-        elif demand.name == 'Vraag_MT_Warmte':
-            MT_heating_demand = demand.port[0].profile[0].value
-        elif demand.name == 'Vraag_LT_Warmte':
-            LT_heating_demand = demand.port[0].profile[0].value
-
-    try:
-        e_value = electricity_demand[0].port[0].profile[0].value
-    except:
-        e_value = 0
-
-    try:
-        g_value = gas_demand[0].port[0].profile[0].value
-    except:
-        g_value = 0
+    # for demand in heating_demand:
+    #     if demand.name == 'Vraag_Warmte_totaal':
+    #         total_heating_demand = demand.port[0].profile[0].value
+    #     elif demand.name == 'Vraag_MT_Warmte':
+    #         MT_heating_demand = demand.port[0].profile[0].value
+    #     elif demand.name == 'Vraag_LT_Warmte':
+    #         LT_heating_demand = demand.port[0].profile[0].value
+    #
+    # try:
+    #     e_value = electricity_demand[0].port[0].profile[0].value
+    # except:
+    #     e_value = 0
+    #
+    # try:
+    #     g_value = gas_demand[0].port[0].profile[0].value
+    # except:
+    #     g_value = 0
 
 
     # Read values into data object
-    data = {
-        'number_of_buildings': number_of_buildings,
-        'heating_demand': {
-            'total': total_heating_demand,
-            'MT': MT_heating_demand,
-            'LT': LT_heating_demand
-        },
-        'electricity_demand': e_value,
-        'gas_demand': g_value
-    }
+    # data = {
+    #     'number_of_buildings': number_of_buildings,
+    #     'heating_options': {
+    #         'total': total_heating_demand,
+    #         'MT': MT_heating_demand,
+    #         'LT': LT_heating_demand
+    #     },
+    #     'electricity_demand': e_value,
+    #     'gas_demand': g_value
+    # }
 
     return data
 
@@ -316,25 +360,12 @@ def parse_neighbourhood(esh, neighbourhood):
     # Loop over AggregatedBuilding assets to determine the number of residences
     # and services and the corresponding energy demands
     for asset in esh.get_assets_of_type(neighbourhood, esh.esdl.AggregatedBuilding):
-        if asset.name.startswith('Woningen'):
-            # Parse asset data for aggregated building of type residences
-            data = parse_aggregated_building(esh, asset)
-            # Read attribute values into assets object
-            assets['residences'] = data
+        # Parse asset data for aggregated building of type residences
+        data = parse_aggregated_building(esh, asset)
+        # Read attribute values into assets object
+        assets['residences'] = data
 
-        # elif asset.name == 'Utiliteiten':
-        #     # Parse asset data for aggregated building of type residences
-        #     data = parse_aggregated_building(esh, asset)
-        #     # Read attribute values into assets object
-        #     assets['services'] = data
-
-    # TODO
-    kpis = {
-        'costs': 0.,
-        'co2': 0.
-    }
-
-    return assets, kpis
+    return assets
 
 
 def parse_supply_assets(esh):
@@ -370,7 +401,7 @@ def parse_neighbourhoods(esh):
 
     # Loop over the neighbourhoods in the area (by looping over the ESDL tree)
     for neighbourhood in esh.es.instance[0].area.area:
-        assets, kpis = parse_neighbourhood(esh, neighbourhood)
+        assets = parse_neighbourhood(esh, neighbourhood)
 
         # And parse the ESDL to store the attributes per neighbourhood
         neighbourhoods[assets['code']] = assets
@@ -461,7 +492,7 @@ def add_kpis_and_targets(esh):
     # Create renewable electricity production KPI target
     target_renewable_electricity_production = esh.esdl.DoubleTargetKPI(
         id=esh.generate_uuid(),
-        value=1.08E9  # 300 GWh = 1.08 PJ = 1.08E9 MJ
+        value=0.5E9  # 0.5 PJ (random value)
     )
     # Add target to KPI
     kpi_renewable_electricity_production.target.append(target_renewable_electricity_production)
@@ -494,6 +525,35 @@ def update_kpis(esh, metrics):
                                    renewable_electricity_share.quantityAndUnit.description))
 
 
+def add_etm_metrics_to_esdl(esh, metrics):
+    # Add quantity and units to EnergySystemInformation
+    add_quantity_and_units(esh)
+
+    # Add (empty) KPIs and targets
+    add_kpis_and_targets(esh)
+
+    # Update KPIs based on ETM metrics
+    update_kpis(esh, metrics)
+
+
+def post_request(esh):
+
+    post_data = {
+        'sender': 'ETM',
+        'email': 'roos.dekok@quintel.com',
+        'descr': 'Return ETM KPIs for the scenario',
+        'esdl': esh.get_as_string()
+    }
+
+    r = requests.post('https://mapeditor-beta.hesi.energy/api/esdl',
+        json = post_data,
+        headers={'Content-Type': 'application/json'})
+
+    if r.status_code != requests.codes.ok:
+        print(json.dumps(r.json(), indent=4, sort_keys=True))
+        sys.exit(1)
+
+
 def main(args):
     """
     Run [ python3 parse_data.py <name_of_esdl_input_file> ] in your terminal,
@@ -522,17 +582,20 @@ def main(args):
     etm, metrics = create_etm_scenario(regional_data, supply)
 
     # Add KPIs to ESDL
-    add_quantity_and_units(esh)
-    add_kpis_and_targets(esh)
-    update_kpis(esh, metrics)
+    add_etm_metrics_to_esdl(esh, metrics)
 
     # Save energy system to a file
     resource = esh.save('./output/{}.esdl'.format(filename))
+
     # Save energy system to Mondaine Hub
-    # mh.store_in_mondaine_hub(filename, resource)
+    mh.store_in_mondaine_hub('ETM_{}.esdl'.format(filename.split('/')[1]), resource)
 
     # Open ETM scenario
-    # webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
+    webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
+
+    # Send POST request to Map Editor
+    post_request(esh)
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
