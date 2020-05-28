@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from flask_restplus import Api, Resource, fields
 from EnergySystemHandler import EnergySystemHandler
-from parse_data import parse_esdl, create_etm_scenario
+from parse_data import parse_esdl, create_etm_scenario, add_etm_metrics_to_esdl, post_request
 import urllib.parse
 
 api_v1 = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -50,7 +50,9 @@ class EnergySystem(Resource):
             return 'could not load ESDL: '+ str(e), 404
 
         regional_data, supply = parse_esdl(esh)
-        etm_config = create_etm_scenario(regional_data, supply)
+        etm_config, metrics = create_etm_scenario(regional_data, supply)
+        add_etm_metrics_to_esdl(esh, metrics)
+        post_request(esh)
 
         return {
             'show_url': {
