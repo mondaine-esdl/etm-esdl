@@ -52,7 +52,7 @@ class EnergySystem(Resource):
         regional_data, supply = parse_esdl(esh)
         etm_config, metrics = create_etm_scenario(regional_data, supply)
         add_etm_metrics_to_esdl(esh, metrics)
-        post_request(esh)
+        # post_request(esh)
 
         return {
             'show_url': {
