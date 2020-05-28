@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from flask_restplus import Api, Resource, fields
 from EnergySystemHandler import EnergySystemHandler
-from parse_data import parse_esdl, create_etm_scenario, add_etm_metrics_to_esdl, post_request
+from parse_data import parse_esdl, create_etm_scenario, add_etm_metrics_to_esdl, store_esdl_in_mondaine_hub, post_request
 import urllib.parse
 
 api_v1 = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -52,7 +52,18 @@ class EnergySystem(Resource):
         regional_data, supply = parse_esdl(esh)
         etm_config, metrics = create_etm_scenario(regional_data, supply)
         add_etm_metrics_to_esdl(esh, metrics)
-        # post_request(esh)
+        store_esdl_in_mondaine_hub(esh)
+
+        # post_data = {
+        #     'sender': 'ETM',
+        #     'email': 'roos.dekok@quintel.com',
+        #     'descr': 'Return ETM KPIs for the scenario',
+        #     'esdl': urllib.parse.quote(esh.get_as_string())
+        # }
+        #
+        # r = requests.post('https://mapeditor-beta.hesi.energy/api/esdl',
+        #     json = post_data,
+        #     headers={'Content-Type': 'application/json'})
 
         return {
             'show_url': {

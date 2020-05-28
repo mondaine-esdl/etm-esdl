@@ -13,6 +13,8 @@ from pyecore.utils import DynamicEPackage
 from pyecore.resources.resource import HttpURI
 from xmlresource import XMLResource
 
+import urllib.parse
+
 import webbrowser
 
 # ETM modules
@@ -44,7 +46,17 @@ def create_etm_scenario(regional_data, supply):
     print('\nETM scenario_id: {}'.format(etm.scenario_id))
 
     shares = {
-        'residences': {}, 'services': {}
+        'residences': {
+            'all_electric': 0.,
+            'district_heating': 0.,
+            'hybrid_heatpump': 0.,
+            'gas_boiler': 0.,
+        }, 'services': {
+            'all_electric': 0.,
+            'district_heating': 0.,
+            'hybrid_heatpump': 0.,
+            'gas_boiler': 0.,
+        }
     }
 
     if regional_data['residences']['number_of_buildings'] != 0:
@@ -542,8 +554,10 @@ def post_request(esh):
         'sender': 'ETM',
         'email': 'roos.dekok@quintel.com',
         'descr': 'Return ETM KPIs for the scenario',
-        'esdl': esh.get_as_string()
+        'esdl': urllib.parse.quote(esh.get_as_string())
     }
+
+    # print(urllib.parse.quote(esh.get_as_string()))
 
     r = requests.post('https://mapeditor-beta.hesi.energy/api/esdl',
         json = post_data,
@@ -552,6 +566,11 @@ def post_request(esh):
     if r.status_code != requests.codes.ok:
         print(json.dumps(r.json(), indent=4, sort_keys=True))
         sys.exit(1)
+
+
+def store_esdl_in_mondaine_hub(esh):
+    # Save energy system to Mondaine Hub
+    mh.store_in_mondaine_hub('ETM_{}'.format(esh.name), esh.resource)
 
 
 def main(args):
@@ -584,17 +603,14 @@ def main(args):
     # Add KPIs to ESDL
     add_etm_metrics_to_esdl(esh, metrics)
 
-    # Save energy system to a file
-    resource = esh.save('./output/{}.esdl'.format(filename))
-
-    # Save energy system to Mondaine Hub
-    mh.store_in_mondaine_hub('ETM_{}.esdl'.format(filename.split('/')[1]), resource)
+    # Save in Mondaine hub
+    store_esdl_in_mondaine_hub(esh)
 
     # Open ETM scenario
     webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
 
     # Send POST request to Map Editor
-    post_request(esh)
+    # post_request(esh)
 
 
 if __name__ == '__main__':
