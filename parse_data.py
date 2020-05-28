@@ -570,7 +570,7 @@ def post_request(esh):
 
 def store_esdl_in_mondaine_hub(esh):
     # Save energy system to Mondaine Hub
-    mh.store_in_mondaine_hub('ETM_{}'.format(esh.name), esh.resource)
+    mh.store_in_mondaine_hub('ETM_{}'.format(esh.es.name), esh.resource)
 
 
 def main(args):
