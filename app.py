@@ -40,6 +40,8 @@ class EnergySystem(Resource):
     def post(self):
         '''Transform ESDL energysystem description into an ETM scenario'''
         args = parser.parse_args()
+        # TODO: Check if MondaineHub=True is in args. If not, save to MondaineHub. If False, don't save.
+
         es = {'energysystem': args['energysystem']}
 
         esh = EnergySystemHandler()
