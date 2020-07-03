@@ -3194,7 +3194,7 @@
           </investmentCosts>
         </costInformation>
       </asset>
-      <asset xsi:type="esdl:PVParc" surfaceArea="4297068" name="PVParc_43c7" power="20000000.0" id="43c7a9df-9707-4faa-8869-d87a76ec912d" fullLoadHours="867">
+      <asset xsi:type="esdl:PVPark" surfaceArea="4297068" name="PVPark_43c7" power="20000000.0" id="43c7a9df-9707-4faa-8869-d87a76ec912d" fullLoadHours="867">
         <port xsi:type="esdl:OutPort" id="2d87c598-d706-4e50-a244-3d39b76ff003" name="Out"/>
         <geometry xsi:type="esdl:Polygon">
           <exterior>
@@ -3205,7 +3205,7 @@
           </exterior>
         </geometry>
       </asset>
-      <asset xsi:type="esdl:PVParc" surfaceArea="867516" name="PVParc_2671" power="20000000.0" id="2671e31b-6b66-4157-a1fb-bf32f1b546bb" fullLoadHours="867">
+      <asset xsi:type="esdl:PVPark" surfaceArea="867516" name="PVPark_2671" power="20000000.0" id="2671e31b-6b66-4157-a1fb-bf32f1b546bb" fullLoadHours="867">
         <port xsi:type="esdl:OutPort" id="fdccf2d8-c1d0-4b6c-a867-edb45cceeab6" name="Out"/>
         <geometry xsi:type="esdl:Polygon">
           <exterior>

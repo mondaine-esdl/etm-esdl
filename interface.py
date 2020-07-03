@@ -25,7 +25,6 @@ def translate_esdl_to_slider_settings(energy_system):
 
     top_area = esh.es.instance[0].area
 
-
     # Use the API to create a new (empty) ETM scenario for this specific region
     etm.create_new_scenario(
         f'Mondaine - {esh.es.name}',
@@ -33,24 +32,38 @@ def translate_esdl_to_slider_settings(energy_system):
         2050)
 
     # Calculate the new input values
-    # TODO
+    # TODO: Move this to energy_system_handler?
     for category in assets.values():
         for asset_type, properties in category.items():
-            list_of_assets = energy_system.get_assets_of_type(top_area, getattr(esh.esdl, asset_type))
+            # Parse assets in top area
+            list_of_assets = energy_system.get_assets_of_type(
+                top_area,
+                getattr(esh.esdl, asset_type))
+
+            for sub_area in top_area.area:
+                list_of_assets_sub_areas = energy_system.get_assets_of_type(
+                    top_area,
+                    getattr(esh.esdl, asset_type))
+
             for asset in list_of_assets:
                 for prop in properties:
-                    
-                    print(getattr(asset, prop['attribute']))
-            print(asset_type)
-            print(properties)
+                    esdl_value = getattr(asset, prop['attribute'])
+                    etm_value = esdl_value * prop['factor']
+
+                    if input_values[prop['input']]:
+                        if prop['aggregation'] == 'sum':
+                            input_values[prop['input']] += etm_value
+                    else:
+                        input_values[prop['input']] = etm_value
+
+            # Parse assets in sub areas
+
 
     # Update the input value in the ETM scenario
-    for sector in input_values.values():
-        for category in sector.values():
-            for input_name, input_value in category.items():
-                if input_value:
-                    print(f'{input_name}: {input_value}')
-                    etm.change_inputs({input_name: input_value})
+    for input_name, input_value in input_values.items():
+        if input_value:
+            print(f'{input_name}: {input_value}')
+            etm.change_inputs({input_name: input_value})
 
     return etm.scenario_id
 
@@ -78,4 +91,4 @@ if __name__ == '__main__':
     translate_esdl_to_slider_settings(esh)
     translate_kpis_to_esdl(etm, esh)
 
-    # webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
+    webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
