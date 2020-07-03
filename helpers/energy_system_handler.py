@@ -3,10 +3,10 @@ from time import sleep
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
 from pyecore.resources.resource import HttpURI
-from xmlresource import XMLResource
+from helpers.xmlresource import XMLResource
 from pyecore.notification import EObserver
 import uuid
-from StringURI import StringURI
+from helpers.StringURI import StringURI
 from io import BytesIO
 
 class EnergySystemHandler:

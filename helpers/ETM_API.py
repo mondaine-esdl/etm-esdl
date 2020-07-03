@@ -115,7 +115,7 @@ class ETM_API(object):
         self.current_metrics = self.return_gqueries(p)
         return self.current_metrics
 
-    def change_inputs(self, user_values, gquery_metrics):
+    def change_inputs(self, user_values):
         """
         Change inputs to ETM according to dictionary user_values. Also the
         metrics are updated by passing a gquery via gquery_metrics
@@ -126,7 +126,6 @@ class ETM_API(object):
                              "user_values": user_values
                              },
                    "detailed": True,
-                   "gqueries": gquery_metrics
                    }
         p = self.session.put('/scenarios/' + str(self.scenario_id), json = put_data,
                                                 headers={'Connection':'close'})
@@ -134,6 +133,3 @@ class ETM_API(object):
         if p.status_code != requests.codes.ok:
           print(json.dumps(p.json(), indent=4, sort_keys=True))
           sys.exit(1)
-
-        self.current_metrics = self.return_gqueries(p)
-        return self.current_metrics
