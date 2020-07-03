@@ -1181,6 +1181,52 @@
           </asset>
         </asset>
       </area>
+      <asset xsi:type="esdl:WindTurbine" height="150.0" description="" installationDuration="12.0" surfaceArea="200000" name="WindTurbine_934e" power="3000000.0" technicalLifetime="25.0" id="934ea79b-a208-4fdc-9bd6-5dba4d2acd3b" type="WIND_ON_LAND" fullLoadHours="1920" rotorDiameter="100.0">
+        <port xsi:type="esdl:OutPort" id="7495e9c7-cbdb-46d5-8a04-25470f87d3e2" name="Out"/>
+        <geometry xsi:type="esdl:Point" lon="5.025901794433594" lat="52.29669680784783"/>
+        <costInformation>
+          <fixedOperationalAndMaintenanceCosts xsi:type="esdl:SingleValue" interpolationMethod="NONE" value="49.19" name="Fixed operation and maintenance costs (per year)">
+            <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitType" description="kEUR / MWe / year" multiplier="KILO" unit="EURO" perUnit="WATT" perMultiplier="MEGA" perTimeUnit="YEAR" physicalQuantity="COST"/>
+          </fixedOperationalAndMaintenanceCosts>
+          <investmentCosts xsi:type="esdl:SingleValue" interpolationMethod="NONE" value="1391.99" name="Initial investment (excl CCS)">
+            <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="KILO" description="kEUR / MWe" unit="EURO" perUnit="WATT" perMultiplier="MEGA" physicalQuantity="COST"/>
+          </investmentCosts>
+        </costInformation>
+      </asset>
+      <asset xsi:type="esdl:WindTurbine" height="150.0" description="" installationDuration="12.0" surfaceArea="200000" name="WindTurbine_dbbe" power="3000000.0" technicalLifetime="25.0" id="dbbeaa24-ec0a-4a17-a884-d973bef240c1" type="WIND_ON_LAND" fullLoadHours="1920" rotorDiameter="100.0">
+        <port xsi:type="esdl:OutPort" id="47e7ae46-02eb-4b1d-9bce-a23ee3cee2f1" name="Out"/>
+        <geometry xsi:type="esdl:Point" lon="5.026588439941407" lat="52.29354789237241"/>
+        <costInformation>
+          <fixedOperationalAndMaintenanceCosts xsi:type="esdl:SingleValue" interpolationMethod="NONE" value="49.19" name="Fixed operation and maintenance costs (per year)">
+            <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitType" description="kEUR / MWe / year" multiplier="KILO" unit="EURO" perUnit="WATT" perMultiplier="MEGA" perTimeUnit="YEAR" physicalQuantity="COST"/>
+          </fixedOperationalAndMaintenanceCosts>
+          <investmentCosts xsi:type="esdl:SingleValue" interpolationMethod="NONE" value="1391.99" name="Initial investment (excl CCS)">
+            <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="KILO" description="kEUR / MWe" unit="EURO" perUnit="WATT" perMultiplier="MEGA" physicalQuantity="COST"/>
+          </investmentCosts>
+        </costInformation>
+      </asset>
+      <asset xsi:type="esdl:PVParc" surfaceArea="4297068" name="PVParc_43c7" power="20000000.0" id="43c7a9df-9707-4faa-8869-d87a76ec912d" fullLoadHours="867">
+        <port xsi:type="esdl:OutPort" id="2d87c598-d706-4e50-a244-3d39b76ff003" name="Out"/>
+        <geometry xsi:type="esdl:Polygon">
+          <exterior>
+            <point lon="5.046844482421876" lat="52.35627403622822"/>
+            <point lon="5.080146789550782" lat="52.36172428124836"/>
+            <point lon="5.09319305419922" lat="52.348516759278894"/>
+            <point lon="5.050277709960938" lat="52.342226075780204"/>
+          </exterior>
+        </geometry>
+      </asset>
+      <asset xsi:type="esdl:PVParc" surfaceArea="867516" name="PVParc_2671" power="20000000.0" id="2671e31b-6b66-4157-a1fb-bf32f1b546bb" fullLoadHours="867">
+        <port xsi:type="esdl:OutPort" id="fdccf2d8-c1d0-4b6c-a867-edb45cceeab6" name="Out"/>
+        <geometry xsi:type="esdl:Polygon">
+          <exterior>
+            <point lon="5.053367614746095" lat="52.27695990955622"/>
+            <point lon="5.049934387207032" lat="52.267718340191486"/>
+            <point lon="5.063667297363282" lat="52.26708816302609"/>
+            <point lon="5.066757202148438" lat="52.27380959100223"/>
+          </exterior>
+        </geometry>
+      </asset>
     </area>
   </instance>
 </esdl:EnergySystem>
