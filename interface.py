@@ -18,46 +18,44 @@ base_url = 'https://beta-engine.energytransitionmodel.com/api/v3'
 session = SessionWithUrlBase(base_url)
 etm = ETM_API(session)
 
-def translate_esdl_to_slider_settings(energy_system):
-    # Parse assets:
-        # If asset neighbourhood: parse assets
-        # Else if asset in list: translate asset
 
-    top_area = esh.es.instance[0].area
+def parse_asset_type(energy_system, area, asset_type, properties):
+    list_of_assets = energy_system.get_assets_of_type(
+        area,
+        getattr(energy_system.esdl, asset_type))
+
+    for asset in list_of_assets:
+        for prop in properties:
+            if 'attribute' in prop.keys():
+                esdl_value = getattr(asset, prop['attribute'])
+                etm_value = esdl_value * prop['factor']
+
+                if input_values[prop['input']]:
+                    if prop['aggregation'] == 'sum':
+                        input_values[prop['input']] += etm_value
+                else:
+                    input_values[prop['input']] = etm_value
+
+
+def translate_esdl_to_slider_settings(energy_system):
+    # Determine top level area
+    top_area = energy_system.es.instance[0].area
 
     # Use the API to create a new (empty) ETM scenario for this specific region
     etm.create_new_scenario(
-        f'Mondaine - {esh.es.name}',
+        f'Mondaine - {energy_system.es.name}',
         areas[top_area.id],
         2050)
 
     # Calculate the new input values
-    # TODO: Move this to energy_system_handler?
     for category in assets.values():
         for asset_type, properties in category.items():
             # Parse assets in top area
-            list_of_assets = energy_system.get_assets_of_type(
-                top_area,
-                getattr(esh.esdl, asset_type))
-
-            for sub_area in top_area.area:
-                list_of_assets_sub_areas = energy_system.get_assets_of_type(
-                    top_area,
-                    getattr(esh.esdl, asset_type))
-
-            for asset in list_of_assets:
-                for prop in properties:
-                    esdl_value = getattr(asset, prop['attribute'])
-                    etm_value = esdl_value * prop['factor']
-
-                    if input_values[prop['input']]:
-                        if prop['aggregation'] == 'sum':
-                            input_values[prop['input']] += etm_value
-                    else:
-                        input_values[prop['input']] = etm_value
+            parse_asset_type(energy_system, top_area, asset_type, properties)
 
             # Parse assets in sub areas
-
+            for sub_area in top_area.area:
+                parse_asset_type(energy_system, sub_area, asset_type, properties)
 
     # Update the input value in the ETM scenario
     for input_name, input_value in input_values.items():
@@ -65,14 +63,15 @@ def translate_esdl_to_slider_settings(energy_system):
             print(f'{input_name}: {input_value}')
             etm.change_inputs({input_name: input_value})
 
-    return etm.scenario_id
+    return etm
 
-def translate_kpis_to_esdl(etm, energy_system):
+
+def translate_kpis_to_esdl(energy_system):
     metrics = None
 
     # TODO: POST request
 
-    return etm, metrics
+    return metrics
 
 
 if __name__ == '__main__':
@@ -89,6 +88,6 @@ if __name__ == '__main__':
     esh.add_energy_system_information()
 
     translate_esdl_to_slider_settings(esh)
-    translate_kpis_to_esdl(etm, esh)
+    translate_kpis_to_esdl(esh)
 
     webbrowser.open_new('https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm.scenario_id))
