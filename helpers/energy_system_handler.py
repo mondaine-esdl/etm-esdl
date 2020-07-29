@@ -125,6 +125,18 @@ class EnergySystemHandler:
                 assets.append(current_asset)
         return assets
 
+
+    # Get a list of assets of a specific ESDL type in the specified area or asset
+    # filtered by a specified attribute-value combination
+    def get_assets_of_type_and_attribute_value(self, area, esdl_type, attribute, value):
+        assets = []
+
+        for current_asset in area.asset:
+            if isinstance(current_asset, esdl_type):
+                if str(getattr(current_asset, attribute)) == value:
+                    assets.append(current_asset)
+        return assets
+
     # Get a list of potentials of a specific ESDL type in the main instance's area
     def get_potentials_of_type(self, esdl_type):
         potentials = []
@@ -134,7 +146,7 @@ class EnergySystemHandler:
                 potentials.append(current_potential)
         return potentials
 
-    # returns a generator of all assets of a specific type. Not only the ones defined in  the main Instance's Area
+    # returns a generator of all assets of a specific type. Not only the ones defined in the main Instance's Area
     # e.g. QuantityAndUnits can be defined in the KPI of an Area or in the EnergySystemInformation object
     # this function returns all of them at once
     def get_all_assets_of_type(self, esdl_type):

@@ -45,84 +45,101 @@ assets = {
     },
 
     'households': {
-        'AggregatedBuilding': [
-            {
-                'attribute': 'numberOfBuildings',
-                'dependent_on': {'distribution': 'buildingTypeDistribution'}, # TODO
-                'input': 'households_number_of_residences',
-                'factor': 1,
-                'aggregation': 'sum'
-            },
-            {
-                'distribution': 'buildingTypeDistribution', # TODO
-                'inputs': [
-                    'households_number_of_residences',
-                ]
-            },
-            {
-                'distribution': 'energyLabelDistribution',
-                'inputs': [
-                    'households_insulation_level_apartments',
-                    'households_insulation_level_corner_houses',
-                    'households_insulation_level_detached_houses',
-                    'households_insulation_level_semi_detached_houses',
-                    'households_insulation_level_terraced_houses',
-                    'buildings_insulation_level'
-                ],
-            },
-
-        ],
+        # 'AggregatedBuilding': [
+        #     {
+        #         'attribute': 'numberOfBuildings',
+        #         'dependent_on': {'distribution': 'buildingTypeDistribution'}, # TODO
+        #         'input': 'households_number_of_residences',
+        #         'factor': 1,
+        #         'aggregation': 'sum'
+        #     },
+        #     {
+        #         'distribution': 'buildingTypeDistribution', # TODO
+        #         'inputs': [
+        #             'households_number_of_residences',
+        #         ]
+        #     },
+        #     {
+        #         'distribution': 'energyLabelDistribution',
+        #         'inputs': [
+        #             'households_insulation_level_apartments',
+        #             'households_insulation_level_corner_houses',
+        #             'households_insulation_level_detached_houses',
+        #             'households_insulation_level_semi_detached_houses',
+        #             'households_insulation_level_terraced_houses',
+        #             'buildings_insulation_level'
+        #         ],
+        #     },
+        #
+        # ],
     },
 
     'buildings': {},
 }
 
+# TODO: Separate individual and collective heating technologies
 heating_technologies = {
-    # Elektrische luchtwarmtepomp
-    'HeatPump': [
-        {
-            'dependent_on': {'asset': 'AggregatedBuilding'},
-            'attribute': 'source',
-            'value': 'AIR',
-            'input': 'households_heater_heatpump_air_water_electricity_share',
-        }
-    ],
-    # Elektrische bodemwarmtepomp
-    'HeatPump': [
-        {
-            'dependent_on': {'asset': 'AggregatedBuilding'},
-            'attribute': 'source',
-            'value': 'AQUIFER',
-            'input': 'households_heater_heatpump_ground_water_electricity_share',
-        }
-    ],
-    # Elektrische bodemwarmtepomp
-    'HeatPump': [
-        {
-            'dependent_on': {'asset': 'AggregatedBuilding'},
-            'attribute': 'source',
-            'value': 'SUB_SURFACE',
-            'input': 'households_heater_heatpump_ground_water_electricity_share',
-        }
-    ],
-    # Hybride warmtepomp op methaan
-    'HeatNetwork': [
-        {
-            'dependent_on': {'asset': 'AggregatedBuilding'},
-            'attribute': 'additionalHeatingSourceType',
-            'value': 'GAS',
-            'input': 'households_heater_hybrid_heatpump_air_water_electricity_share',
-        }
-    ],
-    # Hybride warmtepomp op waterstof
-    'HeatNetwork': [
-        {
-            'dependent_on': {'asset': 'AggregatedBuilding'},
-            'attribute': 'additionalHeatingSourceType',
-            'value': 'HYDROGEN',
-            'input': 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
-        }
-    ],
-},
+    'individual': {
+        'HeatPump': [
+            { # Elektrische luchtwarmtepomp
+                'attribute': 'source',
+                'value': 'AIR',
+                'inputs': { # dependent on building types
+                    'RESIDENTIAL': 'households_heater_heatpump_air_water_electricity_share',
+                    'UTILITY': 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share'
+                },
+                'aggregation': 'sum'
+            },
+            { # Elektrische bodemwarmtepomp
+                'attribute': 'source',
+                'value': 'AQUIFER',
+                'inputs': { # dependent on building types
+                    'RESIDENTIAL': 'households_heater_heatpump_ground_water_electricity_share',
+                    'UTILITY': 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share'
+                },
+                'aggregation': 'sum'
+            },
+            { # Elektrische bodemwarmtepomp
+                'attribute': 'source',
+                'value': 'SUB_SURFACE',
+                'inputs': { # dependent on building types
+                    'RESIDENTIAL': 'households_heater_heatpump_ground_water_electricity_share',
+                    'UTILITY': 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share'
+                },
+                'aggregation': 'sum'
+            }
+        ],
+    },
 
-# In case of an AggregatedBuilding, loop over the following distributions
+    'collective': {
+        # 'HConnection': [
+        #     { # Aansluiting op het warmtenet
+        #         'inputs': { # dependent on building types
+        #             'RESIDENTIAL': 'households_heater_district_heating_steam_hot_water_share',
+        #             'UTILITY': 'buildings_space_heater_district_heating_steam_hot_water_share'
+        #         },
+        #         'aggregation': 'sum'
+        #     },
+        # ],
+        'HeatNetwork': [
+            { # Hybride warmtepomp op methaan
+                'attribute': 'additionalHeatingSourceType',
+                'value': 'GAS',
+                'inputs': { # dependent on building types
+                    'RESIDENTIAL': 'households_heater_hybrid_heatpump_air_water_electricity_share',
+                    'UTILITY': None
+                },
+                'aggregation': 'sum'
+            },
+            { # Hybride warmtepomp op waterstof
+                'attribute': 'additionalHeatingSourceType',
+                'value': 'HYDROGEN',
+                'inputs': { # dependent on building types
+                    'RESIDENTIAL': 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
+                    'UTILITY': None
+                },
+                'aggregation': 'sum'
+            }
+        ],
+    }
+}
