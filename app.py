@@ -1,7 +1,8 @@
 from flask import Flask, Blueprint
 from flask_restplus import Api, Resource, fields
-from EnergySystemHandler import EnergySystemHandler
-from parse_data import parse_esdl, create_etm_scenario, add_etm_metrics_to_esdl, store_esdl_in_mondaine_hub, post_request
+from helpers.energy_system_handler import EnergySystemHandler
+from helpers.MondaineHub import MondaineHub
+from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl
 import urllib.parse
 
 api_v1 = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -28,19 +29,26 @@ def abort_if_es_doesnt_exist(es_id):
 
 parser = api.parser()
 parser.add_argument('energysystem', type=str, required=True, help='The energysystem definition (URL encoded ESDL string)', location='form')
-
+parser.add_argument('account', type=str, required=False, help='The Mondaine Hub account (email address) - only required when one wants to store the ESDL in the Mondaine Hub', location='form')
+# TODO: Add argument for environment (BETA or PRO)
 
 @ns_es.route('/')
 @api.doc(responses={404: 'EnergySytem not valid'})
 class EnergySystem(Resource):
-    '''Transform ESDL energysystem description into an ETM scenario'''
-#    @api.doc(description='Transform ESDL energysystem description into an ETM scenario')
+    """
+    Transform ESDL energysystem description into an ETM scenario
+    """
+    # @api.doc(description='Transform ESDL energysystem description into an ETM scenario')
     @api.doc(parser=parser)
-#    @api.marshal_with(etm_esdl_result)
+    # @api.marshal_with(etm_esdl_result)
     def post(self):
-        '''Transform ESDL energysystem description into an ETM scenario'''
+        """
+        Transform ESDL energysystem description into an ETM scenario
+        """
         args = parser.parse_args()
+
         es = {'energysystem': args['energysystem']}
+        account = {'email': args['account']}
 
         esh = EnergySystemHandler()
         try:
@@ -49,10 +57,12 @@ class EnergySystem(Resource):
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
-        regional_data, supply = parse_esdl(esh)
-        etm_config, metrics = create_etm_scenario(regional_data, supply)
-        add_etm_metrics_to_esdl(esh, metrics)
-        store_esdl_in_mondaine_hub(esh)
+        etm_config = translate_esdl_to_slider_settings(esh)
+        metrics = translate_kpis_to_esdl(esh)
+
+        if account['email']:
+            mh = MondaineHub(account['email'])
+            mh.store_in_mondaine_hub('ETM_{}'.format(esh.es.name), esh.resource)
 
         # post_data = {
         #     'sender': 'ETM',
@@ -60,7 +70,7 @@ class EnergySystem(Resource):
         #     'descr': 'Return ETM KPIs for the scenario',
         #     'esdl': urllib.parse.quote(esh.get_as_string())
         # }
-        #
+
         # r = requests.post('https://mapeditor-beta.hesi.energy/api/esdl',
         #     json = post_data,
         #     headers={'Content-Type': 'application/json'})
@@ -70,7 +80,8 @@ class EnergySystem(Resource):
                 'description': 'Click on this link to open the created ETM scenario:',
                 'url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id),
                 'link_text': 'Open ETM'
-            }
+            },
+            'scenario_id': etm_config.scenario_id
         }
 
 
