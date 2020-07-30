@@ -30,7 +30,7 @@ def abort_if_es_doesnt_exist(es_id):
 parser = api.parser()
 parser.add_argument('energysystem', type=str, required=True, help='The energysystem definition (URL encoded ESDL string)', location='form')
 parser.add_argument('account', type=str, required=False, help='The Mondaine Hub account (email address) - only required when one wants to store the ESDL in the Mondaine Hub', location='form')
-
+# TODO: Add argument for environment (BETA or PRO)
 
 @ns_es.route('/')
 @api.doc(responses={404: 'EnergySytem not valid'})
@@ -80,7 +80,8 @@ class EnergySystem(Resource):
                 'description': 'Click on this link to open the created ETM scenario:',
                 'url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id),
                 'link_text': 'Open ETM'
-            }
+            },
+            'scenario_id': etm_config.scenario_id
         }
 
 
