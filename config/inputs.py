@@ -1,5 +1,5 @@
 input_values = {
-    'households_number_of_residences': { 'value': { 'value': None } },
+    'households_number_of_residences': { 'value': None },
     'households_insulation_level_apartments': { 'value': None },
     'households_insulation_level_corner_houses': { 'value': None },
     'households_insulation_level_detached_houses': { 'value': None },
@@ -14,6 +14,7 @@ input_values = {
     'households_heater_wood_pellets_share': { 'value': None, 'balancing_group': 'households_heating' },
     'households_heater_network_gas_share': { 'value': None, 'balancing_group': 'households_heating' },
     'households_heater_electricity_share': { 'value': None, 'balancing_group': 'households_heating' },
+    'households_heater_crude_oil_share': { 'value': None, 'balancing_group': 'households_heating' },
     'buildings_insulation_level': { 'value': None },
     'buildings_space_heater_network_gas_share': { 'value': None, 'balancing_group': 'buildings_heating' },
     'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share': { 'value': None, 'balancing_group': 'buildings_heating' },

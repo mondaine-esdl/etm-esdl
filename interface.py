@@ -15,15 +15,12 @@ mh = MondaineHub('roos.dekok@quintel.com')
 
 from helpers.ETM_API import ETM_API, SessionWithUrlBase
 
+from helpers.balancer import Balancer
+
 def start_etm_session(environment):
     session = SessionWithUrlBase(base_urls[environment])
 
     return ETM_API(session)
-
-
-def balance():
-    balancing_groups = [ input['balancing_group'] for input in input_values ].uniq()
-
 
 def parse_asset_type(energy_system, area, asset_type, properties):
     # TODO: Use get_all_assets_of_type instead of get_assets_of_type
@@ -58,7 +55,7 @@ def determine_number_of_buildings(energy_system):
 
         number_of_buildings[building_type] += number
 
-    input_values['households_number_of_residences'] = number_of_buildings['RESIDENTIAL']
+    input_values['households_number_of_residences']['value'] = number_of_buildings['RESIDENTIAL']
 
     print(f'number_of_buildings = {number_of_buildings}')
 
@@ -115,6 +112,10 @@ def parse_heating_technology(energy_system, area, total_number_of_buildings):
 
 
 def translate_esdl_to_slider_settings(energy_system, environment):
+    # Reset input_values
+    for input_name, value in input_values.items():
+        value['value'] = None
+
     # Determine top level area
     top_area = energy_system.es.instance[0].area
 
@@ -143,11 +144,19 @@ def translate_esdl_to_slider_settings(energy_system, environment):
     for sub_area in top_area.area:
         parse_heating_technology(energy_system, sub_area, number_of_buildings)
 
+    # Balance share groups
+    balanced_input_values = Balancer(input_values).call()
+
     # Update the input value in the ETM scenario
-    for input_name, input_value in input_values.items():
-        if input_value:
-            print(f'{input_name}: {input_value}')
-            etm.change_inputs({input_name: input_value})
+    set_sliders = {}
+    for input_name, input_value in balanced_input_values.items():
+        # Also update sliders set to 0 by Balancer
+        if not input_value['value'] is None:
+            print(f"{input_name}: {input_value['value']}")
+            set_sliders[input_name] = input_value['value']
+
+    # Set all new sliders simultaniously
+    etm.change_inputs(set_sliders)
 
     return etm
 
