@@ -31,10 +31,10 @@ parser = api.parser()
 parser.add_argument('energysystem', type=str, required=True, help='The energysystem definition (URL encoded ESDL string)', location='form')
 parser.add_argument('environment', type=str, required=True, help='The environment of the Energy Transition Model ("beta" or "pro")', location='form')
 parser.add_argument('account', type=str, required=False, help='The Mondaine Hub account (email address) - only required when one wants to store the ESDL in the Mondaine Hub', location='form')
-# TODO: Add argument for environment (BETA or PRO)
 
 @ns_es.route('/')
 @api.doc(responses={404: 'EnergySytem not valid'})
+@api.route('/')
 class EnergySystem(Resource):
     """
     Transform ESDL energysystem description into an ETM scenario
