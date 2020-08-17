@@ -29,11 +29,12 @@ def abort_if_es_doesnt_exist(es_id):
 
 parser = api.parser()
 parser.add_argument('energysystem', type=str, required=True, help='The energysystem definition (URL encoded ESDL string)', location='form')
+parser.add_argument('environment', type=str, required=True, help='The environment of the Energy Transition Model ("beta" or "pro")', location='form')
 parser.add_argument('account', type=str, required=False, help='The Mondaine Hub account (email address) - only required when one wants to store the ESDL in the Mondaine Hub', location='form')
-# TODO: Add argument for environment (BETA or PRO)
 
 @ns_es.route('/')
 @api.doc(responses={404: 'EnergySytem not valid'})
+@api.route('/')
 class EnergySystem(Resource):
     """
     Transform ESDL energysystem description into an ETM scenario
@@ -49,6 +50,7 @@ class EnergySystem(Resource):
 
         es = {'energysystem': args['energysystem']}
         account = {'email': args['account']}
+        env = args['environment']
 
         esh = EnergySystemHandler()
         try:
@@ -57,8 +59,8 @@ class EnergySystem(Resource):
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
-        etm_config = translate_esdl_to_slider_settings(esh)
-        metrics = translate_kpis_to_esdl(esh)
+        etm_config = translate_esdl_to_slider_settings(esh, env)
+        metrics = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         if account['email']:
             mh = MondaineHub(account['email'])
@@ -78,7 +80,9 @@ class EnergySystem(Resource):
         return {
             'show_url': {
                 'description': 'Click on this link to open the created ETM scenario:',
-                'url': 'https://beta-pro.energytransitionmodel.com/scenarios/{}'.format(etm_config.scenario_id),
+                'url': 'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
+                    environment='beta-pro' if env=='beta' else 'pro',
+                    scenario_id=etm_config.scenario_id),
                 'link_text': 'Open ETM'
             },
             'scenario_id': etm_config.scenario_id
