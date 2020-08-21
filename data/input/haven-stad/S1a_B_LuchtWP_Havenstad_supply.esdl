@@ -3039,7 +3039,7 @@
         <geometry xsi:type="esdl:Point" lat="52.40834410729299" lon="4.859775477566006"/>
         <port xsi:type="esdl:OutPort" id="3fdce7a6-b49b-4705-8234-c9b97858871c" connectedTo="1e18a7d2-aad8-4a14-b2ba-d596a0228c59 3b320a6e-53dc-4af6-86cc-a92265c07eb3 e4c3b360-3aa5-4261-9804-6a47c585da1a a5ebbd05-0b46-4eb3-8509-17991f737ef5 873ee026-0a5d-4ea4-8718-dc31832ba7c1 7970e5ab-525c-45fe-87e3-860eeaee8014 661af296-3a40-44ae-aba6-43b2b1e76822 119015ae-77f7-4077-9103-5fd53ef036ab 40a4e5d4-0d33-4f2a-bda8-66d46db06ce0 cf165596-e059-4f5f-a31b-db7225bf0c66 0a444c11-780e-4169-8e3d-d9b89e82b621 59077103-569a-4b0e-9451-2eb84553f287 248f2ba9-310d-4b36-b08f-43a850e94746 2535ff14-305c-481c-bb1b-ba7138540bcb e30cf167-5167-4b6b-a072-6000f37b471b 835f87ee-f536-4561-9baa-b1cc330d496d 6fd4c8f6-9902-4474-a026-4b2588053ad4 63c80ecd-34b4-4357-b3bb-1f2f236a56da 140c6436-6c9e-4689-8e6e-1e8da0a2ddf2 ec22d747-9649-4742-8be1-a355c3160d79 08f5a228-8000-405c-9045-3342872d5d46 77badcc6-6cc3-4a1f-b463-e18cfa722738 ea90f814-e9f5-4a31-9ab3-ac575d1e5b8f f2a016d7-6452-4b71-8137-eb4e911bf0cb 1576535a-fdcd-48bc-8f93-a3c4fe43706a 569d644f-80fd-4861-b510-1924047d256a 14053ccf-d25e-44a3-bbb7-2548652aa4b0 30501742-1d8e-4019-992a-ef111a3a6654 8304c9b8-d99a-4334-8882-146271adc941 65af3321-53b2-443a-a514-6f4f5b2c2304 77d4ce53-bc3d-4fc0-a64a-748a6d8eca9d 7b84ba2e-47d5-4f97-9da7-ef11e087b3b3 2ba6f613-a4a4-405b-a806-79061ecdb390 a66062a1-1a90-4a40-be84-9f5937ca4ea6 0a8a960f-4e7c-4b73-bee0-638b41a287eb c35f71ab-9465-44de-a64f-857aabf60d8f ec04dec7-309b-46ab-aba8-fb1f0f909363 117d9090-762e-4c27-b27f-df919055dfb5 d45bbc83-8e70-4875-aeaf-692c1051decc 07ddde9d-0cff-4f0d-9a98-a659c09c2ecf 7f16b6b3-64c5-4dd2-a093-631a2b3b7f9e 74cb6cce-0422-4add-9e67-90acda533dcf f03a8aee-4146-4d43-8e9d-85cb69062ce6" name="OutPort"/>
       </asset>
-      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="3000000.0" id="28598cd5-395a-4f10-8693-f145a40d86b9" installationDuration="12.0" fullLoadHours="1920" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_2859">
+      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="3000000.0" id="28598cd5-395a-4f10-8693-f145a40d86b9" installationDuration="12.0" fullLoadHours="2000" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_2859">
         <geometry xsi:type="esdl:Point" lat="52.40105732894292" CRS="WGS84" lon="4.852008819580079"/>
         <port xsi:type="esdl:OutPort" id="da0f4bd8-b25b-4340-8d61-1f04ea4eb48a" name="Out"/>
         <costInformation xsi:type="esdl:CostInformation">
@@ -3051,7 +3051,7 @@
           </investmentCosts>
         </costInformation>
       </asset>
-      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="3000000.0" id="ff7da79d-32a7-43e8-b421-56ff39033997" installationDuration="12.0" fullLoadHours="1920" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_ff7d">
+      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="4000000.0" id="ff7da79d-32a7-43e8-b421-56ff39033997" installationDuration="12.0" fullLoadHours="2500" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_ff7d">
         <geometry xsi:type="esdl:Point" lat="52.40980190564938" CRS="WGS84" lon="4.86419677734375"/>
         <port xsi:type="esdl:OutPort" id="3a2b713f-57e7-49f9-b8c3-04a9e8709a32" name="Out"/>
         <costInformation xsi:type="esdl:CostInformation">
@@ -3063,7 +3063,7 @@
           </investmentCosts>
         </costInformation>
       </asset>
-      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="3000000.0" id="1c86256a-3abf-4dba-9b16-bce6d210c148" installationDuration="12.0" fullLoadHours="1920" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_1c86">
+      <asset xsi:type="esdl:WindTurbine" technicalLifetime="25.0" power="3000000.0" id="1c86256a-3abf-4dba-9b16-bce6d210c148" installationDuration="12.0" fullLoadHours="3000" type="WIND_ON_LAND" description="" rotorDiameter="100.0" height="150.0" surfaceArea="200000" name="WindTurbine_1c86">
         <geometry xsi:type="esdl:Point" lat="52.406869785671105" CRS="WGS84" lon="4.8678016662597665"/>
         <port xsi:type="esdl:OutPort" id="efb49369-9729-491d-8b74-bcfcc9811e9a" name="Out"/>
         <costInformation xsi:type="esdl:CostInformation">
