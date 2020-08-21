@@ -1,83 +1,50 @@
-assets = {
-    'energy': {
-        'WindTurbine': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_wind_turbine_inland',
-                'factor': 1E-6,
-                'aggregation': 'sum',
-            },
-            {
-                'attribute': 'fullLoadHours',
-                'input': 'flh_of_energy_power_wind_turbine_inland',
-                'factor': 1,
-                'aggregation': 'weighted_average',
-            }
-        ],
-        'PVParc': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
-                'factor': 1E-6,
-                'aggregation': 'sum',
-            },
-            {
-                'attribute': 'fullLoadHours',
-                'input': 'flh_of_solar_pv_solar_radiation',
-                'factor': 1,
-                'aggregation': 'weighted_average',
-            }
-        ],
-        'PVPark': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
-                'factor': 1E-6,
-                'aggregation': 'sum',
-            },
-            {
-                'attribute': 'fullLoadHours',
-                'input': 'flh_of_solar_pv_solar_radiation',
-                'factor': 1,
-                'aggregation': 'weighted_average',
-            }
-        ],
-    },
-
-    'households': {
-        # 'AggregatedBuilding': [
-        #     {
-        #         'attribute': 'numberOfBuildings',
-        #         'dependent_on': {'distribution': 'buildingTypeDistribution'}, # TODO
-        #         'input': 'households_number_of_residences',
-        #         'factor': 1,
-        #         'aggregation': 'sum'
-        #     },
-        #     {
-        #         'distribution': 'buildingTypeDistribution', # TODO
-        #         'inputs': [
-        #             'households_number_of_residences',
-        #         ]
-        #     },
-        #     {
-        #         'distribution': 'energyLabelDistribution',
-        #         'inputs': [
-        #             'households_insulation_level_apartments',
-        #             'households_insulation_level_corner_houses',
-        #             'households_insulation_level_detached_houses',
-        #             'households_insulation_level_semi_detached_houses',
-        #             'households_insulation_level_terraced_houses',
-        #             'buildings_insulation_level'
-        #         ],
-        #     },
-        #
-        # ],
-    },
-
-    'buildings': {},
+supply = {
+    'WindTurbine': [
+        {
+            'attribute': 'power',
+            'input': 'capacity_of_energy_power_wind_turbine_inland',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'fullLoadHours',
+            'input': 'flh_of_energy_power_wind_turbine_inland',
+            'factor': 1
+        }
+    ],
+    'PVPark': [
+        {
+            'attribute': 'power',
+            'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'fullLoadHours',
+            'input': 'flh_of_solar_pv_solar_radiation',
+            'factor': 1
+        }
+    ]
 }
 
-# TODO: Separate individual and collective heating technologies
+distributions = {
+    'energyLabelDistribution': {
+        'category': 'labelPerc',
+        'attribute': 'energyLabel',
+        'percentage': 'percentage',
+        'inputs': {
+            'RESIDENTIAL': [
+                'households_insulation_level_apartments',
+                'households_insulation_level_corner_houses',
+                'households_insulation_level_detached_houses',
+                'households_insulation_level_semi_detached_houses',
+                'households_insulation_level_terraced_houses',
+            ],
+            'UTILITY': [
+                'buildings_insulation_level'
+            ]
+        }
+    }
+}
+
 heating_technologies = {
     'HeatPump': [
         { # Elektrische luchtwarmtepomp
