@@ -4,7 +4,6 @@ import sys
 # external modules
 import io
 import json
-import pandas as pd
 import requests
 
 class SessionWithUrlBase(requests.Session):
@@ -42,23 +41,10 @@ class ETM_API(object):
 
     def return_gqueries(self,p):
         """
-        Extracts information from object p by first converting to JSON and
-        then to a pandas dataframe.
+        Extracts information from object p by converting to JSON (use
+        like a dict).
         """
-        p_json = p.json()
-        p_gqueries = p_json["gqueries"]
-        df = pd.DataFrame.from_dict(p_gqueries, orient = "index")
-        return df
-
-    def get_scenario_templates(self):
-        """
-        Get dataframe of available templates within the ETM. From this, a
-        scenario id can be extracted. Note that not all scenario ids seem
-        to work.
-        """
-        r = self.session.get("/scenarios/templates")
-        self.df_templates = pd.DataFrame.from_dict(r.json())
-        pass
+        return p.json()["gqueries"]
 
     def create_new_scenario(self, scenario_title, area_code, end_year):
         """
@@ -75,8 +61,8 @@ class ETM_API(object):
                      }
         p = self.session.post("/scenarios", json = post_data,
                                                 headers={'Connection':'close'})
-        df_scenario = pd.DataFrame.from_dict(p.json(), orient = "index")
-        self.scenario_id = df_scenario.loc["id"].values[0]
+
+        self.scenario_id = p.json()["id"]
         pass
 
     def reset_scenario(self):
@@ -95,9 +81,8 @@ class ETM_API(object):
         """
         p = self.session.get('/scenarios/' + self.scenario_id + "/inputs",
                                                 headers={'Connection':'close'})
-        p_json = p.json()
-        self.df_inputs = pd.DataFrame.from_dict(p_json, orient = "index")
 
+        self.dict_inputs = p.json()
         pass
 
     def get_current_metrics(self, gquery_metrics):

@@ -25,20 +25,23 @@ def start_etm_session(environment):
 def parse_asset_type(energy_system, area, asset_type, properties):
     # TODO: Use get_all_assets_of_type instead of get_assets_of_type
     # Or not? Is this valid for all assets? e.g. AggregatedBuilding?
-    list_of_assets = energy_system.get_assets_of_type(
-        area,
-        getattr(energy_system.esdl, asset_type))
+    try:
+        list_of_assets = energy_system.get_assets_of_type(
+            area,
+            getattr(energy_system.esdl, asset_type))
 
-    for asset in list_of_assets:
-        for prop in properties:
-            esdl_value = getattr(asset, prop['attribute'])
-            etm_value = esdl_value * prop['factor']
+        for asset in list_of_assets:
+            for prop in properties:
+                esdl_value = getattr(asset, prop['attribute'])
+                etm_value = esdl_value * prop['factor']
 
-            if not input_values[prop['input']]['value']:
-                input_values[prop['input']]['value'] = 0
+                if not input_values[prop['input']]['value']:
+                    input_values[prop['input']]['value'] = 0
 
-            if prop['aggregation'] == 'sum':
-                input_values[prop['input']]['value'] += etm_value
+                if prop['aggregation'] == 'sum':
+                    input_values[prop['input']]['value'] += etm_value
+    except AttributeError as att:
+        print(f'We currently do not support attribute {str(att).split()[-1]}')
 
 
 def determine_number_of_buildings(energy_system):
