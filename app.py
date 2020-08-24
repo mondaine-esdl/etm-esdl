@@ -60,7 +60,7 @@ class EnergySystem(Resource):
             return 'could not load ESDL: '+ str(e), 404
 
         etm_config = translate_esdl_to_slider_settings(esh, env)
-        metrics = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
+        esh = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         if account['email']:
             mh = MondaineHub(account['email'])
