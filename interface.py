@@ -8,6 +8,7 @@ import config.key_figures as key_figures
 import config.kpis as kpis
 
 from config.q_and_u import quantities
+
 from config.env import base_urls
 from config.inputs import input_values
 
@@ -21,13 +22,53 @@ from helpers.ETM_API import ETM_API, SessionWithUrlBase
 from helpers.balancer import Balancer
 
 
-def start_etm_session(environment):
+def start_etm_session(environment, scenario_id=None):
     """
     Start an ETM API session based on the given environment (beta or pro)
     """
     session = SessionWithUrlBase(base_urls[environment])
 
+    if scenario_id:
+        return ETM_API(session, scenario_id)
+
     return ETM_API(session)
+
+
+def add_quantity_and_units(energy_system):
+    """
+    Energy System information can be used to globally define the quantity and
+    units of this system, instead of defining them manually per KPI in each
+    area: this fosters reuse (but is not necessary)
+    """
+    q_and_u = energy_system.get_quantity_and_units()
+
+    for quantity, prop in quantities.items():
+        if energy_system.get_by_id(quantity) is None:
+            unit = energy_system.esdl.QuantityAndUnitType(
+                id=quantity,
+                physicalQuantity=prop['physicalQuantity'],
+                multiplier=prop['multiplier'],
+                unit=prop['unit'],
+                description=prop['description']
+            )
+            q_and_u.quantityAndUnit.append(unit)
+
+def add_kpis(energy_system, etm):
+    """
+    TODO
+    """
+    energy_system.add_kpis()
+
+    for kpi, prop in kpis.gqueries.items():
+        metric = etm.get_current_metrics([kpi])
+
+        energy_system.add_kpi(getattr(energy_system.esdl, prop['esdl_type'])(
+            id=energy_system.generate_uuid(),
+            name=prop['name'],
+            quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']),
+            value=etm.current_metrics.loc[kpi, 'future']
+        ))
+
 
 def parse_supply_assets(energy_system, area, asset_type, properties):
     """
@@ -270,14 +311,16 @@ def translate_esdl_to_slider_settings(energy_system, environment):
     return etm
 
 
-def translate_kpis_to_esdl(energy_system, environment, etm_config):
+def translate_kpis_to_esdl(energy_system, environment, scenario_id):
     """
     TODO
     """
-    etm = start_etm_session(environment)
+    etm = start_etm_session(environment, scenario_id)
 
-    metrics = None
+    # Add quantity and units to EnergySystemInformation
+    add_quantity_and_units(energy_system)
 
-    # TODO: POST request
+    # Add (empty) KPIs and targets and update KPIs based on ETM metrics
+    add_kpis(energy_system, etm)
 
-    return metrics
+    return energy_system
