@@ -91,12 +91,13 @@ class ETM_API(object):
         available ggueries.
         """
         put_data = {
-                   "detailed": True,
-                   "gqueries": gquery_metrics
+                   "gqueries": gquery_metrics,
+                   "detailed": True
                    }
 
-        p = self.session.put('/scenarios/' + self.scenario_id, json = put_data,
+        p = self.session.put('/scenarios/' + str(self.scenario_id), json = put_data,
                                                 headers={'Connection':'close'})
+                                                
         self.current_metrics = self.return_gqueries(p)
         return self.current_metrics
 
