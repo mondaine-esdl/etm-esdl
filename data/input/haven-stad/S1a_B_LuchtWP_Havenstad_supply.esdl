@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<esdl:EnergySystem xmlns:esdl="http://www.tno.nl/esdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="a7e7f5ed-6b28-4be7-8104-94c040b2cb19" name="S1a_B_LuchtWP_Havenstad">
+<esdl:EnergySystem xmlns:esdl="http://www.tno.nl/esdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="a7e7f5ed-6b28-4be7-8104-94c040b2cb19" name="S1a_B_LuchtWP_Havenstad_incl_supply">
   <energySystemInformation xsi:type="esdl:EnergySystemInformation" id="4cf2dc6b-c5b3-4552-9f53-e74ad86ef0a9">
     <quantityAndUnits xsi:type="esdl:QuantityAndUnits" id="7796a7d9-d345-4e6c-916d-36fc1fc6b8f3">
       <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="energy_GJ_yr" unit="JOULE" perTimeUnit="YEAR" multiplier="GIGA" physicalQuantity="ENERGY"/>
