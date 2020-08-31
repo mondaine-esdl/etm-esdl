@@ -16,9 +16,9 @@ quantities = {
     },
     'co2_reduction': { # id
         'physicalQuantity': 'EMISSION',
-        'multiplier': 'KILO',
+        'multiplier': 'MEGA',
         'unit': 'GRAM',
-        'description': 'kg',
+        'description': 'ton',
     },
     'total_costs': { # id
         'physicalQuantity': 'COST',

@@ -2,11 +2,26 @@
 ETM gqueries mapped to ESDL KPIs
 """
 gqueries = {
+    # Elektriciteitsmix
+    'source_of_electricity_production': {
+        'esdl_type': 'DistributionKPI',
+        'gqueries': [
+            'import_in_source_of_electricity_production',
+            'solar_in_source_of_electricity_production',
+            'wind_in_source_of_electricity_production'
+        ],
+        'name': 'Elektriciteitsmix',
+        'q_and_u': 'energy_demand',
+        'factor': 1e6
+    },
+
     # Totale systeemkosten
     'total_costs': {
         'esdl_type': 'DoubleKPI',
+        'gqueries': ['total_costs'],
         'name': 'Totale systeemkosten',
-        'q_and_u': 'total_costs'
+        'q_and_u': 'total_costs',
+        'factor': 1
     },
 
     # Aandeel hernieuwbare energie op eindgebruik (totaal)
@@ -16,14 +31,17 @@ gqueries = {
     # 'total_renewable_electricity_produced': {
     #     'esdl_type': 'DoubleKPI',
     #     'name': 'Elektriciteitsopwek uit hernieuwbare bronnen',
-    #     'q_and_u': 'energy_demand'
+    #     'q_and_u': 'energy_demand',
+    #     'factor': 1
     # },
 
     # Aandeel hernieuwbare elektriciteit op eindgebruik
     'share_of_renewable_electricity': {
         'esdl_type': 'DoubleKPI',
+        'gqueries': ['share_of_renewable_electricity'],
         'name': 'Aandeel hernieuwbare elektriciteit op eindgebruik',
-        'q_and_u': 'share_of_energy_demand'
+        'q_and_u': 'share_of_energy_demand',
+        'factor': 1
     },
 
     # Energiebesparing t.o.v. startjaar (totaal)
@@ -56,8 +74,10 @@ gqueries = {
     # Reductie CO2-emissies t.o.v. startjaar (absoluut)
     'total_co2_emissions': {
         'esdl_type': 'DoubleKPI',
+        'gqueries': ['total_co2_emissions'],
         'name': 'Reductie CO2-emissies t.o.v. startjaar',
-        'q_and_u': 'co2_reduction'
+        'q_and_u': 'co2_reduction',
+        'factor': 1e-6
     },
 
     # Aantal uren met elektriciteitstekorten

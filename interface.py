@@ -49,9 +49,9 @@ def add_quantity_and_units(energy_system):
                 physicalQuantity=prop['physicalQuantity'],
                 multiplier=prop['multiplier'],
                 unit=prop['unit'],
-                description=prop['description']
-            )
+                description=prop['description'])
             q_and_u.quantityAndUnit.append(unit)
+
 
 def add_kpis(energy_system, etm):
     """
@@ -59,15 +59,27 @@ def add_kpis(energy_system, etm):
     """
     energy_system.add_kpis()
 
-    for kpi, prop in kpis.gqueries.items():
-        metric = etm.get_current_metrics([kpi])
+    for kpi_id, prop in kpis.gqueries.items():
+        metrics = etm.get_current_metrics(prop['gqueries'])
 
-        energy_system.add_kpi(getattr(energy_system.esdl, prop['esdl_type'])(
-            id=energy_system.generate_uuid(),
+        kpi = getattr(energy_system.esdl, prop['esdl_type'])(
+            id=kpi_id, # alternative: energy_system.generate_uuid()
             name=prop['name'],
-            quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']),
-            value=etm.current_metrics.loc[kpi, 'future']
-        ))
+            quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']))
+
+        if prop['esdl_type'] == 'DistributionKPI':
+            kpi.distribution = energy_system.esdl.StringLabelDistribution(
+                name="Elektriciteitsproductie per bron")
+
+            for gquery in prop['gqueries']:
+                kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
+                    label=gquery,
+                    value=metrics.loc[gquery, 'future'] * prop['factor']))
+
+        else:
+            kpi.value = metrics.loc[prop['gqueries'][0], 'future'] * prop['factor']
+
+        energy_system.add_kpi(kpi)
 
 
 def parse_supply_assets(energy_system, area, asset_type, properties):

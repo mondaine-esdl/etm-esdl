@@ -523,10 +523,15 @@ def add_kpis_and_targets(esh):
 
 
 def update_kpis(esh, metrics):
+    """
+    TODO
+    """
     # Update the energy system KPIs with the new values
     # get_kpi_by_id() does not work yet in current version of ESDL, so do it by
     # name: co2_emission = get_kpi_by_id(es, 'co2emission')
-    renewable_electricity_prodution = esh.get_kpi_by_name('Elektriciteitsopwek uit hernieuwbare bronnen')
+    renewable_electricity_prodution = esh.get_kpi_by_name('Elektriciteitsopwek \
+        uit hernieuwbare bronnen')
+        
     renewable_electricity_prodution.value = metrics.loc['total_renewable_electricity_produced', 'future']
     print('\n{}: {} {}'.format(renewable_electricity_prodution.name, renewable_electricity_prodution.value,
                                    renewable_electricity_prodution.quantityAndUnit.description))
