@@ -1,5 +1,6 @@
 from flask import Flask, Blueprint
 from flask_restplus import Api, Resource, fields
+from werkzeug.middleware.proxy_fix import ProxyFix
 from helpers.energy_system_handler import EnergySystemHandler
 from helpers.MondaineHub import MondaineHub
 from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl
@@ -91,5 +92,6 @@ class EnergySystem(Resource):
 
 if __name__ == '__main__':
     app = Flask(__name__)
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1)
     app.register_blueprint(api_v1)
     app.run(host='0.0.0.0', debug=True)
