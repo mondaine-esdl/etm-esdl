@@ -60,7 +60,8 @@ def add_kpis(energy_system, etm):
     energy_system.add_kpis()
 
     for kpi_id, prop in kpis.gqueries.items():
-        metrics = etm.get_current_metrics(prop['gqueries'])
+        list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
+        metrics = etm.get_current_metrics(list_of_gqueries)
 
         kpi = getattr(energy_system.esdl, prop['esdl_type'])(
             id=kpi_id, # alternative: energy_system.generate_uuid()
@@ -68,16 +69,18 @@ def add_kpis(energy_system, etm):
             quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']))
 
         if prop['esdl_type'] == 'DistributionKPI':
-            kpi.distribution = energy_system.esdl.StringLabelDistribution(
-                name="Elektriciteitsproductie per bron")
+            kpi.distribution = energy_system.esdl.StringLabelDistribution()
 
             for gquery in prop['gqueries']:
-                kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
-                    label=gquery,
-                    value=metrics.loc[gquery, 'future'] * prop['factor']))
+                val = metrics.loc[gquery['gquery'], 'future'] * prop['factor']
+
+                if val != 0:
+                    kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
+                        label=gquery['label'],
+                        value=val))
 
         else:
-            kpi.value = metrics.loc[prop['gqueries'][0], 'future'] * prop['factor']
+            kpi.value = metrics.loc[prop['gqueries'][0]['gquery'], 'future'] * prop['factor']
 
         energy_system.add_kpi(kpi)
 

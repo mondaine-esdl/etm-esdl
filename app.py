@@ -101,7 +101,7 @@ class EnergySystem(Resource):
 @ns_kpis.route('/')
 class KPIs(Resource):
     """
-    TODO
+    Return list of available ETM KPIs
     """
 
     def post(self):

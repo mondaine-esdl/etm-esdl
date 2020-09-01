@@ -6,9 +6,62 @@ gqueries = {
     'source_of_electricity_production': {
         'esdl_type': 'DistributionKPI',
         'gqueries': [
-            'import_in_source_of_electricity_production',
-            'solar_in_source_of_electricity_production',
-            'wind_in_source_of_electricity_production'
+            {
+                'label': 'Import',
+                'gquery': 'import_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Zon',
+                'gquery': 'solar_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Wind',
+                'gquery': 'wind_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Biogas',
+                'gquery': 'biogas_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Biomassa',
+                'gquery': 'biomass_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Kolen',
+                'gquery': 'coal_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Aardgas',
+                'gquery': 'gas_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Geothermie',
+                'gquery': 'geothermal_in_source_of_electricity_production'
+            },
+            {
+                'name': 'Groengas',
+                'gquery': 'greengas_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Water',
+                'gquery': 'hydro_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Waterstof',
+                'gquery': 'hydrogen_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Nucleair',
+                'gquery': 'nuclear_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Olie',
+                'gquery': 'oil_in_source_of_electricity_production'
+            },
+            {
+                'label': 'Afval',
+                'gquery': 'waste_in_source_of_electricity_production'
+            }
         ],
         'name': 'Elektriciteitsmix',
         'q_and_u': 'energy_demand',
@@ -18,7 +71,12 @@ gqueries = {
     # Totale systeemkosten
     'total_costs': {
         'esdl_type': 'DoubleKPI',
-        'gqueries': ['total_costs'],
+        'gqueries': [
+            {
+                'label': 'Totale systeemkosten',
+                'gquery': 'total_costs'
+            }
+        ],
         'name': 'Totale systeemkosten',
         'q_and_u': 'total_costs',
         'factor': 1
@@ -36,13 +94,13 @@ gqueries = {
     # },
 
     # Aandeel hernieuwbare elektriciteit op eindgebruik
-    'share_of_renewable_electricity': {
-        'esdl_type': 'DoubleKPI',
-        'gqueries': ['share_of_renewable_electricity'],
-        'name': 'Aandeel hernieuwbare elektriciteit op eindgebruik',
-        'q_and_u': 'share_of_energy_demand',
-        'factor': 1
-    },
+    # 'share_of_renewable_electricity': {
+    #     'esdl_type': 'DoubleKPI',
+    #     'gqueries': ['share_of_renewable_electricity'],
+    #     'name': 'Aandeel hernieuwbare elektriciteit op eindgebruik',
+    #     'q_and_u': 'share_of_energy_demand',
+    #     'factor': 1
+    # },
 
     # Energiebesparing t.o.v. startjaar (totaal)
     # 'turk_energy_use': {},
@@ -72,11 +130,30 @@ gqueries = {
     # 'dashboard_co2_emissions_versus_start_year': {},
 
     # Reductie CO2-emissies t.o.v. startjaar (absoluut)
+    'dashboard_reduction_of_co2_emissions_versus_1990': {
+        'esdl_type': 'DoubleKPI',
+        'gqueries': [
+            {
+                'label': 'Reductie CO2-emissies t.o.v. 1990',
+                'gquery': 'dashboard_reduction_of_co2_emissions_versus_1990'
+            }
+        ],
+        'name': 'Reductie CO2-emissies t.o.v. 1990',
+        'q_and_u': 'co2_rel',
+        'factor': 1e2
+    },
+
+    # Totale CO2-emissies
     'total_co2_emissions': {
         'esdl_type': 'DoubleKPI',
-        'gqueries': ['total_co2_emissions'],
-        'name': 'Reductie CO2-emissies t.o.v. startjaar',
-        'q_and_u': 'co2_reduction',
+        'gqueries': [
+            {
+                'label': 'CO2-emissies totaal',
+                'gquery': 'total_co2_emissions'
+            }
+        ],
+        'name': 'CO2-emissies totaal',
+        'q_and_u': 'co2_abs',
         'factor': 1e-6
     },
 

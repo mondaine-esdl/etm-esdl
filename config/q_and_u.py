@@ -14,11 +14,17 @@ quantities = {
         'unit': 'JOULE',
         'description': 'MJ',
     },
-    'co2_reduction': { # id
+    'co2_abs': { # id
         'physicalQuantity': 'EMISSION',
         'multiplier': 'MEGA',
         'unit': 'GRAM',
         'description': 'ton',
+    },
+    'co2_rel': { # id
+        'physicalQuantity': 'EMISSION',
+        'multiplier': 'NONE',
+        'unit': 'PERCENT',
+        'description': '%',
     },
     'total_costs': { # id
         'physicalQuantity': 'COST',
