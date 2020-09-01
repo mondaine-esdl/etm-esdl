@@ -72,7 +72,7 @@ def add_kpis(energy_system, etm):
             kpi.distribution = energy_system.esdl.StringLabelDistribution()
 
             for gquery in prop['gqueries']:
-                val = metrics.loc[gquery['gquery'], 'future'] * prop['factor']
+                val = metrics[gquery['gquery']]['future'] * prop['factor']
 
                 if val != 0:
                     kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
@@ -80,7 +80,7 @@ def add_kpis(energy_system, etm):
                         value=val))
 
         else:
-            kpi.value = metrics.loc[prop['gqueries'][0]['gquery'], 'future'] * prop['factor']
+            kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
         energy_system.add_kpi(kpi)
 
