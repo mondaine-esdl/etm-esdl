@@ -15,11 +15,8 @@ lxml==4.4.1
 MarkupSafe==1.1.1
 more-itertools==7.2.0
 ordered-set==3.1.1
-numpy==1.16.0
-pandas==0.23.4
 pyecore==0.11.1
 pyrsistent==0.15.4
-python-dateutil==2.8.0
 pytz==2019.3
 requests==2.22.0
 RestrictedPython==5.0

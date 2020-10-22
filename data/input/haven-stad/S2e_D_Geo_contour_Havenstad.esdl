@@ -111,7 +111,7 @@
             </port>
           </asset>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" name="aansl_mt_geothermie" id="4341a53e-e7ec-45f6-bc6e-98e6d4182dad" numberOfBuildings="14577" aggregated="true">
