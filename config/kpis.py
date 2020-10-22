@@ -157,6 +157,20 @@ gqueries = {
         'factor': 1e-6
     },
 
+    # Opgesteld vermogen wind op land
+    'merit_order_onshore_wind_turbines_capacity_in_merit_order_table': {
+        'esdl_type': 'DoubleKPI',
+        'gqueries': [
+            {
+                'label': 'Wind op land (MW)',
+                'gquery': 'merit_order_onshore_wind_turbines_capacity_in_merit_order_table'
+            }
+        ],
+        'name': 'Opgesteld vermogen wind op land',
+        'q_and_u': 'power',
+        'factor': 1
+    }
+
     # Aantal uren met elektriciteitstekorten
     # 'dashboard_blackout_hours': {},
 

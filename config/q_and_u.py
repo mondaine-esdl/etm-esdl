@@ -14,6 +14,12 @@ quantities = {
         'unit': 'JOULE',
         'description': 'MJ',
     },
+    'power': { # id
+        'physicalQuantity': 'POWER',
+        'multiplier': 'MEGA',
+        'unit': 'WATT',
+        'description': 'MW',
+    },
     'co2_abs': { # id
         'physicalQuantity': 'EMISSION',
         'multiplier': 'MEGA',

@@ -104,4 +104,15 @@ heating_technologies = {
             'aggregation': 'sum'
         }
     ],
+    'GasHeater': [
+        { # CV-ketel
+            'attribute': '',
+            'value': '',
+            'inputs': { #dependent on building types
+                'RESIDENTIAL': 'households_heater_combined_network_gas_share',
+                'UTILITY': 'buildings_space_heater_network_gas_share'
+            },
+            'aggregation': 'sum'
+        }
+    ]
 }

@@ -173,14 +173,31 @@ def parse_heating_technology(
     TODO
     """
     # First check if there's an H-connection
-    list_of_assets = energy_system.get_assets_of_type(
+    heat_network_connection = energy_system.get_assets_of_type(
         aggregated_building,
         getattr(energy_system.esdl, 'HConnection')
     )
 
+    # Also check if there's a (hybrid) heatpump
+    heat_pump = energy_system.get_assets_of_type(
+        aggregated_building,
+        getattr(energy_system.esdl, 'HeatPump')
+    )
+
+    # Lastly, check for a gas heater
+    gas_heater = energy_system.get_assets_of_type(
+        aggregated_building,
+        getattr(energy_system.esdl, 'GasHeater')
+    )
+
     # If there's no heat network connection, determine other technologies
-    if list_of_assets:
+    if heat_network_connection:
         prop = assets.heating_technologies['HConnection'][0]
+    # If there's no heat network and no heat pump, check for a gas heater
+    elif gas_heater and not heat_pump:
+        print('GasHeater!')
+        prop = assets.heating_technologies['GasHeater'][0]
+    # Else if there's a (hybrid) heat pump
     else:
         prop = prop_heat_technology(energy_system, aggregated_building)
 
@@ -260,7 +277,7 @@ def parse_aggregated_buiding(energy_system, area, total_number_of_buildings):
                 total_number_of_buildings)
 
             # Parse distribution of energy labels
-            return parse_energy_labels(
+            parse_energy_labels(
                 aggregated_building,
                 building_type,
                 number_of_buildings,
