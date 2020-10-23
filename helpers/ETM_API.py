@@ -118,4 +118,4 @@ class ETM_API(object):
 
         if p.status_code != requests.codes.ok:
           print(json.dumps(p.json(), indent=4, sort_keys=True))
-          sys.exit(1)
+          # sys.exit(1)
