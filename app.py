@@ -70,7 +70,7 @@ class EnergySystem(Resource):
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
-        etm_config = translate_esdl_to_slider_settings(esh, env)
+        etm_config, response = translate_esdl_to_slider_settings(esh, env)
         esh = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         if account['email']:
@@ -92,11 +92,12 @@ class EnergySystem(Resource):
             'show_url': {
                 'description': 'Click on this link to open the created ETM scenario:',
                 'url': 'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
-                    environment='beta-pro' if env=='beta' else 'pro',
+                    environment='beta-pro' if env == 'beta' else 'pro',
                     scenario_id=etm_config.scenario_id),
                 'link_text': 'Open ETM'
             },
-            'scenario_id': etm_config.scenario_id
+            'scenario_id': etm_config.scenario_id,
+            'response': response
         }
 
 @ns_kpis.route('/')
