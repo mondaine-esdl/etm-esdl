@@ -94,10 +94,10 @@ class EnergySystem(Resource):
                 'url': 'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
                     environment='beta-pro' if env == 'beta' else 'pro',
                     scenario_id=etm_config.scenario_id),
-                'link_text': 'Open ETM'
+                'link_text': 'Open ETM',
+                'response': response
             },
-            'scenario_id': etm_config.scenario_id,
-            'response': response
+            'scenario_id': etm_config.scenario_id
         }
 
 @ns_kpis.route('/')
