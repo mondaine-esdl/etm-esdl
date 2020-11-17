@@ -12,6 +12,8 @@ from config.q_and_u import quantities
 from config.env import base_urls
 from config.inputs import input_values
 
+from exceptions import EnergysystemParseError
+
 from helpers.energy_system_handler import EnergySystemHandler
 
 from helpers.MondaineHub import MondaineHub
@@ -121,7 +123,9 @@ def parse_supply_assets(energy_system, area, asset_type, properties):
                 input_values[prop['input']]['value'] += etm_value
 
     except AttributeError as att:
-        print(f'We currently do not support attribute {str(att).split()[-1]}')
+        raise EnergysystemParseError(
+            f'We currently do not support attribute {str(att).split()[-1]}'
+        ) from att
 
 
 def determine_number_of_buildings(energy_system):
