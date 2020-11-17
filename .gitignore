@@ -3,3 +3,4 @@
 *.DS_Store
 KPIs.esdl
 venv
+__pycache__
