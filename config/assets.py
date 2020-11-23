@@ -79,7 +79,7 @@ heating_technologies = {
             'value': 'GAS',
             'inputs': { # dependent on building types
                 'RESIDENTIAL': 'households_heater_hybrid_heatpump_air_water_electricity_share',
-                'UTILITY': None
+                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
             },
             'aggregation': 'sum'
         },
@@ -88,7 +88,7 @@ heating_technologies = {
             'value': 'HYDROGEN',
             'inputs': { # dependent on building types
                 'RESIDENTIAL': 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
-                'UTILITY': None
+                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
             },
             'aggregation': 'sum'
         }
