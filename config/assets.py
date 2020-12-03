@@ -47,6 +47,24 @@ distributions = {
 
 heating_technologies = {
     'HeatPump': [
+        { # Hybride warmtepomp op methaan
+            'attribute': 'additionalHeatingSourceType',
+            'value': 'GAS',
+            'inputs': { # dependent on building types
+                'RESIDENTIAL': 'households_heater_hybrid_heatpump_air_water_electricity_share',
+                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
+            },
+            'aggregation': 'sum'
+        },
+        { # Hybride warmtepomp op waterstof
+            'attribute': 'additionalHeatingSourceType',
+            'value': 'HYDROGEN',
+            'inputs': { # dependent on building types
+                'RESIDENTIAL': 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
+                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
+            },
+            'aggregation': 'sum'
+        },
         { # Elektrische luchtwarmtepomp
             'attribute': 'source',
             'value': 'AIR',
@@ -71,24 +89,6 @@ heating_technologies = {
             'inputs': { # dependent on building types
                 'RESIDENTIAL': 'households_heater_heatpump_ground_water_electricity_share',
                 'UTILITY': 'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share'
-            },
-            'aggregation': 'sum'
-        },
-        { # Hybride warmtepomp op methaan
-            'attribute': 'additionalHeatingSourceType',
-            'value': 'GAS',
-            'inputs': { # dependent on building types
-                'RESIDENTIAL': 'households_heater_hybrid_heatpump_air_water_electricity_share',
-                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
-            },
-            'aggregation': 'sum'
-        },
-        { # Hybride warmtepomp op waterstof
-            'attribute': 'additionalHeatingSourceType',
-            'value': 'HYDROGEN',
-            'inputs': { # dependent on building types
-                'RESIDENTIAL': 'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
-                'UTILITY': 'buildings_space_heater_heatpump_air_water_network_gas_share'
             },
             'aggregation': 'sum'
         }
