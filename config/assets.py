@@ -22,6 +22,15 @@ supply = {
             'input': 'flh_of_solar_pv_solar_radiation',
             'factor': 1
         }
+    ],
+    'RooftopPV': [
+        {
+            'inputs': {
+                'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
+                'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
+            },
+            'factor': 1E2
+        }
     ]
 }
 
