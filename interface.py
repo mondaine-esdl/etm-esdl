@@ -20,6 +20,7 @@ mh = MondaineHub('roos.dekok@quintel.com')
 from helpers.ETM_API import ETM_API, SessionWithUrlBase
 
 from helpers.balancer import Balancer
+from helpers.rooftop_pv import RooftopPV
 
 
 def start_etm_session(environment, scenario_id=None):
@@ -99,6 +100,7 @@ def parse_supply_assets(energy_system, area, asset_type, properties):
         for asset in list_of_assets:
             for prop in properties:
                 esdl_value = getattr(asset, prop['attribute'])
+
                 etm_value = esdl_value * prop['factor']
 
                 # Initialise the input value if it hasn't been touched yet
@@ -131,17 +133,22 @@ def determine_number_of_buildings(energy_system):
         'UTILITY': 0
     }
 
-    list_of_assets = energy_system.get_all_assets_of_type(energy_system.esdl.AggregatedBuilding)
+    list_of_assets = energy_system.get_all_instances_of_type(energy_system.esdl.AggregatedBuilding)
 
     for asset in list_of_assets:
-        number = asset.numberOfBuildings
-        building_type = str(asset.buildingTypeDistribution.buildingTypePercentage[0].buildingType)
+        if asset.numberOfBuildings:
+            number = asset.numberOfBuildings
 
-        number_of_buildings[building_type] += number
+            if asset.buildingTypeDistribution:
+                building_type = str(asset.buildingTypeDistribution.
+                                    buildingTypePercentage[0].buildingType)
 
-    input_values['households_number_of_residences']['value'] = number_of_buildings['RESIDENTIAL']
+                number_of_buildings[building_type] += number
 
-    print(f'number_of_buildings = {number_of_buildings}')
+                input_values['households_number_of_residences']['value'] = (
+                    number_of_buildings['RESIDENTIAL'])
+
+                # print(f'number_of_buildings = {number_of_buildings}')
 
     return number_of_buildings
 
@@ -195,7 +202,6 @@ def parse_heating_technology(
         prop = assets.heating_technologies['HConnection'][0]
     # If there's no heat network and no heat pump, check for a gas heater
     elif gas_heater and not heat_pump:
-        print('GasHeater!')
         prop = assets.heating_technologies['GasHeater'][0]
     # Else if there's a (hybrid) heat pump
     else:
@@ -313,12 +319,19 @@ def translate_esdl_to_slider_settings(energy_system, environment):
 
     # Parse supply assets and calculate the new input values
     for asset_type, properties in assets.supply.items():
-        # Parse supply assets in top area
-        parse_supply_assets(energy_system, top_area, asset_type, properties)
+        if asset_type == 'RooftopPV':
+            val = RooftopPV(energy_system).call()
+            for prop in properties:
+                for key in prop['inputs'].values():
+                    input_values[key]['value'] = val * prop['factor']
 
-        # Parse supply assets in sub areas
-        for sub_area in top_area.area:
-            parse_supply_assets(energy_system, sub_area, asset_type, properties)
+        else:
+            # Parse supply assets in top area
+            parse_supply_assets(energy_system, top_area, asset_type, properties)
+
+            # Parse supply assets in sub areas
+            for sub_area in top_area.area:
+                parse_supply_assets(energy_system, sub_area, asset_type, properties)
 
     for sub_area in top_area.area:
         parse_aggregated_buiding(
