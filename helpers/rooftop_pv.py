@@ -63,4 +63,4 @@ class RooftopPV():
         percentage of the potential is used for production
         """
         if self.potential > 0:
-            self.percentage_used = self.production / self.potential
+            self.percentage_used = self.production / (self.potential + self.production)
