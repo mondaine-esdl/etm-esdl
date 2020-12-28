@@ -2,7 +2,7 @@ from flask import Flask, Blueprint
 from flask import jsonify
 from flask_restplus import Api, Resource, fields
 from werkzeug.middleware.proxy_fix import ProxyFix
-from exceptions import EnergysystemParseError
+from helpers.exceptions import EnergysystemParseError
 from helpers.energy_system_handler import EnergySystemHandler
 from helpers.MondaineHub import MondaineHub
 from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl

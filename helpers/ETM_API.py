@@ -1,10 +1,11 @@
-# system modules
 import sys
 
-# external modules
 import io
 import json
 import requests
+
+from helpers.exceptions import EnergysystemParseError
+from config.errors import messages as messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -119,5 +120,16 @@ class ETM_API(object):
         response = self.session.put('/scenarios/' + str(self.scenario_id),
                                     json=put_data, headers={'Connection':'close'})
 
-        if response.status_code != requests.codes.ok:
-            return response.json()
+        if response.status_code == 422:
+            message = ''
+            for etm_message, readable in messages.items():
+                for error in response.json()['errors']:
+                    if etm_message in error:
+                        message = readable
+                        break
+
+            raise EnergysystemParseError(
+                f'{message}',
+                422,
+                response
+            )
