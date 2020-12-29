@@ -369,3 +369,15 @@ def translate_kpis_to_esdl(energy_system, environment, scenario_id):
     add_kpis(energy_system, etm)
 
     return energy_system
+
+
+def update_esdl(energy_system, environment, scenario_id):
+    """
+    TODO
+    """
+    etm = start_etm_session(environment, scenario_id)
+
+    # Update capacities of PV parks and wind turbines
+    # TODO
+
+    return energy_system

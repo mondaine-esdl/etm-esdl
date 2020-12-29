@@ -16,58 +16,59 @@ api = Api(
         version='1.0',
         title='ETM ESDL API',
         description='A first implementation of an API to the script that \
-            generates an ETM scenario from an ESDL energysystem description'
+            generates an ETM scenario from an ESDL energy system description'
     )
 
-ns_es = api.namespace('EnergySystem', description='Energysystem operations')
-ns_kpis = api.namespace('KPIs', description='ETM KPIs')
+ns_es = api.namespace('ImportESDL', description='Transform ESDL into ETM scenario settings')
+ns_kpis = api.namespace('KPIs', description='Get ETM KPIs')
+ns_etm = api.namespace('ExportESDL', description='Update ESDL based on ETM scenario settings')
 
-energysystem = api.model('energysystem', {
-    'energysystem': fields.String(required=True, description='The ESDL string')
+energy_system = api.model('energy_system', {
+    'energy_system': fields.String(required=True, description='The ESDL string')
 })
 
 etm_esdl_result = api.model('etm_esdl_result', {
     'etm_url': fields.String(required=True, description='ETM scenario URL')
 })
 
-parser = api.parser()
+import_parser = api.parser()
 
 # ESDL energy system (doesn't have to be URL encoded)
-parser.add_argument('energysystem', type=str, required=True, help='The \
-    energysystem definition (URL encoded ESDL string)', location='form')
+import_parser.add_argument('energy_system', type=str, required=True, help='The \
+energy system definition (URL encoded ESDL string)', location='form')
 
 # ETM environment (beta or pro)
-parser.add_argument('environment', type=str, required=True, help='The \
-    environment of the Energy Transition Model ("beta" or "pro")', location='form')
+import_parser.add_argument('environment', type=str, required=True, help='The \
+environment of the Energy Transition Model ("beta" or "pro")', location='form')
 
 # Mondaine Hub account
-parser.add_argument('account', type=str, required=False, help='The Mondaine \
-    Hub account (email address) - only required when one wants to store the \
-    ESDL in the Mondaine Hub', location='form')
+import_parser.add_argument('account', type=str, required=False, help='The Mondaine \
+Hub account (email address) - only required when one wants to store the \
+ESDL in the Mondaine Hub', location='form')
 
 @ns_es.route('/')
-@api.doc(responses={404: 'EnergySystem not valid'})
-@api.route('/')
+@api.doc(responses={404: 'Energy system not valid'})
+# @api.route('/')
 class EnergySystem(Resource):
     """
-    Transform ESDL energysystem description into an ETM scenario
+    Transform ESDL energy system description into an ETM scenario
     """
-    # @api.doc(description='Transform ESDL energysystem description into an ETM scenario')
-    @api.doc(parser=parser)
+    # @api.doc(description='Transform ESDL energy system description into an ETM scenario')
+    @api.doc(parser=import_parser)
     # @api.marshal_with(etm_esdl_result)
     def post(self):
         """
-        Transform ESDL energysystem description into an ETM scenario
+        Transform ESDL energy system description into an ETM scenario
         """
-        args = parser.parse_args()
+        args = import_parser.parse_args()
 
-        es = {'energysystem': args['energysystem']}
+        es = {'energy_system': args['energy_system']}
         account = {'email': args['account']}
         env = args['environment']
 
         esh = EnergySystemHandler()
         try:
-            esdl_string = urllib.parse.unquote(es['energysystem'])
+            esdl_string = urllib.parse.unquote(es['energy_system'])
             esh.load_from_string(esdl_string)
         except EnergysystemParseError:
             raise
@@ -118,7 +119,7 @@ class KPIs(Resource):
 
     def post(self):
         """
-        TODO
+        Return list of available ETM KPIs
         """
         list_of_kpis = []
 
@@ -127,6 +128,60 @@ class KPIs(Resource):
 
         return {
             'kpis': list_of_kpis
+        }
+
+export_parser = api.parser()
+
+# ESDL energy system (doesn't have to be URL encoded)
+export_parser.add_argument('energy_system', type=str, required=True, help='The \
+energy system definition (URL encoded ESDL string)', location='form')
+
+# ETM environment (beta or pro)
+export_parser.add_argument('environment', type=str, required=True, help='The \
+environment of the Energy Transition Model ("beta" or "pro")', location='form')
+
+# Mondaine Hub account
+export_parser.add_argument('account', type=str, required=False, help='The Mondaine \
+Hub account (email address) - only required when one wants to store the \
+ESDL in the Mondaine Hub', location='form')
+
+# ETM scenario session ID
+export_parser.add_argument('session_id', type=str, required=True, help='The session \
+ID of the Energy Transition Model scenario', location='form')
+
+@ns_etm.route('/')
+class ETMScenario(Resource):
+    """
+    Update ESDL energy system description based on ETM scenario settings
+    """
+    @api.doc(parser=export_parser)
+
+    def post(self):
+        """
+        Update ESDL energy system description based on ETM scenario settings
+        """
+        args = export_parser.parse_args()
+
+        es = args['energy_system']
+        env = args['environment']
+        session_id = args['session_id']
+
+        esh = EnergySystemHandler()
+        try:
+            esdl_string = urllib.parse.unquote(es['energy_system'])
+            esh.load_from_string(esdl_string)
+        except Exception as e:
+            return 'could not load ESDL: '+ str(e), 404
+
+        # Call method that updates ESDL based on ETM scenario settings
+        esh = update_esdl(esh, env, session_id)
+
+        if account['email']:
+            mh = MondaineHub(account['email'])
+            mh.store_in_mondaine_hub('ETM_{}'.format(esh.es.name), esh.resource)
+
+        return {
+            'energy_system': es
         }
 
 if __name__ == '__main__':
