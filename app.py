@@ -1,6 +1,8 @@
 from flask import Flask, Blueprint
+from flask import jsonify
 from flask_restplus import Api, Resource, fields
 from werkzeug.middleware.proxy_fix import ProxyFix
+from helpers.exceptions import EnergysystemParseError
 from helpers.energy_system_handler import EnergySystemHandler
 from helpers.MondaineHub import MondaineHub
 from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl
@@ -67,10 +69,12 @@ class EnergySystem(Resource):
         try:
             esdl_string = urllib.parse.unquote(es['energysystem'])
             esh.load_from_string(esdl_string)
+        except EnergysystemParseError:
+            raise
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
-        etm_config = translate_esdl_to_slider_settings(esh, env)
+        etm_config, response = translate_esdl_to_slider_settings(esh, env)
         esh = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         if account['email']:
@@ -92,12 +96,19 @@ class EnergySystem(Resource):
             'show_url': {
                 'description': 'Click on this link to open the created ETM scenario:',
                 'url': 'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
-                    environment='beta-pro' if env=='beta' else 'pro',
+                    environment='beta-pro' if env == 'beta' else 'pro',
                     scenario_id=etm_config.scenario_id),
-                'link_text': 'Open ETM'
+                'link_text': 'Open ETM',
+                'response': response
             },
             'scenario_id': etm_config.scenario_id
         }
+
+def handle_api_error(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    response.content_type = "application/json"
+    return response
 
 @ns_kpis.route('/')
 class KPIs(Resource):
@@ -122,4 +133,5 @@ if __name__ == '__main__':
     app = Flask(__name__)
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1)
     app.register_blueprint(api_v1)
+    app.register_error_handler(EnergysystemParseError, handle_api_error)
     app.run(host='0.0.0.0', debug=True)

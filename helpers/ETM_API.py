@@ -1,10 +1,11 @@
-# system modules
 import sys
 
-# external modules
 import io
 import json
 import requests
+
+from helpers.exceptions import EnergysystemParseError
+from config.errors import messages as messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -16,11 +17,13 @@ class SessionWithUrlBase(requests.Session):
         super(SessionWithUrlBase, self).__init__(*args, **kwargs)
         self.url_base = url_base
 
+
     def request(self, method, url, **kwargs):
         modified_url = self.url_base + url
 
         return super(SessionWithUrlBase, self).request(
-                                                method, modified_url, **kwargs)
+            method, modified_url, **kwargs)
+
 
 class ETM_API(object):
     """
@@ -31,7 +34,7 @@ class ETM_API(object):
     various input parameters.
     """
 
-    def __init__(self, session, scenario_id = "363691"):
+    def __init__(self, session, scenario_id="363691"):
         """
         Note: 363691 is the scenario_id of a default scenario created by
         DataQuest. This scenario is stored within the ETM for future use.
@@ -39,12 +42,14 @@ class ETM_API(object):
         self.session = session
         self.scenario_id = scenario_id
 
-    def return_gqueries(self,p):
+
+    def return_gqueries(self, response):
         """
         Extracts information from object p by converting to JSON (use
         like a dict).
         """
-        return p.json()["gqueries"]
+        return response.json()["gqueries"]
+
 
     def create_new_scenario(self, scenario_title, area_code, end_year):
         """
@@ -52,38 +57,37 @@ class ETM_API(object):
         continue from the new scenario later on.
         """
         post_data = {
-                     "scenario":
-                               {
-                               "title": scenario_title,
-                               "area_code": area_code,
-                               "end_year": end_year
-                               }
-                     }
-        p = self.session.post("/scenarios", json = post_data,
-                                                headers={'Connection':'close'})
+            "scenario": {
+                "title": scenario_title,
+                "area_code": area_code,
+                "end_year": end_year
+            }
+        }
+        response = self.session.post("/scenarios", json=post_data,
+                                     headers={'Connection':'close'})
 
-        self.scenario_id = p.json()["id"]
-        pass
+        self.scenario_id = response.json()["id"]
+
 
     def reset_scenario(self):
         """
         Resets scenario with scenario_id
         """
         put_data = {"reset": True}
-        p = self.session.put('/scenarios/' + self.scenario_id, json = put_data,
-                                                headers={'Connection':'close'})
-        self.current_metrics = self.return_gqueries(p)
-        pass
+        response = self.session.put('/scenarios/' + self.scenario_id, json=put_data,
+                                    headers={'Connection':'close'})
+        self.current_metrics = self.return_gqueries(response)
+
 
     def get_inputs(self):
         """
         Get list of available inputs. Can be used to search parameter space?
         """
-        p = self.session.get('/scenarios/' + self.scenario_id + "/inputs",
-                                                headers={'Connection':'close'})
+        response = self.session.get('/scenarios/' + self.scenario_id + "/inputs",
+                                    headers={'Connection':'close'})
 
-        self.dict_inputs = p.json()
-        pass
+        self.dict_inputs = response.json()
+
 
     def get_current_metrics(self, gquery_metrics):
         """
@@ -91,15 +95,16 @@ class ETM_API(object):
         available ggueries.
         """
         put_data = {
-                   "gqueries": gquery_metrics,
-                   "detailed": True
-                   }
+            "gqueries": gquery_metrics,
+            "detailed": True
+        }
 
-        p = self.session.put('/scenarios/' + str(self.scenario_id), json = put_data,
-                                                headers={'Connection':'close'})
-                                                
-        self.current_metrics = self.return_gqueries(p)
+        response = self.session.put('/scenarios/' + str(self.scenario_id), json=put_data,
+                                    headers={'Connection':'close'})
+
+        self.current_metrics = self.return_gqueries(response)
         return self.current_metrics
+
 
     def change_inputs(self, user_values):
         """
@@ -107,15 +112,24 @@ class ETM_API(object):
         metrics are updated by passing a gquery via gquery_metrics
         """
         put_data = {
-                   "scenario":
-                             {
-                             "user_values": user_values
-                             },
-                   "detailed": True,
-                   }
-        p = self.session.put('/scenarios/' + str(self.scenario_id), json = put_data,
-                                                headers={'Connection':'close'})
+            "scenario": {
+                "user_values": user_values
+            },
+            "detailed": True,
+        }
+        response = self.session.put('/scenarios/' + str(self.scenario_id),
+                                    json=put_data, headers={'Connection':'close'})
 
-        if p.status_code != requests.codes.ok:
-          print(json.dumps(p.json(), indent=4, sort_keys=True))
-          sys.exit(1)
+        if response.status_code == 422:
+            message = ''
+            for etm_message, readable in messages.items():
+                for error in response.json()['errors']:
+                    if etm_message in error:
+                        message = readable
+                        break
+
+            raise EnergysystemParseError(
+                f'{message}',
+                422,
+                response
+            )
