@@ -6,6 +6,7 @@ from helpers.exceptions import EnergysystemParseError
 from helpers.energy_system_handler import EnergySystemHandler
 from helpers.MondaineHub import MondaineHub
 from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl
+from interface import update_esdl
 from config.kpis import gqueries as kpis
 import urllib.parse
 
@@ -130,6 +131,11 @@ class KPIs(Resource):
             'kpis': list_of_kpis
         }
 
+
+energy_system = api.model('energy_system', {
+    'energy_system': fields.String(required=True, description='The ESDL string')
+})
+
 export_parser = api.parser()
 
 # ESDL energy system (doesn't have to be URL encoded)
@@ -140,7 +146,8 @@ energy system definition (URL encoded ESDL string)', location='form')
 export_parser.add_argument('environment', type=str, required=True, help='The \
 environment of the Energy Transition Model ("beta" or "pro")', location='form')
 
-# Mondaine Hub account
+# Mondaine Hub account (can be removed after access to Mondaine Drive has been
+# supported by this app)
 export_parser.add_argument('account', type=str, required=False, help='The Mondaine \
 Hub account (email address) - only required when one wants to store the \
 ESDL in the Mondaine Hub', location='form')
@@ -162,7 +169,8 @@ class ETMScenario(Resource):
         """
         args = export_parser.parse_args()
 
-        es = args['energy_system']
+        es = {'energy_system': args['energy_system']}
+        account = {'email': args['account']}
         env = args['environment']
         session_id = args['session_id']
 

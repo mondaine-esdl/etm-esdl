@@ -52,6 +52,33 @@ def add_quantity_and_units(energy_system):
             q_and_u.quantityAndUnit.append(unit)
 
 
+def update_kpis(energy_system, etm):
+    """
+    TODO
+    """
+
+    for kpi in energy_system.es.instance[0].area.KPIs.kpi:
+        prop = kpis.gqueries[kpi.id]
+
+        list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
+        metrics = etm.get_current_metrics(list_of_gqueries)
+
+        if prop['esdl_type'] == 'DistributionKPI':
+            for it in kpi.distribution.stringItem:
+                kpi.distribution.stringItem.remove(it)
+
+            for gquery in prop['gqueries']:
+                val = metrics[gquery['gquery']]['future'] * prop['factor']
+
+                if val != 0:
+                    kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
+                        label=gquery['label'],
+                        value=val))
+
+        else:
+            kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
+
+
 def add_kpis(energy_system, etm):
     """
     TODO
@@ -376,6 +403,14 @@ def update_esdl(energy_system, environment, scenario_id):
     TODO
     """
     etm = start_etm_session(environment, scenario_id)
+
+    # Update KPIs
+    update_kpis(energy_system, etm)
+
+    # Just for testing:
+    f = open('data/output/test.esdl', 'a')
+    f.write(energy_system.get_as_string())
+    f.close()
 
     # Update capacities of PV parks and wind turbines
     # TODO
