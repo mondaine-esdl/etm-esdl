@@ -69,6 +69,8 @@ class EnergySystem(Resource):
         try:
             esdl_string = urllib.parse.unquote(es['energysystem'])
             esh.load_from_string(esdl_string)
+        except EnergysystemParseError:
+            raise
         except Exception as e:
             return 'could not load ESDL: '+ str(e), 404
 
