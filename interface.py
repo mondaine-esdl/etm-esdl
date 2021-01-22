@@ -17,6 +17,7 @@ from helpers.energy_system_handler import EnergySystemHandler
 from helpers.ETM_API import ETM_API, SessionWithUrlBase
 from helpers.exceptions import EnergysystemParseError
 from helpers.rooftop_pv import RooftopPV
+from helpers.supply import Supply
 
 from helpers.MondaineHub import MondaineHub
 mh = MondaineHub('roos.dekok@quintel.com')
@@ -109,46 +110,6 @@ def add_kpis(energy_system, etm):
             kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
         energy_system.add_kpi(kpi)
-
-
-def parse_supply_assets(energy_system, area, asset_type, properties):
-    """
-    Parse all ESDL supply assets of the given asset type
-    """
-    total_power = 0
-
-    try:
-        list_of_assets = energy_system.get_assets_of_type(
-            area,
-            getattr(energy_system.esdl, asset_type))
-
-        for asset in list_of_assets:
-            for prop in properties:
-                esdl_value = getattr(asset, prop['attribute'])
-
-                etm_value = esdl_value * prop['factor']
-
-                # Initialise the input value if it hasn't been touched yet
-                if not input_values[prop['input']]['value']:
-                    input_values[prop['input']]['value'] = 0
-
-                # Keep track of the installed capacity to determine the average FLH
-                if prop['attribute'] == 'power':
-                    current_power = etm_value
-                    total_power += etm_value
-
-                elif prop['attribute'] == 'fullLoadHours':
-                    prev_etm_value = input_values[prop['input']]['value']
-                    diff = etm_value - prev_etm_value
-                    etm_value = diff * current_power / total_power
-
-                # Update ETM input value
-                input_values[prop['input']]['value'] += etm_value
-
-    except AttributeError as att:
-        raise EnergysystemParseError(
-            f'We currently do not support attribute {str(att).split()[-1]}'
-        ) from att
 
 
 def determine_number_of_buildings(energy_system):
@@ -354,11 +315,7 @@ def translate_esdl_to_slider_settings(energy_system, environment):
 
         else:
             # Parse supply assets in top area
-            parse_supply_assets(energy_system, top_area, asset_type, properties)
-
-            # Parse supply assets in sub areas
-            for sub_area in top_area.area:
-                parse_supply_assets(energy_system, sub_area, asset_type, properties)
+            Supply(energy_system, asset_type, properties).call()
 
     for sub_area in top_area.area:
         parse_aggregated_buiding(
@@ -381,6 +338,22 @@ def translate_esdl_to_slider_settings(energy_system, environment):
     response = etm.change_inputs(set_sliders)
 
     return etm, response
+
+
+def update_capacities(energy_system, etm):
+    """
+    TODO
+    """
+
+    return
+
+
+def add_measures(energy_system, etm):
+    """
+    TODO
+    """
+
+    return
 
 
 def translate_kpis_to_esdl(energy_system, environment, scenario_id):
@@ -407,12 +380,15 @@ def update_esdl(energy_system, environment, scenario_id):
     # Update KPIs
     update_kpis(energy_system, etm)
 
+    # Update capacities of PV parks and wind turbines
+    update_capacities(energy_system, etm)
+
+    # Add measures for PV parks and wind turbines
+    add_measures(energy_system, etm)
+
     # Just for testing:
     f = open('data/output/test.esdl', 'a')
     f.write(energy_system.get_as_string())
     f.close()
-
-    # Update capacities of PV parks and wind turbines
-    # TODO
 
     return energy_system
