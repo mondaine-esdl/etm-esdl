@@ -119,7 +119,9 @@ For each topic, we'll go a bit more in depth below.
 
 #### *1. Renewable electricity (wind turbines, solar PV parks)*
 
-TODO
+WIP
+
+* Bekijk hoe de keuzes voor wind en zon op land samenhangen in het energiesysteem (elektriciteitsbalans, etc.)
 
 ![](images/wind_1.png)
 ![](images/wind_2.png)
@@ -129,20 +131,30 @@ TODO
 
 #### *2. Solar PV on rooftops*
 
-TODO
+WIP
+
+* Bekijk hoe de keuzes voor zon op dak samenhangen in het energiesysteem
 
 ![](images/rooftop_pv_1.png)
 ![](images/rooftop_pv_2.png)
 
 #### *3. Heat transition built environment*
 
-TODO
+WIP
+
+* Bekijk hoe de keuzes voor de warmtetransitie samenhangen in het energiesysteem
 
 ![](images/heat_transition_1.png)
 
 #### *4. System integration*
 
-TODO
+WIP
+
+* Reken de CO2-emissies door voor het toekomstig energiesysteem
+* Reken de energiebesparing door voor het toekomstig energiesysteem
+* Reken de energiebalans door voor elektriciteit/gas/warmte op jaar- en uurbasis
+* Reken de hernieuwbaarheid door voor het toekomstig energiesysteem
+* Reken de flexbehoefte door voor het toekomstig energiesysteem
 
 ## Contact
 
@@ -151,4 +163,4 @@ Do you have any questions on the above? Don't bother to contact us!
 * Nora ([https://github.com/noracato](https://github.com/noracato))
 * Roos ([https://github.com/redekok](https://github.com/redekok))
 
-For more information on the Mondaine Suite, please visit our website: [https://www.mondaine-suite.nl](https://www.mondaine-suite.nl). 
+For more information on the Mondaine Suite, please visit our website: [https://www.mondaine-suite.nl](https://www.mondaine-suite.nl).
