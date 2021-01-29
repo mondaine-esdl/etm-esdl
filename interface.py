@@ -251,7 +251,7 @@ def parse_energy_labels(
 
     for label, perc in energy_labels.items():
         share_of_buildings = number_of_buildings / total_number_of_buildings[building_type]
-        etm_value += (perc * share_of_buildings *
+        etm_value += (perc / 100. * share_of_buildings *
                       key_figures.energyLabel[str(label)][building_type])
 
     for input_value in prop['inputs'][building_type]:
