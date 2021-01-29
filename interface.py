@@ -148,7 +148,7 @@ def determine_number_of_buildings(energy_system):
                 input_values['households_number_of_residences']['value'] = (
                     number_of_buildings['RESIDENTIAL'])
 
-                # print(f'number_of_buildings = {number_of_buildings}')
+    # print(f'number_of_buildings = {number_of_buildings}')
 
     return number_of_buildings
 
@@ -251,7 +251,7 @@ def parse_energy_labels(
 
     for label, perc in energy_labels.items():
         share_of_buildings = number_of_buildings / total_number_of_buildings[building_type]
-        etm_value += (perc * share_of_buildings *
+        etm_value += (perc / 100. * share_of_buildings *
                       key_figures.energyLabel[str(label)][building_type])
 
     for input_value in prop['inputs'][building_type]:
