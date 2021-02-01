@@ -195,7 +195,7 @@ class ETMScenario(Resource):
             mh.store_in_mondaine_hub('ETM_{}'.format(esh.es.name), esh.resource)
 
         return {
-            'energy_system': es
+            'energy_system': esh.get_as_string()
         }
 
 

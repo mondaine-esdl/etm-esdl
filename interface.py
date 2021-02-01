@@ -374,7 +374,7 @@ def translate_kpis_to_esdl(energy_system, environment, scenario_id):
     return energy_system
 
 
-def update_esdl(environment, scenario_id, energy_system):
+def update_esdl(energy_system, environment, scenario_id):
     """
     TODO
     """
