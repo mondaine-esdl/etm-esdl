@@ -2,6 +2,8 @@ import sys
 
 import webbrowser
 
+import urllib.parse
+
 import config.areas as areas
 import config.assets as assets
 import config.key_figures as key_figures
@@ -358,20 +360,21 @@ def add_measures(energy_system, etm):
 
 def translate_kpis_to_esdl(energy_system, environment, scenario_id):
     """
-    TODO
+    After adding the KPI's to the EnergySystem, it's no longer able to be converted into either a
+    file or an esdl string
     """
-    etm = start_etm_session(environment, scenario_id)
+    # etm = start_etm_session(environment, scenario_id)
 
     # Add quantity and units to EnergySystemInformation
-    add_quantity_and_units(energy_system)
+    # add_quantity_and_units(energy_system)
 
     # Add (empty) KPIs and targets and update KPIs based on ETM metrics
-    add_kpis(energy_system, etm)
+    # add_kpis(energy_system, etm)
 
     return energy_system
 
 
-def update_esdl(energy_system, environment, scenario_id):
+def update_esdl(environment, scenario_id, energy_system):
     """
     TODO
     """
@@ -392,3 +395,20 @@ def update_esdl(energy_system, environment, scenario_id):
     f.close()
 
     return energy_system
+
+def setup_esh_from_energy_system(energy_system):
+    esh = EnergySystemHandler()
+    try:
+        esdl_string = urllib.parse.unquote(energy_system)
+        esh.load_from_string(esdl_string)
+        return esh
+    except Exception as e:
+        return 'could not load ESDL: '+ str(e), 404
+
+def setup_esh_from_scenario(environment, scenario_id):
+    esh = EnergySystemHandler()
+    # fetch
+    etm = start_etm_session(environment, scenario_id)
+    esh.load_from_string(etm.fetch_energy_system())
+
+    return esh

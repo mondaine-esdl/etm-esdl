@@ -5,6 +5,7 @@ import json
 import requests
 
 from helpers.exceptions import EnergysystemParseError
+from helpers.StringURI import StringURI
 from config.errors import messages as messages
 
 class SessionWithUrlBase(requests.Session):
@@ -106,6 +107,28 @@ class ETM_API(object):
         return self.current_metrics
 
 
+    def upload_energy_system(self, energy_system_string, title):
+        """
+        Attach the energy system to the scenario
+        """
+        put_data = {
+            "file": energy_system_string,
+            "filename": title
+        }
+        response = self.session.put('/scenarios/' + str(self.scenario_id) + "/esdl_file",
+                    json=put_data, headers={'Connection':'close'})
+        self.handle_response(response)
+
+    def fetch_energy_system(self):
+        """
+        Try to download the attached ESDL file from the scenario
+        """
+        response = self.session.get('/scenarios/' +  str(self.scenario_id) + "/esdl_file?download=true",
+                                    headers={'Connection':'close'})
+        self.handle_response(response)
+
+        return response.json()['file']
+
     def change_inputs(self, user_values):
         """
         Change inputs to ETM according to dictionary user_values. Also the
@@ -119,17 +142,21 @@ class ETM_API(object):
         }
         response = self.session.put('/scenarios/' + str(self.scenario_id),
                                     json=put_data, headers={'Connection':'close'})
+        self.handle_response(response)
 
-        if response.status_code == 422:
-            message = ''
-            for etm_message, readable in messages.items():
-                for error in response.json()['errors']:
-                    if etm_message in error:
-                        message = readable
-                        break
+    def handle_response(self, response):
+        if not response.status_code == 422:
+            return
 
-            raise EnergysystemParseError(
-                f'{message}',
-                422,
-                response
-            )
+        message = ''
+        for etm_message, readable in messages.items():
+            for error in response.json()['errors']:
+                if etm_message in error:
+                    message = readable
+                    break
+
+        raise EnergysystemParseError(
+            f'{message}',
+            422,
+            response
+        )

@@ -239,15 +239,15 @@ class EnergySystemHandler:
     # so save() will still save as a file
     def get_as_string(self):
         # to use strings as resources, we simulate a string as being a file
-        uri = StringURI('anyname.esdl')
+        uri = StringURI('tmp/anyname.esdl')
         # create the string resource
-        #stringresource = self.rset.create_resource(uri)
+        stringresource = self.rset.create_resource(uri)
         # add the current energy system
-        #stringresource.append(self.es)
+        stringresource.append(self.es)
         # save the resource
-        self.resource.save(uri)
+        stringresource.save()
         # remove the temporary resource in the resource set
-        #self.rset.remove_resource(stringresource)
+        self.rset.remove_resource(stringresource)
         # return the string
         return uri.getvalue()
 
