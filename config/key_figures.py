@@ -2,39 +2,39 @@
 # Energy labels (globally) mapped to a percentage of heat reduction
 energyLabel = {
     'LABEL_APPP': {
-        'RESIDENTIAL': 68.0,
+        'RESIDENTIAL': 69.0,
         'UTILITY': 74.0,
     },
     'LABEL_APP': {
-        'RESIDENTIAL': 56.0,
+        'RESIDENTIAL': 60.0,
         'UTILITY': 74.0,
     },
     'LABEL_AP': {
-        'RESIDENTIAL': 44.0,
+        'RESIDENTIAL': 50.0,
         'UTILITY': 74.0,
     },
     'LABEL_A': {
-        'RESIDENTIAL': 36.0,
+        'RESIDENTIAL': 40.0,
         'UTILITY': 64.0,
     },
     'LABEL_B': {
-        'RESIDENTIAL': 26.5,
+        'RESIDENTIAL': 29.0,
         'UTILITY': 54.0,
     },
     'LABEL_C': {
-        'RESIDENTIAL': 19.0,
+        'RESIDENTIAL': 21.0,
         'UTILITY': 46.0,
     },
     'LABEL_D': {
-        'RESIDENTIAL': 10.5,
+        'RESIDENTIAL': 13.0,
         'UTILITY': 31.0,
     },
     'LABEL_E': {
-        'RESIDENTIAL': 7.0,
+        'RESIDENTIAL': 9.0,
         'UTILITY': 0.0,
     },
     'LABEL_F': {
-        'RESIDENTIAL': 3.5,
+        'RESIDENTIAL': 4.0,
         'UTILITY': 0.0,
     },
     'LABEL_G': {
