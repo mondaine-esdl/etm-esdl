@@ -153,13 +153,22 @@ Vesta-MAIS is used to calculate the impact of heat transition plans for the buil
 
 #### *4. System integration*
 
-WIP
+As explained in the paragraphs above, the Mondaine Suite can be used to aggregate multiple energy plans described in ESDL and convert those into an ETM scenario. This allows the user to explore the effects of system integration; to what extent do energy plans affect each other? Also, the user may make other assumptions about the future energy system. For instance, about the share of greengas in the gas network, about the CO<sub>2</sub>-emissions of imported electricity, or about the modal shift and technology mix of the transport sector.
 
-* Reken de CO2-emissies door voor het toekomstig energiesysteem
-* Reken de energiebesparing door voor het toekomstig energiesysteem
-* Reken de energiebalans door voor elektriciteit/gas/warmte op jaar- en uurbasis
-* Reken de hernieuwbaarheid door voor het toekomstig energiesysteem
-* Reken de flexbehoefte door voor het toekomstig energiesysteem
+![](images/green_gas.png)
+![](images/imported_electricity.png)
+![](images/transport_ev.png)
+
+After all future energy plans and assumptions have been brought together in the ETM scenario, the user can get insights into integral system outcomes, such as:
+
+* CO<sub>2</sub> emissions,
+* the reduction in energy use,
+* the renewability of the future energy system,
+* the energy balance for electricity, gas or heat on both a yearly and hourly basis,
+* the need for flexibility caused by possible imbalances between demand and supply.
+
+These system insights may help the user to refine and improve the energy plans in order to optimize the system integration
+
 
 ## Contact
 
