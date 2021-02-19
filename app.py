@@ -73,7 +73,7 @@ class EnergySystem(Resource):
         esh = setup_esh_from_energy_system(es['energy_system'])
 
         etm_config, response = translate_esdl_to_slider_settings(esh, env)
-        # add_kpis_to_esdl(esh, env, etm_config.scenario_id)
+        add_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         etm_config.upload_energy_system(esh.get_as_string(), energy_system_title)
 
