@@ -8403,7 +8403,7 @@
         <kpi xsi:type="esdl:DoubleKPI" value="892.6938196489738" id="total_co2_emissions" name="CO2-emissies totaal">
           <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="co2_abs" description="ton" unit="GRAM" physicalQuantity="EMISSION" multiplier="MEGA"/>
         </kpi>
-        <kpi xsi:type="esdl:DoubleKPI" name="Opgesteld vermogen wind op land" id="merit_order_onshore_wind_turbines_capacity_in_merit_order_table">
+        <kpi xsi:type="esdl:DoubleKPI" value="0.0" name="Opgesteld vermogen wind op land" id="merit_order_onshore_wind_turbines_capacity_in_merit_order_table">
           <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="power" description="MW" unit="WATT" physicalQuantity="POWER" multiplier="MEGA"/>
         </kpi>
       </KPIs>

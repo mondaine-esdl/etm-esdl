@@ -93,6 +93,20 @@ class EnergySystemHandler:
 
         return q_and_u
 
+    # Add Measures object to Energy System
+    def add_measures(self):
+        # Create new Measures object
+        measures = self.esdl.Measures(id='measures')
+        self.es.instance[0].area.measures = measures
+
+    # Append measure to Measures object
+    def append_measure(self, measure):
+        self.es.instance[0].area.measures.measure.append(measure)
+
+    # Append asset measure to Measures object
+    def append_asset_to_measure(self, measure, asset):
+        measure.asset.append(asset)
+        self.es.instance[0].area.measures.measure.append(measure)
 
     # Add KPIs object to Energy System
     def add_kpis(self):
@@ -100,11 +114,17 @@ class EnergySystemHandler:
         kpis = self.esdl.KPIs(id='kpis', description='KPIs')
         self.es.instance[0].area.KPIs = kpis
 
+    # Create new KPI object
+    def create_empty_kpi(self, kpi_type, kpi_id, name, q_and_u):
+        return getattr(self.esdl, kpi_type)(
+            id=kpi_id,
+            name=name,
+            quantityAndUnit=q_and_u
+        )
 
     # Add KPI to KPIs object
     def add_kpi(self, kpi):
         self.es.instance[0].area.KPIs.kpi.append(kpi)
-
 
     # Get a list of assets of a specific ESDL type in the main instance's area
     # def get_assets_of_type(self, esdl_type):

@@ -1,3 +1,6 @@
+from config.inputs import input_values
+
+
 class RooftopPV():
     """
     Class to parse ESDL information about rooftop PV installations and
@@ -6,8 +9,9 @@ class RooftopPV():
     Note: it assumes the units of the potential and used energy to be the same.
     """
 
-    def __init__(self, energy_system):
+    def __init__(self, energy_system, props):
         self.energy_system = energy_system
+        self.props = props
         self.potential = 0.
         self.production = 0.
         self.percentage_used = 0.
@@ -22,6 +26,7 @@ class RooftopPV():
         self.set_potential()
         self.set_production()
         self.set_percentage_used()
+        self.set_input_value()
 
         return self.percentage_used
 
@@ -64,3 +69,15 @@ class RooftopPV():
         """
         if self.potential > 0:
             self.percentage_used = self.production / (self.potential + self.production)
+
+
+    def set_input_value(self):
+        """
+        Based on the percentage of used potential, set the ETM input values.
+        Note that the same percentage is used for both rooftops of residences
+        and services.
+        """
+        if self.potential > 0:
+            for prop in self.props:
+                for key in prop['inputs'].values():
+                    input_values[key]['value'] = self.percentage_used * prop['factor']

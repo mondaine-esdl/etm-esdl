@@ -41,7 +41,7 @@
         </costInformation>
         <port xsi:type="esdl:OutPort" id="be0508c3-8575-4f3a-89f9-a7d5ea443615" name="Out"/>
       </asset>
-      <asset xsi:type="esdl:WindTurbine" description="" technicalLifetime="25.0" power="3000000.0" type="WIND_ON_LAND" name="WindTurbine_7b5e" fullLoadHours="1920" height="150.0" surfaceArea="200000" id="7b5e9411-4986-471b-bb8c-b4fe17d6fbef" rotorDiameter="100.0" installationDuration="12.0">
+      <asset xsi:type="esdl:WindTurbine" description="" technicalLifetime="25.0" power="13000000.0" type="WIND_ON_LAND" name="WindTurbine_7b5e" fullLoadHours="1920" height="150.0" surfaceArea="200000" id="7b5e9411-4986-471b-bb8c-b4fe17d6fbef" rotorDiameter="100.0" installationDuration="12.0">
         <geometry xsi:type="esdl:Point" lon="6.71367645263672" CRS="WGS84" lat="52.247562587932386"/>
         <costInformation xsi:type="esdl:CostInformation">
           <investmentCosts xsi:type="esdl:SingleValue" name="Initial investment (excl CCS)" value="1391.99" interpolationMethod="NONE">
@@ -53,7 +53,7 @@
         </costInformation>
         <port xsi:type="esdl:OutPort" id="8f1f94b6-8b55-4c11-adfc-99a41206fc84" name="Out"/>
       </asset>
-      <asset xsi:type="esdl:WindTurbine" description="" technicalLifetime="25.0" power="3000000.0" type="WIND_ON_LAND" name="WindTurbine_579d" fullLoadHours="1920" height="150.0" surfaceArea="200000" id="579deeff-588a-4da0-bb51-c5df75bc1e14" rotorDiameter="100.0" installationDuration="12.0">
+      <asset xsi:type="esdl:WindTurbine" description="" technicalLifetime="25.0" power="13000000.0" type="WIND_ON_LAND" name="WindTurbine_579d" fullLoadHours="1920" height="150.0" surfaceArea="200000" id="579deeff-588a-4da0-bb51-c5df75bc1e14" rotorDiameter="100.0" installationDuration="12.0">
         <geometry xsi:type="esdl:Point" lon="6.728782653808595" CRS="WGS84" lat="52.245040120181876"/>
         <costInformation xsi:type="esdl:CostInformation">
           <investmentCosts xsi:type="esdl:SingleValue" name="Initial investment (excl CCS)" value="1391.99" interpolationMethod="NONE">

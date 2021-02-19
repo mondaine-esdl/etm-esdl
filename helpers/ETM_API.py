@@ -148,12 +148,15 @@ class ETM_API(object):
         if not response.status_code == 422:
             return
 
-        message = ''
+        errors = response.json()['errors']
+        message = errors[0]
         for etm_message, readable in messages.items():
-            for error in response.json()['errors']:
+            for error in errors:
                 if etm_message in error:
                     message = readable
                     break
+
+        print(f'\nERROR! {message}\n')
 
         raise EnergysystemParseError(
             f'{message}',

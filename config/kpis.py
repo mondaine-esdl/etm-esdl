@@ -169,6 +169,20 @@ gqueries = {
         'name': 'Opgesteld vermogen wind op land',
         'q_and_u': 'power',
         'factor': 1
+    },
+
+    # Vollasturen wind op land
+    'merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table': {
+        'esdl_type': 'DoubleKPI',
+        'gqueries': [
+            {
+                'label': 'Wind op land (FLH)',
+                'gquery': 'merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table'
+            }
+        ],
+        'name': 'Vollasturen wind op land',
+        'q_and_u': 'time',
+        'factor': 1
     }
 
     # Aantal uren met elektriciteitstekorten

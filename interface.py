@@ -21,6 +21,8 @@ from helpers.exceptions import EnergysystemParseError
 from helpers.rooftop_pv import RooftopPV
 from helpers.supply import Supply
 
+from helpers.StringURI import StringURI
+
 from helpers.MondaineHub import MondaineHub
 mh = MondaineHub('roos.dekok@quintel.com')
 
@@ -92,10 +94,11 @@ def add_kpis(energy_system, etm):
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
         metrics = etm.get_current_metrics(list_of_gqueries)
 
-        kpi = getattr(energy_system.esdl, prop['esdl_type'])(
-            id=kpi_id, # alternative: energy_system.generate_uuid()
-            name=prop['name'],
-            quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']))
+        kpi = energy_system.create_empty_kpi(
+            prop['esdl_type'],
+            kpi_id,
+            prop['name'],
+            energy_system.get_by_id_slow(prop['q_and_u']))
 
         if prop['esdl_type'] == 'DistributionKPI':
             kpi.distribution = energy_system.esdl.StringLabelDistribution()
@@ -111,6 +114,7 @@ def add_kpis(energy_system, etm):
         else:
             kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
+        print(f'Adding KPI of type: {type(kpi)}')
         energy_system.add_kpi(kpi)
 
 
@@ -304,20 +308,12 @@ def translate_esdl_to_slider_settings(energy_system, environment):
 
     number_of_buildings = determine_number_of_buildings(energy_system)
 
-    # TODO: Merge two for loops below using a "for collection in
-    # [assets, technologies]" kinda construction?
-
     # Parse supply assets and calculate the new input values
     for asset_type, properties in assets.supply.items():
         if asset_type == 'RooftopPV':
-            val = RooftopPV(energy_system).call()
-            for prop in properties:
-                for key in prop['inputs'].values():
-                    input_values[key]['value'] = val * prop['factor']
-
+            RooftopPV(energy_system, properties).call()
         else:
-            # Parse supply assets in top area
-            Supply(energy_system, asset_type, properties).call()
+            Supply(energy_system, asset_type, properties).call(overwrite=True)
 
     for sub_area in top_area.area:
         parse_aggregated_buiding(
@@ -342,36 +338,23 @@ def translate_esdl_to_slider_settings(energy_system, environment):
     return etm, response
 
 
-def update_capacities(energy_system, etm):
+def add_kpis_to_esdl(energy_system, environment, scenario_id):
     """
-    TODO
+    After adding the KPI's to the EnergySystem, it's no longer able to be
+    converted into either a file or an esdl string
     """
-
-    return
-
-
-def add_measures(energy_system, etm):
-    """
-    TODO
-    """
-
-    return
-
-
-def translate_kpis_to_esdl(energy_system, environment, scenario_id):
-    """
-    After adding the KPI's to the EnergySystem, it's no longer able to be converted into either a
-    file or an esdl string
-    """
-    # etm = start_etm_session(environment, scenario_id)
+    etm = start_etm_session(environment, scenario_id)
 
     # Add quantity and units to EnergySystemInformation
-    # add_quantity_and_units(energy_system)
+    add_quantity_and_units(energy_system)
 
     # Add (empty) KPIs and targets and update KPIs based on ETM metrics
-    # add_kpis(energy_system, etm)
+    add_kpis(energy_system, etm)
 
-    return energy_system
+    # Just for testing:
+    f = open('data/output/test_import_1.esdl', 'a')
+    f.write(energy_system.get_as_string())
+    f.close()
 
 
 def update_esdl(energy_system, environment, scenario_id):
@@ -383,11 +366,9 @@ def update_esdl(energy_system, environment, scenario_id):
     # Update KPIs
     update_kpis(energy_system, etm)
 
-    # Update capacities of PV parks and wind turbines
-    update_capacities(energy_system, etm)
-
-    # Add measures for PV parks and wind turbines
-    add_measures(energy_system, etm)
+    # Update capacities of wind turbines and possibly add measures
+    for asset_type in ['WindTurbine']:
+        Supply(energy_system, asset_type, assets.supply[asset_type]).update(etm)
 
     # Just for testing:
     f = open('data/output/test.esdl', 'a')

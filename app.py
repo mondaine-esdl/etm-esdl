@@ -5,7 +5,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from helpers.exceptions import EnergysystemParseError
 from helpers.energy_system_handler import EnergySystemHandler
 from helpers.MondaineHub import MondaineHub
-from interface import translate_esdl_to_slider_settings, translate_kpis_to_esdl
+from interface import translate_esdl_to_slider_settings, add_kpis_to_esdl
 from interface import update_esdl, setup_esh_from_energy_system, setup_esh_from_scenario
 from config.kpis import gqueries as kpis
 import urllib.parse
@@ -70,33 +70,16 @@ class EnergySystem(Resource):
         account = {'email': args['account']}
         env = args['environment']
 
-        esh = EnergySystemHandler()
-        try:
-            esdl_string = urllib.parse.unquote(es['energy_system'])
-            esh.load_from_string(esdl_string)
-        except EnergysystemParseError:
-            raise
-        except Exception as e:
-            return 'could not load ESDL: '+ str(e), 404
+        esh = setup_esh_from_energy_system(es['energy_system'])
 
         etm_config, response = translate_esdl_to_slider_settings(esh, env)
-        esh = translate_kpis_to_esdl(esh, env, etm_config.scenario_id)
+        add_kpis_to_esdl(esh, env, etm_config.scenario_id)
+
         etm_config.upload_energy_system(esh.get_as_string(), energy_system_title)
 
         if account['email']:
             mh = MondaineHub(account['email'])
             mh.store_in_mondaine_hub('ETM_{}'.format(esh.es.name), esh.resource)
-
-        # post_data = {
-        #     'sender': 'ETM',
-        #     'email': 'roos.dekok@quintel.com',
-        #     'descr': 'Return ETM KPIs for the scenario',
-        #     'esdl': urllib.parse.quote(esh.get_as_string())
-        # }
-
-        # r = requests.post('https://mapeditor-beta.hesi.energy/api/esdl',
-        #     json = post_data,
-        #     headers={'Content-Type': 'application/json'})
 
         return {
             'show_url': {
@@ -197,7 +180,6 @@ class ETMScenario(Resource):
         return {
             'energy_system': esh.get_as_string()
         }
-
 
 
 if __name__ == '__main__':
