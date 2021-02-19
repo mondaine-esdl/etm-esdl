@@ -122,7 +122,7 @@ class Supply():
         # measures that follow from updating the power.
         for attr in ['fullLoadHours', 'power']:
             prop = list_of_props[attr]
-            val = self.query_scenario(self, etm, prop)
+            val = self.query_scenario(etm, prop)
 
             if attr == 'fullLoadHours':
                 self.update_flh(val / prop['factor'])

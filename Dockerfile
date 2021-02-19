@@ -1,5 +1,5 @@
 FROM python:3.8-alpine
-MAINTAINER Edwin Matthijssen  <edwin.matthijssen@tno.nl>
+MAINTAINER Roos de Kok  <roos.dekok@quintel.com>
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
