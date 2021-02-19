@@ -115,7 +115,7 @@ class EnergySystemHandler:
         self.es.instance[0].area.KPIs = kpis
 
     # Create new KPI object
-    def create_empty_kpi(self, kpi_type, kpi_id, name, q_and_u):
+    def create_kpi(self, kpi_type, kpi_id, name, q_and_u):
         return getattr(self.esdl, kpi_type)(
             id=kpi_id,
             name=name,

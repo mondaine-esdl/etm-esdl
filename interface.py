@@ -94,7 +94,7 @@ def add_kpis(energy_system, etm):
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
         metrics = etm.get_current_metrics(list_of_gqueries)
 
-        kpi = energy_system.create_empty_kpi(
+        kpi = energy_system.create_kpi(
             prop['esdl_type'],
             kpi_id,
             prop['name'],

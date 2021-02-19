@@ -136,7 +136,10 @@ class Supply():
                     # self.remove_assets(diff)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2886f55... WIP still encountering errors with adding KPIs
     def update_flh(self, val):
         """
         For each instance in the list of assets of this type of supply, update
