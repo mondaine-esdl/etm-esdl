@@ -93,6 +93,20 @@ class EnergySystemHandler:
 
         return q_and_u
 
+    # Add Measures object to Energy System
+    def add_measures(self):
+        # Create new Measures object
+        measures = self.esdl.Measures(id='measures')
+        self.es.instance[0].area.measures = measures
+
+    # Append measure to Measures object
+    def append_measure(self, measure):
+        self.es.instance[0].area.measures.measure.append(measure)
+
+    # Append asset measure to Measures object
+    def append_asset_to_measure(self, measure, asset):
+        measure.asset.append(asset)
+        self.es.instance[0].area.measures.measure.append(measure)
 
     # Add KPIs object to Energy System
     def add_kpis(self):
@@ -100,11 +114,17 @@ class EnergySystemHandler:
         kpis = self.esdl.KPIs(id='kpis', description='KPIs')
         self.es.instance[0].area.KPIs = kpis
 
+    # Create new KPI object
+    def create_kpi(self, kpi_type, kpi_id, name, q_and_u):
+        return getattr(self.esdl, kpi_type)(
+            id=kpi_id,
+            name=name,
+            quantityAndUnit=q_and_u
+        )
 
     # Add KPI to KPIs object
     def add_kpi(self, kpi):
         self.es.instance[0].area.KPIs.kpi.append(kpi)
-
 
     # Get a list of assets of a specific ESDL type in the main instance's area
     # def get_assets_of_type(self, esdl_type):
@@ -239,15 +259,15 @@ class EnergySystemHandler:
     # so save() will still save as a file
     def get_as_string(self):
         # to use strings as resources, we simulate a string as being a file
-        uri = StringURI('anyname.esdl')
+        uri = StringURI('tmp/anyname.esdl')
         # create the string resource
-        #stringresource = self.rset.create_resource(uri)
+        stringresource = self.rset.create_resource(uri)
         # add the current energy system
-        #stringresource.append(self.es)
+        stringresource.append(self.es)
         # save the resource
-        self.resource.save(uri)
+        stringresource.save()
         # remove the temporary resource in the resource set
-        #self.rset.remove_resource(stringresource)
+        self.rset.remove_resource(stringresource)
         # return the string
         return uri.getvalue()
 

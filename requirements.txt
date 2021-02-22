@@ -14,13 +14,13 @@ jsonschema==3.1.1
 lxml==4.4.1
 MarkupSafe==1.1.1
 more-itertools==7.2.0
-ordered-set==3.1.1
-pyecore==0.11.1
+ordered-set==4.0.1
+pyecore==0.12
 pyrsistent==0.15.4
 pytz==2019.3
 requests==2.22.0
 RestrictedPython==5.0
 six==1.12.0
 urllib3==1.25.6
-Werkzeug==0.16.0
+Werkzeug==0.16.1
 zipp==0.6.0

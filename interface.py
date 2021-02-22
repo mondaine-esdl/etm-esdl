@@ -2,6 +2,8 @@ import sys
 
 import webbrowser
 
+import urllib.parse
+
 import config.areas as areas
 import config.assets as assets
 import config.key_figures as key_figures
@@ -17,6 +19,9 @@ from helpers.energy_system_handler import EnergySystemHandler
 from helpers.ETM_API import ETM_API, SessionWithUrlBase
 from helpers.exceptions import EnergysystemParseError
 from helpers.rooftop_pv import RooftopPV
+from helpers.supply import Supply
+
+from helpers.StringURI import StringURI
 
 from helpers.MondaineHub import MondaineHub
 mh = MondaineHub('roos.dekok@quintel.com')
@@ -52,6 +57,33 @@ def add_quantity_and_units(energy_system):
             q_and_u.quantityAndUnit.append(unit)
 
 
+def update_kpis(energy_system, etm):
+    """
+    TODO
+    """
+
+    for kpi in energy_system.es.instance[0].area.KPIs.kpi:
+        prop = kpis.gqueries[kpi.id]
+
+        list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
+        metrics = etm.get_current_metrics(list_of_gqueries)
+
+        if prop['esdl_type'] == 'DistributionKPI':
+            for it in kpi.distribution.stringItem:
+                kpi.distribution.stringItem.remove(it)
+
+            for gquery in prop['gqueries']:
+                val = metrics[gquery['gquery']]['future'] * prop['factor']
+
+                if val != 0:
+                    kpi.distribution.stringItem.append(energy_system.esdl.StringItem(
+                        label=gquery['label'],
+                        value=val))
+
+        else:
+            kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
+
+
 def add_kpis(energy_system, etm):
     """
     TODO
@@ -62,10 +94,11 @@ def add_kpis(energy_system, etm):
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
         metrics = etm.get_current_metrics(list_of_gqueries)
 
-        kpi = getattr(energy_system.esdl, prop['esdl_type'])(
-            id=kpi_id, # alternative: energy_system.generate_uuid()
-            name=prop['name'],
-            quantityAndUnit=energy_system.get_by_id_slow(prop['q_and_u']))
+        kpi = energy_system.create_kpi(
+            prop['esdl_type'],
+            kpi_id,
+            prop['name'],
+            energy_system.get_by_id_slow(prop['q_and_u']))
 
         if prop['esdl_type'] == 'DistributionKPI':
             kpi.distribution = energy_system.esdl.StringLabelDistribution()
@@ -81,47 +114,8 @@ def add_kpis(energy_system, etm):
         else:
             kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
+        print(f'Adding KPI of type: {type(kpi)}')
         energy_system.add_kpi(kpi)
-
-
-def parse_supply_assets(energy_system, area, asset_type, properties):
-    """
-    Parse all ESDL supply assets of the given asset type
-    """
-    total_power = 0
-
-    try:
-        list_of_assets = energy_system.get_assets_of_type(
-            area,
-            getattr(energy_system.esdl, asset_type))
-
-        for asset in list_of_assets:
-            for prop in properties:
-                esdl_value = getattr(asset, prop['attribute'])
-
-                etm_value = esdl_value * prop['factor']
-
-                # Initialise the input value if it hasn't been touched yet
-                if not input_values[prop['input']]['value']:
-                    input_values[prop['input']]['value'] = 0
-
-                # Keep track of the installed capacity to determine the average FLH
-                if prop['attribute'] == 'power':
-                    current_power = etm_value
-                    total_power += etm_value
-
-                elif prop['attribute'] == 'fullLoadHours':
-                    prev_etm_value = input_values[prop['input']]['value']
-                    diff = etm_value - prev_etm_value
-                    etm_value = diff * current_power / total_power
-
-                # Update ETM input value
-                input_values[prop['input']]['value'] += etm_value
-
-    except AttributeError as att:
-        raise EnergysystemParseError(
-            f'We currently do not support attribute {str(att).split()[-1]}'
-        ) from att
 
 
 def determine_number_of_buildings(energy_system):
@@ -314,24 +308,12 @@ def translate_esdl_to_slider_settings(energy_system, environment):
 
     number_of_buildings = determine_number_of_buildings(energy_system)
 
-    # TODO: Merge two for loops below using a "for collection in
-    # [assets, technologies]" kinda construction?
-
     # Parse supply assets and calculate the new input values
     for asset_type, properties in assets.supply.items():
         if asset_type == 'RooftopPV':
-            val = RooftopPV(energy_system).call()
-            for prop in properties:
-                for key in prop['inputs'].values():
-                    input_values[key]['value'] = val * prop['factor']
-
+            RooftopPV(energy_system, properties).call()
         else:
-            # Parse supply assets in top area
-            parse_supply_assets(energy_system, top_area, asset_type, properties)
-
-            # Parse supply assets in sub areas
-            for sub_area in top_area.area:
-                parse_supply_assets(energy_system, sub_area, asset_type, properties)
+            Supply(energy_system, asset_type, properties).call(overwrite=True)
 
     for sub_area in top_area.area:
         parse_aggregated_buiding(
@@ -356,9 +338,10 @@ def translate_esdl_to_slider_settings(energy_system, environment):
     return etm, response
 
 
-def translate_kpis_to_esdl(energy_system, environment, scenario_id):
+def add_kpis_to_esdl(energy_system, environment, scenario_id):
     """
-    TODO
+    After adding the KPI's to the EnergySystem, it's no longer able to be
+    converted into either a file or an esdl string
     """
     etm = start_etm_session(environment, scenario_id)
 
@@ -368,4 +351,45 @@ def translate_kpis_to_esdl(energy_system, environment, scenario_id):
     # Add (empty) KPIs and targets and update KPIs based on ETM metrics
     add_kpis(energy_system, etm)
 
+    # Just for testing:
+    f = open('data/output/test_import_1.esdl', 'a')
+    f.write(energy_system.get_as_string())
+    f.close()
+
+
+def update_esdl(energy_system, environment, scenario_id):
+    """
+    TODO
+    """
+    etm = start_etm_session(environment, scenario_id)
+
+    # Update KPIs
+    update_kpis(energy_system, etm)
+
+    # Update capacities of wind turbines and possibly add measures
+    for asset_type in ['WindTurbine']:
+        Supply(energy_system, asset_type, assets.supply[asset_type]).update(etm)
+
+    # Just for testing:
+    f = open('data/output/test.esdl', 'a')
+    f.write(energy_system.get_as_string())
+    f.close()
+
     return energy_system
+
+def setup_esh_from_energy_system(energy_system):
+    esh = EnergySystemHandler()
+    try:
+        esdl_string = urllib.parse.unquote(energy_system)
+        esh.load_from_string(esdl_string)
+        return esh
+    except Exception as e:
+        return 'could not load ESDL: '+ str(e), 404
+
+def setup_esh_from_scenario(environment, scenario_id):
+    esh = EnergySystemHandler()
+    # fetch
+    etm = start_etm_session(environment, scenario_id)
+    esh.load_from_string(etm.fetch_energy_system())
+
+    return esh
