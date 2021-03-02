@@ -4,9 +4,9 @@ import io
 import json
 import requests
 
-from helpers.exceptions import EnergysystemParseError
-from helpers.StringURI import StringURI
-from config.errors import messages as messages
+from app.helpers.exceptions import EnergysystemParseError
+from app.helpers.StringURI import StringURI
+from app.constants.errors import messages as messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -107,16 +107,22 @@ class ETM_API(object):
         return self.current_metrics
 
 
-    def upload_energy_system(self, energy_system_string, title):
+    def upload_energy_system(self, energy_system_stream, title):
         """
         Attach the energy system to the scenario
         """
         put_data = {
-            "file": energy_system_string,
+            "file": energy_system_stream, #BytesIO <--- still something wrong??
             "filename": title
         }
-        response = self.session.put('/scenarios/' + str(self.scenario_id) + "/esdl_file",
-                    json=put_data, headers={'Connection':'close'})
+        # TODO: THIS DOES NOT WORK
+        print(put_data)
+        response = self.session.put(
+            '/scenarios/' + str(self.scenario_id) + "/esdl_file",
+            data=put_data,
+            headers={'Connection':'close'},
+            content_type='multipart/form-data'
+        )
         self.handle_response(response)
 
     def fetch_energy_system(self):

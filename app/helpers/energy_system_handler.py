@@ -3,10 +3,10 @@ from time import sleep
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
 from pyecore.resources.resource import HttpURI
-from helpers.xmlresource import XMLResource
+from app.helpers.xmlresource import XMLResource
 from pyecore.notification import EObserver
 import uuid
-from helpers.StringURI import StringURI
+from app.helpers.StringURI import StringURI
 from io import BytesIO
 
 class EnergySystemHandler:
@@ -270,6 +270,20 @@ class EnergySystemHandler:
         self.rset.remove_resource(stringresource)
         # return the string
         return uri.getvalue()
+
+    def get_as_stream(self):
+        # to use strings as resources, we simulate a string as being a file
+        uri = StringURI('tmp/anyname.esdl')
+        # create the string resource
+        stringresource = self.rset.create_resource(uri)
+        # add the current energy system
+        stringresource.append(self.es)
+        # save the resource
+        stringresource.save()
+        # remove the temporary resource in the resource set
+        self.rset.remove_resource(stringresource)
+        # return the string
+        return uri.get_stream()
 
     # load an EnergySystem from a string (using UTF-8 encoding)
     def load_from_string(self, string):

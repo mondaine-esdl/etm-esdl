@@ -1,9 +1,8 @@
-import config.assets as assets
-from config.inputs import input_values
-
-from esdl.esdl import *
-
-from helpers.edr import EnergyDataRepository
+import app.constants.assets as assets
+from app.constants.inputs import input_values
+# TODO: why are we importing everything here?
+from app.esdl.esdl import *
+from app.helpers.edr import EnergyDataRepository
 
 
 class Supply():

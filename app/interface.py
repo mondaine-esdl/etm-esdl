@@ -4,26 +4,26 @@ import webbrowser
 
 import urllib.parse
 
-import config.areas as areas
-import config.assets as assets
-import config.key_figures as key_figures
-import config.kpis as kpis
+import app.constants.areas as areas
+import app.constants.assets as assets
+import app.constants.key_figures as key_figures
+import app.constants.kpis as kpis
 
-from config.q_and_u import quantities
+from app.constants.q_and_u import quantities
 
-from config.env import base_urls
-from config.inputs import input_values
+from app.constants.env import base_urls
+from app.constants.inputs import input_values
 
-from helpers.balancer import Balancer
-from helpers.energy_system_handler import EnergySystemHandler
-from helpers.ETM_API import ETM_API, SessionWithUrlBase
-from helpers.exceptions import EnergysystemParseError
-from helpers.rooftop_pv import RooftopPV
-from helpers.supply import Supply
+from app.helpers.balancer import Balancer
+from app.helpers.energy_system_handler import EnergySystemHandler
+from app.helpers.ETM_API import ETM_API, SessionWithUrlBase
+from app.helpers.exceptions import EnergysystemParseError
+from app.helpers.rooftop_pv import RooftopPV
+from app.helpers.supply import Supply
 
-from helpers.StringURI import StringURI
+from app.helpers.StringURI import StringURI
 
-from helpers.MondaineHub import MondaineHub
+from app.helpers.MondaineHub import MondaineHub
 mh = MondaineHub('roos.dekok@quintel.com')
 
 def start_etm_session(environment, scenario_id=None):

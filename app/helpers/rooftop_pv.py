@@ -1,4 +1,4 @@
-from config.inputs import input_values
+from app.constants.inputs import input_values
 
 
 class RooftopPV():

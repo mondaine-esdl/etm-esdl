@@ -1,0 +1,6 @@
+# Config file for pylint
+
+[MESSAGES CONTROL]
+
+# Allow one line if statements
+disable=C0321
