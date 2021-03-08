@@ -1,9 +1,14 @@
+'''
+This is now mostly legacy code, all neccesary things should be transformed into a service
+'''
+
 import sys
 
 import io
 import json
 import requests
 
+from flask import current_app
 from app.helpers.exceptions import EnergysystemParseError
 from app.helpers.StringURI import StringURI
 from app.constants.errors import messages as messages
@@ -35,12 +40,12 @@ class ETM_API(object):
     various input parameters.
     """
 
-    def __init__(self, session, scenario_id="363691"):
+    def __init__(self, environment, scenario_id="363691"):
         """
         Note: 363691 is the scenario_id of a default scenario created by
         DataQuest. This scenario is stored within the ETM for future use.
         """
-        self.session = session
+        self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
         self.scenario_id = scenario_id
 
 
@@ -132,6 +137,7 @@ class ETM_API(object):
         response = self.session.get('/scenarios/' +  str(self.scenario_id) + "/esdl_file?download=true",
                                     headers={'Connection':'close'})
         self.handle_response(response)
+        print(response)
 
         return response.json()['file']
 

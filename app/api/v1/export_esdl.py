@@ -54,7 +54,7 @@ class ETMScenario(Resource):
     """
     Update ESDL energy system description based on ETM scenario settings
     """
-    @api.doc(parser=export_parser)
+    @api.expect(export_parser)
     def post(self):
         """
         Update ESDL energy system description based on ETM scenario settings

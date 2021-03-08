@@ -6,6 +6,7 @@ import os
 
 from flask import Flask, jsonify
 from werkzeug.middleware.proxy_fix import ProxyFix
+from app.config import *
 from app.helpers.exceptions import EnergysystemParseError
 from app.api import blueprint as api
 
@@ -16,18 +17,23 @@ def handle_api_error(error):
     response.content_type = "application/json"
     return response
 
-def create_app(test_config=None):
+def create_app(testing=False):
     '''
     Create and configure the app
     '''
     app = Flask(__name__, instance_relative_config=True)
+    environment = app.config['ENV']
 
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
+    # Load in some extra configs
+    if testing or environment == 'test':
+        app.config.from_object(TestingConfig())
+    elif environment == 'production':
+        app.config.from_object(ProductionConfig())
+    elif environment == 'delevopment':
+        app.config.from_object(DevelopmentConfig())
     else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
+        # Load the defaults
+        app.config.from_object(Config())
 
     # This a legacy config - not sure if we need it anymore?
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1)

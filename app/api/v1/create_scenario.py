@@ -10,6 +10,9 @@ from app.helpers.MondaineHub import MondaineHub
 from app.interface import (
     setup_esh_from_energy_system, translate_esdl_to_slider_settings, add_kpis_to_esdl
 )
+from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
+from app.helpers.exceptions import EnergysystemParseError
+from app.constants.errors import messages
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
 
@@ -53,7 +56,7 @@ class EnergySystem(Resource):
     """
     Transform ESDL energy system description into an ETM scenario
     """
-    @api.doc(parser=import_parser)
+    @api.expect(import_parser)
     # @api.marshal_with(etm_esdl_result) # This formats the response!
     def post(self):
         """
@@ -72,7 +75,11 @@ class EnergySystem(Resource):
         etm_config, response = translate_esdl_to_slider_settings(esh, env)
         add_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
-        etm_config.upload_energy_system(esh.get_as_stream(), energy_system_title)
+        result = AttachEsdlToEtengine(env, etm_config.scenario_id)(
+            esh.get_as_stream(), energy_system_title
+        )
+        if not result.successful:
+            handle_failure(result)
 
         if account['email']:
             MondaineHub(account['email']).store_in_mondaine_hub(
@@ -91,3 +98,17 @@ class EnergySystem(Resource):
             },
             'scenario_id': etm_config.scenario_id
         }
+
+# TODO: better placement and handling
+def handle_failure(result):
+    if not len(result.errors) > 0:
+        raise EnergysystemParseError('Something went wrong', 422)
+
+    message = result.errors[0]
+    for etm_message, readable in messages.items():
+        for error in result.errors:
+            if etm_message in error:
+                message = readable
+                break
+
+    raise EnergysystemParseError(message, 422)
