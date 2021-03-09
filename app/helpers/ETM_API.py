@@ -111,25 +111,6 @@ class ETM_API(object):
         self.current_metrics = self.return_gqueries(response)
         return self.current_metrics
 
-
-    def upload_energy_system(self, energy_system_stream, title):
-        """
-        Attach the energy system to the scenario
-        """
-        put_data = {
-            "file": energy_system_stream, #BytesIO <--- still something wrong??
-            "filename": title
-        }
-        # TODO: THIS DOES NOT WORK
-        print(put_data)
-        response = self.session.put(
-            '/scenarios/' + str(self.scenario_id) + "/esdl_file",
-            data=put_data,
-            headers={'Connection':'close'},
-            content_type='multipart/form-data'
-        )
-        self.handle_response(response)
-
     def fetch_energy_system(self):
         """
         Try to download the attached ESDL file from the scenario
@@ -157,7 +138,7 @@ class ETM_API(object):
         self.handle_response(response)
 
     def handle_response(self, response):
-        if not response.status_code == 422:
+        if response.ok:
             return
 
         errors = response.json()['errors']

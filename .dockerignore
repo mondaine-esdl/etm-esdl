@@ -1,2 +1,11 @@
 .semaphore-cache
+__pycache__/
+.git
+.DS_Store
+.gitignore
+
+# Local development
+venv/
+tests/
+.pylintrc
 .pytest_cache

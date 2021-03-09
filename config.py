@@ -14,11 +14,18 @@ class Config(object):
     }
 
 class ProductionConfig(Config):
-    DEBUG = False
+    ''' Use the defaults for production'''
 
 class DevelopmentConfig(Config):
     '''Sets debug to true'''
     DEBUG = True
+    # You can replace the ETEngine urls here to point to your local version. Example:
+    # ETENGINE = {
+    #     'pro': 'http://host.docker.internal:<PORT>/api/v3',
+    #     'beta': 'http://host.docker.internal:<PORT>/api/v3'
+    # }
+    # Where <PORT> should be 3000, 3001, etc. You need host.docker.internal instead of localhost
+    # here when running the app in Docker.
 
 class TestingConfig(Config):
     '''Sets testing to true'''
