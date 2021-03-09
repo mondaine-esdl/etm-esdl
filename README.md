@@ -4,19 +4,38 @@ The etm-esdl app allows for converting ESDL files into scenarios on the [Energy 
 You can find more info on the api at http://esdl.energytransitionmodel.com/api/v1/
 
 ## Installation
-The etm-edsl app is a python Flask app that has support for running in Docker.
+The etm-edsl app is a python Flask app that has support for running in Docker. We recommend
+installing Docker on your system.
+
+You can download a Docker image, or generate one yourself with `docker-compose build`
 
 If you want to run the app locally in debug and reload-on-change mode, please use `docker-compose up`.
 
-For development and testing creating a virtual environnement is recommended:
+## Using pipenv in development
+For development and testing please use pipenv:
 ```
-python3 -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
+pip3 install pipenv
+pipenv install --dev
+pipenv shell
 ```
 
-Every new (terminal) session you should reactivate your environnement with
-`source venv/bin/activate`
+Every new (terminal) session you should reactivate your virtual environnement with:
+```
+ pipenv shell
+```
+You can exit the virtual environnement with `exit`
 
-You can test your local changes by running pytest
-`python -m pytest`
+You can now test your local changes by running pytest:
+```
+python -m pytest
+```
+
+You can update your local dependencies when the Pipfile.lock was updated upstream by using
+```
+pipenv install --ignore-pipfile
+```
+
+When you update the Pipfile manually please relock and install new dependencies by simply
+```
+pipenv install
+```

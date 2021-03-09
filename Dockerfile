@@ -7,10 +7,11 @@ WORKDIR /usr/src/app
 RUN apk add --update alpine-sdk
 RUN apk add --update --no-cache libxslt-dev libxml2-dev
 
-COPY requirements.txt .
-
-RUN python3.8 -m pip install -r requirements.txt --no-cache-dir
-# RUN apk --purge del .build-deps
+COPY Pipfile .
+COPY Pipfile.lock .
+RUN pip install --upgrade pip && \
+    pip install pipenv && \
+    pipenv install --system --deploy --ignore-pipfile
 
 COPY . .
 
