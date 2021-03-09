@@ -1,4 +1,4 @@
-from helpers.StringURI import StringURI
+from app.helpers.StringURI import StringURI
 import requests
 import json
 

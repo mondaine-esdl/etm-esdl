@@ -1,12 +1,17 @@
+'''
+This is now mostly legacy code, all neccesary things should be transformed into a service
+'''
+
 import sys
 
 import io
 import json
 import requests
 
-from helpers.exceptions import EnergysystemParseError
-from helpers.StringURI import StringURI
-from config.errors import messages as messages
+from flask import current_app
+from app.helpers.exceptions import EnergysystemParseError
+from app.helpers.StringURI import StringURI
+from app.constants.errors import messages as messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -35,12 +40,12 @@ class ETM_API(object):
     various input parameters.
     """
 
-    def __init__(self, session, scenario_id="363691"):
+    def __init__(self, environment, scenario_id="363691"):
         """
         Note: 363691 is the scenario_id of a default scenario created by
         DataQuest. This scenario is stored within the ETM for future use.
         """
-        self.session = session
+        self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
         self.scenario_id = scenario_id
 
 
@@ -106,19 +111,6 @@ class ETM_API(object):
         self.current_metrics = self.return_gqueries(response)
         return self.current_metrics
 
-
-    def upload_energy_system(self, energy_system_string, title):
-        """
-        Attach the energy system to the scenario
-        """
-        put_data = {
-            "file": energy_system_string,
-            "filename": title
-        }
-        response = self.session.put('/scenarios/' + str(self.scenario_id) + "/esdl_file",
-                    json=put_data, headers={'Connection':'close'})
-        self.handle_response(response)
-
     def fetch_energy_system(self):
         """
         Try to download the attached ESDL file from the scenario
@@ -145,7 +137,7 @@ class ETM_API(object):
         self.handle_response(response)
 
     def handle_response(self, response):
-        if not response.status_code == 422:
+        if response.ok:
             return
 
         errors = response.json()['errors']

@@ -4,38 +4,34 @@ import webbrowser
 
 import urllib.parse
 
-import config.areas as areas
-import config.assets as assets
-import config.key_figures as key_figures
-import config.kpis as kpis
+import app.constants.areas as areas
+import app.constants.assets as assets
+import app.constants.key_figures as key_figures
+import app.constants.kpis as kpis
 
-from config.q_and_u import quantities
+from app.constants.q_and_u import quantities
 
-from config.env import base_urls
-from config.inputs import input_values
+# from app.constants.env import base_urls
+from app.constants.inputs import input_values
 
-from helpers.balancer import Balancer
-from helpers.energy_system_handler import EnergySystemHandler
-from helpers.ETM_API import ETM_API, SessionWithUrlBase
-from helpers.exceptions import EnergysystemParseError
-from helpers.rooftop_pv import RooftopPV
-from helpers.supply import Supply
+from app.helpers.balancer import Balancer
+from app.helpers.energy_system_handler import EnergySystemHandler
+from app.helpers.ETM_API import ETM_API
+from app.helpers.exceptions import EnergysystemParseError
+from app.helpers.rooftop_pv import RooftopPV
+from app.helpers.supply import Supply
 
-from helpers.StringURI import StringURI
-
-from helpers.MondaineHub import MondaineHub
+from app.helpers.MondaineHub import MondaineHub
 mh = MondaineHub('roos.dekok@quintel.com')
 
 def start_etm_session(environment, scenario_id=None):
     """
     Start an ETM API session based on the given environment (beta or pro)
     """
-    session = SessionWithUrlBase(base_urls[environment])
-
     if scenario_id:
-        return ETM_API(session, scenario_id)
+        return ETM_API(environment, scenario_id)
 
-    return ETM_API(session)
+    return ETM_API(environment)
 
 
 def add_quantity_and_units(energy_system):
@@ -352,9 +348,9 @@ def add_kpis_to_esdl(energy_system, environment, scenario_id):
     add_kpis(energy_system, etm)
 
     # Just for testing:
-    f = open('data/output/test_import_1.esdl', 'a')
-    f.write(energy_system.get_as_string())
-    f.close()
+    # f = open('data/output/test_import_1.esdl', 'a')
+    # f.write(energy_system.get_as_string())
+    # f.close()
 
 
 def update_esdl(energy_system, environment, scenario_id):
@@ -371,9 +367,9 @@ def update_esdl(energy_system, environment, scenario_id):
         Supply(energy_system, asset_type, assets.supply[asset_type]).update(etm)
 
     # Just for testing:
-    f = open('data/output/test.esdl', 'a')
-    f.write(energy_system.get_as_string())
-    f.close()
+    # f = open('data/output/test.esdl', 'a')
+    # f.write(energy_system.get_as_string())
+    # f.close()
 
     return energy_system
 
