@@ -118,7 +118,6 @@ class ETM_API(object):
         response = self.session.get('/scenarios/' +  str(self.scenario_id) + "/esdl_file?download=true",
                                     headers={'Connection':'close'})
         self.handle_response(response)
-        print(response)
 
         return response.json()['file']
 
