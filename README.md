@@ -18,12 +18,13 @@ pip3 install pipenv
 pipenv install --dev
 pipenv shell
 ```
+The `dev` flag is used to install development dependencies as well (like `pytest`).
 
-Every new (terminal) session you should reactivate your virtual environnement with:
+Every new session you should reactivate your virtual environment with:
 ```
  pipenv shell
 ```
-You can exit the virtual environnement with `exit`
+You can exit the virtual environment with `exit`
 
 You can now test your local changes by running pytest:
 ```
@@ -32,10 +33,10 @@ python -m pytest
 
 You can update your local dependencies when the Pipfile.lock was updated upstream by using
 ```
-pipenv install --ignore-pipfile
+pipenv install --dev --ignore-pipfile
 ```
 
 When you update the Pipfile manually please relock and install new dependencies by simply
 ```
-pipenv install
+pipenv install --dev
 ```
