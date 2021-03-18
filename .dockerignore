@@ -9,3 +9,6 @@ venv/
 tests/
 .pylintrc
 .pytest_cache
+
+# Readme images
+images/
