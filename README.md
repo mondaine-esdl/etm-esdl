@@ -1,7 +1,7 @@
 The etm-esdl app allows for converting ESDL files into scenarios on the [Energy Transition Model](https://pro.energytransitionmodel.com/). Please vist the ESDL [documentation](https://energytransition.gitbook.io/esdl/) if you want to learn more about this energy language.
 
 ## API for converting ESDL files into ETM scenarios
-You can find more info on the api at http://esdl.energytransitionmodel.com/api/v1/
+You can find more info on the api at http://esdl.energytransitionmodel.com/api/v1/. Here you can find all the endpoints and their documentation.
 
 ## Installation
 The etm-edsl app is a python Flask app that has support for running in Docker. We recommend
@@ -138,7 +138,7 @@ Another service by Geodan that is hosted by the ESDL MapEditor is the possibilit
 ![](images/rooftop_pv_1.png)
 ![](images/rooftop_pv_2.png)
 
-This percentage is processed by the ETM service and converted into input values for solar PV on rooftops of both residences and services. 
+This percentage is processed by the ETM service and converted into input values for solar PV on rooftops of both residences and services.
 
 ![](images/rooftop_pv_3.png)
 ![](images/rooftop_pv_4.png)
