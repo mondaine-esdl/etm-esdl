@@ -7,9 +7,8 @@ name = "pypi"
 flask-restx = "*"
 pyecore = "~=0.12"
 lxml = "*"
-more-itertools = "==7.2.0"
+more-itertools = "*"
 requests = "==2.22.0"
-zipp = "==0.6.0"
 Flask = "~=1.1.1"
 
 [dev-packages]

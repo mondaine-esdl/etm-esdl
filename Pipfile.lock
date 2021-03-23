@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "207293b792267abe6f86366bcc29317eb24d1443aed4c101949916a4a8e31639"
+            "sha256": "1fde72d23ebd0e0c1d37859ccd8019e36256acfbb3cf4b64bb12564914d16225"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -199,11 +199,11 @@
         },
         "more-itertools": {
             "hashes": [
-                "sha256:409cd48d4db7052af495b09dec721011634af3753ae1ef92d2b32f73a745f832",
-                "sha256:92b8c4b06dac4f0611c0729b2f2ede52b2e1bac1ab48f089c7ddc12e26bb60c4"
+                "sha256:5652a9ac72209ed7df8d9c15daf4e1aa0e3d2ccd3c87f8265a0673cd9cbc9ced",
+                "sha256:c5d6da9ca3ff65220c3bfd2a8db06d698f05d4d2b9be57e1deb2be5a45019713"
             ],
             "index": "pypi",
-            "version": "==7.2.0"
+            "version": "==8.7.0"
         },
         "ordered-set": {
             "hashes": [
@@ -218,7 +218,7 @@
                 "sha256:d305491f9fa7810f8c82518215e5364b085a61bea3ecc69574518fd8627db6a4"
             ],
             "index": "pypi",
-            "version": "==0.12"
+            "version": "==0.12.0"
         },
         "pyrsistent": {
             "hashes": [
@@ -273,14 +273,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==1.0.1"
-        },
-        "zipp": {
-            "hashes": [
-                "sha256:3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e",
-                "sha256:f06903e9f1f43b12d371004b4ac7b06ab39a44adc747266928ae6debfa7b3335"
-            ],
-            "index": "pypi",
-            "version": "==0.6.0"
         }
     },
     "develop": {
@@ -333,7 +325,7 @@
                 "sha256:0a943902919f65c5684ac4e0154b1ad4fac6dcaa5d9f3426b732f1c8b5419be6",
                 "sha256:2bb1680aad211e3c9944dbce1d4ba09a989f04e238296c87fe2139faa26d655d"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4.0'",
+            "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==5.8.0"
         },
         "lazy-object-proxy": {
