@@ -4,7 +4,7 @@ Responds with ETM KPI's.
 Only: post
 '''
 
-from flask_restplus import Namespace, Resource
+from flask_restx import Namespace, Resource
 from app.constants.kpis import gqueries as kpis
 
 api = Namespace('kpis', description='Get ETM KPIs')

@@ -3,7 +3,7 @@ Contains the ApiV1 blueprint
 '''
 
 from flask import Blueprint
-from flask_restplus import Api
+from flask_restx import Api
 
 # Import namespaces (parts of Api)
 from .create_scenario import api as ns_create_scenario
