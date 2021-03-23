@@ -4,3 +4,6 @@
 
 # Allow one line if statements
 disable=C0321
+
+# This is sometimes nice
+disable=attribute-defined-outside-init

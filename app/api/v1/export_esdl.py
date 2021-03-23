@@ -4,7 +4,7 @@ Responds with an ESDL file.
 Only: post
 '''
 
-from flask_restplus import Namespace, Resource, fields
+from flask_restx import Namespace, Resource, fields
 from app.helpers.MondaineHub import MondaineHub
 from app.interface import update_esdl, setup_esh_from_energy_system, setup_esh_from_scenario
 

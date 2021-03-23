@@ -4,7 +4,7 @@ Responds with an ETE scenario id.
 Only: post
 '''
 
-from flask_restplus import Namespace, Resource, fields
+from flask_restx import Namespace, Resource, fields
 from app.helpers.MondaineHub import MondaineHub
 # TODO: This needs to be nicer - create a Service of some kind
 from app.interface import (
