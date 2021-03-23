@@ -3,6 +3,7 @@ A copy of XMIResource, with minor changes (see comments made by edwinmatthijsen/
 see https://github.com/pyecore/pyecore/blob/master/pyecore/resources/xmi.py for the source
 '''
 from pyecore.resources.xmi import XMIResource, XMIOptions, XMI_URL, XSI_URL, XSI
+# pylint: disable=no-name-in-module
 from lxml.etree import QName, Element, ElementTree
 
 class XMLResource(XMIResource):
