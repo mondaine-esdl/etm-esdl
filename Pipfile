@@ -4,11 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-defusedxml = "==0.6.0"
 flask-restx = "*"
-lxml = "==4.4.1"
+pyecore = "~=0.12"
+lxml = "*"
 more-itertools = "==7.2.0"
-pyecore = "==0.12"
 requests = "==2.22.0"
 zipp = "==0.6.0"
 Flask = "~=1.1.1"
