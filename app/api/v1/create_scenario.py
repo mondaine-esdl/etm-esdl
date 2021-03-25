@@ -5,8 +5,8 @@ Only: post
 '''
 
 from flask_restx import Namespace, Resource, fields
-from app.helpers.MondaineHub import MondaineHub
-# TODO: This needs to be nicer - create a Service of some kind
+
+# TODO: This needs to be nicer - create a Service or model of some kind
 from app.interface import (
     setup_esh_from_energy_system, translate_esdl_to_slider_settings, add_kpis_to_esdl
 )
@@ -28,23 +28,14 @@ energy_system = api.model('energy_system', {
 
 ## Setup the parser for the request parameters
 import_parser = api.parser()
-# ESDL energy system (doesn't have to be URL encoded)
 import_parser.add_argument(
     'energy_system', type=str, required=True,
     help='The energy system definition (URL encoded ESDL string)',
     location='form'
 )
-# ETM environment (beta or pro)
 import_parser.add_argument(
     'environment', type=str, required=True,
     help='The environment of the Energy Transition Model ("beta" or "pro")',
-    location='form'
-)
-# Mondaine Hub account
-import_parser.add_argument(
-    'account', type=str, required=False,
-    help='The Mondaine Hub account (email address) - only required when one wants to store the ESDL\
-    in the Mondaine Hub',
     location='form'
 )
 import_parser.add_argument('energy_system_title', type=str, required=False, location='form')
@@ -65,12 +56,11 @@ class EnergySystem(Resource):
         args = import_parser.parse_args()
 
         # TODO: clean the args up
-        es = {'energy_system': args['energy_system']}
+        es = args['energy_system']
         energy_system_title = args['energy_system_title'] or 'original.esdl'
-        account = {'email': args['account']}
         env = args['environment']
 
-        esh = setup_esh_from_energy_system(es['energy_system'])
+        esh = setup_esh_from_energy_system(es)
 
         etm_config, response = translate_esdl_to_slider_settings(esh, env)
         add_kpis_to_esdl(esh, env, etm_config.scenario_id)
@@ -80,11 +70,6 @@ class EnergySystem(Resource):
         )
         if not result.successful:
             handle_failure(result)
-
-        if account['email']:
-            MondaineHub(account['email']).store_in_mondaine_hub(
-                'ETM_{}'.format(esh.es.name), esh.resource
-            )
 
         return {
             'show_url': {

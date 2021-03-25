@@ -10,8 +10,6 @@ import app.constants.key_figures as key_figures
 import app.constants.kpis as kpis
 
 from app.constants.q_and_u import quantities
-
-# from app.constants.env import base_urls
 from app.constants.inputs import input_values
 
 from app.helpers.balancer import Balancer
@@ -20,9 +18,6 @@ from app.helpers.ETM_API import ETM_API
 from app.helpers.exceptions import EnergysystemParseError
 from app.helpers.rooftop_pv import RooftopPV
 from app.helpers.supply import Supply
-
-from app.helpers.MondaineHub import MondaineHub
-mh = MondaineHub('roos.dekok@quintel.com')
 
 def start_etm_session(environment, scenario_id=None):
     """
