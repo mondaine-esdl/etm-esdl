@@ -21,7 +21,7 @@ The `dev` flag is used to install development dependencies as well (like `pytest
 
 You can now test your local changes by running `pytest`. You can use the shortcut:
 ```
-pyenv run test
+pipenv run test
 ```
 
 #### When the Pipfile changes
