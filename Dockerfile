@@ -1,23 +1,31 @@
 FROM python:3.8-alpine
 LABEL Author='Roos de Kok  <roos.dekok@quintel.com>'
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
 RUN apk add --update alpine-sdk
 RUN apk add --update --no-cache libxslt-dev libxml2-dev
 
+RUN pip install pipenv
+
+# -- Install Application into container:
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+# -- Adding Pipfiles and installing a virtual environment
 COPY Pipfile .
 COPY Pipfile.lock .
-RUN pip install --upgrade pip && \
-    pip install pipenv && \
-    pipenv install --system --deploy --ignore-pipfile
+RUN pipenv install --deploy --ignore-pipfile
 
+# -- Copy Application
 COPY . .
 
+# -- Fetch ecore resource
+RUN pipenv run fetch_esdl_ecore_resource
+
+# -- Set Environment
 ENV PYTHONPATH=.:/usr/src/app
 ENV FLASK_APP "app"
 
+# -- Launch app
 EXPOSE 5000
-
-CMD cd /usr/src/app && flask run --host=0.0.0.0
+CMD pipenv run flask run --host=0.0.0.0

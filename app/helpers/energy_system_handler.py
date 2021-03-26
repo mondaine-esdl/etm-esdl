@@ -19,8 +19,8 @@ class EnergySystemHandler:
         # Assign files with the .esdl extension to the XMLResource instead of default XMI
         self.rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)
 
-        # Read the lastest esdl.ecore from github
-        esdl_model_resource = self.rset.get_resource(HttpURI('https://raw.githubusercontent.com/EnergyTransition/ESDL/master/esdl/model/esdl.ecore'))
+        # Read the esdl.ecore from the tmp folder
+        esdl_model_resource = self.rset.get_resource(URI('tmp/esdl/esdl.ecore'))
 
         esdl_model = esdl_model_resource.contents[0]
         # print('Namespace: {}'.format(esdl_model.nsURI))
