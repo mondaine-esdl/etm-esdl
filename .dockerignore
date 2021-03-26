@@ -11,4 +11,4 @@ tests/
 .pytest_cache
 
 # Readme images
-images/
+docs/
