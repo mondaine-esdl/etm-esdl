@@ -4,6 +4,8 @@ from app.constants.inputs import input_values
 from app.esdl.esdl import *
 from app.helpers.edr import EnergyDataRepository
 
+from app.services.query_scenario import QueryScenario
+
 
 class Supply():
     """
@@ -99,14 +101,14 @@ class Supply():
         """
         TODO
         """
-        try:
-            gquery = prop['gquery']
-            metrics = etm.get_current_metrics([gquery])
-            return metrics[gquery]['future'] / prop['factor']
-        except AttributeError as att:
-            raise EnergysystemParseError(
-                f'We currently do not support the ETM gquery listed in the config: {gquery}'
-            ) from att
+        query_result = QueryScenario(etm.environment, etm.scenario_id)(prop['gquery'])
+
+        if query_result.successful:
+            return query_result.value[prop['gquery']]['future'] / prop['factor']
+
+        raise EnergysystemParseError(
+            f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
+        )
 
 
     def update_props(self, etm):
@@ -119,6 +121,7 @@ class Supply():
 
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.
+        # TODO: Send the queries in batches instead of one-by-one
         for attr in ['fullLoadHours', 'power']:
             prop = list_of_props[attr]
             val = self.query_scenario(etm, prop)

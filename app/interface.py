@@ -19,6 +19,8 @@ from app.helpers.exceptions import EnergysystemParseError
 from app.helpers.rooftop_pv import RooftopPV
 from app.helpers.supply import Supply
 
+from app.services.query_scenario import QueryScenario
+
 def start_etm_session(environment, scenario_id=None):
     """
     Start an ETM API session based on the given environment (beta or pro)
@@ -57,7 +59,10 @@ def update_kpis(energy_system, etm):
         prop = kpis.gqueries[kpi.id]
 
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        metrics = etm.get_current_metrics(list_of_gqueries)
+        query_result = QueryScenario(etm.environment, etm.scenario_id)(*list_of_gqueries)
+
+        if not query_result.successful: raise ValueError(query_result.errors)
+        metrics = query_result.value
 
         if prop['esdl_type'] == 'DistributionKPI':
             for it in kpi.distribution.stringItem:
@@ -83,7 +88,10 @@ def add_kpis(energy_system, etm):
 
     for kpi_id, prop in kpis.gqueries.items():
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        metrics = etm.get_current_metrics(list_of_gqueries)
+        query_result = QueryScenario(etm.environment, etm.scenario_id)(*list_of_gqueries)
+
+        if not query_result.successful: raise ValueError(query_result.errors)
+        metrics = query_result.value
 
         kpi = energy_system.create_kpi(
             prop['esdl_type'],

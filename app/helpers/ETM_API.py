@@ -47,6 +47,7 @@ class ETM_API(object):
         """
         self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
         self.scenario_id = scenario_id
+        self.environment = environment
 
 
     def return_gqueries(self, response):
@@ -93,23 +94,6 @@ class ETM_API(object):
                                     headers={'Connection':'close'})
 
         self.dict_inputs = response.json()
-
-
-    def get_current_metrics(self, gquery_metrics):
-        """
-        Perform a gquery on the the ETM model. gquery_metrics is a list of
-        available ggueries.
-        """
-        put_data = {
-            "gqueries": gquery_metrics,
-            "detailed": True
-        }
-
-        response = self.session.put('/scenarios/' + str(self.scenario_id), json=put_data,
-                                    headers={'Connection':'close'})
-
-        self.current_metrics = self.return_gqueries(response)
-        return self.current_metrics
 
     def fetch_energy_system(self):
         """
