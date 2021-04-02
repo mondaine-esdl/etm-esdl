@@ -10,5 +10,6 @@ tests/
 .pylintrc
 .pytest_cache
 
-# Readme images
+# Readme
 docs/
+README.md
