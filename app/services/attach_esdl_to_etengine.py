@@ -30,4 +30,7 @@ class AttachEsdlToEtengine(EtengineService):
         if response.status_code == 422:
             return ServiceResult.failure(response.json()['errors'])
 
+        if response.status_code == 413:
+            return ServiceResult.failure(['File is too large'])
+
         return ServiceResult.failure([f'ETEngine returned a {response.status_code}'])
