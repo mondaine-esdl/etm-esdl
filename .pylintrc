@@ -2,8 +2,9 @@
 
 [MESSAGES CONTROL]
 
-# Allow one line if statements
-disable=C0321
+# Things we don't want the linter to whine about:
+# C0321 = No one line if statements
+# This is sometimes nice: attribute-defined-outside-init
 
-# This is sometimes nice
-disable=attribute-defined-outside-init
+# Let's disable them
+disable=C0321,attribute-defined-outside-init
