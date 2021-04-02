@@ -1,5 +1,5 @@
 '''
-Downloads the ecore esdl resource from github into the lib folder. This xml-file is needed as a
+Downloads the ecore esdl resource from github into the tmp folder. This xml-file is needed as a
 resource for the EnergySystemHandler
 '''
 import requests

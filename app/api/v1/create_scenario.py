@@ -42,7 +42,7 @@ import_parser.add_argument('energy_system_title', type=str, required=False, loca
 
 ## Controller
 @api.route('/')
-@api.doc(responses={404: 'Energy system not valid'})
+@api.doc(responses={422: 'Energy system could not be made into a scenario'})
 class EnergySystem(Resource):
     """
     Transform ESDL energy system description into an ETM scenario
