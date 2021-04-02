@@ -8,7 +8,7 @@ __pycache__/
 venv/
 tests/
 .pylintrc
-.pytest_cache
+.pytest_cache/
 
 # Readme
 docs/
