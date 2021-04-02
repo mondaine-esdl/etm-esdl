@@ -134,8 +134,4 @@ class ETM_API(object):
 
         print(f'\nERROR! {message}\n')
 
-        raise EnergysystemParseError(
-            f'{message}',
-            422,
-            response
-        )
+        raise EnergysystemParseError(message, payload=response)
