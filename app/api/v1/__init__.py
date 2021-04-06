@@ -4,6 +4,9 @@ Contains the ApiV1 blueprint
 
 from flask import Blueprint
 from flask_restx import Api
+
+# Exceptions to be caught
+from werkzeug.exceptions import MethodNotAllowed
 from app.helpers.exceptions import EnergysystemParseError
 
 # Import namespaces (parts of Api)
@@ -29,3 +32,8 @@ api.add_namespace(ns_kpis)
 def handle_api_error(error):
     '''Creates a response containing the messages of the error'''
     return error.to_dict(), error.status_code
+
+@api.errorhandler(MethodNotAllowed)
+def handle_non_existing_route(error):
+    '''Returns a 405'''
+    return {'error': f'Allowed methods are {error.valid_methods}'}, 405
