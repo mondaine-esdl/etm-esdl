@@ -4,6 +4,7 @@ Contains the ApiV1 blueprint
 
 from flask import Blueprint
 from flask_restx import Api
+from app.helpers.exceptions import EnergysystemParseError
 
 # Import namespaces (parts of Api)
 from .create_scenario import api as ns_create_scenario
@@ -23,3 +24,8 @@ api = Api(
 api.add_namespace(ns_create_scenario)
 api.add_namespace(ns_export)
 api.add_namespace(ns_kpis)
+
+@api.errorhandler(EnergysystemParseError)
+def handle_api_error(error):
+    '''Creates a response containing the messages of the error'''
+    return error.to_dict(), error.status_code

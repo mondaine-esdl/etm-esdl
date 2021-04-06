@@ -9,18 +9,10 @@ import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 ## App
-from flask import Flask, jsonify
+from flask import Flask
 # from werkzeug.middleware.proxy_fix import ProxyFix
 from config import *
-from app.helpers.exceptions import EnergysystemParseError
 from app.api import blueprint as api
-
-def handle_api_error(error):
-    '''Creates a response containing the messages of the error'''
-    response = jsonify(error.to_dict())
-    response.status_code = error.status_code
-    response.content_type = "application/json"
-    return response
 
 def create_app(testing=False):
     '''
@@ -51,8 +43,5 @@ def create_app(testing=False):
 
     ### ROUTES ###
     app.register_blueprint(api, url_prefix='/api/v1')
-
-    ### ERRORS ###
-    app.register_error_handler(EnergysystemParseError, handle_api_error)
 
     return app
