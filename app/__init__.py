@@ -4,8 +4,13 @@ Initializes the app and sets up all the routes
 
 import os
 
+## Sentry ##
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
+## App
 from flask import Flask, jsonify
-from werkzeug.middleware.proxy_fix import ProxyFix
+# from werkzeug.middleware.proxy_fix import ProxyFix
 from config import *
 from app.helpers.exceptions import EnergysystemParseError
 from app.api import blueprint as api
@@ -29,6 +34,12 @@ def create_app(testing=False):
         app.config.from_object(TestingConfig())
     elif environment == 'production':
         app.config.from_object(ProductionConfig())
+        # Set up Sentry
+        sentry_sdk.init(os.environ.get('SENTRY_DSN'), integrations=[FlaskIntegration()])
+    elif environment == 'staging':
+        app.config.from_object(StagingConfig())
+        # Set up Sentry
+        sentry_sdk.init(os.environ.get('SENTRY_DSN'), integrations=[FlaskIntegration()])
     elif environment == 'development':
         app.config.from_object(DevelopmentConfig())
     else:

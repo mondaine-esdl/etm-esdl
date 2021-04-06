@@ -10,6 +10,7 @@ lxml = "*"
 more-itertools = "*"
 requests = "*"
 Flask = "~=1.1.1"
+'sentry-sdk[flask]' = "*"
 
 [dev-packages]
 pytest = "*"

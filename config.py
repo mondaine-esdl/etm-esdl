@@ -16,6 +16,9 @@ class Config(object):
 class ProductionConfig(Config):
     ''' Use the defaults for production'''
 
+class StagingConfig(ProductionConfig):
+    ''' Use the production defaults for staging'''
+
 class DevelopmentConfig(Config):
     '''Sets debug to true'''
     DEBUG = True
