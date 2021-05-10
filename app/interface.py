@@ -1,7 +1,3 @@
-import sys
-
-import webbrowser
-
 import urllib.parse
 
 import app.constants.areas as areas
@@ -377,13 +373,17 @@ def update_esdl(energy_system, environment, scenario_id):
     return energy_system
 
 def setup_esh_from_energy_system(energy_system):
+    '''
+    Creates and returns an EnergySystemHandler based on an energy_system '.esdl' file that was
+    extracted from form-data
+    '''
     esh = EnergySystemHandler()
     try:
         esdl_string = urllib.parse.unquote(energy_system)
         esh.load_from_string(esdl_string)
         return esh
-    except Exception as e:
-        return 'could not load ESDL: '+ str(e), 404
+    except Exception as exception:
+        raise EnergysystemParseError('ESDL could not be parsed', 422) from exception
 
 def setup_esh_from_scenario(environment, scenario_id):
     esh = EnergySystemHandler()
