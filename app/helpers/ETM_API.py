@@ -73,6 +73,7 @@ class ETM_API(object):
         response = self.session.post("/scenarios", json=post_data,
                                      headers={'Connection':'close'})
 
+        self.handle_response(response)
         self.scenario_id = response.json()["id"]
 
 
@@ -125,7 +126,10 @@ class ETM_API(object):
             return
 
         errors = response.json()['errors']
-        message = errors[0]
+
+        if isinstance(errors, list): message = errors[0]
+        else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in errors.items()])
+
         for etm_message, readable in messages.items():
             for error in errors:
                 if etm_message in error:
