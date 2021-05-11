@@ -11,6 +11,7 @@ from app.interface import (
     setup_esh_from_energy_system, translate_esdl_to_slider_settings, add_kpis_to_esdl
 )
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
+from app.services.set_scenario_sliders import SetScenarioSliders
 from app.helpers.exceptions import EnergysystemParseError
 from app.constants.errors import messages
 
@@ -62,14 +63,17 @@ class EnergySystem(Resource):
 
         esh = setup_esh_from_energy_system(es)
 
-        etm_config, response = translate_esdl_to_slider_settings(esh, env)
+        etm_config, new_sliders = translate_esdl_to_slider_settings(esh, env)
+        set_silders_result = SetScenarioSliders(env, etm_config.scenario_id)(new_sliders)
+        if not set_silders_result.successful: handle_failure(set_silders_result)
+
+        print(f'Sceanrio ID: {etm_config.scenario_id}')
         add_kpis_to_esdl(esh, env, etm_config.scenario_id)
 
         result = AttachEsdlToEtengine(env, etm_config.scenario_id)(
             esh.get_as_stream(), energy_system_title
         )
-        if not result.successful:
-            handle_failure(result)
+        if not result.successful: handle_failure(result)
 
         return {
             'show_url': {
@@ -78,8 +82,7 @@ class EnergySystem(Resource):
                     'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
                     environment='beta-pro' if env == 'beta' else 'pro',
                     scenario_id=etm_config.scenario_id)),
-                'link_text': 'Open ETM',
-                'response': response
+                'link_text': 'Open ETM'
             },
             'scenario_id': etm_config.scenario_id
         }
@@ -89,7 +92,9 @@ def handle_failure(result):
     if not len(result.errors) > 0:
         raise EnergysystemParseError('Something went wrong', 422)
 
-    message = result.errors[0]
+    if isinstance(result.errors, list): message = result.errors[0]
+    else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in result.errors.items()])
+
     for etm_message, readable in messages.items():
         for error in result.errors:
             if etm_message in error:

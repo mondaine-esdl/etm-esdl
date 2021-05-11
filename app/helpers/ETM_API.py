@@ -106,21 +106,6 @@ class ETM_API(object):
 
         return response.json()['file']
 
-    def change_inputs(self, user_values):
-        """
-        Change inputs to ETM according to dictionary user_values. Also the
-        metrics are updated by passing a gquery via gquery_metrics
-        """
-        put_data = {
-            "scenario": {
-                "user_values": user_values
-            },
-            "detailed": True,
-        }
-        response = self.session.put('/scenarios/' + str(self.scenario_id),
-                                    json=put_data, headers={'Connection':'close'})
-        self.handle_response(response)
-
     def handle_response(self, response):
         if response.ok:
             return

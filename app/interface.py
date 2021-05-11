@@ -327,10 +327,7 @@ def translate_esdl_to_slider_settings(energy_system, environment):
             print(f"{input_name}: {input_value['value']}")
             set_sliders[input_name] = input_value['value']
 
-    # Set all new sliders simultaneously
-    response = etm.change_inputs(set_sliders)
-
-    return etm, response
+    return etm, set_sliders
 
 
 def add_kpis_to_esdl(energy_system, environment, scenario_id):
