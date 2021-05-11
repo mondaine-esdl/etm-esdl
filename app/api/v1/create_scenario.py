@@ -12,9 +12,10 @@ from app.interface import (
 )
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
+from app.services.create_blank_scenario import CreateBlankScenario
 from app.helpers.exceptions import EnergysystemParseError
 from app.constants.errors import messages
-# import app.constants.areas as areas
+import app.constants.areas as areas
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
 
@@ -56,27 +57,29 @@ class EnergySystem(Resource):
         Transform ESDL energy system description into an ETM scenario
         """
         args = import_parser.parse_args()
-
-        # TODO: clean the args up
         energy_system_title = args['energy_system_title'] or 'original.esdl'
         env = args['environment']
 
-        energy_system_h = setup_esh_from_energy_system(args['energy_system'])
-        # area_code = areas.mapping[energy_system_h.es.instance[0].area.id]
+        # Parse ESDL file and create scenario
+        energy_system_handler = setup_esh_from_energy_system(args['energy_system'])
+        scenario_id = new_scenario_id(energy_system_handler, env)
 
-        etm_config, new_sliders = translate_esdl_to_slider_settings(energy_system_h, env)
-        set_silders_result = SetScenarioSliders.execute(env, etm_config.scenario_id, new_sliders)
-        if not set_silders_result.successful: handle_failure(set_silders_result)
+        # Set sliders in new scenario
+        new_sliders = translate_esdl_to_slider_settings(energy_system_handler)
+        set_silders_result = SetScenarioSliders.execute(env, scenario_id, new_sliders)
+        if not set_silders_result.successful:
+            fail_with(set_silders_result)
 
-        add_kpis_to_esdl(energy_system_h, env, etm_config.scenario_id)
-
+        # Attach ESDL file to scenario
+        add_kpis_to_esdl(energy_system_handler, env, scenario_id)
         result = AttachEsdlToEtengine.execute(
             env,
-            etm_config.scenario_id,
-            energy_system_h.get_as_stream(),
+            scenario_id,
+            energy_system_handler.get_as_stream(),
             energy_system_title
         )
-        if not result.successful: handle_failure(result)
+        if not result.successful:
+            fail_with(result)
 
         return {
             'show_url': {
@@ -84,14 +87,30 @@ class EnergySystem(Resource):
                 'url': (
                     'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
                     environment='beta-pro' if env == 'beta' else 'pro',
-                    scenario_id=etm_config.scenario_id)),
+                    scenario_id=scenario_id)),
                 'link_text': 'Open ETM'
             },
-            'scenario_id': etm_config.scenario_id
+            'scenario_id': scenario_id
         }
 
+def new_scenario_id(energy_system_handler, env):
+    '''
+    Creates a new scenario in ETEngine. Returns the scenario id if succesful.
+    '''
+    area_code = areas.mapping[energy_system_handler.es.instance[0].area.id]
+    result = CreateBlankScenario.execute(env, 0, area_code, 2050)
+
+    if result.successful:
+        return result.value
+
+    fail_with(result)
+
+
 # TODO: better placement and handling
-def handle_failure(result):
+def fail_with(result):
+    '''
+    Raises an EnergySystemParseError with a humanized message based on the results errors
+    '''
     if not len(result.errors) > 0:
         raise EnergysystemParseError('Something went wrong', 422)
 

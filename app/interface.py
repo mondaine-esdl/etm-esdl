@@ -282,7 +282,7 @@ def parse_aggregated_buiding(energy_system, area, total_number_of_buildings):
         pass
 
 
-def translate_esdl_to_slider_settings(energy_system, environment):
+def translate_esdl_to_slider_settings(energy_system):
     """
     TODO
     """
@@ -292,14 +292,6 @@ def translate_esdl_to_slider_settings(energy_system, environment):
 
     # Determine top level area
     top_area = energy_system.es.instance[0].area
-
-    # Use the API to create a new (empty) ETM scenario for this specific region
-    etm = start_etm_session(environment)
-
-    etm.create_new_scenario(
-        f'Mondaine - {energy_system.es.name}',
-        areas.mapping[top_area.id],
-        2050)
 
     number_of_buildings = determine_number_of_buildings(energy_system)
 
@@ -327,7 +319,7 @@ def translate_esdl_to_slider_settings(energy_system, environment):
             print(f"{input_name}: {input_value['value']}")
             set_sliders[input_name] = input_value['value']
 
-    return etm, set_sliders
+    return set_sliders
 
 
 def add_kpis_to_esdl(energy_system, environment, scenario_id):

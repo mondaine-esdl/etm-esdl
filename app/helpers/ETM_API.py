@@ -57,26 +57,6 @@ class ETM_API(object):
         """
         return response.json()["gqueries"]
 
-
-    def create_new_scenario(self, scenario_title, area_code, end_year):
-        """
-        Create a new scenario in the ETM. The scenario_id is saved so we can
-        continue from the new scenario later on.
-        """
-        post_data = {
-            "scenario": {
-                "title": scenario_title,
-                "area_code": area_code,
-                "end_year": end_year
-            }
-        }
-        response = self.session.post("/scenarios", json=post_data,
-                                     headers={'Connection':'close'})
-
-        self.handle_response(response)
-        self.scenario_id = response.json()["id"]
-
-
     def reset_scenario(self):
         """
         Resets scenario with scenario_id
