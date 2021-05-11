@@ -36,11 +36,6 @@ import_parser.add_argument(
     help='The energy system definition (URL encoded ESDL string)',
     location='form'
 )
-import_parser.add_argument(
-    'environment', type=str, required=True,
-    help='The environment of the Energy Transition Model ("beta" or "pro")',
-    location='form'
-)
 import_parser.add_argument('energy_system_title', type=str, required=False, location='form')
 
 ## Controller
@@ -58,22 +53,20 @@ class EnergySystem(Resource):
         """
         args = import_parser.parse_args()
         energy_system_title = args['energy_system_title'] or 'original.esdl'
-        env = args['environment']
 
         # Parse ESDL file and create scenario
         energy_system_handler = setup_esh_from_energy_system(args['energy_system'])
-        scenario_id = new_scenario_id(energy_system_handler, env)
+        scenario_id = new_scenario_id(energy_system_handler)
 
         # Set sliders in new scenario
         new_sliders = translate_esdl_to_slider_settings(energy_system_handler)
-        set_silders_result = SetScenarioSliders.execute(env, scenario_id, new_sliders)
+        set_silders_result = SetScenarioSliders.execute(scenario_id, new_sliders)
         if not set_silders_result.successful:
             fail_with(set_silders_result)
 
         # Attach ESDL file to scenario
-        add_kpis_to_esdl(energy_system_handler, env, scenario_id)
+        add_kpis_to_esdl(energy_system_handler, scenario_id)
         result = AttachEsdlToEtengine.execute(
-            env,
             scenario_id,
             energy_system_handler.get_as_stream(),
             energy_system_title
@@ -81,24 +74,14 @@ class EnergySystem(Resource):
         if not result.successful:
             fail_with(result)
 
-        return {
-            'show_url': {
-                'description': 'Click on this link to open the created ETM scenario:',
-                'url': (
-                    'https://{environment}.energytransitionmodel.com/scenarios/{scenario_id}'.format(
-                    environment='beta-pro' if env == 'beta' else 'pro',
-                    scenario_id=scenario_id)),
-                'link_text': 'Open ETM'
-            },
-            'scenario_id': scenario_id
-        }
+        return {'scenario_id': scenario_id}
 
-def new_scenario_id(energy_system_handler, env):
+def new_scenario_id(energy_system_handler):
     '''
     Creates a new scenario in ETEngine. Returns the scenario id if succesful.
     '''
     area_code = areas.mapping[energy_system_handler.es.instance[0].area.id]
-    result = CreateBlankScenario.execute(env, 0, area_code, 2050)
+    result = CreateBlankScenario.execute(0, area_code, 2050)
 
     if result.successful:
         return result.value

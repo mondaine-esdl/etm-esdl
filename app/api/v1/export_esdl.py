@@ -24,11 +24,6 @@ export_parser.add_argument(
     location='form'
 )
 export_parser.add_argument(
-    'environment', type=str, required=True,
-    help='The environment of the Energy Transition Model ("beta" or "pro")',
-    location='form'
-)
-export_parser.add_argument(
     'session_id', type=str, required=True,
     help='The session ID of the Energy Transition Model scenario',
     location='form'
@@ -48,13 +43,12 @@ class ETMScenario(Resource):
         args = export_parser.parse_args()
 
         es = args['energy_system']
-        env = args['environment']
         session_id = args['session_id']
 
-        esh = setup_esh_from_energy_system(es) if es else setup_esh_from_scenario(env, session_id)
+        esh = setup_esh_from_energy_system(es) if es else setup_esh_from_scenario(session_id)
 
         # Call method that updates ESDL based on ETM scenario settings
-        esh = update_esdl(esh, env, session_id)
+        esh = update_esdl(esh, session_id)
 
         return {
             'energy_system': esh.get_as_string()

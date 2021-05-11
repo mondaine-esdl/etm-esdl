@@ -3,7 +3,7 @@ from app.constants.inputs import input_values
 # TODO: why are we importing everything here?
 from app.esdl.esdl import *
 from app.helpers.edr import EnergyDataRepository
-
+from app.helpers.exceptions import EnergysystemParseError
 from app.services.query_scenario import QueryScenario
 
 
@@ -34,12 +34,12 @@ class Supply():
         self.set_props(overwrite)
 
 
-    def update(self, etm):
+    def update(self, scenario_id):
         """
         Update the power and full load hours based on the ETM inputs
         """
         self.call()
-        self.update_props(etm)
+        self.update_props(scenario_id)
 
 
     def all_instances(self):
@@ -97,11 +97,11 @@ class Supply():
         print(f'self.full_load_hours = {self.full_load_hours}')
 
 
-    def query_scenario(self, etm, prop):
+    def query_scenario(self, scenario_id, prop):
         """
         TODO
         """
-        query_result = QueryScenario(etm.environment, etm.scenario_id)(prop['gquery'])
+        query_result = QueryScenario.execute(scenario_id, prop['gquery'])
 
         if query_result.successful:
             return query_result.value[prop['gquery']]['future'] / prop['factor']
@@ -111,7 +111,7 @@ class Supply():
         )
 
 
-    def update_props(self, etm):
+    def update_props(self, scenario_id):
         """
         TODO
         """
@@ -124,7 +124,7 @@ class Supply():
         # TODO: Send the queries in batches instead of one-by-one
         for attr in ['fullLoadHours', 'power']:
             prop = list_of_props[attr]
-            val = self.query_scenario(etm, prop)
+            val = self.query_scenario(scenario_id, prop)
 
             if attr == 'fullLoadHours':
                 self.update_flh(val / prop['factor'])

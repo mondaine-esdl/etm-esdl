@@ -17,14 +17,14 @@ from app.helpers.supply import Supply
 
 from app.services.query_scenario import QueryScenario
 
-def start_etm_session(environment, scenario_id=None):
+def start_etm_session(scenario_id=None):
     """
-    Start an ETM API session based on the given environment (beta or pro)
+    Start an ETM API session based on the set environment (beta for staging or pro for pro)
     """
     if scenario_id:
-        return ETM_API(environment, scenario_id)
+        return ETM_API(scenario_id)
 
-    return ETM_API(environment)
+    return ETM_API()
 
 
 def add_quantity_and_units(energy_system):
@@ -46,7 +46,7 @@ def add_quantity_and_units(energy_system):
             q_and_u.quantityAndUnit.append(unit)
 
 
-def update_kpis(energy_system, etm):
+def update_kpis(energy_system, scenario_id):
     """
     TODO
     """
@@ -55,7 +55,7 @@ def update_kpis(energy_system, etm):
         prop = kpis.gqueries[kpi.id]
 
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        query_result = QueryScenario.execute(etm.environment, etm.scenario_id, *list_of_gqueries)
+        query_result = QueryScenario.execute(scenario_id, *list_of_gqueries)
 
         if not query_result.successful: raise ValueError(query_result.errors)
         metrics = query_result.value
@@ -76,7 +76,7 @@ def update_kpis(energy_system, etm):
             kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
 
-def add_kpis(energy_system, etm):
+def add_kpis(energy_system, scenario_id):
     """
     TODO
     """
@@ -84,7 +84,7 @@ def add_kpis(energy_system, etm):
 
     for kpi_id, prop in kpis.gqueries.items():
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        query_result = QueryScenario.execute(etm.environment, etm.scenario_id, *list_of_gqueries)
+        query_result = QueryScenario.execute(scenario_id, *list_of_gqueries)
 
         if not query_result.successful: raise ValueError(query_result.errors)
         metrics = query_result.value
@@ -322,18 +322,17 @@ def translate_esdl_to_slider_settings(energy_system):
     return set_sliders
 
 
-def add_kpis_to_esdl(energy_system, environment, scenario_id):
+def add_kpis_to_esdl(energy_system, scenario_id):
     """
     After adding the KPI's to the EnergySystem, it's no longer able to be
     converted into either a file or an esdl string
     """
-    etm = start_etm_session(environment, scenario_id)
 
     # Add quantity and units to EnergySystemInformation
     add_quantity_and_units(energy_system)
 
     # Add (empty) KPIs and targets and update KPIs based on ETM metrics
-    add_kpis(energy_system, etm)
+    add_kpis(energy_system, scenario_id)
 
     # Just for testing:
     # f = open('data/output/test_import_1.esdl', 'a')
@@ -341,18 +340,16 @@ def add_kpis_to_esdl(energy_system, environment, scenario_id):
     # f.close()
 
 
-def update_esdl(energy_system, environment, scenario_id):
+def update_esdl(energy_system, scenario_id):
     """
     TODO
     """
-    etm = start_etm_session(environment, scenario_id)
-
     # Update KPIs
-    update_kpis(energy_system, etm)
+    update_kpis(energy_system, scenario_id)
 
     # Update capacities of wind turbines and possibly add measures
     for asset_type in ['WindTurbine']:
-        Supply(energy_system, asset_type, assets.supply[asset_type]).update(etm)
+        Supply(energy_system, asset_type, assets.supply[asset_type]).update(scenario_id)
 
     # Just for testing:
     # f = open('data/output/test.esdl', 'a')
@@ -374,10 +371,10 @@ def setup_esh_from_energy_system(energy_system):
     except Exception as exception:
         raise EnergysystemParseError('ESDL could not be parsed', 422) from exception
 
-def setup_esh_from_scenario(environment, scenario_id):
+def setup_esh_from_scenario(scenario_id):
     esh = EnergySystemHandler()
     # fetch
-    etm = start_etm_session(environment, scenario_id)
+    etm = start_etm_session(scenario_id)
     esh.load_from_string(etm.fetch_energy_system())
 
     return esh

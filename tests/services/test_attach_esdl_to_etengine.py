@@ -19,26 +19,26 @@ def empty_esdl_stream():
 def test_instance(app):
     # We need the context to access the config variables
     with app.app_context():
-        service = AttachEsdlToEtengine('beta', 12345)
+        service = AttachEsdlToEtengine(12345)
         assert isinstance(service, EtengineService)
 
 def test_call_with_valid_stream(app, esdl_stream, requests_mock):
     requests_mock.put(
-        f'{app.config["ETENGINE"]["beta"]}/scenarios/12345/esdl_file',
+        f'{app.config["ETENGINE_URL"]}/scenarios/12345/esdl_file',
         status_code=204
     )
     with app.app_context():
-        response = AttachEsdlToEtengine.execute('beta', 12345, esdl_stream, 'default.esdl')
+        response = AttachEsdlToEtengine.execute(12345, esdl_stream, 'default.esdl')
         assert isinstance(response, ServiceResult)
         assert response.successful
 
 def test_call_with_empty_stream(app, empty_esdl_stream, requests_mock):
     requests_mock.put(
-        f'{app.config["ETENGINE"]["beta"]}/scenarios/12345/esdl_file',
+        f'{app.config["ETENGINE_URL"]}/scenarios/12345/esdl_file',
         status_code=422,
         json={'errors': 'This file does not contain ESDL'}
     )
     with app.app_context():
-        response = AttachEsdlToEtengine.execute('beta', 12345, empty_esdl_stream, 'default.esdl')
+        response = AttachEsdlToEtengine.execute(12345, empty_esdl_stream, 'default.esdl')
         assert isinstance(response, ServiceResult)
         assert not response.successful

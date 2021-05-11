@@ -34,14 +34,13 @@ class ETM_API(object):
     various input parameters.
     """
 
-    def __init__(self, environment, scenario_id="363691"):
+    def __init__(self, scenario_id="363691"):
         """
         Note: 363691 is the scenario_id of a default scenario created by
         DataQuest. This scenario is stored within the ETM for future use.
         """
-        self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
+        self.session = SessionWithUrlBase(current_app.config['ETENGINE_URL'])
         self.scenario_id = scenario_id
-        self.environment = environment
 
     def fetch_energy_system(self):
         """
