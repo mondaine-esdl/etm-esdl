@@ -1,17 +1,11 @@
 '''
 This is now mostly legacy code, all neccesary things should be transformed into a service
 '''
-
-import sys
-
-import io
-import json
 import requests
 
 from flask import current_app
 from app.helpers.exceptions import EnergysystemParseError
-from app.helpers.StringURI import StringURI
-from app.constants.errors import messages as messages
+from app.constants.errors import messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -48,33 +42,6 @@ class ETM_API(object):
         self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
         self.scenario_id = scenario_id
         self.environment = environment
-
-
-    def return_gqueries(self, response):
-        """
-        Extracts information from object p by converting to JSON (use
-        like a dict).
-        """
-        return response.json()["gqueries"]
-
-    def reset_scenario(self):
-        """
-        Resets scenario with scenario_id
-        """
-        put_data = {"reset": True}
-        response = self.session.put('/scenarios/' + self.scenario_id, json=put_data,
-                                    headers={'Connection':'close'})
-        self.current_metrics = self.return_gqueries(response)
-
-
-    def get_inputs(self):
-        """
-        Get list of available inputs. Can be used to search parameter space?
-        """
-        response = self.session.get('/scenarios/' + self.scenario_id + "/inputs",
-                                    headers={'Connection':'close'})
-
-        self.dict_inputs = response.json()
 
     def fetch_energy_system(self):
         """
