@@ -14,6 +14,7 @@ from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.helpers.exceptions import EnergysystemParseError
 from app.constants.errors import messages
+# import app.constants.areas as areas
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
 
@@ -57,21 +58,23 @@ class EnergySystem(Resource):
         args = import_parser.parse_args()
 
         # TODO: clean the args up
-        es = args['energy_system']
         energy_system_title = args['energy_system_title'] or 'original.esdl'
         env = args['environment']
 
-        esh = setup_esh_from_energy_system(es)
+        energy_system_h = setup_esh_from_energy_system(args['energy_system'])
+        # area_code = areas.mapping[energy_system_h.es.instance[0].area.id]
 
-        etm_config, new_sliders = translate_esdl_to_slider_settings(esh, env)
-        set_silders_result = SetScenarioSliders(env, etm_config.scenario_id)(new_sliders)
+        etm_config, new_sliders = translate_esdl_to_slider_settings(energy_system_h, env)
+        set_silders_result = SetScenarioSliders.execute(env, etm_config.scenario_id, new_sliders)
         if not set_silders_result.successful: handle_failure(set_silders_result)
 
-        print(f'Sceanrio ID: {etm_config.scenario_id}')
-        add_kpis_to_esdl(esh, env, etm_config.scenario_id)
+        add_kpis_to_esdl(energy_system_h, env, etm_config.scenario_id)
 
-        result = AttachEsdlToEtengine(env, etm_config.scenario_id)(
-            esh.get_as_stream(), energy_system_title
+        result = AttachEsdlToEtengine.execute(
+            env,
+            etm_config.scenario_id,
+            energy_system_h.get_as_stream(),
+            energy_system_title
         )
         if not result.successful: handle_failure(result)
 

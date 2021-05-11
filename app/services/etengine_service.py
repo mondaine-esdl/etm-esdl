@@ -9,9 +9,20 @@ class EtengineService():
     """
     Setup a basic service to connect to ETEngine
     """
-    def __init__(self, environment, scenario_id=0):
+    def __init__(self, environment, scenario_id):
         self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
         self.scenario_id = scenario_id
+
+    def __call__(self, *args, **kwargs):
+        raise NotImplementedError()
+
+    @classmethod
+    def execute(cls, environment, scenario_id, *args, **kwargs):
+        '''
+        Creates a new Services and executes it
+        '''
+        service = cls(environment, scenario_id)
+        return service.__call__(*args, **kwargs)
 
 # Can/should we get rid of this?
 class SessionWithUrlBase(requests.Session):

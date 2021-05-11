@@ -26,8 +26,7 @@ def test_call_with_valid_sliders_and_values(app, requests_mock):
     mock_response(app, requests_mock)
 
     with app.app_context():
-        service = SetScenarioSliders('beta', 12345)
-        result = service(sliders)
+        result = SetScenarioSliders.execute('beta', 12345, sliders)
         assert isinstance(result, ServiceResult)
         assert result.successful
 
@@ -36,8 +35,7 @@ def test_call_with_valid_sliders_and_invalid_values(app, requests_mock):
     mock_response(app, requests_mock, 422, errors={'errors': ['valid_key must be more than 0']})
 
     with app.app_context():
-        service = SetScenarioSliders('beta', 12345)
-        result = service(sliders)
+        result = SetScenarioSliders.execute('beta', 12345, sliders)
         assert isinstance(result, ServiceResult)
         assert result.failure
         assert 'valid_key must be more than 0' in result.errors
@@ -47,8 +45,7 @@ def test_call_with_one_invalid_slider(app, requests_mock):
     mock_response(app, requests_mock, 422, errors={'errors': ['invalid_key is invalid']})
 
     with app.app_context():
-        service = SetScenarioSliders('beta', 12345)
-        result = service(sliders)
+        result = SetScenarioSliders.execute('beta', 12345, sliders)
         assert isinstance(result, ServiceResult)
         assert result.failure
         assert 'invalid_key is invalid' in result.errors
@@ -58,8 +55,7 @@ def test_call_with_only_invalid_sliders(app, requests_mock):
     mock_response(app, requests_mock, 422, errors={'errors': ['invalid_key is invalid']})
 
     with app.app_context():
-        service = SetScenarioSliders('beta', 12345)
-        result = service(sliders)
+        result = SetScenarioSliders.execute('beta', 12345, sliders)
         assert isinstance(result, ServiceResult)
         assert result.failure
         assert 'invalid_key is invalid' in result.errors

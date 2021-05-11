@@ -55,7 +55,7 @@ def update_kpis(energy_system, etm):
         prop = kpis.gqueries[kpi.id]
 
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        query_result = QueryScenario(etm.environment, etm.scenario_id)(*list_of_gqueries)
+        query_result = QueryScenario.execute(etm.environment, etm.scenario_id, *list_of_gqueries)
 
         if not query_result.successful: raise ValueError(query_result.errors)
         metrics = query_result.value
@@ -84,7 +84,7 @@ def add_kpis(energy_system, etm):
 
     for kpi_id, prop in kpis.gqueries.items():
         list_of_gqueries = [gquery['gquery'] for gquery in prop['gqueries']]
-        query_result = QueryScenario(etm.environment, etm.scenario_id)(*list_of_gqueries)
+        query_result = QueryScenario.execute(etm.environment, etm.scenario_id, *list_of_gqueries)
 
         if not query_result.successful: raise ValueError(query_result.errors)
         metrics = query_result.value

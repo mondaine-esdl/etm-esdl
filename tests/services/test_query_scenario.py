@@ -27,8 +27,7 @@ def test_call_with_valid_queries(app, requests_mock):
     )
 
     with app.app_context():
-        service = QueryScenario('beta', 12345)
-        result = service(queries)
+        result = QueryScenario.execute('beta', 12345, queries)
         assert result.successful
         assert len(result.value) == 2
         assert all([key in queries for key in result.value.keys()])

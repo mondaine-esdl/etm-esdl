@@ -28,8 +28,7 @@ def test_call_with_valid_stream(app, esdl_stream, requests_mock):
         status_code=204
     )
     with app.app_context():
-        service = AttachEsdlToEtengine('beta', 12345)
-        response = service(esdl_stream, 'default.esdl')
+        response = AttachEsdlToEtengine.execute('beta', 12345, esdl_stream, 'default.esdl')
         assert isinstance(response, ServiceResult)
         assert response.successful
 
@@ -40,7 +39,6 @@ def test_call_with_empty_stream(app, empty_esdl_stream, requests_mock):
         json={'errors': 'This file does not contain ESDL'}
     )
     with app.app_context():
-        service = AttachEsdlToEtengine('beta', 12345)
-        response = service(empty_esdl_stream, 'default.esdl')
+        response = AttachEsdlToEtengine.execute('beta', 12345, empty_esdl_stream, 'default.esdl')
         assert isinstance(response, ServiceResult)
         assert not response.successful
