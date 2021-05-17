@@ -1,10 +1,7 @@
 ''' TODO Check if this should be a model or a service'''
 
-import requests
-from requests import Session, adapters
-from xml.etree import ElementTree
 import urllib.parse
-
+from requests import Session
 from .energy_system_handler import EnergySystemHandler
 
 class EnergyDataRepository():
@@ -19,13 +16,9 @@ class EnergyDataRepository():
 
 
     def parse(self, response):
-        esh = EnergySystemHandler()
-
-        try:
-            esdl_string = urllib.parse.unquote(response.text)
-            esh.load_from_string(esdl_string)
-        except EnergysystemParseError:
-            raise
+        esh = EnergySystemHandler.from_string(
+            urllib.parse.unquote(response.text)
+        )
 
         return esh.es
 

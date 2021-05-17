@@ -363,18 +363,11 @@ def setup_esh_from_energy_system(energy_system):
     Creates and returns an EnergySystemHandler based on an energy_system '.esdl' file that was
     extracted from form-data
     '''
-    esh = EnergySystemHandler()
     try:
-        esdl_string = urllib.parse.unquote(energy_system)
-        esh.load_from_string(esdl_string)
-        return esh
+        return EnergySystemHandler.from_string(urllib.parse.unquote(energy_system))
     except Exception as exception:
         raise EnergysystemParseError('ESDL could not be parsed', 422) from exception
 
 def setup_esh_from_scenario(scenario_id):
-    esh = EnergySystemHandler()
-    # fetch
     etm = start_etm_session(scenario_id)
-    esh.load_from_string(etm.fetch_energy_system())
-
-    return esh
+    return EnergySystemHandler.from_string(etm.fetch_energy_system())

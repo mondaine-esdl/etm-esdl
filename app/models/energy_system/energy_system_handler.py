@@ -282,14 +282,18 @@ class EnergySystemHandler:
         # return the string
         return uri.get_stream()
 
-    # load an EnergySystem from a string (using UTF-8 encoding)
-    def load_from_string(self, string):
-        uri = StringURI('loadfromstring', string)
-        # this overrides the current loaded resource
-        self.resource = self.rset.create_resource(uri)
-        self.resource.load()
-        self.es = self.resource.contents[0]
-        return self.es
+    @classmethod
+    def from_string(cls, esdl_string):
+        '''
+        Create a new EnergySystemHandler based on an EnergySystem esdl_string (using UTF-8 encoding)
+        '''
+        handler = cls()
+        handler.resource = handler.rset.create_resource(
+            StringURI('loadfromstring', esdl_string)
+        )
+        handler.resource.load()
+        handler.es = handler.resource.contents[0]
+        return handler
 
 
 class PrintNotification(EObserver):
