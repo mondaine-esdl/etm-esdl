@@ -1,6 +1,6 @@
-from pyecore.resources import URI
+''' Used to convert ESDL from and to a stream'''
 from io import BytesIO
-
+from pyecore.resources import URI
 
 class StringURI(URI):
     def __init__(self, uri, text=None):

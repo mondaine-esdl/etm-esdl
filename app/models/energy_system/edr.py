@@ -1,9 +1,11 @@
+''' TODO Check if this should be a model or a service'''
+
 import requests
 from requests import Session, adapters
 from xml.etree import ElementTree
 import urllib.parse
 
-from app.helpers.energy_system_handler import EnergySystemHandler
+from .energy_system_handler import EnergySystemHandler
 
 class EnergyDataRepository():
     """

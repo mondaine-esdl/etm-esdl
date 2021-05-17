@@ -1,13 +1,10 @@
-from time import sleep
-
+''' Main interface to an ESDL energy system '''
+import uuid
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
-from pyecore.resources.resource import HttpURI
-from app.helpers.xmlresource import XMLResource
 from pyecore.notification import EObserver
-import uuid
-from app.helpers.StringURI import StringURI
-from io import BytesIO
+from .xmlresource import XMLResource
+from .StringURI import StringURI
 
 class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""

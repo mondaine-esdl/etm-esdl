@@ -1,8 +1,9 @@
-import app.constants.assets as assets
+''' Represents a single supply asset '''
+
 from app.constants.inputs import input_values
 # TODO: why are we importing everything here?
-from app.esdl.esdl import *
-from app.helpers.edr import EnergyDataRepository
+from app.models.energy_system.esdl import *
+from app.models.energy_system import EnergyDataRepository
 from app.helpers.exceptions import EnergysystemParseError
 from app.services.query_scenario import QueryScenario
 

@@ -1,10 +1,11 @@
-'''
-Balancer is initialised with slider settings like the ones defined in
-config/inputs. On call it returns said slider settings, altered so that the
-values of sliders in a balancing group sum to 100.
-'''
+''' Balances sliders in a balancing group to sum to 100. '''
 
 class Balancer:
+    '''
+    Balancer is initialised with slider settings like the ones defined in
+    config/inputs. On call it returns said slider settings, altered so that the
+    values of sliders in a balancing group sum to 100.
+    '''
     def __init__(self, slider_settings):
         self.slider_settings = slider_settings
 

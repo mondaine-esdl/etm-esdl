@@ -8,12 +8,12 @@ import app.constants.kpis as kpis
 from app.constants.q_and_u import quantities
 from app.constants.inputs import input_values
 
-from app.helpers.balancer import Balancer
-from app.helpers.energy_system_handler import EnergySystemHandler
+from app.models.balancer import Balancer
+from app.models.energy_system import EnergySystemHandler
 from app.helpers.ETM_API import ETM_API
 from app.helpers.exceptions import EnergysystemParseError
-from app.helpers.rooftop_pv import RooftopPV
-from app.helpers.supply import Supply
+from app.models.rooftop_pv import RooftopPV
+from app.models.supply import Supply
 
 from app.services.query_scenario import QueryScenario
 
