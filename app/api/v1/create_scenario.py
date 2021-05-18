@@ -8,8 +8,9 @@ from flask_restx import Namespace, Resource, fields
 
 # TODO: This needs to be nicer - create a Service or model of some kind
 from app.interface import (
-    setup_esh_from_energy_system, translate_esdl_to_slider_settings, add_kpis_to_esdl
+    setup_esh_from_energy_system, add_kpis_to_esdl
 )
+from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.services.create_blank_scenario import CreateBlankScenario
@@ -59,8 +60,10 @@ class EnergySystem(Resource):
         scenario_id = new_scenario_id(energy_system_handler)
 
         # Set sliders in new scenario
-        new_sliders = translate_esdl_to_slider_settings(energy_system_handler)
-        set_silders_result = SetScenarioSliders.execute(scenario_id, new_sliders)
+        set_silders_result = SetScenarioSliders.execute(
+            scenario_id,
+            EsdlToScenarioConverter(energy_system_handler).calculate()
+        )
         if not set_silders_result.successful:
             fail_with(set_silders_result)
 

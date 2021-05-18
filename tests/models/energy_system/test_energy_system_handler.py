@@ -4,6 +4,7 @@ Shoul be expanded!!
 '''
 
 import pytest
+# pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
 
 @pytest.fixture
