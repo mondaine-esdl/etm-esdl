@@ -8,7 +8,7 @@ import app.constants.key_figures as key_figures
 from .parser import Parser
 
 class EnergyLabelsParser(Parser):
-    ''' Parses energy labels per aggegrated building '''
+    '''Parser for energy labels, parses per aggegrated building and builds ETM inputs'''
     def __init__(self, energy_system, total_buildings):
         super().__init__(energy_system)
         self.__total_buildings = total_buildings

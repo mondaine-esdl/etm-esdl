@@ -60,7 +60,9 @@ class EsdlToScenarioConverter():
             'UTILITY': 0
         }
 
-        list_of_assets = self.energy_system.get_all_instances_of_type(self.energy_system.esdl.AggregatedBuilding)
+        list_of_assets = self.energy_system.get_all_instances_of_type(
+            self.energy_system.esdl.AggregatedBuilding
+        )
 
         for asset in list_of_assets:
             if asset.numberOfBuildings:
@@ -79,27 +81,24 @@ class EsdlToScenarioConverter():
 
     def parse_aggregated_buiding(self, area, total_number_of_buildings):
         """
-        TODO
+        Parses all aggregated_buidings in the specified area, calculates slider settings
+        and updates self.inputs accordingly
         """
-        try:
-            aggregated_buildings = self.energy_system.get_assets_of_type(
-                area,
-                self.energy_system.esdl.AggregatedBuilding
+        aggregated_buildings = self.energy_system.get_assets_of_type(
+            area,
+            self.energy_system.esdl.AggregatedBuilding
+        )
+        heat_parser = HeatingTechnologiesParser(self.energy_system, total_number_of_buildings)
+        labels_parser = EnergyLabelsParser(self.energy_system, total_number_of_buildings)
+        for aggregated_building in aggregated_buildings:
+            building_type = str(
+                aggregated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
             )
-            heat_parser = HeatingTechnologiesParser(self.energy_system, total_number_of_buildings)
-            labels_parser = EnergyLabelsParser(self.energy_system, total_number_of_buildings)
-            for aggregated_building in aggregated_buildings:
-                building_type = str(
-                    aggregated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
-                )
-                heat_parser.parse(aggregated_building, building_type)
-                labels_parser.parse(aggregated_building, building_type)
+            heat_parser.parse(aggregated_building, building_type)
+            labels_parser.parse(aggregated_building, building_type)
 
-            self.__include_parsed_data(heat_parser.get_parsed_inputs())
-            self.__include_parsed_data(labels_parser.get_parsed_inputs())
-        # what's this for??
-        except:
-            pass
+        self.__include_parsed_data(heat_parser.get_parsed_inputs())
+        self.__include_parsed_data(labels_parser.get_parsed_inputs())
 
     def __include_parsed_data(self, parsed_data):
         for key, val in parsed_data.items():

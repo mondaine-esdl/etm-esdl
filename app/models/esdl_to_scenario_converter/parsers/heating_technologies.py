@@ -6,7 +6,7 @@ import app.constants.assets as assets
 from .parser import Parser
 
 class HeatingTechnologiesParser(Parser):
-    ''' Parses heating technologies '''
+    ''' Parser for heating technologies, parses per aggegrated building and builds ETM inputs '''
     def __init__(self, energy_system, total_buildings):
         super().__init__(energy_system)
         self.__total_buildings = total_buildings
@@ -60,7 +60,8 @@ class HeatingTechnologiesParser(Parser):
 
     def __prop_heat_technology(self, aggregated_building):
         """
-        TODO
+        Returns a dict of the heat technologies properties, based on the available assets in the
+        aggegrated_building
         """
         # Parse heating technologies and calculate the new input values
         for technology, properties in assets.heating_technologies.items():
