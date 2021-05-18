@@ -29,9 +29,13 @@ class EsdlToScenarioConverter():
         # Parse supply assets and calculate the new input values
         for asset_type, properties in assets.supply.items():
             if asset_type == 'RooftopPV':
-                RooftopPV(self.energy_system, properties).call()
+                self.__include_parsed_data(
+                    RooftopPV(self.energy_system, properties).parse()
+                )
             else:
-                Supply(self.energy_system, asset_type, properties).call(overwrite=True)
+                self.__include_parsed_data(
+                    Supply(self.energy_system, asset_type, properties).parse()
+                )
 
         number_of_buildings = self.determine_number_of_buildings()
         top_area = self.energy_system.es.instance[0].area
@@ -79,6 +83,7 @@ class EsdlToScenarioConverter():
 
         return number_of_buildings
 
+    # TODO: should be its own Parser
     def parse_aggregated_buiding(self, area, total_number_of_buildings):
         """
         Parses all aggregated_buidings in the specified area, calculates slider settings

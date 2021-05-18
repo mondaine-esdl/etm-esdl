@@ -1,12 +1,8 @@
 ''' Represents a single supply asset '''
 
-from app.constants.inputs import input_values
-# TODO: why are we importing everything here?
-from app.models.energy_system.esdl import *
 from app.models.energy_system import EnergyDataRepository
 from app.helpers.exceptions import EnergysystemParseError
 from app.services.query_scenario import QueryScenario
-
 
 class Supply():
     """
@@ -23,23 +19,21 @@ class Supply():
         self.full_load_hours = 0.
 
 
-    def call(self, overwrite=False):
+    def parse(self):
         """
         Check the power and full load hours to set the corresponding props.
-        If the overwrite parameter is set to True, the relevant ETM inputs are
-        overwritten. This is desired when converting an ESDL into an ETM
-        scenario. When updating the ESDL based on the ETM, this is not desired
-        though.
+        Returns a dict containing ETM inputs that can be used when converting ESDL to
+        slider settings.
         """
         self.all_instances()
-        self.set_props(overwrite)
+        return self.set_props()
 
 
     def update(self, scenario_id):
         """
         Update the power and full load hours based on the ETM inputs
         """
-        self.call()
+        self.parse()
         self.update_props(scenario_id)
 
 
@@ -56,13 +50,16 @@ class Supply():
                 f'We currently do not support the asset {str(att).split()[-1]}'
             ) from att
 
-
-    def set_props(self, overwrite):
+    def set_props(self):
         """
         Check the total power of the given asset
+
+        Returns a dict of ETM inputs and their new values
         """
         total_power = 0.
         full_load_hours = 0.
+
+        inputs = {}
 
         for asset in self.list_of_assets:
             for prop in self.props:
@@ -71,8 +68,8 @@ class Supply():
                 etm_value = esdl_value * prop['factor']
 
                 # Initialise the input value if it hasn't been touched yet
-                if not input_values[prop['input']]['value']:
-                    input_values[prop['input']]['value'] = 0
+                if not prop['input'] in inputs:
+                    inputs[prop['input']] = 0
 
                 # Keep track of the installed capacity to determine the average FLH
                 if prop['attribute'] == 'power':
@@ -81,21 +78,22 @@ class Supply():
                     # print(f'CAP = {total_power}')
 
                 elif prop['attribute'] == 'fullLoadHours':
-                    prev_etm_value = input_values[prop['input']]['value']
+                    prev_etm_value = inputs[prop['input']]
                     diff = etm_value - prev_etm_value # 1920 - 2500 = -580
                     etm_value = diff * current_power / total_power # -580 * 13 / 19
                     full_load_hours += etm_value
                     # print(f'FLH = {full_load_hours}')
 
-                # Update ETM input value when these should be overwritten
-                if overwrite:
-                    input_values[prop['input']]['value'] += etm_value
+                # Update ETM input value
+                inputs[prop['input']] += etm_value
 
             self.power = total_power
             self.full_load_hours = full_load_hours
 
         print(f'self.power = {self.power}')
         print(f'self.full_load_hours = {self.full_load_hours}')
+
+        return inputs
 
 
     def query_scenario(self, scenario_id, prop):

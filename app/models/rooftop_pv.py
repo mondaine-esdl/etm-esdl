@@ -1,8 +1,6 @@
 ''' Processes rooftop PV from ESDL to ETM'''
 
-from app.constants.inputs import input_values
-
-
+# TODO: Make this a Parser
 class RooftopPV():
     """
     Class to parse ESDL information about rooftop PV installations and
@@ -19,7 +17,7 @@ class RooftopPV():
         self.percentage_used = 0.
 
 
-    def call(self):
+    def parse(self):
         """
         Check the potential and production in order to determine the share of
         used potential. Based on this, the ETM input can be set.
@@ -28,9 +26,7 @@ class RooftopPV():
         self.set_potential()
         self.set_production()
         self.set_percentage_used()
-        self.set_input_value()
-
-        return self.percentage_used
+        return self.calculate_input_value()
 
 
     def set_potential(self):
@@ -73,13 +69,15 @@ class RooftopPV():
             self.percentage_used = self.production / (self.potential + self.production)
 
 
-    def set_input_value(self):
+    def calculate_input_value(self):
         """
-        Based on the percentage of used potential, set the ETM input values.
+        Based on the percentage of used potential, caluculate the ETM input values.
         Note that the same percentage is used for both rooftops of residences
         and services.
         """
+        inputs = {}
         if self.potential > 0:
             for prop in self.props:
                 for key in prop['inputs'].values():
-                    input_values[key]['value'] = self.percentage_used * prop['factor']
+                    inputs[key] = self.percentage_used * prop['factor']
+        return inputs
