@@ -33,31 +33,21 @@ class RooftopPV():
         """
         Check rooftop PV potential
         """
-        total_potential = 0.
-
         list_of_potentials = self.energy_system.get_all_instances_of_type(
             self.energy_system.esdl.SolarPotential)
 
-        for potential in list_of_potentials:
-            total_potential += potential.value
-
-        self.potential = total_potential
+        self.potential = sum((potential.value for potential in list_of_potentials))
 
 
     def set_production(self):
         """
         Check rooftop PV installations to determine the production
         """
-        total_production = 0.
-
         list_of_assets = self.energy_system.get_all_instances_of_type(
             self.energy_system.esdl.PVInstallation)
 
-        for asset in list_of_assets:
-            # Assuming there is only one port and one profile
-            total_production += asset.port[0].profile[0].value
-
-        self.production = total_production
+        # Assuming there is only one port and one profile
+        self.production = sum((asset.port[0].profile[0].value for asset in list_of_assets))
 
 
     def set_percentage_used(self):

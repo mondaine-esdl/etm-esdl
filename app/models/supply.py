@@ -61,6 +61,7 @@ class Supply():
 
         inputs = {}
 
+        # TODO: why do we keep resetting self.power in this for loop?
         for asset in self.list_of_assets:
             for prop in self.props:
                 # Calculate ETM input value
