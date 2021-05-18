@@ -2,7 +2,7 @@
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 import pytest
 from app.models.energy_system import EnergySystemHandler
-from app.models.esdl_to_scenario_converter.parsers.heating_technologies import HeatingTechnologies
+from app.models.esdl_to_scenario_converter.parsers.heating_technologies import HeatingTechnologiesParser
 
 @pytest.fixture
 def energy_system_handler():
@@ -24,7 +24,7 @@ def test_parse(energy_system_handler):
         aggregrated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
     )
 
-    heat_parser = HeatingTechnologies(energy_system_handler, total_buildings)
+    heat_parser = HeatingTechnologiesParser(energy_system_handler, total_buildings)
     heat_parser.parse(aggregrated_building, building_type)
     inputs = heat_parser.get_parsed_inputs()
     assert 'households_heater_district_heating_steam_hot_water_share' in inputs

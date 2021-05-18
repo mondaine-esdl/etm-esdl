@@ -35,20 +35,9 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
     assert isinstance(sliders, dict)
     assert sliders
 
-    # TODO @ROOS: hoe moeten die sliders eruit zien?? Voorbeeld
+    # TODO @ROOS: hoe moeten die sliders eruit zien?? Voorbeeld:
     # assert sliders[buildings_insulation_level] == 54.0
 
-
-def test_parse_distribution(converter):
-    aggregrated_building = converter.energy_system.get_assets_of_type(
-        converter.energy_system.es.instance[0].area.area[0],
-        converter.energy_system.esdl.AggregatedBuilding
-    )[0]
-
-    dist, prop = converter.parse_distribution(aggregrated_building, 'energyLabelDistribution')
-    assert isinstance(dist, dict)
-    assert set(dist.values()) == set([4.227405247813411, 17.20116618075802, 16.909620991253643,  61.66180758017493])
-    assert prop['attribute'] == 'energyLabel'
 
 def test_parse_aggregated_buiding(converter):
     default_inputs = copy.deepcopy(converter.inputs)
@@ -57,7 +46,18 @@ def test_parse_aggregated_buiding(converter):
         converter.energy_system.es.instance[0].area.area[0],
         {'RESIDENTIAL': 10000,'UTILITY': 10000}
     )
+    # The values should change from teh default
+    one_parse_inputs = copy.deepcopy(converter.inputs)
+    for key, val in one_parse_inputs.items():
+        if val['value'] is None: continue
+        assert default_inputs[key]['value'] != val['value']
+
+    # When parsing another building the values should change again
+    converter.parse_aggregated_buiding(
+        converter.energy_system.es.instance[0].area.area[0],
+        {'RESIDENTIAL': 10000,'UTILITY': 10000}
+    )
 
     for key, val in converter.inputs.items():
         if val['value'] is None: continue
-        assert default_inputs[key]['value'] != val['value']
+        assert one_parse_inputs[key]['value'] != val['value']

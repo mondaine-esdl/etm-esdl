@@ -3,7 +3,6 @@
 import copy
 
 import app.constants.assets as assets
-import app.constants.key_figures as key_figures
 
 # Default slider settings
 from app.constants.inputs import input_values
@@ -12,7 +11,8 @@ from app.models.balancer import Balancer
 from app.models.rooftop_pv import RooftopPV
 from app.models.supply import Supply
 
-from .parsers.heating_technologies import HeatingTechnologies
+from .parsers.heating_technologies import HeatingTechnologiesParser
+from .parsers.energy_labels import EnergyLabelsParser
 
 class EsdlToScenarioConverter():
     '''Convert an esdl energy_system to ETM slider settings'''
@@ -86,64 +86,24 @@ class EsdlToScenarioConverter():
                 area,
                 self.energy_system.esdl.AggregatedBuilding
             )
-            heat_parser = HeatingTechnologies(self.energy_system, total_number_of_buildings)
-
+            heat_parser = HeatingTechnologiesParser(self.energy_system, total_number_of_buildings)
+            labels_parser = EnergyLabelsParser(self.energy_system, total_number_of_buildings)
             for aggregated_building in aggregated_buildings:
-                number_of_buildings = aggregated_building.numberOfBuildings
-                building_type = str(aggregated_building.buildingTypeDistribution.
-                                    buildingTypePercentage[0].buildingType)
-
+                building_type = str(
+                    aggregated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
+                )
                 heat_parser.parse(aggregated_building, building_type)
+                labels_parser.parse(aggregated_building, building_type)
 
-                # Parse distribution of energy labels
-                self.parse_energy_labels(
-                    aggregated_building,
-                    building_type,
-                    number_of_buildings,
-                    total_number_of_buildings)
-
-            # Merging the dicts??
-            for key, val in heat_parser.get_parsed_inputs().items():
-                self.inputs[key]['value'] = val
+            self.__include_parsed_data(heat_parser.get_parsed_inputs())
+            self.__include_parsed_data(labels_parser.get_parsed_inputs())
+        # what's this for??
         except:
             pass
 
-    def parse_energy_labels(self,
-            aggregated_building,
-            building_type,
-            number_of_buildings,
-            total_number_of_buildings):
-        """
-        TODO
-        """
-        energy_labels, prop = self.parse_distribution(
-            aggregated_building,
-            'energyLabelDistribution')
-
-        etm_value = 0
-
-        for label, perc in energy_labels.items():
-            share_of_buildings = number_of_buildings / total_number_of_buildings[building_type]
-            etm_value += (perc / 100. * share_of_buildings *
-                        key_figures.energyLabel[str(label)][building_type])
-
-        for input_value in prop['inputs'][building_type]:
-            if not self.inputs[input_value]['value']:
-                self.inputs[input_value]['value'] = 0
-
-            self.inputs[input_value]['value'] += etm_value
-
-    def parse_distribution(self, aggregated_building, distribution_type):
-        """
-        Parses the distribution of a certain type in an aggegrated building assets into a dict
-        aggregated_building     AggegratedBuilding asset from the energy system
-        distribution_type       String, the type of distribution to be parsed e.g.
-                                'energyLabelDistribution'
-
-        Returns a tuple with the distribution (dict), and iets properties (dict)
-        """
-        prop = assets.distributions[distribution_type]
-        categories = getattr(getattr(aggregated_building, distribution_type), prop['category'])
-        dist = {getattr(cat, prop['attribute']): cat.percentage for cat in categories}
-
-        return dist, prop
+    def __include_parsed_data(self, parsed_data):
+        for key, val in parsed_data.items():
+            if not self.inputs[key]['value']:
+                self.inputs[key]['value'] = val
+            else:
+                self.inputs[key]['value'] += val

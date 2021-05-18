@@ -5,7 +5,7 @@ Parser for heating technologies
 import app.constants.assets as assets
 from .parser import Parser
 
-class HeatingTechnologies(Parser):
+class HeatingTechnologiesParser(Parser):
     ''' Parses heating technologies '''
     def __init__(self, energy_system, total_buildings):
         super().__init__(energy_system)
