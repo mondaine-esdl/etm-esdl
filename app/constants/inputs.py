@@ -33,3 +33,26 @@ input_values = {
     'technical_solar_pv_efficiency': { 'value': None },
     'green_gas_total_share': { 'value': None },
 }
+
+balancing_groups = {
+    'households_heating': [
+        'households_heater_combined_network_gas_share',
+        'households_heater_district_heating_steam_hot_water_share',
+        'households_heater_heatpump_air_water_electricity_share',
+        'households_heater_heatpump_ground_water_electricity_share',
+        'households_heater_hybrid_heatpump_air_water_electricity_share',
+        'households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share',
+        'households_heater_wood_pellets_share',
+        'households_heater_network_gas_share',
+        'households_heater_electricity_share',
+        'households_heater_crude_oil_share'
+    ],
+    'buildings_heating': [
+        'buildings_space_heater_network_gas_share',
+        'buildings_space_heater_collective_heatpump_water_water_ts_electricity_share',
+        'buildings_space_heater_heatpump_air_water_network_gas_share',
+        'buildings_space_heater_electricity_share',
+        'buildings_space_heater_wood_pellets_share',
+        'buildings_space_heater_district_heating_steam_hot_water_share'
+    ]
+}

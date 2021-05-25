@@ -21,12 +21,12 @@ def converter(energy_system_handler):
 
 def test_inputs_values(energy_system_handler):
     converter = EsdlToScenarioConverter(energy_system_handler)
-    assert all((val['value'] is None for val in converter.inputs.values()))
+    assert all((val is None for val in converter.inputs.values()))
 
     # now if we start a second converter it shouldn't keep the values from the first!
-    converter.inputs[next(iter(converter.inputs))]['value'] = 10.0
+    converter.inputs['households_heating'] = 10.0
     new_converter = EsdlToScenarioConverter(energy_system_handler)
-    assert all((val['value'] is None for val in new_converter.inputs.values()))
+    assert all((val is None for val in new_converter.inputs.values()))
 
 
 def test_calculate_with_valid_hengelo(energy_system_handler):
@@ -49,8 +49,7 @@ def test_parse_aggregated_buiding(converter):
     # The values should change from teh default
     one_parse_inputs = copy.deepcopy(converter.inputs)
     for key, val in one_parse_inputs.items():
-        if val['value'] is None: continue
-        assert default_inputs[key]['value'] != val['value']
+        assert default_inputs[key] != val
 
     # When parsing another building the values should change again
     converter.parse_aggregated_buiding(
@@ -59,5 +58,5 @@ def test_parse_aggregated_buiding(converter):
     )
 
     for key, val in converter.inputs.items():
-        if val['value'] is None: continue
-        assert one_parse_inputs[key]['value'] != val['value']
+        assert one_parse_inputs[key] != val
+    # assert converter.inputs.values() == []

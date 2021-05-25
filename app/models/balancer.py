@@ -1,4 +1,5 @@
 ''' Balances sliders in a balancing group to sum to 100. '''
+from app.constants.inputs import balancing_groups
 
 class Balancer:
     '''
@@ -28,15 +29,9 @@ class Balancer:
 
         '''
         grouped_sliders = {}
-        for slider, settings in self.slider_settings.items():
-             # Check if the slider has a balancing group and a value set
-            if 'balancing_group' in settings:
-                # Setup empty balancing group in dict if the group is not present
-                if not settings['balancing_group'] in grouped_sliders:
-                    grouped_sliders[settings['balancing_group']] = {}
+        for group, sliders in balancing_groups.items():
+            grouped_sliders[group] = {slider: self.slider_settings[slider] for slider in sliders}
 
-                # Add slider to group
-                grouped_sliders[settings['balancing_group']][slider] = settings['value'] or 0
         return grouped_sliders
 
 
@@ -50,7 +45,12 @@ class Balancer:
             # Check if the set sliders in the share group sum to 100
             total = sum(sliders.values())
 
-            if total < 100:
+            if total == 100.0:
+                continue
+
+            if total == 0:
+                for slider in sliders: del self.slider_settings[slider]
+            elif total < 100:
                 losses = 100 - total
                 print(f'balancing {group}: sums to {total}, distributing {losses}')
                 self.__distribute_losses(sliders, losses)
@@ -60,7 +60,6 @@ class Balancer:
                 print(f'balancing {group}: sums to {total}, rescaling by factor {factor}')
                 self.__rescale_values(sliders, factor)
 
-
         return self.slider_settings
 
     def __distribute_losses(self, sliders, losses):
@@ -69,19 +68,14 @@ class Balancer:
         in share group to 0
         '''
         distribution = losses / float(len(sliders))
-        for slider, _value in sliders.items():
-            if self.slider_settings[slider]['value']:
-                self.slider_settings[slider]['value'] += distribution
-            else:
-                self.slider_settings[slider]['value'] = 0
+        for slider in sliders:
+            self.slider_settings[slider] += distribution
+
 
     def __rescale_values(self, sliders, factor):
         '''
         Multpily all set sliders by factor, also set untouched sliders
         in share group to 0
         '''
-        for slider, _value in sliders.items():
-            if self.slider_settings[slider]['value']:
-                self.slider_settings[slider]['value'] *= factor
-            else:
-                self.slider_settings[slider]['value'] = 0
+        for slider in sliders:
+            self.slider_settings[slider] *= factor

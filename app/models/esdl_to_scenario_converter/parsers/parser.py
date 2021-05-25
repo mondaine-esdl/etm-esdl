@@ -1,13 +1,14 @@
 '''
 Basic Parser class
 '''
+from collections import defaultdict
 
 class Parser():
     '''Base class for all parsers'''
 
     def __init__(self, energy_system, inputs=None):
         self.energy_system = energy_system
-        self.inputs = inputs if inputs else {}
+        self.inputs = inputs if inputs else defaultdict(float)
 
     def get_parsed_inputs(self):
         '''
