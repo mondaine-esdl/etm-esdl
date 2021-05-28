@@ -1,5 +1,5 @@
 ''' Balances sliders in a balancing group to sum to 100. '''
-from app.constants.inputs import balancing_groups
+from config.conversions import balancing_groups
 
 class Balancer:
     '''

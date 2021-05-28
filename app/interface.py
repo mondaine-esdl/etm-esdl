@@ -1,8 +1,8 @@
 import urllib.parse
 
-import app.constants.assets as assets
-import app.constants.kpis as kpis
-from app.constants.q_and_u import quantities
+import config.conversions.assets as assets
+import config.conversions.kpis as kpis
+from config.conversions import quantities
 
 from app.models.energy_system import EnergySystemHandler
 from app.helpers.ETM_API import ETM_API

@@ -5,7 +5,7 @@ import requests
 
 from flask import current_app
 from app.helpers.exceptions import EnergysystemParseError
-from app.constants.errors import messages
+from config.errors import error_messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -61,7 +61,7 @@ class ETM_API(object):
         if isinstance(errors, list): message = errors[0]
         else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in errors.items()])
 
-        for etm_message, readable in messages.items():
+        for etm_message, readable in error_messages.items():
             for error in errors:
                 if etm_message in error:
                     message = readable

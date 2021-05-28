@@ -3,7 +3,7 @@
 
 from collections import defaultdict
 from app.models.balancer import Balancer
-from app.constants.inputs import balancing_groups
+from config.conversions import balancing_groups
 
 
 def test_without_any_sliders_set():

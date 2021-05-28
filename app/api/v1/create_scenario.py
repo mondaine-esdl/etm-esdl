@@ -15,8 +15,8 @@ from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.services.create_blank_scenario import CreateBlankScenario
 from app.helpers.exceptions import EnergysystemParseError
-from app.constants.errors import messages
-import app.constants.areas as areas
+from config.errors import error_messages
+from config.conversions import area_mapping
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
 
@@ -83,7 +83,7 @@ def new_scenario_id(energy_system_handler):
     '''
     Creates a new scenario in ETEngine. Returns the scenario id if succesful.
     '''
-    area_code = areas.mapping[energy_system_handler.es.instance[0].area.id]
+    area_code = area_mapping[energy_system_handler.es.instance[0].area.id]
     result = CreateBlankScenario.execute(0, area_code, 2050)
 
     if result.successful:
@@ -103,7 +103,7 @@ def fail_with(result):
     if isinstance(result.errors, list): message = result.errors[0]
     else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in result.errors.items()])
 
-    for etm_message, readable in messages.items():
+    for etm_message, readable in error_messages.items():
         for error in result.errors:
             if etm_message in error:
                 message = readable

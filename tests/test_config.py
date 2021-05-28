@@ -1,6 +1,6 @@
 ''' Tests for config '''
 # pylint: disable=import-error
-from config import ProductionConfig
+from config.config import ProductionConfig
 
 def test_production():
     ''' Test production config '''

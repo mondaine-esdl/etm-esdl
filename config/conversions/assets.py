@@ -1,3 +1,7 @@
+'''
+Config for the mapping of assets in ESDL and their ETM counterparts
+'''
+
 supply = {
     'WindTurbine': [
         {

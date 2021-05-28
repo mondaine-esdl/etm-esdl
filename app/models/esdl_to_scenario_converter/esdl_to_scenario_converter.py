@@ -3,7 +3,7 @@
 import pprint
 from collections import defaultdict
 
-import app.constants.assets as assets
+import config.conversions.assets as assets
 
 from app.models.balancer import Balancer
 from app.models.supply import Supply

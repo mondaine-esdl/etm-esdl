@@ -1,4 +1,8 @@
-messages = {
+'''
+Humanise error messages and information
+'''
+
+error_messages = {
     'Input households_insulation': 'Presumably, the average energy label of \
 the residential buildings in your ESDL energy system is below the current \
 average in the ETM dataset. Make sure the average energy label of your \

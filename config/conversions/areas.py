@@ -2,7 +2,7 @@
 Maps the ETM area names to names used in ESDL
 '''
 
-mapping = {
+area_mapping = {
     'Havenstad': 'haven_stad',
     'GooiEnVechtstreek': 'RGNH03_gooi_en_vechtstreek',
     'Hengelo': 'GM0164_hengelo',

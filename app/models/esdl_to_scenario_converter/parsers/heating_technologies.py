@@ -2,7 +2,7 @@
 Parser for heating technologies
 '''
 
-import app.constants.assets as assets
+from config.conversions.assets import heating_technologies
 from .parser import Parser
 
 class HeatingTechnologiesParser(Parser):
@@ -30,12 +30,12 @@ class HeatingTechnologiesParser(Parser):
         '''
         # If there's no heat network connection, determine other technologies
         if self.__has_heating_technology(aggregated_building, 'HConnection'):
-            return assets.heating_technologies['HConnection'][0]
+            return heating_technologies['HConnection'][0]
 
         # If there's no heat network and no heat pump, check for a gas heater
         if self.__has_heating_technology(aggregated_building, 'GasHeater'):
             if not self.__has_heating_technology(aggregated_building, 'HeatPump'):
-                return assets.heating_technologies['GasHeater'][0]
+                return heating_technologies['GasHeater'][0]
 
         # Else if there's a (hybrid) heat pump
         return self.__prop_heat_technology(aggregated_building)
@@ -61,7 +61,7 @@ class HeatingTechnologiesParser(Parser):
         aggegrated_building
         """
         # Parse heating technologies and calculate the new input values
-        for technology, properties in assets.heating_technologies.items():
+        for technology, properties in heating_technologies.items():
             # Get assets of specific type, filtered by the attribute-value combination
             for prop in properties:
                 list_of_assets = self.energy_system.get_assets_of_type_and_attribute_value(

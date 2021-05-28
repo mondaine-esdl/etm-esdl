@@ -2,8 +2,8 @@
 Parser for energy labels
 '''
 
-from app.constants.assets import distributions
-from app.constants.key_figures import energyLabel
+from config.conversions.assets import distributions
+from config.conversions.key_figures import energyLabel
 from .parser import Parser
 
 class EnergyLabelsParser(Parser):

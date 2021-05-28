@@ -5,7 +5,7 @@ import pytest
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter.parsers.rooftop_pv import RooftopPV
 
-from app.constants.assets import supply
+from config.conversions.assets import supply
 
 @pytest.fixture
 def energy_system_handler_without_pv():

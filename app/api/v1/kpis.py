@@ -5,7 +5,7 @@ Only: post
 '''
 
 from flask_restx import Namespace, Resource
-from app.constants.kpis import gqueries as kpis
+from config.conversions.kpis import gqueries as kpis
 
 api = Namespace('kpis', description='Get ETM KPIs')
 
