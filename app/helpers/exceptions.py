@@ -1,3 +1,5 @@
+from config.errors import error_messages
+
 class EnergysystemParseError(Exception):
     '''
     Copied from https://flask.palletsprojects.com/en/1.1.x/patterns/apierrors/
@@ -15,3 +17,16 @@ class EnergysystemParseError(Exception):
         rv = dict(self.payload or ())
         rv['message'] = self.message
         return rv
+
+    @classmethod
+    def with_humanized_message(cls, errors, *args, **kwargs):
+        '''
+        Create a new Error with a humanised message based on the given list of errors
+        '''
+        message = errors[0]
+        for etm_message, readable in error_messages.items():
+            for error in errors:
+                if etm_message in error:
+                    message = readable
+                    break
+        return cls(message, *args, **kwargs)

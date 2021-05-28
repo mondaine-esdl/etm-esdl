@@ -5,7 +5,6 @@ import requests
 
 from flask import current_app
 from app.helpers.exceptions import EnergysystemParseError
-from config.errors import error_messages
 
 class SessionWithUrlBase(requests.Session):
     """
@@ -58,15 +57,8 @@ class ETM_API(object):
 
         errors = response.json()['errors']
 
-        if isinstance(errors, list): message = errors[0]
-        else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in errors.items()])
+        if isinstance(errors, list):
+            raise EnergysystemParseError.with_humanized_message(errors, payload=response)
 
-        for etm_message, readable in error_messages.items():
-            for error in errors:
-                if etm_message in error:
-                    message = readable
-                    break
-
-        print(f'\nERROR! {message}\n')
-
+        message = ', '.join([f"{key} {', '.join(value)}" for key, value in errors.items()])
         raise EnergysystemParseError(message, payload=response)

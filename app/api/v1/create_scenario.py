@@ -15,7 +15,6 @@ from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.services.create_blank_scenario import CreateBlankScenario
 from app.helpers.exceptions import EnergysystemParseError
-from config.errors import error_messages
 from config.conversions import area_mapping
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
@@ -92,21 +91,15 @@ def new_scenario_id(energy_system_handler):
     fail_with(result)
 
 
-# TODO: better placement and handling
 def fail_with(result):
     '''
-    Raises an EnergySystemParseError with a humanized message based on the results errors
+    Raises an EnergySystemParseError based on the results errors
     '''
     if not len(result.errors) > 0:
-        raise EnergysystemParseError('Something went wrong', 422)
+        raise EnergysystemParseError('Something went wrong')
 
-    if isinstance(result.errors, list): message = result.errors[0]
-    else: message = ', '.join([f"{key} {', '.join(value)}" for key, value in result.errors.items()])
+    if isinstance(result.errors, list):
+        raise EnergysystemParseError.with_humanized_message(result.errors)
 
-    for etm_message, readable in error_messages.items():
-        for error in result.errors:
-            if etm_message in error:
-                message = readable
-                break
-
-    raise EnergysystemParseError(message, 422)
+    message = ', '.join([f"{key} {', '.join(value)}" for key, value in result.errors.items()])
+    raise EnergysystemParseError(message)
