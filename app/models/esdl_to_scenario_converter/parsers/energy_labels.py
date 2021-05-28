@@ -9,8 +9,8 @@ from .parser import Parser
 
 class EnergyLabelsParser(Parser):
     '''Parser for energy labels, parses per aggegrated building and builds ETM inputs'''
-    def __init__(self, energy_system, total_buildings):
-        super().__init__(energy_system)
+    def __init__(self, energy_system, total_buildings, *args, **kwargs):
+        super().__init__(energy_system, *args, **kwargs)
         self.__total_buildings = total_buildings
 
     def parse(self, aggregated_building, building_type):

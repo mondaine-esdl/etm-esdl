@@ -2,7 +2,7 @@
 
 import copy
 import pytest
-# pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
+# pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring disable=protected-access
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 
@@ -39,24 +39,21 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
     # assert sliders[buildings_insulation_level] == 54.0
 
 
-def test_parse_aggregated_buiding(converter):
+def test_parse_aggregated_buidings(converter):
+    converter._EsdlToScenarioConverter__setup_building_parsers({'RESIDENTIAL': 1000,'UTILITY': 100})
+    first_area = converter.energy_system.es.instance[0].area.area[0]
+
     default_inputs = copy.deepcopy(converter.inputs)
 
-    converter.parse_aggregated_buiding(
-        converter.energy_system.es.instance[0].area.area[0],
-        {'RESIDENTIAL': 10000,'UTILITY': 10000}
-    )
-    # The values should change from teh default
+    converter.parse_aggregated_buidings(first_area)
+    # The values should change from the default
     one_parse_inputs = copy.deepcopy(converter.inputs)
+    assert one_parse_inputs
     for key, val in one_parse_inputs.items():
         assert default_inputs[key] != val
 
     # When parsing another building the values should change again
-    converter.parse_aggregated_buiding(
-        converter.energy_system.es.instance[0].area.area[0],
-        {'RESIDENTIAL': 10000,'UTILITY': 10000}
-    )
+    converter.parse_aggregated_buidings(first_area)
 
     for key, val in converter.inputs.items():
         assert one_parse_inputs[key] != val
-    # assert converter.inputs.values() == []

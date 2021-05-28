@@ -7,8 +7,8 @@ from .parser import Parser
 
 class HeatingTechnologiesParser(Parser):
     ''' Parser for heating technologies, parses per aggegrated building and builds ETM inputs '''
-    def __init__(self, energy_system, total_buildings):
-        super().__init__(energy_system)
+    def __init__(self, energy_system, total_buildings, *args, **kwargs):
+        super().__init__(energy_system, *args, **kwargs)
         self.__total_buildings = total_buildings
 
     def parse(self, aggregated_building, building_type):
@@ -20,9 +20,6 @@ class HeatingTechnologiesParser(Parser):
         """
         prop = self.__get_heating_properties(aggregated_building)
         value = aggregated_building.numberOfBuildings / self.__total_buildings[building_type] * 100.
-
-        if not prop['inputs'][building_type] in self.inputs:
-            self.inputs[prop['inputs'][building_type]] = 0
 
         if prop['aggregation'] == 'sum':
             self.inputs[prop['inputs'][building_type]] += value

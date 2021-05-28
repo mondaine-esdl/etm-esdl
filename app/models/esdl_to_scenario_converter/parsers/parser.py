@@ -8,7 +8,7 @@ class Parser():
 
     def __init__(self, energy_system, inputs=None):
         self.energy_system = energy_system
-        self.inputs = inputs if inputs else defaultdict(float)
+        self.inputs = inputs if inputs is not None else defaultdict(float)
 
     def get_parsed_inputs(self):
         '''

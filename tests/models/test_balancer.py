@@ -1,5 +1,5 @@
 ''' Tests for the Balancer'''
-# pylfloat: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
+# pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 
 from collections import defaultdict
 from app.models.balancer import Balancer
