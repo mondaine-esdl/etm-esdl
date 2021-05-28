@@ -1,7 +1,8 @@
 ''' Processes rooftop PV from ESDL to ETM'''
 
-# TODO: Make this a Parser
-class RooftopPV():
+from .parser import Parser
+
+class RooftopPV(Parser):
     """
     Class to parse ESDL information about rooftop PV installations and
     translate it to the relevant ETM inputs.
@@ -9,8 +10,8 @@ class RooftopPV():
     Note: it assumes the units of the potential and used energy to be the same.
     """
 
-    def __init__(self, energy_system, props):
-        self.energy_system = energy_system
+    def __init__(self, energy_system, props, *args, **kwargs):
+        super().__init__(energy_system, *args, **kwargs)
         self.props = props
         self.potential = 0.
         self.production = 0.
@@ -23,13 +24,13 @@ class RooftopPV():
         used potential. Based on this, the ETM input can be set.
         """
 
-        self.set_potential()
-        self.set_production()
-        self.set_percentage_used()
-        return self.calculate_input_value()
+        self.__set_potential()
+        self.__set_production()
+        self.__set_percentage_used()
+        self.__calculate_input_value()
 
 
-    def set_potential(self):
+    def __set_potential(self):
         """
         Check rooftop PV potential
         """
@@ -39,7 +40,7 @@ class RooftopPV():
         self.potential = sum((potential.value for potential in list_of_potentials))
 
 
-    def set_production(self):
+    def __set_production(self):
         """
         Check rooftop PV installations to determine the production
         """
@@ -50,7 +51,7 @@ class RooftopPV():
         self.production = sum((asset.port[0].profile[0].value for asset in list_of_assets))
 
 
-    def set_percentage_used(self):
+    def __set_percentage_used(self):
         """
         Based on rooftop PV potential and production, determine which
         percentage of the potential is used for production
@@ -59,15 +60,13 @@ class RooftopPV():
             self.percentage_used = self.production / (self.potential + self.production)
 
 
-    def calculate_input_value(self):
+    def __calculate_input_value(self):
         """
         Based on the percentage of used potential, caluculate the ETM input values.
         Note that the same percentage is used for both rooftops of residences
         and services.
         """
-        inputs = {}
         if self.potential > 0:
             for prop in self.props:
                 for key in prop['inputs'].values():
-                    inputs[key] = self.percentage_used * prop['factor']
-        return inputs
+                    self.inputs[key] = self.percentage_used * prop['factor']

@@ -6,11 +6,11 @@ from collections import defaultdict
 import app.constants.assets as assets
 
 from app.models.balancer import Balancer
-from app.models.rooftop_pv import RooftopPV
 from app.models.supply import Supply
 
 from .parsers.heating_technologies import HeatingTechnologiesParser
 from .parsers.energy_labels import EnergyLabelsParser
+from .parsers.rooftop_pv import RooftopPV
 
 class EsdlToScenarioConverter():
     '''Convert an esdl energy_system to ETM slider settings'''
@@ -26,7 +26,7 @@ class EsdlToScenarioConverter():
         '''
         # Parse supply assets and calculate the new input values
         for asset_type, properties in assets.supply.items():
-            self.__include_parsed_data(self.parse_supply(asset_type, properties))
+            self.parse_supply(asset_type, properties)
 
         # Parse buildings
         number_of_buildings = self.determine_number_of_buildings()
@@ -49,9 +49,9 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         if asset_type == 'RooftopPV':
-            return RooftopPV(self.energy_system, properties).parse()
-
-        return Supply(self.energy_system, asset_type, properties).parse()
+            RooftopPV(self.energy_system, properties, inputs=self.inputs).parse()
+        else:
+            self.__include_parsed_data(Supply(self.energy_system, asset_type, properties).parse())
 
     def determine_number_of_buildings(self):
         """
@@ -67,7 +67,7 @@ class EsdlToScenarioConverter():
 
         return number_of_buildings
 
-    # TODO: should be its own Parser
+    # TODO: should be its own Parser?
     def parse_aggregated_buidings(self, area):
         """
         Parses all aggregated_buidings in the specified area, calculates slider settings
@@ -96,7 +96,7 @@ class EsdlToScenarioConverter():
             self.energy_system, total_number_of_buildings, self.inputs
         )
 
-    # TODO: alter Supply and RooftopPv so that this method becomes obsolete
+    # TODO: alter Supply  so that this method becomes obsolete
     def __include_parsed_data(self, parsed_data):
         '''
         Adds the parsed_data to self.inputs
