@@ -25,6 +25,7 @@ def test_parse(energy_system_handler):
     label_parser.parse(aggregrated_building, building_type)
 
     inputs = label_parser.get_parsed_inputs()
+    assert inputs
     # Right now, all labels should have equal values, as the labels are distributed evenly
     assert sum(inputs.values()) / max(inputs.values()) == len(inputs)
 
