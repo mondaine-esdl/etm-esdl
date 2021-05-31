@@ -48,8 +48,8 @@ class HeatingTechnologiesParser(AggregratedBuildingParser):
         Returns Boolean
         '''
         return self.energy_system.get_assets_of_type(
-            aggregated_building,
-            getattr(self.energy_system.esdl, tech_type)
+            getattr(self.energy_system.esdl, tech_type),
+            area=aggregated_building
         )
 
     def __prop_heat_technology(self, aggregated_building):
@@ -62,8 +62,8 @@ class HeatingTechnologiesParser(AggregratedBuildingParser):
             # Get assets of specific type, filtered by the attribute-value combination
             for prop in properties:
                 list_of_assets = self.energy_system.get_assets_of_type_and_attribute_value(
-                    aggregated_building,
                     getattr(self.energy_system.esdl, technology),
+                    aggregated_building,
                     prop['attribute'],
                     prop['value']
                 )

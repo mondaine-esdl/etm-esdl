@@ -78,8 +78,8 @@ class EsdlToScenarioConverter():
         Note: can only be run if the building parsers are setup
         """
         aggregated_buildings = self.energy_system.get_assets_of_type(
-            area,
-            self.energy_system.esdl.AggregatedBuilding
+            self.energy_system.esdl.AggregatedBuilding,
+            area
         )
 
         for aggregated_building in aggregated_buildings:

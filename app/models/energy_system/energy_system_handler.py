@@ -1,4 +1,6 @@
 ''' Main interface to an ESDL energy system '''
+
+# pylint: disable=no-member
 import uuid
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
@@ -12,7 +14,8 @@ class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""
 
     def __init__(self, name=None):
-        # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
+        # create a resourceSet that hold the contents of the esdl.ecore model and the
+        # instances we use/create
         self.rset = ResourceSet()
 
         # Assign files with the .esdl extension to the XMLResource instead of default XMI
@@ -25,130 +28,138 @@ class EnergySystemHandler:
         # print('Namespace: {}'.format(esdl_model.nsURI))
         self.rset.metamodel_registry[esdl_model.nsURI] = esdl_model
 
-        # Create a dynamic model from the loaded esdl.ecore model, which we can use to build Energy Systems
+        # Create a dynamic model from the loaded esdl.ecore model, which we can use to
+        # build Energy Systems
         self.esdl = DynamicEPackage(esdl_model)
 
         # fix python buildin 'from' that is also used in ProfileElement as attribute
         # use 'start' instead of 'from' when using a ProfileElement
         alias('start', self.esdl.ProfileElement.findEStructuralFeature('from'))
 
-        # have a nice __repr__ for some ESDL classes when printing ESDL objects (includes all Assets and EnergyAssets)
-        self.esdl.Item.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        self.esdl.Carrier.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        self.esdl.Geometry.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        self.esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: '{}: ({})'.format(x.id, EnergySystemHandler.attr_to_dict(x))
-        self.esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: '{}: ({})'.format('QuantityAndUnitReference', EnergySystemHandler.attr_to_dict(x))
-        self.esdl.KPI.python_class.__repr__ = lambda x: '{}: ({})'.format(x.name, EnergySystemHandler.attr_to_dict(x))
-        self.esdl.ProfileElement.python_class.__repr__ = lambda x: 'ProfileElement ({})'.format(EnergySystemHandler.attr_to_dict(x))
+        # have a nice __repr__ for some ESDL classes when printing ESDL objects
+        # (includes all Assets and EnergyAssets)
+        self.esdl.Item.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
+        self.esdl.Carrier.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
+        self.esdl.Geometry.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
+        self.esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.id, x)
+        self.esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr('QuantityAndUnitReference', x)
+        self.esdl.KPI.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
+        self.esdl.ProfileElement.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr('ProfileElement', x)
 
         if name:
             self.name = name
             self.load_energy_system(name)
 
-    # Creates a dict of all the attributes of an ESDL object
+    @staticmethod
+    def format_repr(name, esdl_object):
+        ''' Returns a string containing a formatted version of the ESDL object'''
+        return f'{name}: ({EnergySystemHandler.attr_to_dict(esdl_object)})'
+
     @staticmethod
     def attr_to_dict(esdl_object):
-        d = dict()
-        d['esdlType'] = esdl_object.eClass.name
+        ''' Creates a dict of all the attributes of an ESDL object '''
+        to_dict = dict()
+        to_dict['esdlType'] = esdl_object.eClass.name
         for attr in dir(esdl_object):
             attr_value = esdl_object.eGet(attr)
             if attr_value is not None:
-                d[attr] = attr_value
-        return d
+                to_dict[attr] = attr_value
+        return to_dict
 
-    # Creates a uuid: useful for generating unique IDs
+
     @staticmethod
     def generate_uuid():
+        ''' Creates a uuid: useful for generating unique IDs '''
         return str(uuid.uuid4())
 
+
     def load_energy_system(self, name):
-        # load the ESDL file
+        ''' Load an ESDL file '''
         self.resource = self.rset.get_resource(URI(name))
         self.es = self.resource.contents[0]
 
-    # Add Energy System Information
-    def add_energy_system_information(self):
-        esi = self.esdl.EnergySystemInformation(id='energy_system_information')
-        self.es.energySystemInformation = esi
 
     def add_data_source(self, name, description):
+        ''' Adds a data_source to the ESDL containing a name and description'''
         data_source = self.esdl.DataSource(id='data_source', name=name, description=description)
         self.es.dataSource = data_source
 
-    # Add energy system information to the energy system if it is not there yet
-    # Energy System information can be used to globally define the quantity and units of this system,
-    # instead of defining them manually per KPI in each area: this fosters reuse (but is not necessary)
+
     def get_quantity_and_units(self):
-        q_and_u = None
+        '''
+        Returns quantity and units
 
-        if self.get_by_id('energy_system_information') is None:
-            self.add_energy_system_information()
+        Add energy system information to the energy system if it is not there yet
+        Energy System information can be used to globally define the quantity and units of this
+        system, instead of defining them manually per KPI in each area: this fosters reuse
+        (but is not necessary)
+        '''
+        if not self.get_by_id('energy_system_information') is None:
+            return self.get_by_id('quantity_and_units')
 
-            q_and_u = self.esdl.QuantityAndUnits(id='quantity_and_units')
-            self.es.energySystemInformation.quantityAndUnits = q_and_u
-
-        else:
-            q_and_u = self.get_by_id('quantity_and_units')
+        self.__add_energy_system_information()
+        q_and_u = self.esdl.QuantityAndUnits(id='quantity_and_units')
+        self.es.energySystemInformation.quantityAndUnits = q_and_u
 
         return q_and_u
 
-    # Add Measures object to Energy System
+    def __add_energy_system_information(self):
+        '''Add Energy System Information'''
+        esi = self.esdl.EnergySystemInformation(id='energy_system_information')
+        self.es.energySystemInformation = esi
+
+
     def add_measures(self):
+        ''' Add Measures object to Energy System '''
         # Create new Measures object
         measures = self.esdl.Measures(id='measures')
         self.es.instance[0].area.measures = measures
 
-    # Append measure to Measures object
+
     def append_measure(self, measure):
+        ''' Append measure to Measures object '''
         self.es.instance[0].area.measures.measure.append(measure)
 
-    # Append asset measure to Measures object
+
     def append_asset_to_measure(self, measure, asset):
+        ''' Append asset measure to Measures object '''
         measure.asset.append(asset)
         self.es.instance[0].area.measures.measure.append(measure)
 
-    # Add KPIs object to Energy System
+
     def add_kpis(self):
+        ''' Add KPIs object to Energy System '''
         # create new KPIs object
         kpis = self.esdl.KPIs(id='kpis', description='KPIs')
         self.es.instance[0].area.KPIs = kpis
 
-    # Create new KPI object
+
     def create_kpi(self, kpi_type, kpi_id, name, q_and_u):
+        ''' Create new KPI object '''
         return getattr(self.esdl, kpi_type)(
             id=kpi_id,
             name=name,
             quantityAndUnit=q_and_u
         )
 
-    # Add KPI to KPIs object
+
     def add_kpi(self, kpi):
+        ''' Add KPI to KPIs object '''
         self.es.instance[0].area.KPIs.kpi.append(kpi)
 
-    # Get a list of assets of a specific ESDL type in the main instance's area
-    # def get_assets_of_type(self, esdl_type):
-    #     assets = []
-    #
-    #     for current_asset in self.es.instance[0].area.asset:
-    #         if isinstance(current_asset, esdl_type):
-    #             assets.append(current_asset)
-    #     return assets
+
+    def get_assets_of_type(self, esdl_type, area=None):
+        '''Get a list of assets of a specific ESDL type in the specified area or asset'''
+        assets = area.asset if not area is None else self.es.instance[0].area.asset
+
+        return [asset for asset in assets if isinstance(asset, esdl_type)]
 
 
-    # Get a list of assets of a specific ESDL type in the specified area or asset
-    def get_assets_of_type(self, area, esdl_type):
-        assets = []
-
-        for current_asset in area.asset:
-            if isinstance(current_asset, esdl_type):
-                assets.append(current_asset)
-
-        return assets
-
-
-    # Get a list of assets of a specific ESDL type in the specified area or asset
-    # filtered by a specified attribute-value combination
-    def get_assets_of_type_and_attribute_value(self, area, esdl_type, attribute, value):
+    def get_assets_of_type_and_attribute_value(self, esdl_type, area, attribute, value):
+        '''
+        Get a list of assets of a specific ESDL type in the specified area or asset
+        filtered by a specified attribute-value combination
+        '''
         assets = []
 
         for current_asset in area.asset:
@@ -157,8 +168,9 @@ class EnergySystemHandler:
                     assets.append(current_asset)
         return assets
 
-    # Get a list of potentials of a specific ESDL type in the main instance's area
+
     def get_potentials_of_type(self, esdl_type):
+        ''' Get a list of potentials of a specific ESDL type in the main instance's area '''
         potentials = []
 
         for current_potential in self.es.instance[0].area.potential:
@@ -166,83 +178,82 @@ class EnergySystemHandler:
                 potentials.append(current_potential)
         return potentials
 
-    # returns a generator of all assets or potentials of a specific type. Not only the ones defined in the main Instance's Area
-    # e.g. QuantityAndUnits can be defined in the KPI of an Area or in the EnergySystemInformation object
-    # this function returns all of them at once
+
     def get_all_instances_of_type(self, esdl_type):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+        '''
         return esdl_type.allInstances()
 
 
-    # Using this function you can query for objects by ID
-    # After loading an ESDL-file, all objects that have an ID defines are stored in resource.uuid_dict automatically
-    # Note: If you add things later to the resource, it won't be added automatically to this dictionary though.
-    # Use get_by_id_slow() for that
-    def get_by_id(self, id):
+    def get_by_id(self, object_id):
+        '''
+        Using this function you can query for objects by ID
+        After loading an ESDL-file, all objects that have an ID defines are stored in
+        resource.uuid_dict automatically
+        Note: If you add things later to the resource, it won't be added automatically to
+        this dictionary though. Use get_by_id_slow() for that
+        '''
         if id in self.resource.uuid_dict:
-            return self.resource.uuid_dict[id]
-        else:
-            return None
+            return self.resource.uuid_dict[object_id]
 
-    # This function iterates over all the contents of the Energy System and is much slower than get_by_id()
-    def get_by_id_slow(self, id):
+        return None
+
+
+    def get_by_id_slow(self, object_id):
+        '''
+        This function iterates over all the contents of the Energy System and is much slower
+        than get_by_id()
+        '''
         for child in self.es.eAllContents():
-            if hasattr(child, 'id'):
-                if child.id == id:
-                    return child
+            if hasattr(child, 'id') and child.id == object_id:
+                return child
 
-    # create a readable list of the attributes of an ESDL class
-    def get_asset_attribute(self, esdl_type, attribute):
-        asset_data = []
-
-        for current_asset in self.es.instance[0].area.asset:
-
-            if isinstance(current_asset, esdl_type):
-                asset_data.append({
-                    'name': current_asset.name,  # name
-                    'attribute': {
-                        'key': attribute,
-                        'value': getattr(current_asset, attribute)
-                    }
-                })
-
-        return asset_data
+        return None
 
 
-    # create a readable list of the attributes of an ESDL class
-    # (scoped to a specific area)
-    def get_asset_attribute(self, area, esdl_type, attribute):
-        asset_data = []
+    def get_asset_attribute(self, esdl_type, attr, area=None):
+        '''
+        Create a readable list of the attributes of an ESDL class
+        Scoped to a specific area, if one is given
+        '''
+        assets = area.asset if not area is None else self.es.instance[0].area.asset
 
-        for current_asset in area.asset:
-
-            if isinstance(current_asset, esdl_type):
-                asset_data.append({
-                    'name': current_asset.name,  # name
-                    'attribute': {
-                        'key': attribute,
-                        'value': getattr(current_asset, attribute)
-                    }
-                })
-
-        return asset_data
+        return [self.__format_asset(asset, attr) for asset in assets if isinstance(asset, esdl_type)]
 
 
-    # returns a specific KPI by id, see also get_by_id for a faster method
-    def get_kpi_by_id(self, id):
+    def __format_asset(self, current_asset, attribute):
+        return {
+            'name': current_asset.name,  # name
+            'attribute': {
+                'key': attribute,
+                'value': getattr(current_asset, attribute)
+            }
+        }
+
+
+    def get_kpi_by_id(self, kpi_id):
+        ''' Returns a specific KPI by id, see also get_by_id for a faster method '''
         for kpi in self.es.instance[0].area.KPIs.kpi:
-            if kpi.id == id:
+            if kpi.id == kpi_id:
                 return kpi
 
+        return None
 
-    # returns a specific KPI by name
+
     def get_kpi_by_name(self, name):
+        ''' Returns a specific KPI by name '''
         for kpi in self.es.instance[0].area.KPIs.kpi:
             if kpi.name == name:
                 return kpi
 
+        return None
 
-    # save the resource
     def save(self, filename):
+        ''' Saves the energy system to a file '''
         uri = URI(filename)
         fileresource = self.rset.create_resource(uri)
         # add the current energy system
@@ -253,10 +264,12 @@ class EnergySystemHandler:
         return fileresource
 
 
-    # get the energy system as a XML String
-    # does not change the 'active' resource
-    # so save() will still save as a file
     def get_as_string(self):
+        '''
+        Returns the current energy system as an XML string
+
+        Note: does not change the 'active' resource so save() will still save as a file
+        '''
         # to use strings as resources, we simulate a string as being a file
         uri = StringURI('tmp/anyname.esdl')
         # create the string resource
@@ -270,7 +283,11 @@ class EnergySystemHandler:
         # return the string
         return uri.getvalue()
 
+
     def get_as_stream(self):
+        '''
+        Returns the current energy system as a BytesIO stream
+        '''
         # to use strings as resources, we simulate a string as being a file
         uri = StringURI('tmp/anyname.esdl')
         # create the string resource
@@ -302,6 +319,7 @@ class EnergySystemHandler:
 
 
 class PrintNotification(EObserver):
+    ''' Custom observer that prints notifications'''
     def __init__(self, notifier=None):
         super().__init__(notifier=notifier)
 

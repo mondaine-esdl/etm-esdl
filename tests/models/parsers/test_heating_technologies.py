@@ -13,8 +13,8 @@ def energy_system_handler():
 
 def test_parse(energy_system_handler):
     aggregrated_building = energy_system_handler.get_assets_of_type(
-        energy_system_handler.es.instance[0].area.area[0],
-        energy_system_handler.esdl.AggregatedBuilding
+        energy_system_handler.esdl.AggregatedBuilding,
+        energy_system_handler.es.instance[0].area.area[0]
     )[0]
     total_buildings = {
         'RESIDENTIAL': 10000,
