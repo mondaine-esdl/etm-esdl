@@ -4,12 +4,12 @@ Responds with an ETE scenario id.
 Only: post
 '''
 
+import urllib.parse
 from flask_restx import Namespace, Resource, fields
 
 # TODO: This needs to be nicer - create a Service or model of some kind
-from app.interface import (
-    setup_esh_from_energy_system, add_kpis_to_esdl
-)
+from app.interface import add_kpis_to_esdl
+from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
@@ -55,7 +55,9 @@ class EnergySystem(Resource):
         energy_system_title = args['energy_system_title'] or 'original.esdl'
 
         # Parse ESDL file and create scenario
-        energy_system_handler = setup_esh_from_energy_system(args['energy_system'])
+        energy_system_handler = EnergySystemHandler.from_string(
+            urllib.parse.unquote(args['energy_system'])
+        )
         scenario_id = new_scenario_id(energy_system_handler)
 
         # Set sliders in new scenario

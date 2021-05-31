@@ -1,12 +1,12 @@
-import urllib.parse
-
+'''
+Some conversion methods
+'''
 import config.conversions.assets as assets
 import config.conversions.kpis as kpis
 from config.conversions import quantities
 
 from app.models.energy_system import EnergySystemHandler
 from app.helpers.ETM_API import ETM_API
-from app.helpers.exceptions import EnergysystemParseError
 from app.models.parsers import SupplyParser
 
 from app.services.query_scenario import QueryScenario
@@ -143,15 +143,6 @@ def update_esdl(energy_system, scenario_id):
 
     return energy_system
 
-def setup_esh_from_energy_system(energy_system):
-    '''
-    Creates and returns an EnergySystemHandler based on an energy_system '.esdl' file that was
-    extracted from form-data
-    '''
-    try:
-        return EnergySystemHandler.from_string(urllib.parse.unquote(energy_system))
-    except Exception as exception:
-        raise EnergysystemParseError('ESDL could not be parsed', 422) from exception
 
 def setup_esh_from_scenario(scenario_id):
     etm = start_etm_session(scenario_id)

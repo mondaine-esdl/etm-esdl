@@ -3,8 +3,10 @@ import uuid
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
 from pyecore.notification import EObserver
+from app.helpers.exceptions import EnergysystemParseError
 from .xmlresource import XMLResource
 from .StringURI import StringURI
+
 
 class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""
@@ -287,13 +289,16 @@ class EnergySystemHandler:
         '''
         Create a new EnergySystemHandler based on an EnergySystem esdl_string (using UTF-8 encoding)
         '''
-        handler = cls()
-        handler.resource = handler.rset.create_resource(
-            StringURI('loadfromstring', esdl_string)
-        )
-        handler.resource.load()
-        handler.es = handler.resource.contents[0]
-        return handler
+        try:
+            handler = cls()
+            handler.resource = handler.rset.create_resource(
+                StringURI('loadfromstring', esdl_string)
+            )
+            handler.resource.load()
+            handler.es = handler.resource.contents[0]
+            return handler
+        except Exception as exception:
+            raise EnergysystemParseError('ESDL could not be parsed') from exception
 
 
 class PrintNotification(EObserver):
