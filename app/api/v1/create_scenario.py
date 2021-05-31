@@ -5,29 +5,18 @@ Only: post
 '''
 
 import urllib.parse
-from flask_restx import Namespace, Resource, fields
+from flask_restx import Namespace, Resource
 
-# TODO: This needs to be nicer - create a Service or model of some kind
+from app.helpers.api_utils import fail_with
 from app.interface import add_kpis_to_esdl
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.services.create_blank_scenario import CreateBlankScenario
-from app.helpers.exceptions import EnergysystemParseError
 from config.conversions import area_mapping
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
-
-# TODO: look if we can couple this to the service?
-energy_system = api.model('energy_system', {
-    'energy_system': fields.String(required=True, description='The ESDL string')
-})
-
-# TODO: What we like to have the response look like
-# etm_esdl_result = api.model('etm_esdl_result', {
-#     'etm_url': fields.String(required=True, description='ETM scenario URL')
-# })
 
 ## Setup the parser for the request parameters
 import_parser = api.parser()
@@ -46,7 +35,6 @@ class EnergySystem(Resource):
     Transform ESDL energy system description into an ETM scenario
     """
     @api.expect(import_parser)
-    # @api.marshal_with(etm_esdl_result) # This formats the response!
     def post(self):
         """
         Transform ESDL energy system description into an ETM scenario
@@ -91,17 +79,3 @@ def new_scenario_id(energy_system_handler):
         return result.value
 
     fail_with(result)
-
-
-def fail_with(result):
-    '''
-    Raises an EnergySystemParseError based on the results errors
-    '''
-    if not len(result.errors) > 0:
-        raise EnergysystemParseError('Something went wrong')
-
-    if isinstance(result.errors, list):
-        raise EnergysystemParseError.with_humanized_message(result.errors)
-
-    message = ', '.join([f"{key} {', '.join(value)}" for key, value in result.errors.items()])
-    raise EnergysystemParseError(message)
