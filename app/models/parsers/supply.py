@@ -3,18 +3,17 @@
 from app.models.energy_system import EnergyDataRepository
 from app.helpers.exceptions import EnergysystemParseError
 from app.services.query_scenario import QueryScenario
+from .parser import AssetParser
 
-class Supply():
+class SupplyParser(AssetParser):
     """
     Class to parse ESDL information about a single supply asset and
     translate it to the relevant ETM inputs.
     """
 
-    def __init__(self, energy_system, asset_type, props):
-        self.energy_system = energy_system
-        self.asset_type = asset_type
-        self.props = props
-        self.list_of_assets = []
+    def __init__(self, energy_system, asset_type, props, *args, **kwargs):
+        super().__init__(energy_system, props, *args, asset_type=asset_type, **kwargs)
+        self.__set_list_of_assets()
         self.power = 0.
         self.full_load_hours = 0.
 
@@ -25,21 +24,20 @@ class Supply():
         Returns a dict containing ETM inputs that can be used when converting ESDL to
         slider settings.
         """
-        self.all_instances()
-        return self.set_props()
+        self.set_props()
 
 
     def update(self, scenario_id):
         """
         Update the power and full load hours based on the ETM inputs
         """
-        self.parse()
+        self.set_props()
         self.update_props(scenario_id)
 
 
-    def all_instances(self):
+    def __set_list_of_assets(self):
         """
-        Get all instances of asset type and return as a list.
+        Get all instances of asset type and set the list.
         """
         try:
             self.list_of_assets = self.energy_system.get_all_instances_of_type(
@@ -54,48 +52,34 @@ class Supply():
         """
         Check the total power of the given asset
 
-        Returns a dict of ETM inputs and their new values
+        Sets self.power, self.full_load_hours and self.inputs
         """
-        total_power = 0.
-        full_load_hours = 0.
+        self.power = 0.
+        self.full_load_hours = 0.
 
-        inputs = {}
-
-        # TODO: why do we keep resetting self.power in this for loop?
         for asset in self.list_of_assets:
             for prop in self.props:
-                # Calculate ETM input value
-                esdl_value = getattr(asset, prop['attribute'])
-                etm_value = esdl_value * prop['factor']
-
-                # Initialise the input value if it hasn't been touched yet
-                if not prop['input'] in inputs:
-                    inputs[prop['input']] = 0
+                # Calculate ETM input value based on value from ESDL asset
+                etm_value = getattr(asset, prop['attribute']) * prop['factor']
 
                 # Keep track of the installed capacity to determine the average FLH
                 if prop['attribute'] == 'power':
                     current_power = etm_value
-                    total_power += etm_value
-                    # print(f'CAP = {total_power}')
+                    self.power += etm_value
+                    # print(f'CAP = {self.power}')
 
                 elif prop['attribute'] == 'fullLoadHours':
-                    prev_etm_value = inputs[prop['input']]
+                    prev_etm_value = self.inputs[prop['input']]
                     diff = etm_value - prev_etm_value # 1920 - 2500 = -580
-                    etm_value = diff * current_power / total_power # -580 * 13 / 19
-                    full_load_hours += etm_value
-                    # print(f'FLH = {full_load_hours}')
+                    etm_value = diff * current_power / self.power # -580 * 13 / 19
+                    self.full_load_hours += etm_value
+                    # print(f'FLH = {self.full_load_hours}')
 
                 # Update ETM input value
-                inputs[prop['input']] += etm_value
-
-            self.power = total_power
-            self.full_load_hours = full_load_hours
+                self.inputs[prop['input']] += etm_value
 
         print(f'self.power = {self.power}')
         print(f'self.full_load_hours = {self.full_load_hours}')
-
-        return inputs
-
 
     def query_scenario(self, scenario_id, prop):
         """

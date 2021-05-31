@@ -2,7 +2,7 @@
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 import pytest
 from app.models.energy_system import EnergySystemHandler
-from app.models.esdl_to_scenario_converter.parsers.energy_labels import EnergyLabelsParser
+from app.models.parsers.energy_labels import EnergyLabelsParser
 
 @pytest.fixture
 def energy_system_handler():

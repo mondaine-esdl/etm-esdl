@@ -7,7 +7,7 @@ from config.conversions import quantities
 from app.models.energy_system import EnergySystemHandler
 from app.helpers.ETM_API import ETM_API
 from app.helpers.exceptions import EnergysystemParseError
-from app.models.supply import Supply
+from app.models.parsers import SupplyParser
 
 from app.services.query_scenario import QueryScenario
 
@@ -134,7 +134,7 @@ def update_esdl(energy_system, scenario_id):
 
     # Update capacities of wind turbines and possibly add measures
     for asset_type in ['WindTurbine']:
-        Supply(energy_system, asset_type, assets.supply[asset_type]).update(scenario_id)
+        SupplyParser(energy_system, asset_type, assets.supply[asset_type]).update(scenario_id)
 
     # Just for testing:
     # f = open('data/output/test.esdl', 'a')

@@ -3,7 +3,7 @@
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
-from app.models.esdl_to_scenario_converter.parsers.rooftop_pv import RooftopPV
+from app.models.parsers.rooftop_pv import RooftopPVParser
 
 from config.conversions.assets import supply
 
@@ -16,7 +16,7 @@ def energy_system_handler_without_pv():
     return EnergySystemHandler.from_string(esdl_string)
 
 def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv):
-    parser = RooftopPV(energy_system_handler_without_pv, supply['RooftopPV'])
+    parser = RooftopPVParser(energy_system_handler_without_pv, supply['RooftopPV'])
 
     parser.parse()
     assert parser.get_parsed_inputs() == {}

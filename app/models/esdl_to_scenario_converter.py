@@ -4,19 +4,19 @@ import pprint
 from collections import defaultdict
 
 import config.conversions.assets as assets
-
 from app.models.balancer import Balancer
-from app.models.supply import Supply
+from app.models.parsers import (
+    EnergyLabelsParser, HeatingTechnologiesParser, SupplyParser, RooftopPVParser
+)
 
-from .parsers.heating_technologies import HeatingTechnologiesParser
-from .parsers.energy_labels import EnergyLabelsParser
-from .parsers.rooftop_pv import RooftopPV
 
 class EsdlToScenarioConverter():
     '''Convert an esdl energy_system to ETM slider settings'''
+
     def __init__(self, energy_system):
         self.inputs = defaultdict(float)
         self.energy_system = energy_system
+
 
     def calculate(self):
         '''
@@ -42,6 +42,7 @@ class EsdlToScenarioConverter():
         pprint.pprint(self.inputs)
         return self.inputs
 
+
     def parse_supply(self, asset_type, properties):
         '''
         Determines which supply parser to use for the asset type, and calls that parser.
@@ -49,9 +50,10 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         if asset_type == 'RooftopPV':
-            RooftopPV(self.energy_system, properties, inputs=self.inputs).parse()
+            RooftopPVParser(self.energy_system, properties, inputs=self.inputs).parse()
         else:
-            self.__include_parsed_data(Supply(self.energy_system, asset_type, properties).parse())
+            SupplyParser(self.energy_system, asset_type, properties, inputs=self.inputs).parse()
+
 
     def determine_number_of_buildings(self):
         """
@@ -67,7 +69,7 @@ class EsdlToScenarioConverter():
 
         return number_of_buildings
 
-    # TODO: should be its own Parser?
+
     def parse_aggregated_buidings(self, area):
         """
         Parses all aggregated_buidings in the specified area, calculates slider settings
@@ -85,6 +87,7 @@ class EsdlToScenarioConverter():
             self.heat_parser.parse(aggregated_building, building_type)
             self.labels_parser.parse(aggregated_building, building_type)
 
+
     def __setup_building_parsers(self, total_number_of_buildings):
         '''
         Setup the parsers for aggegrated buildings: HeatingTechnologiesParser and EnergyLabelsParser
@@ -96,13 +99,6 @@ class EsdlToScenarioConverter():
             self.energy_system, total_number_of_buildings, self.inputs
         )
 
-    # TODO: alter Supply  so that this method becomes obsolete
-    def __include_parsed_data(self, parsed_data):
-        '''
-        Adds the parsed_data to self.inputs
-        '''
-        for key, val in parsed_data.items():
-            self.inputs[key] += val
 
     def __list_of_assets(self):
         '''
@@ -111,6 +107,7 @@ class EsdlToScenarioConverter():
         return self.energy_system.get_all_instances_of_type(
             self.energy_system.esdl.AggregatedBuilding
         )
+
 
     def __building_type(self, asset):
         '''

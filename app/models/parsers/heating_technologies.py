@@ -3,13 +3,10 @@ Parser for heating technologies
 '''
 
 from config.conversions.assets import heating_technologies
-from .parser import Parser
+from .parser import AggregratedBuildingParser
 
-class HeatingTechnologiesParser(Parser):
+class HeatingTechnologiesParser(AggregratedBuildingParser):
     ''' Parser for heating technologies, parses per aggegrated building and builds ETM inputs '''
-    def __init__(self, energy_system, total_buildings, *args, **kwargs):
-        super().__init__(energy_system, *args, **kwargs)
-        self.__total_buildings = total_buildings
 
     def parse(self, aggregated_building, building_type):
         """
@@ -19,7 +16,7 @@ class HeatingTechnologiesParser(Parser):
         building_type           String, the type of building to be parsed
         """
         prop = self.__get_heating_properties(aggregated_building)
-        value = aggregated_building.numberOfBuildings / self.__total_buildings[building_type] * 100.
+        value = aggregated_building.numberOfBuildings / self.total_buildings[building_type] * 100.
 
         if prop['aggregation'] == 'sum':
             self.inputs[prop['inputs'][building_type]] += value

@@ -1,8 +1,8 @@
 ''' Processes rooftop PV from ESDL to ETM'''
 
-from .parser import Parser
+from .parser import AssetParser
 
-class RooftopPV(Parser):
+class RooftopPVParser(AssetParser):
     """
     Class to parse ESDL information about rooftop PV installations and
     translate it to the relevant ETM inputs.
@@ -11,8 +11,7 @@ class RooftopPV(Parser):
     """
 
     def __init__(self, energy_system, props, *args, **kwargs):
-        super().__init__(energy_system, *args, **kwargs)
-        self.props = props
+        super().__init__(energy_system, props, *args, **kwargs)
         self.potential = 0.
         self.production = 0.
         self.percentage_used = 0.

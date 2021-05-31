@@ -4,13 +4,10 @@ Parser for energy labels
 
 from config.conversions.assets import distributions
 from config.conversions.key_figures import energyLabel
-from .parser import Parser
+from .parser import AggregratedBuildingParser
 
-class EnergyLabelsParser(Parser):
+class EnergyLabelsParser(AggregratedBuildingParser):
     '''Parser for energy labels, parses per aggegrated building and builds ETM inputs'''
-    def __init__(self, energy_system, total_buildings, *args, **kwargs):
-        super().__init__(energy_system, *args, **kwargs)
-        self.__total_buildings = total_buildings
 
     def parse(self, aggregated_building, building_type):
         '''
@@ -20,7 +17,7 @@ class EnergyLabelsParser(Parser):
         building_type           String, the type of building to be parsed
         '''
         energy_labels, prop = self.parse_distribution(aggregated_building, 'energyLabelDistribution')
-        share = aggregated_building.numberOfBuildings / self.__total_buildings[building_type]
+        share = aggregated_building.numberOfBuildings / self.total_buildings[building_type]
 
         etm_value = sum((
             self.__value(perc, share, label, building_type) for label, perc in energy_labels.items()
