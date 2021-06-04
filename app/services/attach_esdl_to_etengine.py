@@ -1,13 +1,14 @@
 ''' Service for uploading an ESDL file to ETEngine'''
-
+# pylint: disable=arguments-differ
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
 
 class AttachEsdlToEtengine(EtengineService):
+    """
+    Attach the energy system to the scenario
+    """
+
     def __call__(self, energy_system_stream, title):
-        """
-        Attach the energy system to the scenario
-        """
         # Rewind the BytesIO stream just to be sure
         energy_system_stream.seek(0)
         files = {"file": (title, energy_system_stream)}

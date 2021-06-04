@@ -99,9 +99,7 @@ class SupplyParser(AssetParser):
         """
         TODO
         """
-        list_of_props = {}
-        for prop in self.props:
-            list_of_props[prop['attribute']] = prop
+        list_of_props = {prop['attribute']: prop for prop in self.props}
 
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.

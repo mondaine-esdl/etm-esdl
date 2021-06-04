@@ -1,13 +1,14 @@
 ''' Service to set sliders for a scenario'''
-
+# pylint: disable=arguments-differ
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
 
 class SetScenarioSliders(EtengineService):
+    '''
+    Change inputs to ETM according to dictionary sliders: {slider_key: value}.
+    '''
+
     def __call__(self, sliders):
-        '''
-        Change inputs to ETM according to dictionary sliders: {slider_key: value}.
-        '''
         data = {'scenario': {'user_values': sliders},'detailed': True}
 
         response = self.session.put(

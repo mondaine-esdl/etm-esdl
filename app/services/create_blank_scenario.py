@@ -1,14 +1,15 @@
 ''' Service to create an empty scenario'''
-
+# pylint: disable=arguments-differ
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
 
 class CreateBlankScenario(EtengineService):
-    def __call__(self, area_code, end_year):
-        '''
+    '''
         Creates a new scenario based on the area_code and end_year.
-        Returns the scenario_id
-        '''
+    Returns the scenario_id
+    '''
+
+    def __call__(self, area_code, end_year):
         data = {
             "scenario": {
                 "area_code": area_code,
