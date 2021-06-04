@@ -5,20 +5,8 @@ import config.conversions.assets as assets
 import config.conversions.kpis as kpis
 from config.conversions import quantities
 
-from app.models.energy_system import EnergySystemHandler
-from app.helpers.ETM_API import ETM_API
 from app.models.parsers import SupplyParser
-
 from app.services.query_scenario import QueryScenario
-
-def start_etm_session(scenario_id=None):
-    """
-    Start an ETM API session based on the set environment (beta for staging or pro for pro)
-    """
-    if scenario_id:
-        return ETM_API(scenario_id)
-
-    return ETM_API()
 
 
 def add_quantity_and_units(energy_system):
@@ -142,8 +130,3 @@ def update_esdl(energy_system, scenario_id):
     # f.close()
 
     return energy_system
-
-
-def setup_esh_from_scenario(scenario_id):
-    etm = start_etm_session(scenario_id)
-    return EnergySystemHandler.from_string(etm.fetch_energy_system())

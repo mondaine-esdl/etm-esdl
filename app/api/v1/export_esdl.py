@@ -4,11 +4,12 @@ Responds with an ESDL file.
 Only: post
 '''
 
-# TODO: See the create api, all todo's there are also applicable here
 import urllib.parse
 from flask_restx import Namespace, Resource, fields
+from app.helpers.api_utils import fail_with
 from app.models.energy_system import EnergySystemHandler
-from app.interface import update_esdl, setup_esh_from_scenario
+from app.services.fetch_esdl_from_etengine import FetchEsdlFromEtengine
+from app.interface import update_esdl
 
 api = Namespace('export_esdl', description='Update ESDL based on ETM scenario settings')
 
@@ -55,10 +56,15 @@ class ETMScenario(Resource):
 
 def setup_energy_system_handler_from_args(args):
     '''
-    Returns an EnergySystemHandler based on a passed energy_system, or on the one
-    that was attached to the ETM scenario
+    Returns an EnergySystemHandler based on a passed energy_system if there was one given,
+    or else on the energy system that was attached to the ETM scenario.
+    If there is no ESDL to be found, fails the whole request
     '''
     if args['energy_system']:
         return EnergySystemHandler.from_string(urllib.parse.unquote(args['energy_system']))
 
-    return setup_esh_from_scenario(args['session_id'])
+    result = FetchEsdlFromEtengine.execute(args['session_id'])
+    if result.succesfull:
+        return EnergySystemHandler.from_string(result.value)
+
+    fail_with(result)
