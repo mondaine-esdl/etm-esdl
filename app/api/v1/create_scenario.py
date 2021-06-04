@@ -49,12 +49,12 @@ class EnergySystem(Resource):
         scenario_id = new_scenario_id(energy_system_handler)
 
         # Set sliders in new scenario
-        set_silders_result = SetScenarioSliders.execute(
+        set_sliders_result = SetScenarioSliders.execute(
             scenario_id,
             EsdlToScenarioConverter(energy_system_handler).calculate()
         )
-        if not set_silders_result.successful:
-            fail_with(set_silders_result)
+        if not set_sliders_result.successful:
+            fail_with(set_sliders_result)
 
         # Attach ESDL file to scenario
         add_kpis_to_esdl(energy_system_handler, scenario_id)
