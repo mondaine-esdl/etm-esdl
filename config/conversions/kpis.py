@@ -39,7 +39,7 @@ gqueries = {
                 'gquery': 'geothermal_in_source_of_electricity_production'
             },
             {
-                'name': 'Groengas',
+                'label': 'Groengas',
                 'gquery': 'greengas_in_source_of_electricity_production'
             },
             {

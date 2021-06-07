@@ -8,8 +8,8 @@ import urllib.parse
 from flask_restx import Namespace, Resource
 
 from app.helpers.api_utils import fail_with
-from app.interface import add_kpis_to_esdl
 from app.models.energy_system import EnergySystemHandler
+from app.models.kpi_handler import KPIHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
@@ -57,7 +57,7 @@ class EnergySystem(Resource):
             fail_with(set_sliders_result)
 
         # Attach ESDL file to scenario
-        add_kpis_to_esdl(energy_system_handler, scenario_id)
+        KPIHandler(energy_system_handler, scenario_id).add_kpis_to_esdl()
         result = AttachEsdlToEtengine.execute(
             scenario_id,
             energy_system_handler.get_as_stream(),
