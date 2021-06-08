@@ -7,18 +7,16 @@ from app.models.kpi_handler import KPIHandler
 
 def update_esdl(energy_system, scenario_id):
     """
-    TODO
+    Updates the given energy system based on an ETM scenario id
+
+    energy_system   EnergySystemHandler, describing the energy_system that needs to be updated
+    scenario_id     int, ETM scenario that will be used to update the energy system
     """
     # Update KPIs
-    KPIHandler(energy_system, scenario_id).update_kpis()
+    KPIHandler(energy_system, scenario_id).update()
 
     # Update capacities of wind turbines and possibly add measures
     for asset_type in ['WindTurbine']:
         SupplyParser(energy_system, asset_type, assets.supply[asset_type]).update(scenario_id)
-
-    # Just for testing:
-    # f = open('data/output/test.esdl', 'a')
-    # f.write(energy_system.get_as_string())
-    # f.close()
 
     return energy_system

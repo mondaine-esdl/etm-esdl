@@ -34,7 +34,7 @@ class KPIHandler():
                 )
 
 
-    def update_kpis(self):
+    def update(self):
         """
         Update the KPIs of the energy system based on ETM queries
         """
@@ -91,10 +91,10 @@ class KPIHandler():
             self.energy_system.get_by_id_slow(prop['q_and_u'])
         )
 
+
     def __add_results_to_kpi_distribution(self, kpi, prop, metrics):
         ''' For all gqueries in the prop, add values to the kpi's distribution'''
         for gquery in prop['gqueries']:
-            print(gquery)
             self.__add_value_to_kpi_distribution(
                 kpi,
                 metrics[gquery['gquery']]['future'] * prop['factor'],

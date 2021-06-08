@@ -56,7 +56,7 @@ def test_add_kpis_when_scenario_is_unknown(energy_system_handler_no_kpis):
 
 
 @pytest.mark.parametrize('future_value', [10.0])
-def test_update_kpis_when_there_were_no_kpis_present(energy_system_handler_no_kpis, mocked_query_results):
+def test_update_when_there_were_no_kpis_present(energy_system_handler_no_kpis, mocked_query_results):
     '''
     Should not work! It cannot find the present KPI's in the prop -> Why? @Roos
     '''
@@ -65,18 +65,18 @@ def test_update_kpis_when_there_were_no_kpis_present(energy_system_handler_no_kp
     handler.get_metrics = MagicMock(return_value=mocked_query_results)
 
     with pytest.raises(KeyError):
-        handler.update_kpis()
+        handler.update()
 
 
 @pytest.mark.parametrize('future_value', [-1.0, 100.0])
-def test_update_kpis_with_high_low_values(energy_system_handler_with_kpis, mocked_query_results):
+def test_update_with_high_low_values(energy_system_handler_with_kpis, mocked_query_results):
     number_of_kpis = len(energy_system_handler_with_kpis.es.instance[0].area.KPIs.kpi)
     assert number_of_kpis > 3
 
     handler = KPIHandler(energy_system_handler_with_kpis, 123456)
     # Mock the values returned by ETE
     handler.get_metrics = MagicMock(return_value=mocked_query_results)
-    handler.update_kpis()
+    handler.update()
 
     assert len(handler.energy_system.es.instance[0].area.KPIs.kpi) == number_of_kpis
 

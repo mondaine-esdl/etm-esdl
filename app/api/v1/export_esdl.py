@@ -8,8 +8,8 @@ import urllib.parse
 from flask_restx import Namespace, Resource, fields
 from app.helpers.api_utils import fail_with
 from app.models.energy_system import EnergySystemHandler
+from app.models.scenario_to_esdl_converter import update_esdl
 from app.services.fetch_esdl_from_etengine import FetchEsdlFromEtengine
-from app.interface import update_esdl
 
 api = Namespace('export_esdl', description='Update ESDL based on ETM scenario settings')
 
@@ -64,7 +64,7 @@ def setup_energy_system_handler_from_args(args):
         return EnergySystemHandler.from_string(urllib.parse.unquote(args['energy_system']))
 
     result = FetchEsdlFromEtengine.execute(args['session_id'])
-    if result.succesfull:
+    if result.successful:
         return EnergySystemHandler.from_string(result.value)
 
     fail_with(result)

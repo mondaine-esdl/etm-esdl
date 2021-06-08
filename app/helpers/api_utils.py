@@ -3,7 +3,7 @@ from app.helpers.exceptions import EnergysystemParseError
 
 def fail_with(result):
     '''
-    Raises an EnergySystemParseError based on the results errors
+    Raises an EnergySystemParseError based on the results (ServiceResult) errors, result is expected to be a
     '''
     if not len(result.errors) > 0:
         raise EnergysystemParseError('Something went wrong')
