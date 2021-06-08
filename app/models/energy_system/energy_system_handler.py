@@ -22,7 +22,7 @@ class EnergySystemHandler:
         self.rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)
 
         # Read the esdl.ecore from the tmp folder
-        esdl_model_resource = self.rset.get_resource(URI('tmp/esdl/esdl.ecore'))
+        esdl_model_resource = self.rset.get_resource(URI('vendor/esdl/esdl.ecore'))
 
         esdl_model = esdl_model_resource.contents[0]
         # print('Namespace: {}'.format(esdl_model.nsURI))
