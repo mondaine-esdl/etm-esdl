@@ -1,11 +1,12 @@
 '''
 Api namespace that only shows ETM KPI's.
 Responds with ETM KPI's.
-Only: post
+Only: get
 '''
 
 from flask_restx import Namespace, Resource
 from config.conversions.kpis import gqueries as kpis
+# pylint: disable=no-self-use
 
 api = Namespace('kpis', description='Get ETM KPIs')
 
@@ -15,8 +16,7 @@ class KPIs(Resource):
     Return list of available ETM KPIs
     """
 
-    # TODO: find out why this is not a get
-    def post(self):
+    def get(self):
         """
         Return list of available ETM KPIs
         """

@@ -1,7 +1,7 @@
 ''' Represents a single supply asset '''
 
 from app.models.energy_system import EnergyDataRepository
-from app.helpers.exceptions import EnergysystemParseError
+from app.utils.exceptions import EnergysystemParseError, ETMParseError
 from app.services.query_scenario import QueryScenario
 from .parser import AssetParser
 
@@ -90,7 +90,7 @@ class SupplyParser(AssetParser):
         if query_result.successful:
             return query_result.value[prop['gquery']]['future'] / prop['factor']
 
-        raise EnergysystemParseError(
+        raise ETMParseError(
             f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
         )
 
@@ -156,6 +156,7 @@ class SupplyParser(AssetParser):
         """
         self.energy_system.add_measures()
 
+        # TODO: can we get this info from vendor/esdl?
         edr = EnergyDataRepository()
         edr_asset = edr.get_asset(asset_id)
 
@@ -170,8 +171,7 @@ class SupplyParser(AssetParser):
         remaining_diff = diff
         while remaining_diff > 0:
             # asset = constructor()
-            if power > remaining_diff:
-                power = remaining_diff
+            power = min(power, remaining_diff)
 
             asset = self.energy_system.esdl.WindTurbine(
                 id=self.energy_system.generate_uuid(),

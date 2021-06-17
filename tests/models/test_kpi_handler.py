@@ -7,6 +7,7 @@ import config.conversions.kpis as kpis
 from config.conversions import quantities
 from app.models.kpi_handler import KPIHandler
 from app.models.energy_system import EnergySystemHandler
+from app.utils.exceptions import ETMParseError
 
 
 @pytest.fixture
@@ -49,9 +50,9 @@ def test_add_kpis(energy_system_handler_no_kpis, mocked_query_results):
 
 def test_add_kpis_when_scenario_is_unknown(energy_system_handler_no_kpis):
     handler = KPIHandler(energy_system_handler_no_kpis, 123456)
-    handler.get_metrics = MagicMock(side_effect=ValueError)
+    handler.get_metrics = MagicMock(side_effect=ETMParseError('No scenario'))
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ETMParseError):
         handler.add_kpis()
 
 

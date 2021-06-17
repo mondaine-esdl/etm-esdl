@@ -69,3 +69,5 @@ class HeatingTechnologiesParser(AggregratedBuildingParser):
                 )
 
                 if list_of_assets: return prop
+
+        return {}

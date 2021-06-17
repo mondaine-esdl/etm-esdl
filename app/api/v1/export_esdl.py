@@ -6,10 +6,11 @@ Only: post
 
 import urllib.parse
 from flask_restx import Namespace, Resource, fields
-from app.helpers.api_utils import fail_with
+from app.utils.api_utils import fail_with
 from app.models.energy_system import EnergySystemHandler
 from app.models.scenario_to_esdl_converter import update_esdl
 from app.services.fetch_esdl_from_etengine import FetchEsdlFromEtengine
+# pylint: disable=no-self-use
 
 api = Namespace('export_esdl', description='Update ESDL based on ETM scenario settings')
 

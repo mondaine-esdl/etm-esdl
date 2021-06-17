@@ -3,6 +3,7 @@
 import config.conversions.kpis as kpis
 from config.conversions import quantities
 from app.services.query_scenario import QueryScenario
+from app.utils.exceptions import ETMParseError
 
 
 class KPIHandler():
@@ -79,7 +80,7 @@ class KPIHandler():
         if query_result.successful:
             return query_result.value
 
-        raise ValueError(query_result.errors)
+        raise ETMParseError.with_humanized_message(query_result.errors)
 
 
     def __create_new_kpi(self, kpi_id, prop):

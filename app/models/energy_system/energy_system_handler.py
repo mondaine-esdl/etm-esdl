@@ -5,7 +5,7 @@ import uuid
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
 from pyecore.notification import EObserver
-from app.helpers.exceptions import EnergysystemParseError
+from app.utils.exceptions import EnergysystemParseError
 from .xmlresource import XMLResource
 from .StringURI import StringURI
 

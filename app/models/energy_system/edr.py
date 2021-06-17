@@ -23,10 +23,13 @@ class EnergyDataRepository():
         return esh.es
 
 
+    # TODO: can we also get this from the vendor/esdl module??
     def get_asset(self, asset_id):
         """
         Get ESDL asset by ID
         """
+        # TODO: why is this in xml then ESH and then only the 'power' attribute is extracted?
+        # Couldn't we request the info as json and directly extract the power attribute form there?
         params = {
             'format': 'xml'
         }

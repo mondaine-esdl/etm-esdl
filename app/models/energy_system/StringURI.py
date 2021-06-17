@@ -4,7 +4,7 @@ from pyecore.resources import URI
 
 class StringURI(URI):
     def __init__(self, uri, text=None):
-        super(StringURI, self).__init__(uri)
+        super().__init__(uri)
         if text is not None:
             self.__stream = BytesIO(text.encode('UTF-8'))
 
