@@ -7,7 +7,7 @@ from flask_restx import Api
 
 # Exceptions to be caught
 from werkzeug.exceptions import MethodNotAllowed
-from app.helpers.exceptions import EnergysystemParseError
+from app.utils.exceptions import HumanizableException
 
 # Import namespaces (parts of Api)
 from .create_scenario import api as ns_create_scenario
@@ -28,7 +28,7 @@ api.add_namespace(ns_create_scenario)
 api.add_namespace(ns_export)
 api.add_namespace(ns_kpis)
 
-@api.errorhandler(EnergysystemParseError)
+@api.errorhandler(HumanizableException)
 def handle_api_error(error):
     '''Creates a response containing the messages of the error'''
     return error.to_dict(), error.status_code

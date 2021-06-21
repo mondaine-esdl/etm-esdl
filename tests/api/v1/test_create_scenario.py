@@ -10,7 +10,12 @@ def test_import_esdl_with_invalid_params(client):
     response_no_params = client.post(API_URL, data={})
     assert response_no_params.status_code == 400
 
-def test_get_responds_wit_405(client):
+def test_get_responds_with_405(client):
     '''Check if unavailable method is caught'''
     response = client.get(API_URL)
     assert response.status_code == 405
+
+def test_redirect(client):
+    '''Check if forgotten trailing / gets redirected'''
+    response = client.post('/api/v1/create_scenario')
+    assert response.status_code == 308

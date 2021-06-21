@@ -1,0 +1,10 @@
+# Config file for pylint for tests
+
+[MESSAGES CONTROL]
+
+# Things we don't want the linter to whine about:
+# C0321 = No one line if statements
+# 'missing-function-docstring', we don't need a description for each test it's in the functions name
+
+# Let's disable them
+disable=C0321,missing-function-docstring

@@ -1,15 +1,15 @@
 ''' Service for querying an ETEnging scenario'''
-
+# pylint: disable=arguments-differ
 from json.decoder import JSONDecodeError
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
 
 class QueryScenario(EtengineService):
+    """
+    Query a scenario with supplied gqueries (one or more).
+    Returns a ServiceResult with a dict containing the gquery results as value.
+    """
     def __call__(self, *gqueries):
-        """
-        Query a scenario with supplied gqueries (one or more).
-        Returns a ServiceResult with a dict containing the gquery results as value.
-        """
         data = {"gqueries": list(gqueries), "detailed": True}
 
         response = self.session.put(

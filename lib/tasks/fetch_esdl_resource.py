@@ -1,13 +1,13 @@
 '''
-Downloads the ecore esdl resource from github into the tmp folder. This xml-file is needed as a
+Downloads the ecore esdl resource from github into the vendor folder. This xml-file is needed as a
 resource for the EnergySystemHandler
 '''
 import requests
 import sys
 import os
 
-TMP_FOLDER_PATH = 'tmp/esdl/'
-ECORE_FILE_PATH = TMP_FOLDER_PATH + 'esdl.ecore'
+VENDOR_FOLDER_PATH = 'vendor/esdl/'
+ECORE_FILE_PATH = VENDOR_FOLDER_PATH + 'esdl.ecore'
 
 if __name__ == "__main__":
     commit_hash = sys.argv[0] if len(sys.argv) == 1 else ''
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     result = requests.get(github_url)
 
     if result.ok:
-        os.makedirs(TMP_FOLDER_PATH, exist_ok=True)
+        os.makedirs(VENDOR_FOLDER_PATH, exist_ok=True)
 
         with open(ECORE_FILE_PATH, 'wb') as file:
             file.write(result.content)

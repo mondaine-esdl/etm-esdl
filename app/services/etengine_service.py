@@ -9,9 +9,20 @@ class EtengineService():
     """
     Setup a basic service to connect to ETEngine
     """
-    def __init__(self, environment, scenario_id=0):
-        self.session = SessionWithUrlBase(current_app.config['ETENGINE'][environment])
+    def __init__(self, scenario_id):
+        self.session = SessionWithUrlBase(url_base=current_app.config['ETENGINE_URL'])
         self.scenario_id = scenario_id
+
+    def __call__(self, *args, **kwargs):
+        raise NotImplementedError()
+
+    @classmethod
+    def execute(cls, scenario_id, *args, **kwargs):
+        '''
+        Creates a new Services and executes it
+        '''
+        service = cls(scenario_id)
+        return service.__call__(*args, **kwargs)
 
 # Can/should we get rid of this?
 class SessionWithUrlBase(requests.Session):
@@ -20,7 +31,7 @@ class SessionWithUrlBase(requests.Session):
     relevant additional information.
     from: https://stackoverflow.com/questions/42601812/python-requests-url-base-in-session
     """
-    def __init__(self, url_base=None, *args, **kwargs):
+    def __init__(self, *args, url_base=None, **kwargs):
         super(SessionWithUrlBase, self).__init__(*args, **kwargs)
         self.url_base = url_base
 

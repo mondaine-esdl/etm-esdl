@@ -11,7 +11,7 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 ## App
 from flask import Flask
 # from werkzeug.middleware.proxy_fix import ProxyFix
-from config import *
+from config.config import *
 from app.api import blueprint as api
 
 def create_app(testing=False):
