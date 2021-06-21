@@ -54,7 +54,7 @@ class EnergySystem(Resource):
 
     def __create_new_scenario_id(self):
         '''
-        Creates a new scenario in ETEngine. Returns the scenario id if succesful.
+        Creates a new scenario in ETEngine. Sets the scenario id if succesful.
         '''
         area_code = area_mapping[self.energy_system_handler.es.instance[0].area.id]
         result = CreateBlankScenario.execute(0, area_code, 2050)

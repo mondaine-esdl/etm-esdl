@@ -20,11 +20,6 @@ class KPIs(Resource):
         """
         Return list of available ETM KPIs
         """
-        list_of_kpis = []
-
-        for kpi, prop in kpis.items():
-            list_of_kpis.append({'key': kpi, 'name': prop['name']})
-
         return {
-            'kpis': list_of_kpis
+            'kpis': [{'key': kpi, 'name': prop['name']} for kpi, prop in kpis.items()]
         }

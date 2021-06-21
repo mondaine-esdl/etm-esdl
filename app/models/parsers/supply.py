@@ -156,7 +156,6 @@ class SupplyParser(AssetParser):
         """
         self.energy_system.add_measures()
 
-        # TODO: can we get this info from vendor/esdl?
         edr = EnergyDataRepository()
         edr_asset = edr.get_asset(asset_id)
 
