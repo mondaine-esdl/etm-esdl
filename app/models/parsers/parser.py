@@ -48,6 +48,7 @@ class AssetParser(Parser):
     def __init__(self, energy_system, props, *args, **kwargs):
         self.props = props
         self.asset_type = kwargs.pop('asset_type', None)
+        self.sub_type = kwargs.pop('sub_type', 'default')
         super().__init__(energy_system, *args, **kwargs)
 
 

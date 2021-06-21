@@ -61,9 +61,12 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         if asset_type == 'RooftopPV':
-            RooftopPVParser(self.energy_system, properties, inputs=self.inputs).parse()
+            RooftopPVParser(self.energy_system, properties['default'], inputs=self.inputs).parse()
+        elif asset_type == 'CHP':
+            for sub_type, props in properties.items():
+                ChpParser(self.energy_system, asset_type, sub_type, props, inputs=self.inputs).parse()
         else:
-            SupplyParser(self.energy_system, asset_type, properties, inputs=self.inputs).parse()
+            SupplyParser(self.energy_system, asset_type, properties['default'], inputs=self.inputs).parse()
 
 
     def determine_number_of_buildings(self):

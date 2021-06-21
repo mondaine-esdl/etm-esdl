@@ -314,7 +314,7 @@
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CHP" assetType="Cogen" name="IndoramaEURA" heatEfficiency="0.49" sector="NONCHLO" power="91.0" id="C14" electricalEfficiency="0.31">
+          <asset xsi:type="esdl:CHP" CHPType="GAS_TURBINE" assetType="Cogen" name="IndoramaEURA" heatEfficiency="0.49" sector="NONCHLO" power="91.0" id="C14" electricalEfficiency="0.31">
             <port xsi:type="esdl:InPort" connectedTo="IndoramaEURA_GConnection_OP1" id="C14IP1" carrier="FMH" name="In1"/>
             <port xsi:type="esdl:OutPort" id="C14OP1" connectedTo="D5_S_IP1" carrier="S" name="Out1"/>
             <port xsi:type="esdl:OutPort" id="C14OP2" connectedTo="D5_E_IP1" carrier="E" name="Out2"/>
@@ -362,7 +362,7 @@
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CHP" assetType="Cogen" name="ADMEURA" heatEfficiency="0.49" sector="EDOIL" power="70.0" id="C15" electricalEfficiency="0.31">
+          <asset xsi:type="esdl:CHP" assetType="Cogen" type="GAS_MOTOR" name="ADMEURA" heatEfficiency="0.49" sector="EDOIL" power="70.0" id="C15" electricalEfficiency="0.31">
             <port xsi:type="esdl:InPort" connectedTo="ADMEURA_GConnection_OP1" id="C15IP1" carrier="FMH" name="In1"/>
             <port xsi:type="esdl:OutPort" id="C15OP1" connectedTo="D6_S_IP1" carrier="S" name="Out1"/>
             <port xsi:type="esdl:OutPort" id="C15OP2" connectedTo="D6_E_IP1" carrier="E" name="Out2"/>
@@ -508,7 +508,7 @@
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CHP" assetType="Cogen" name="AlcoEURC" heatEfficiency="0.49" sector="CHEMFEED" power="150.0" id="C23" electricalEfficiency="0.31">
+          <asset xsi:type="esdl:CHP" assetType="Cogen" type="STEG" name="AlcoEURC" heatEfficiency="0.49" sector="CHEMFEED" power="150.0" id="C23" electricalEfficiency="0.31">
             <port xsi:type="esdl:InPort" connectedTo="CaldicEURC_GConnection_OP1" id="C23IP1" carrier="FMH" name="In1"/>
             <port xsi:type="esdl:OutPort" id="C23OP1" connectedTo="D8_S_IP1" carrier="S" name="Out1"/>
             <port xsi:type="esdl:OutPort" id="C23OP2" connectedTo="D8_E_IP1" carrier="E" name="Out2"/>

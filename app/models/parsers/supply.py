@@ -5,17 +5,21 @@ from app.utils.exceptions import EnergysystemParseError, ETMParseError
 from app.services.query_scenario import QueryScenario
 from .parser import AssetParser
 
+# TODO: Move part of functionality to separate parsers for PVParks and
+# WindTurbines?
 class SupplyParser(AssetParser):
     """
     Class to parse ESDL information about a single supply asset and
     translate it to the relevant ETM inputs.
     """
 
-    def __init__(self, energy_system, asset_type, props, *args, **kwargs):
-        super().__init__(energy_system, props, *args, asset_type=asset_type, **kwargs)
+    def __init__(self, energy_system, asset_type, sub_type, props, *args, **kwargs):
+        super().__init__(
+            energy_system, props, *args, asset_type=asset_type,
+            sub_type=sub_type, **kwargs)
         self.__set_list_of_assets()
         self.power = 0.
-        self.full_load_hours = 0.
+        # self.full_load_hours = 0.
 
 
     def parse(self):
@@ -29,10 +33,8 @@ class SupplyParser(AssetParser):
 
     def update(self, scenario_id):
         """
-        Update the power and full load hours based on the ETM inputs
+        TODO
         """
-        self.set_props()
-        self.update_props(scenario_id)
 
 
     def __set_list_of_assets(self):
@@ -52,10 +54,9 @@ class SupplyParser(AssetParser):
         """
         Check the total power of the given asset
 
-        Sets self.power, self.full_load_hours and self.inputs
+        Sets self.power and self.inputs
         """
         self.power = 0.
-        self.full_load_hours = 0.
 
         for asset in self.list_of_assets:
             for prop in self.props:

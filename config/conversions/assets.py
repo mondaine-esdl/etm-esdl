@@ -3,47 +3,83 @@ Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
 supply = {
-    'WindTurbine': [
-        {
-            'attribute': 'power',
-            'input': 'capacity_of_energy_power_wind_turbine_inland',
-            'gquery': 'merit_order_onshore_wind_turbines_capacity_in_merit_order_table',
-            'factor': 1E-6,
-            'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
-        },
-        {
-            'attribute': 'fullLoadHours',
-            'input': 'flh_of_energy_power_wind_turbine_inland',
-            'gquery': 'merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table',
-            'factor': 1,
-            'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
-        }
-    ],
-    'PVPark': [
-        {
-            'attribute': 'power',
-            'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
-            'gquery': '',
-            'factor': 1E-6,
-            'edr': ''
-        },
-        {
-            'attribute': 'fullLoadHours',
-            'input': 'flh_of_solar_pv_solar_radiation',
-            'gquery': '',
-            'factor': 1,
-            'edr': ''
-        }
-    ],
-    'RooftopPV': [
-        {
-            'inputs': {
-                'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
-                'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
+    'WindTurbine': {
+        'default': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_wind_turbine_inland',
+                'gquery': 'merit_order_onshore_wind_turbines_capacity_in_merit_order_table',
+                'factor': 1E-6,
+                'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
             },
-            'factor': 1E2
-        }
-    ]
+            {
+                'attribute': 'fullLoadHours',
+                'input': 'flh_of_energy_power_wind_turbine_inland',
+                'gquery': 'merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table',
+                'factor': 1,
+                'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
+            }
+        ],
+    },
+    'PVPark': {
+        'default': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
+                'gquery': '',
+                'factor': 1E-6,
+                'edr': ''
+            },
+            {
+                'attribute': 'fullLoadHours',
+                'input': 'flh_of_solar_pv_solar_radiation',
+                'gquery': '',
+                'factor': 1,
+                'edr': ''
+            }
+        ]
+    },
+    'RooftopPV': {
+        'default': [
+            {
+                'inputs': {
+                    'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
+                    'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
+                },
+                'factor': 1E2
+            }
+        ],
+    },
+    'CHP': {
+        'UNDEFINED': [ # do we want to support this?
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+                'factor': 1E-6
+            }
+        ],
+        'STEG': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+                'factor': 1E-6
+            }
+        ],
+        'GAS_TURBINE': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_industry_chp_turbine_gas_power_fuelmix',
+                'factor': 1E-6
+            }
+        ],
+        'GAS_MOTOR': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
+                'factor': 1E-6
+            }
+        ]
+    }
 }
 
 distributions = {
