@@ -11,6 +11,7 @@ lxml = "*"
 more-itertools = "*"
 requests = "*"
 Flask = "~=1.1.1"
+Flask-Caching = "*"
 'sentry-sdk[flask]' = "*"
 
 [dev-packages]
