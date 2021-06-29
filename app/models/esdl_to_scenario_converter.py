@@ -4,6 +4,7 @@ import pprint
 from collections import defaultdict
 
 import config.conversions.assets as assets
+from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
     EnergyLabelsParser, HeatingTechnologiesParser, SupplyParser, RooftopPVParser
@@ -42,6 +43,13 @@ class EsdlToScenarioConverter():
         pprint.pprint(self.inputs)
         return self.inputs
 
+    def as_situation(self):
+        ''' Calculates the inputs and wraps them in a Situation'''
+        self.calculate()
+        area = self.energy_system.es.instance[0].area.id
+        year = self.energy_system.es.instance[0].date.date.year
+
+        return Situation(self.inputs, area, year)
 
     def parse_supply(self, asset_type, properties):
         '''

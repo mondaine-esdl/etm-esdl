@@ -24,3 +24,25 @@ def test_start_situation(client, energy_system_hengelo):
 
     client.post(API_URL, data=data)
     assert cache.get(esdl_id) is not None
+
+
+# TODO: test with scenario id
+
+# TODO: test without scenario id
+
+def test_with_missing_situation(client, energy_system_hengelo):
+    # Only start situation
+    data = {
+        'energy_system_start_situation': energy_system_hengelo
+    }
+    resp = client.post(API_URL, data=data)
+
+    assert resp.status_code == 400
+
+    # Only end situation
+    data = {
+        'energy_system_end_situation': energy_system_hengelo
+    }
+    resp = client.post(API_URL, data=data)
+
+    assert resp.status_code == 400
