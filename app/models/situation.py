@@ -22,12 +22,9 @@ class Situation:
             return self.slider_settings == other.slider_settings
         return False
 
-
     def set_context_scenario(self, context_scenario_id):
         ''' Get context slider settings from ETM scenario '''
-        context_sliders = ['query_one', 'query_two', 'query_three'] # get these from a config?
-
-        result = QueryScenario.execute(context_scenario_id, *context_sliders)
+        result = QueryScenario.execute(context_scenario_id, *self.CONTEXT_INPUTS)
         if result.successful:
             self.context = result.value
         else:
@@ -37,6 +34,7 @@ class Situation:
         '''
         Calculates the slider settings of the current situation compared to the
         relative change to another
+        Returns a new situation
         '''
         Situation.sanity_check(self, other)
 
