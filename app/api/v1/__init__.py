@@ -16,7 +16,7 @@ from .export_esdl import api as ns_export
 from .kpis import api as ns_kpis
 
 # Import the caches
-from .create_with_context import cache as cache_create_with_context
+# from .create_with_context import cache as cache_create_with_context
 
 # Setup the blueprint and route for the api
 blueprint = Blueprint('api', __name__)

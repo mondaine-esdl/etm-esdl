@@ -9,8 +9,8 @@ Only: post
 import urllib.parse
 import re
 from flask_restx import Namespace, Resource
-from flask_caching import Cache
 
+from app import cache
 from app.utils.api_utils import fail_with
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
@@ -20,9 +20,6 @@ from app.services.set_scenario_sliders import SetScenarioSliders
 from config.conversions import area_mapping
 
 # pylint: disable=no-self-use
-
-# Setup the cache for the api
-cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 
 api = Namespace('create_with_context', description='Transform 2 ESDLs into one ETM scenario')
 
@@ -101,6 +98,7 @@ class EnergySystem(Resource):
         return re.search(r'(?<=id\=\")\w+(-\w+)+', energy_system.split('\n', 2)[1]).group(0)
 
     def __scenario_id(self, scenario_id, area):
+        '''Returns an ETM scenario id to use as context'''
         if scenario_id:
             return scenario_id
 
