@@ -1,6 +1,6 @@
 ''' Tests for the subclass of EtengineService, QueryScenario'''
 import pytest
-# pylint: disable=import-error disable=redefined-outer-name
+# pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.services.query_scenario import QueryScenario
 from app.services.etengine_service import EtengineService
 
@@ -72,3 +72,27 @@ def test_call_with_etengine_failing(app, requests_mock):
         result = service('gquery1')
         assert not result.successful
         assert 'ETEngine returned a 500' in  result.errors
+
+def test_call_with_detailed(app, requests_mock):
+    queries = ['query1', 'query2']
+
+    requests_mock.put(
+        f'{app.config["ETENGINE_URL"]}/scenarios/12345',
+        json={
+            'gqueries': {
+                queries[0]: {'future': 1, 'present': 0.5},
+                queries[1]: {'future': 0.5, 'present': 1}
+            }, 'scenario': {
+                'id' :12345,
+                'area_code': 'GM001_Faketown',
+                'end_year': 2050
+            }
+        },
+        status_code=200
+    )
+
+    with app.app_context():
+        result = QueryScenario.execute(12345, detailed=True, *queries)
+        assert result.successful
+        assert 'end_year' in result.value
+        assert queries[0] in result.value

@@ -13,7 +13,7 @@ from app.models.kpi_handler import KPIHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
-from app.services.create_blank_scenario import CreateBlankScenario
+from app.services.create_scenario import CreateScenario
 
 api = Namespace('create_scenario', description='Transform ESDL into ETM scenario settings')
 
@@ -57,7 +57,7 @@ class EnergySystem(Resource):
         '''
         Creates a new scenario in ETEngine. Sets the scenario id if succesful.
         '''
-        result = CreateBlankScenario.execute(0, area_code, 2050)
+        result = CreateScenario.execute(None, {'area_code': area_code, 'end_year': 2050})
 
         if result.successful:
             self.scenario_id = result.value

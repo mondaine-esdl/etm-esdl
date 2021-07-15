@@ -1,17 +1,17 @@
 ''' Tests for Situation '''
 
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
-from app.utils.exceptions import EnergysystemParseError
 from collections import defaultdict
 import pytest
 from app.models.situation import Situation
+from app.utils.exceptions import EnergysystemParseError
 
 def mock_context_scenario(scenario_id, app, requests_mock):
     output = {query: {'future': 1, 'present': 0.5} for query in Situation.CONTEXT_INPUTS}
 
     requests_mock.put(
         f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}',
-        json={'gqueries': output},
+        json={'gqueries': output, 'scenario': {'end_year': 2050, 'area_code': 'nl'}},
         status_code=200
     )
 
@@ -58,25 +58,29 @@ def test_set_context_scenario(app, requests_mock, slider_settings):
 
 def test_relative_change_to_with_situations_with_different_areas(slider_settings):
     situation = Situation(slider_settings, 'Hengelo', 2020)
-    situation_2 = Situation(slider_settings, 'UK', 2025)
+    situation_2 = Situation(slider_settings, 'UK', 2055)
 
     with pytest.raises(EnergysystemParseError):
-        situation.relative_change_to(situation_2)
+        situation.relative_change_to_for_context(situation_2)
 
-def test_relative_change_to_with_the_same_situation(slider_settings):
-    situation = Situation(slider_settings, 'Hengelo', 2020)
-
-    new_situation = situation.relative_change_to(situation)
-    assert new_situation == situation
 
 def test_relative_change_to_with_two_valid_situations(slider_settings):
     '''TODO'''
     # TODO: assert it is a Situation
     # TODO: assert its slider settings make sense
 
-def test_relative_change_to_with_context_scenario():
-    '''TODO'''
-    # TODO: assert it is a Situation
-    # TODO: assert its slider settings make sense
-    # TODO: what happens to the context
-    # TODO: what happens if both have a context set?
+
+def test_calculate_slider_based_on_present_share(slider_settings):
+    situation = Situation(slider_settings, 'Hengelo', 2020)
+    situation.context = {'households_number_of_residences': {
+        'present': 385130, #10% share
+        'future': 3851300
+    }}
+    situation_future = Situation(slider_settings, 'Hengelo', 2050)
+
+    # Compare to no change in Hengelo
+    new_slider = situation.calculate_slider_based_on_present_share(
+        situation_future, 'households_number_of_residences'
+    )
+
+    assert new_slider == 3504683
