@@ -16,8 +16,6 @@ from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.create_blank_scenario import CreateBlankScenario
 from app.services.set_scenario_sliders import SetScenarioSliders
-# TODO: This conversion should not happen here
-from config.conversions import area_mapping
 
 # pylint: disable=no-self-use
 
@@ -108,8 +106,7 @@ class EnergySystem(Resource):
         '''
         Creates a new scenario in ETEngine. Sets the scenario id if succesful.
         '''
-        area_code = area_mapping[area]
-        result = CreateBlankScenario.execute(0, area_code, 2050)
+        result = CreateBlankScenario.execute(0, area, 2050)
 
         if not result.successful:
             fail_with(result)

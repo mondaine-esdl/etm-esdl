@@ -4,6 +4,7 @@ import pprint
 from collections import defaultdict
 
 import config.conversions.assets as assets
+from config.conversions import area_mapping
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
@@ -17,6 +18,7 @@ class EsdlToScenarioConverter():
     def __init__(self, energy_system):
         self.inputs = defaultdict(float)
         self.energy_system = energy_system
+        self.area = self.__convert_area()
 
 
     def calculate(self):
@@ -43,13 +45,14 @@ class EsdlToScenarioConverter():
         pprint.pprint(self.inputs)
         return self.inputs
 
+
     def as_situation(self):
         ''' Calculates the inputs and wraps them in a Situation'''
         self.calculate()
-        area = self.energy_system.es.instance[0].area.id
         year = self.energy_system.es.instance[0].date.date.year
 
-        return Situation(self.inputs, area, year)
+        return Situation(self.inputs, self.area, year)
+
 
     def parse_supply(self, asset_type, properties):
         '''
@@ -122,3 +125,10 @@ class EsdlToScenarioConverter():
         Returns the building type (UTILITY or RESIDENTIAL) of an aggegrated building asset
         '''
         return str(asset.buildingTypeDistribution.buildingTypePercentage[0].buildingType)
+
+    def __convert_area(self):
+        '''Converts the energy_systems area to an ETM area if a conversion is available'''
+        area = self.energy_system.es.instance[0].area.id
+        if area in area_mapping:
+            area = area_mapping[area]
+        return area

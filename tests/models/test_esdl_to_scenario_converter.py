@@ -64,4 +64,4 @@ def test_as_situation(converter):
 
     assert isinstance(situation, Situation)
     assert situation.year == 2050
-    assert situation.area == 'Hengelo'
+    assert situation.area == 'GM0164_hengelo'
