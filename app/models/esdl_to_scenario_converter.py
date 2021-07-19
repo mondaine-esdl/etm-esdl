@@ -8,7 +8,7 @@ from config.conversions import area_mapping
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, SupplyParser, RooftopPVParser
+    EnergyLabelsParser, HeatingTechnologiesParser, SupplyParser, RooftopPVParser, ChpParser
 )
 
 
@@ -63,10 +63,11 @@ class EsdlToScenarioConverter():
         if asset_type == 'RooftopPV':
             RooftopPVParser(self.energy_system, properties['default'], inputs=self.inputs).parse()
         elif asset_type == 'CHP':
-            for sub_type, props in properties.items():
-                ChpParser(self.energy_system, asset_type, sub_type, props, inputs=self.inputs).parse()
+            pass
+            # for sub_type, props in properties.items():
+            #     ChpParser(self.energy_system, asset_type, sub_type, props, inputs=self.inputs).parse()
         else:
-            SupplyParser(self.energy_system, asset_type, properties['default'], inputs=self.inputs).parse()
+            SupplyParser(self.energy_system, properties['default'], asset_type, inputs=self.inputs).parse()
 
 
     def determine_number_of_buildings(self):

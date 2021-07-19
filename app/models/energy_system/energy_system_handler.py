@@ -193,6 +193,37 @@ class EnergySystemHandler:
         return esdl_type.allInstances()
 
 
+    def get_all_instances_of_type_and_attribute_value(self, esdl_type, attr, val):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        The assets are then filtered for a specific attribute-value combination
+        '''
+        all_instances = esdl_type.allInstances()
+
+        filtered_instances = []
+
+        for instance in all_instances:
+            print(type(instance))
+            print()
+            print(attr)
+            print(getattr(instance,attr))
+            print(type(getattr(instance,attr)))
+            print(val)
+            if str(getattr(instance, attr)) == val:
+                print(instance.power)
+                print('Added!')
+                filtered_instances.append(instance)
+
+        # print(type(filtered_instances))
+
+        return all_instances
+        # return filtered_instances
+
+
     def get_by_id(self, object_id):
         '''
         Using this function you can query for objects by ID

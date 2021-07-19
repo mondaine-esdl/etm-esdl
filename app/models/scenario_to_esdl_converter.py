@@ -17,6 +17,6 @@ def update_esdl(energy_system, scenario_id):
 
     # Update capacities of wind turbines and possibly add measures
     for asset_type in ['WindTurbine']:
-        SupplyParser(energy_system, asset_type, assets.supply[asset_type]).update(scenario_id)
+        SupplyParser(energy_system, assets.supply[asset_type]['default'], asset_type).update(scenario_id)
 
     return energy_system

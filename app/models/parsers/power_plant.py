@@ -3,12 +3,11 @@ Parser for CHP assets
 """
 
 from app.utils.exceptions import EnergysystemParseError, ETMParseError
-# from app.services.query_scenario import QueryScenario
 from .supply import SupplyParser
 
-class ChpParser(SupplyParser):
+class PowerPlantParser(SupplyParser):
     """
-    Class to parse ESDL information about a single CHP asset and
+    Class to parse ESDL information about a single power plant asset and
     translate it to the relevant ETM inputs.
 
     The add_to_present parameter specifies whether the CHPs should be added to
@@ -16,9 +15,9 @@ class ChpParser(SupplyParser):
     currently installed capacity should be overwritten (add_to_present=False)
     """
 
-    def __init__(self, energy_system, asset_type, sub_type, props, add_to_present=False, *args, **kwargs):
+    def __init__(self, energy_system, props, asset_type, sub_type='default', add_to_present=False, *args, **kwargs):
         super().__init__(energy_system, props, *args, asset_type=asset_type, sub_type=sub_type, **kwargs)
-        self.__set_list_of_chps()
+        self.__set_list_of_assets()
         self.power = 0.
 
 
@@ -40,18 +39,18 @@ class ChpParser(SupplyParser):
         """
 
 
-    def __set_list_of_chps(self):
+    def __set_list_of_assets(self):
         """
         Get all instances of chp type and set the list.
         """
 
         try:
-            # self.list_of_chps = self.energy_system.get_all_instances_of_type(
-            #     getattr(self.energy_system.esdl, self.asset_type))
-            self.list_of_chps = self.energy_system.get_all_instances_of_type_and_attribute_value(
-                getattr(self.energy_system.esdl, self.asset_type),
-                'CHPType',
-                self.sub_type)
+            self.list_of_assets = self.energy_system.get_all_instances_of_type(
+                getattr(self.energy_system.esdl, self.asset_type))
+            # self.list_of_assets = self.energy_system.get_all_instances_of_type_and_attribute_value(
+            #     getattr(self.energy_system.esdl, self.asset_type),
+            #     'CHPType',
+            #     self.sub_type)
 
         except AttributeError as att:
             raise EnergysystemParseError(
@@ -67,13 +66,12 @@ class ChpParser(SupplyParser):
         """
         self.power = 0. # isn't this redundant?
 
-        for chp in self.list_of_chps:
+        for asset in self.list_of_assets:
             for prop in self.props:
                 # Calculate ETM input value based on value from ESDL asset
-                etm_value = getattr(chp, prop['attribute']) * prop['factor']
+                etm_value = getattr(asset, prop['attribute']) * prop['factor']
 
                 if prop['attribute'] == 'power':
-                    current_power = etm_value
                     self.power += etm_value
 
                 # Update ETM input value

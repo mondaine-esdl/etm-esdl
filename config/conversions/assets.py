@@ -2,6 +2,39 @@
 Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
+demand = {
+    'HeatingDemand': {
+        'REF': [
+            {
+                'attribute': 'power',
+                'input': 'industry_useful_demand_for_chemical_refineries',
+                'factor': 1E-6
+            }
+        ],
+        'CHEMFEED': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+            {
+                'attribute': 'power',
+                'input': 'industry_useful_demand_for_chemical_other',
+                'factor': 1E-6
+            }
+        ],
+        'EDOIL': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+            {
+                'attribute': 'power',
+                'input': 'industry_useful_demand_for_chemical_other',
+                'factor': 1E-6
+            }
+        ],
+        'NONCHLO': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+            {
+                'attribute': 'power',
+                'input': 'industry_useful_demand_for_chemical_other',
+                'factor': 1E-6
+            }
+        ]
+    }
+}
+
 supply = {
     'WindTurbine': {
         'default': [
@@ -76,6 +109,28 @@ supply = {
             {
                 'attribute': 'power',
                 'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
+                'factor': 1E-6
+            }
+        ]
+    },
+    # 'GasHeater': {
+    #     'REF': [ # refinery
+    #         {
+    #             'attribute': 'power',
+    #             'input': 'industry_chemicals_other_burner_network_gas_share',
+    #             'factor': 'relative'
+    #         }
+    #     ]
+    # },
+    'PowerPlant': { # inputs should be determined based on sector="REF"
+        'default': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+                # 'inputs': {
+                #     'COAL': 'capacity_of_energy_power_ultra_supercritical_coal',
+                #     'GAS': 'capacity_of_energy_power_combined_cycle_network_gas'
+                # },
                 'factor': 1E-6
             }
         ]
