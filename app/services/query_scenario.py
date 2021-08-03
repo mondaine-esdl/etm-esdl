@@ -10,7 +10,8 @@ class QueryScenario(EtengineService):
     Returns a ServiceResult with a dict containing the gquery results as value.
     """
     def __call__(self, *gqueries, detailed=False):
-        data = {"gqueries": list(gqueries), "detailed": detailed}
+        # Do we need UserValues here? Or can detailed param be omitted?
+        data = {"gqueries": list(gqueries), "detailed": True}
 
         response = self.session.put(
             '/scenarios/' + str(self.scenario_id),

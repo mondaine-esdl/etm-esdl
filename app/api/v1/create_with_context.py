@@ -19,7 +19,10 @@ from app.services.set_scenario_sliders import SetScenarioSliders
 
 # pylint: disable=no-self-use
 
-api = Namespace('create_with_context', description='Transform 2 ESDLs into one ETM scenario')
+api = Namespace(
+    'create_with_context',
+    description='WORK IN PROGRESS: Transform 2 ESDLs into one ETM scenario'
+)
 
 ## Setup the parser for the request parameters
 context_parser = api.parser()
@@ -38,6 +41,7 @@ context_parser.add_argument(
     help='The ID of the ETM scenario that can be used as context',
     location='form'
 )
+# TODO: add context area, required if context scenario_id was not provided
 
 ## Controller
 @api.route('/')
