@@ -2,17 +2,21 @@
 
 # pylint: disable=no-member
 import uuid
+
 from pyecore.resources import ResourceSet, URI
 from pyecore.utils import DynamicEPackage, alias
 from pyecore.notification import EObserver
+
 from app.utils.exceptions import EnergysystemParseError
-from .xmlresource import XMLResource
+from vendor.energy_system.xml_resource import XMLResource
+from vendor.esdl import esdl
 from .StringURI import StringURI
 
 
 class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""
 
+    # TODO: CAN WE USE THE THING FROM THE VENDOR MODULE?
     def __init__(self, name=None):
         # create a resourceSet that hold the contents of the esdl.ecore model and the
         # instances we use/create
@@ -307,7 +311,7 @@ class EnergySystemHandler:
         Create a new EnergySystemHandler based on an EnergySystem esdl_string (using UTF-8 encoding)
         '''
         try:
-            handler = cls()
+            handler = EnergySystemHandler()
             handler.resource = handler.rset.create_resource(
                 StringURI('loadfromstring', esdl_string)
             )

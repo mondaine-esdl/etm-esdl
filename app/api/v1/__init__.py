@@ -11,8 +11,12 @@ from app.utils.exceptions import HumanizableException
 
 # Import namespaces (parts of Api)
 from .create_scenario import api as ns_create_scenario
+from .create_with_context import api as ns_create_with_context
 from .export_esdl import api as ns_export
 from .kpis import api as ns_kpis
+
+# Import the caches
+# from .create_with_context import cache as cache_create_with_context
 
 # Setup the blueprint and route for the api
 blueprint = Blueprint('api', __name__)
@@ -25,6 +29,7 @@ api = Api(
 
 # Add all the namespaces that we want to be visisble to the api
 api.add_namespace(ns_create_scenario)
+api.add_namespace(ns_create_with_context)
 api.add_namespace(ns_export)
 api.add_namespace(ns_kpis)
 

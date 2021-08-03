@@ -3,18 +3,17 @@
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
 
-class CreateBlankScenario(EtengineService):
+class CreateScenario(EtengineService):
     '''
-        Creates a new scenario based on the area_code and end_year.
+    Creates a new scenario based on the area_code and end_year.
     Returns the scenario_id
     '''
 
-    def __call__(self, area_code, end_year):
+    def __call__(self, scenario_attrs):
+        if self.scenario_id: scenario_attrs['scenario_id'] = self.scenario_id
+
         data = {
-            "scenario": {
-                "area_code": area_code,
-                "end_year": end_year
-            }
+            "scenario": scenario_attrs
         }
 
         response = self.session.post(

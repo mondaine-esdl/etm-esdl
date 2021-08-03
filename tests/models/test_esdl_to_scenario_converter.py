@@ -5,6 +5,7 @@ import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring disable=protected-access
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
+from app.models.situation import Situation
 
 @pytest.fixture
 def energy_system_handler():
@@ -57,3 +58,10 @@ def test_parse_aggregated_buidings(converter):
 
     for key, val in converter.inputs.items():
         assert one_parse_inputs[key] != val
+
+def test_as_situation(converter):
+    situation = converter.as_situation()
+
+    assert isinstance(situation, Situation)
+    assert situation.year == 2050
+    assert situation.area == 'GM0164_hengelo'

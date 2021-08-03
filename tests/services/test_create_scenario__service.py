@@ -1,7 +1,7 @@
-''' Tests for the subclass of EtengineService, CreateBlankScenario'''
+''' Tests for the subclass of EtengineService, CreateScenario'''
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name
-from app.services.create_blank_scenario import CreateBlankScenario
+from app.services.create_scenario import CreateScenario
 
 def test_call_with_valid_area(app, requests_mock):
     requests_mock.post(
@@ -11,7 +11,7 @@ def test_call_with_valid_area(app, requests_mock):
     )
 
     with app.app_context():
-        result = CreateBlankScenario.execute(0, 'valid_area', 2050)
+        result = CreateScenario.execute(None, {'area_code': 'valid_area', 'end_year': 2050})
         assert result.successful
         assert result.value == 12345
 
@@ -23,6 +23,6 @@ def test_call_with_invalid_area(app, requests_mock):
     )
 
     with app.app_context():
-        result = CreateBlankScenario.execute(0, 'valid_area', 2050)
+        result = CreateScenario.execute(None, {'area_code': 'invalid_area', 'end_year': 2050})
         assert not result.successful
         assert result.errors['area_code'] == ['does not exist']

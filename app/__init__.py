@@ -1,5 +1,5 @@
 '''
-Initializes the app and sets up all the routes
+Initializes the app and sets up all the routes and caches
 '''
 
 import os
@@ -10,9 +10,12 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 
 ## App
 from flask import Flask
+from flask_caching import Cache
 # from werkzeug.middleware.proxy_fix import ProxyFix
 from config.config import *
-from app.api import blueprint as api
+
+# Setup the cache for the api
+cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 
 def create_app(testing=False):
     '''
@@ -21,7 +24,7 @@ def create_app(testing=False):
     app = Flask(__name__)
     environment = app.config['ENV']
 
-    # Load in some extra configs
+    ### CONFIG ###
     if testing or environment == 'test':
         app.config.from_object(TestingConfig())
     elif environment == 'production':
@@ -41,7 +44,11 @@ def create_app(testing=False):
     # This a legacy config - not sure if we need it anymore?
     # app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1)
 
+    ### CACHES ###
+    cache.init_app(app)
+
     ### ROUTES ###
+    from app.api import blueprint as api
     app.register_blueprint(api, url_prefix='/api/v1')
 
     return app
