@@ -1,20 +1,20 @@
 ''' Represents a single supply asset '''
 
 from app.models.energy_system import EnergyDataRepository
-from app.utils.exceptions import EnergysystemParseError, ETMParseError
+from app.utils.exceptions import ETMParseError
 from app.services.query_scenario import QueryScenario
-from .parser import AssetParser
+from .parser import CapacityParser
 
-class SupplyParser(AssetParser):
+# RENAME TO VOLUME PARSER???
+class SupplyParser(CapacityParser):
     """
     Class to parse ESDL information about a single supply asset and
     translate it to the relevant ETM inputs.
     """
 
-    def __init__(self, energy_system, props, asset_type, sub_type='default', *args, **kwargs):
-        super().__init__(energy_system, props, *args, asset_type=asset_type, sub_type=sub_type, **kwargs)
-        self.__set_list_of_assets()
-        self.power = 0.
+    def __init__(self, energy_system, props, asset_type, *args, **kwargs):
+        super().__init__(energy_system, props, asset_type, *args, **kwargs)
+
         self.full_load_hours = 0.
 
 
@@ -35,19 +35,6 @@ class SupplyParser(AssetParser):
         self.update_props(scenario_id)
 
 
-    def __set_list_of_assets(self):
-        """
-        Get all instances of asset type and set the list.
-        """
-        try:
-            self.list_of_assets = self.energy_system.get_all_instances_of_type(
-                getattr(self.energy_system.esdl, self.asset_type))
-
-        except AttributeError as att:
-            raise EnergysystemParseError(
-                f'We currently do not support the asset {str(att).split()[-1]}'
-            ) from att
-
     def set_props(self):
         """
         Check the total power and full load hours of the given asset
@@ -57,7 +44,7 @@ class SupplyParser(AssetParser):
         self.power = 0.
         self.full_load_hours = 0.
 
-        for asset in self.list_of_assets:
+        for asset in self.asset_generator:
             for prop in self.props:
                 # Calculate ETM input value based on value from ESDL asset
                 etm_value = getattr(asset, prop['attribute']) * prop['factor']
@@ -127,7 +114,7 @@ class SupplyParser(AssetParser):
         """
         self.full_load_hours = val
 
-        for asset in self.list_of_assets:
+        for asset in self.asset_generator:
             asset.fullLoadHours = val
 
 
@@ -140,12 +127,12 @@ class SupplyParser(AssetParser):
         """
         remaining_diff = diff
         while remaining_diff > 0:
-            asset = self.list_of_assets[0]
+            asset = self.asset_generator[0]
             if asset.power > remaining_diff:
                 asset.power = asset.power - remaining_diff
                 break
             remaining_diff -= asset.power
-            self.list_of_assets.remove(asset)
+            self.asset_generator.remove(asset)
             # TODO: It's probably necessary to remove the actual asset in the
             # energy system instead of the copy in this list (by using the id?)
 

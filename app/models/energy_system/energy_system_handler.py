@@ -202,26 +202,7 @@ class EnergySystemHandler:
 
         The assets are then filtered for a specific attribute-value combination
         '''
-        all_instances = esdl_type.allInstances()
-
-        filtered_instances = []
-
-        for instance in all_instances:
-            print(type(instance))
-            print()
-            print(attr)
-            print(getattr(instance,attr))
-            print(type(getattr(instance,attr)))
-            print(val)
-            if str(getattr(instance, attr)) == val:
-                print(instance.power)
-                print('Added!')
-                filtered_instances.append(instance)
-
-        # print(type(filtered_instances))
-
-        return all_instances
-        # return filtered_instances
+        return (inst for inst in esdl_type.allInstances() if str(getattr(inst, attr)) == val)
 
 
     def get_by_id(self, object_id):
@@ -232,7 +213,7 @@ class EnergySystemHandler:
         Note: If you add things later to the resource, it won't be added automatically to
         this dictionary though. Use get_by_id_slow() for that
         '''
-        if id in self.resource.uuid_dict:
+        if object_id in self.resource.uuid_dict:
             return self.resource.uuid_dict[object_id]
 
         return None

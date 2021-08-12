@@ -3,6 +3,7 @@ Basic Parser classes
 '''
 
 from collections import defaultdict
+from app.utils.exceptions import EnergysystemParseError
 
 class Parser():
     '''Base class for all parsers'''
@@ -48,7 +49,6 @@ class AssetParser(Parser):
     def __init__(self, energy_system, props, *args, **kwargs):
         self.props = props
         self.asset_type = kwargs.pop('asset_type', None)
-        self.sub_type = kwargs.pop('sub_type', 'default')
         super().__init__(energy_system, *args, **kwargs)
 
 
@@ -63,3 +63,25 @@ class AssetParser(Parser):
         Update all supplies of a certain asset type in the energy system based on an ETM
         scenario
         '''
+
+class CapacityParser(AssetParser):
+    ''' AssetParser that tracks the capacity of the assets as well '''
+
+    def __init__(self, energy_system, props, *args, **kwargs):
+        super().__init__(energy_system, props, *args, **kwargs)
+        self.power = 0.
+        self.set_asset_generator()
+
+
+    def set_asset_generator(self):
+        """
+        Get all instances of asset type and set the generator.
+        """
+        try:
+            self.asset_generator = self.energy_system.get_all_instances_of_type(
+                getattr(self.energy_system.esdl, self.asset_type))
+
+        except AttributeError as att:
+            raise EnergysystemParseError(
+                f'We currently do not support the asset {str(att).split()[-1]}'
+            ) from att

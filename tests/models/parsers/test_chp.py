@@ -1,5 +1,6 @@
 ''' Tests for the CHP parser '''
 
+from collections import defaultdict
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
@@ -26,35 +27,34 @@ def energy_system_handler_with_chps():
 
 def test_parse_without_chps_present(energy_system_handler_without_chps):
     for chp_type in ['UNDEFINED', 'STEG', 'GAS_TURBINE', 'GAS_MOTOR']:
-        parser = ChpParser(energy_system_handler_without_chps, 'CHP', chp_type, supply['CHP'][chp_type])
+        parser = ChpParser(energy_system_handler_without_chps, supply['CHP'][chp_type], asset_type='CHP', subtype=chp_type)
 
         parser.parse()
 
-        # If no CHPs are described in the ESDL, no inputs should be parsed
-        assert parser.get_parsed_inputs() == {}
+        # If no CHPs are described in the ESDL, all input should be 0
+        assert sum(parser.get_parsed_inputs().values()) == 0.0
 
 
 def test_parse_with_chps_present(energy_system_handler_with_chps):
+    inputs = defaultdict(float)
+
     for chp_type in ['UNDEFINED', 'STEG', 'GAS_TURBINE', 'GAS_MOTOR']:
 
-        parser = ChpParser(energy_system_handler_with_chps, 'CHP', chp_type, supply['CHP'][chp_type])
+        parser = ChpParser(energy_system_handler_with_chps, supply['CHP'][chp_type], asset_type='CHP', subtype=chp_type, inputs=inputs)
 
         parser.parse()
         parser_results = parser.get_parsed_inputs()
 
-        print(parser_results)
-
-        # If all CHP types are described in the ESDL, check whether the three
-        # relevant CHP inputs are parsed
-        # assert len(parser_results) == 1 # the number of different CHPs is 3
-        # for key in [
-        #     'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-        #     'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-        #     'capacity_of_industry_chp_turbine_gas_power_fuelmix'
-        #     ]: assert key in parser_results.keys()
-
         # Each input value should have a value greater than or equal to 0 (MW)
-        for val in parser_results.values():
-            assert val >= 0
+        assert all(val >=0 for val in parser_results.values())
 
-    assert False
+    print(parser_results)
+
+    # If all CHP types are described in the ESDL, check whether the three
+    # relevant CHP inputs are parsed after looping through all assets
+    assert len(parser_results) == 3
+
+    for key in [
+        'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+        'capacity_of_industry_chp_turbine_gas_power_fuelmix'
+        ]: assert key in parser_results.keys()

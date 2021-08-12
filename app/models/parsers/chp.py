@@ -2,36 +2,36 @@
 Parser for CHP assets
 """
 
-from app.utils.exceptions import EnergysystemParseError, ETMParseError
+from app.utils.exceptions import EnergysystemParseError
 # from app.services.query_scenario import QueryScenario
-from .supply import SupplyParser
+from .parser import CapacityParser
 
-class ChpParser(SupplyParser):
+class ChpParser(CapacityParser):
     """
     Class to parse ESDL information about a single CHP asset and
     translate it to the relevant ETM inputs.
-
-    The add_to_present parameter specifies whether the CHPs should be added to
-    the currently installed capacity (add_to_present=True) or whether the
-    currently installed capacity should be overwritten (add_to_present=False)
     """
 
-    def __init__(self, energy_system, asset_type, sub_type, props, add_to_present=False, *args, **kwargs):
-        super().__init__(energy_system, props, *args, asset_type=asset_type, sub_type=sub_type, **kwargs)
-        self.__set_list_of_chps()
-        self.power = 0.
+    def __init__(self, energy_system, props, *args, subtype='UNDEFINED', **kwargs):
+        self.subtype = subtype
+        super().__init__(energy_system, props, *args, **kwargs)
 
 
     def parse(self):
         """
-        Check the power to set the corresponding props.
-        """
-        self.set_props()
+        Check the total power of the given CHP type
 
-        print()
-        print(self.asset_type)
-        print(self.sub_type)
-        print(self.power)
+        Sets self.power and self.inputs
+        """
+
+        # As we only have need power attribute for CHPs we can do it like this
+        power_pr = self.props[0]
+        self.power = sum(
+            getattr(chp, power_pr['attribute']) * power_pr['factor'] for chp in self.asset_generator
+        )
+
+        # Update ETM input value
+        self.inputs[power_pr['input']] += self.power
 
 
     def update(self, scenario_id):
@@ -40,41 +40,19 @@ class ChpParser(SupplyParser):
         """
 
 
-    def __set_list_of_chps(self):
+    def set_asset_generator(self):
         """
-        Get all instances of chp type and set the list.
+        Get all instances of chp subtype and set the generator.
         """
 
         try:
-            # self.list_of_chps = self.energy_system.get_all_instances_of_type(
-            #     getattr(self.energy_system.esdl, self.asset_type))
-            self.list_of_chps = self.energy_system.get_all_instances_of_type_and_attribute_value(
+            self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_value(
                 getattr(self.energy_system.esdl, self.asset_type),
                 'CHPType',
-                self.sub_type)
+                self.subtype
+            )
 
         except AttributeError as att:
             raise EnergysystemParseError(
                 f'We currently do not support the asset {str(att).split()[-1]}'
             ) from att
-
-
-    def set_props(self):
-        """
-        Check the total power of the given CHP type
-
-        Sets self.power and self.inputs
-        """
-        self.power = 0. # isn't this redundant?
-
-        for chp in self.list_of_chps:
-            for prop in self.props:
-                # Calculate ETM input value based on value from ESDL asset
-                etm_value = getattr(chp, prop['attribute']) * prop['factor']
-
-                if prop['attribute'] == 'power':
-                    current_power = etm_value
-                    self.power += etm_value
-
-                # Update ETM input value
-                self.inputs[prop['input']] += etm_value
