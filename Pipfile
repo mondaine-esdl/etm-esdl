@@ -26,5 +26,5 @@ python_version = "3.8"
 test = "python -m pytest"
 linter = "python -m pylint app"
 # Fetches the esdl ecore resource from git (optional commit hash argument)
-fetch_esdl_ecore_resource = "python lib/tasks/fetch_esdl_resource.py 966707e"
+fetch_esdl_ecore_resource = "python lib/tasks/fetch_esdl_resource.py 7ece032"
 generate_esdl_module = "pyecoregen -e vendor/esdl/esdl.ecore -o vendor --auto-register-package"

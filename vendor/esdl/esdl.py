@@ -165,6 +165,9 @@ TransferFunctionTypeEnum = EEnum('TransferFunctionTypeEnum', literals=[
 MeasureTypeEnum = EEnum('MeasureTypeEnum', literals=[
                         'UNDEFINED', 'ADD_GEOMETRY', 'MODEL_RESTRICTION'])
 
+BufferDistanceTypeEnum = EEnum('BufferDistanceTypeEnum', literals=[
+                               'UNDEFINED', 'RISK', 'ENVIRONMENT', 'NOISE', 'PARTICULATE_MATTER', 'NOX_EMISSIONS'])
+
 
 class EnergySystem(EObject, metaclass=MetaEClass):
     """This is the main class to describe an EnergySystem in ESDL. Each energy system description should start with this class. More information about ESDL and the Energy System can be found in the gitbook at https://energytransition.gitbook.io/esdl/"""
@@ -1782,6 +1785,43 @@ class AbstractBehaviour(EObject, metaclass=MetaEClass):
             self.name = name
 
 
+class PortRelation(EObject, metaclass=MetaEClass):
+    """Specifies the relation between a port and the main port using a specific ratio."""
+    ratio = EAttribute(eType=EDouble, unique=True, derived=False,
+                       changeable=True, default_value=0.0)
+    port = EReference(ordered=True, unique=True, containment=False, derived=False)
+
+    def __init__(self, *, ratio=None, port=None):
+        # if kwargs:
+        #    raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if ratio is not None:
+            self.ratio = ratio
+
+        if port is not None:
+            self.port = port
+
+
+class BufferDistance(EObject, metaclass=MetaEClass):
+    """Buffer distance around an asset that relates to risks, environment, noise, CO2, ..."""
+    type = EAttribute(eType=BufferDistanceTypeEnum, unique=True, derived=False, changeable=True)
+    distance = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+
+    def __init__(self, *, type=None, distance=None):
+        # if kwargs:
+        #    raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if type is not None:
+            self.type = type
+
+        if distance is not None:
+            self.distance = distance
+
+
 class InPort(Port):
     """Represents a port with a positive energy direction into the asset, e.g. for a Consumer. See Port for more details"""
     connectedTo = EReference(ordered=True, unique=True, containment=False, derived=False, upper=-1)
@@ -1827,8 +1867,10 @@ class Asset(Item):
     costInformation = EReference(ordered=True, unique=True, containment=True, derived=False)
     KPIs = EReference(ordered=True, unique=True, containment=True, derived=False)
     material = EReference(ordered=True, unique=True, containment=True, derived=False)
+    bufferDistance = EReference(ordered=True, unique=True,
+                                containment=True, derived=False, upper=-1)
 
-    def __init__(self, *, surfaceArea=None, commissioningDate=None, decommissioningDate=None, owner=None, area=None, containingBuilding=None, geometry=None, costInformation=None, technicalLifetime=None, aggregated=None, aggregationCount=None, installationDuration=None, KPIs=None, assetType=None, state=None, material=None, manufacturer=None, **kwargs):
+    def __init__(self, *, surfaceArea=None, commissioningDate=None, decommissioningDate=None, owner=None, area=None, containingBuilding=None, geometry=None, costInformation=None, technicalLifetime=None, aggregated=None, aggregationCount=None, installationDuration=None, KPIs=None, assetType=None, state=None, material=None, manufacturer=None, bufferDistance=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -1882,6 +1924,9 @@ class Asset(Item):
 
         if material is not None:
             self.material = material
+
+        if bufferDistance:
+            self.bufferDistance.extend(bufferDistance)
 
 
 class Point(Geometry):
@@ -2662,11 +2707,21 @@ class MatterReference(AbstractMatter):
             self.reference = reference
 
 
-class InputOutputQuantityRelation(AbstractBehaviour):
+class InputOutputRelation(AbstractBehaviour):
+    """Describes the relation between one of the ports of an asset (the mainPort) and all other ports using a specific ratio. Can be used for conversion assets to specify how much of the carrier on the InPorts is required to produce an x amount of the carrier on the OutPort. """
+    mainPortRelation = EReference(ordered=True, unique=True,
+                                  containment=True, derived=False, upper=-1)
+    mainPort = EReference(ordered=True, unique=True, containment=False, derived=False)
 
-    def __init__(self, **kwargs):
+    def __init__(self, *, mainPortRelation=None, mainPort=None, **kwargs):
 
         super().__init__(**kwargs)
+
+        if mainPortRelation:
+            self.mainPortRelation.extend(mainPortRelation)
+
+        if mainPort is not None:
+            self.mainPort = mainPort
 
 
 @abstract
@@ -3389,6 +3444,27 @@ class CombinedTransferFunction(AbstractTransferFunction):
 
         if component:
             self.component.extend(component)
+
+
+class TimeSeriesProfile(StaticProfile):
+    """Describes a profile of which the period between the values is constant. The series of values is indexed in time order as a sequence taken at successive equally spaced points in time. It starts at the startDateTime and every next value has intervalBetweenValues seconds between them."""
+    startDateTime = EAttribute(eType=EDate, unique=True, derived=False, changeable=True)
+    timestep = EAttribute(eType=EInt, unique=True, derived=False,
+                          changeable=True, default_value=3600)
+    values = EAttribute(eType=EDouble, unique=False, derived=False, changeable=True, upper=-1)
+
+    def __init__(self, *, startDateTime=None, timestep=None, values=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if startDateTime is not None:
+            self.startDateTime = startDateTime
+
+        if timestep is not None:
+            self.timestep = timestep
+
+        if values:
+            self.values.extend(values)
 
 
 @abstract
@@ -4887,6 +4963,55 @@ class AbstractPassiveSwitch(AbstractSwitch):
     def __init__(self, **kwargs):
 
         super().__init__(**kwargs)
+
+
+class ATES(HeatStorage):
+
+    aquiferTopDepth = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    aquiferThickness = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    aquiferMidTemperature = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    aquiferNetToGross = EAttribute(eType=EDouble, unique=True,
+                                   derived=False, changeable=True, default_value=0.0)
+    aquiferPorosity = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    aquiferPermeability = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    aquiferAnisotropy = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    salinity = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    wellCasingSize = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+    wellDistance = EAttribute(eType=EDouble, unique=True, derived=False, changeable=True)
+
+    def __init__(self, *, aquiferTopDepth=None, aquiferThickness=None, aquiferMidTemperature=None, aquiferNetToGross=None, aquiferPorosity=None, aquiferPermeability=None, aquiferAnisotropy=None, salinity=None, wellCasingSize=None, wellDistance=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if aquiferTopDepth is not None:
+            self.aquiferTopDepth = aquiferTopDepth
+
+        if aquiferThickness is not None:
+            self.aquiferThickness = aquiferThickness
+
+        if aquiferMidTemperature is not None:
+            self.aquiferMidTemperature = aquiferMidTemperature
+
+        if aquiferNetToGross is not None:
+            self.aquiferNetToGross = aquiferNetToGross
+
+        if aquiferPorosity is not None:
+            self.aquiferPorosity = aquiferPorosity
+
+        if aquiferPermeability is not None:
+            self.aquiferPermeability = aquiferPermeability
+
+        if aquiferAnisotropy is not None:
+            self.aquiferAnisotropy = aquiferAnisotropy
+
+        if salinity is not None:
+            self.salinity = salinity
+
+        if wellCasingSize is not None:
+            self.wellCasingSize = wellCasingSize
+
+        if wellDistance is not None:
+            self.wellDistance = wellDistance
 
 
 class Valve(AbstractActiveSwitch):
