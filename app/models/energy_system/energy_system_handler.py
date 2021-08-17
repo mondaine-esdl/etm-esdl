@@ -276,6 +276,29 @@ class EnergySystemHandler:
         return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
                 if in_sector(inst, sector_id))
 
+    def get_all_instances_of_type_and_carrier(self, esdl_type, carrier_id):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        The assets are then filtered for hving the specified carrier as input.
+
+        esdl_type   String, the type of asset
+        sector_id   String, the value of the sectors id, e.g. REF for Refineries
+        '''
+        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+                if self.has_carrier(inst, carrier_id))
+
+    def has_carrier(self, asset, carrier_id):
+        for port in asset.port:
+            if not 'In' in port.name: continue
+
+            if port.carrier.id == carrier_id:
+                return True
+
+        return False
 
     def get_asset_attribute(self, esdl_type, attr, area=None):
         '''

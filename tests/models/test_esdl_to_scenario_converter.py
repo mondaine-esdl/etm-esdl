@@ -42,6 +42,8 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
     assert 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix' in sliders
     # GasHeaters were parsed
     assert 'industry_chemicals_other_burner_network_gas_share' in sliders
+    # Powerplants were parsed
+    assert 'capacity_of_energy_power_combined_cycle_network_gas' in sliders
 
     # TODO @ROOS: hoe moeten die sliders eruit zien?? Voorbeeld:
     # assert sliders[buildings_insulation_level] == 54.0

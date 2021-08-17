@@ -122,15 +122,46 @@ supply = {
             }
         ]
     },
-    'PowerPlant': { # inputs should be determined based on sector="REF"
-        'default': [
+    'PowerPlant': {
+        'HTLH': [
             {
                 'attribute': 'power',
                 'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-                # 'inputs': {
-                #     'COAL': 'capacity_of_energy_power_ultra_supercritical_coal',
-                #     'GAS': 'capacity_of_energy_power_combined_cycle_network_gas'
-                # },
+                'factor': 1E-6
+            }
+        ],
+        'RG': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+                'factor': 1E-6
+            }
+        ],
+        'PC': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+                'factor': 1E-6
+            }
+        ],
+        'RF': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+                'factor': 1E-6
+            }
+        ],
+        'W': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_supercritical_waste_mix',
+                'factor': 1E-6
+            }
+        ],
+        'C': [
+            {
+                'attribute': 'power',
+                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
                 'factor': 1E-6
             }
         ]
