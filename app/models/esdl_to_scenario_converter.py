@@ -1,5 +1,6 @@
 ''' Everything to do with converting esdl to slider settings'''
 
+from app.models.parsers.volume import VolumeParser
 import pprint
 from collections import defaultdict
 
@@ -30,6 +31,10 @@ class EsdlToScenarioConverter():
         # Parse supply assets and calculate the new input values
         for asset_type, properties in assets.supply.items():
             self.parse_supply(asset_type, properties)
+
+        # Parse demand assets and calculate the new input values
+        for asset_type, properties in assets.demand.items():
+            self.parse_demand(asset_type, properties)
 
         # Parse buildings
         number_of_buildings = self.determine_number_of_buildings()
@@ -63,13 +68,36 @@ class EsdlToScenarioConverter():
         if asset_type == 'RooftopPV':
             RooftopPVParser(self.energy_system, properties['default'], inputs=self.inputs).parse()
         elif asset_type == 'CHP':
-            pass
-            # for sub_type, props in properties.items():
-            #     ChpParser(self.energy_system, asset_type, sub_type, props, inputs=self.inputs).parse()
+            for subtype in properties:
+                ChpParser(
+                    self.energy_system,
+                    properties[subtype],
+                    asset_type=asset_type,
+                    subtype=subtype,
+                    inputs=self.inputs
+                ).parse()
         elif asset_type == 'PowerPlant':
             pass
         else:
-            VolatileParser(self.energy_system, properties['default'], asset_type=asset_type, inputs=self.inputs).parse()
+            VolatileParser(
+                self.energy_system,
+                properties['default'],
+                asset_type=asset_type,
+                inputs=self.inputs
+            ).parse()
+
+
+    def parse_demand(self, asset_type, properties):
+        '''Determines which parser to use for the asset type, and calls that parser.'''
+        if asset_type == 'HeatingDemand':
+            for subtype in properties:
+                VolumeParser(
+                    self.energy_system,
+                    properties[subtype],
+                    asset_type=asset_type,
+                    subtype=subtype,
+                    inputs=self.inputs
+                ).parse()
 
 
     def determine_number_of_buildings(self):
