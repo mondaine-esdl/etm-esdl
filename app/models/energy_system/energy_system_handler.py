@@ -190,6 +190,15 @@ class EnergySystemHandler:
 
         return [asset for asset in assets if isinstance(asset, esdl_asset)]
 
+    def has_assets_of_type(self, esdl_type, area=None):
+        ''' Boolean, see get_assets_of_type '''
+        assets = area.asset if not area is None else self.es.instance[0].area.asset
+
+        try:
+            next((asset for asset in assets if isinstance(asset, getattr(self.esdl, esdl_type))))
+            return True
+        except StopIteration:
+            return False
 
     def get_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
         '''
@@ -206,6 +215,15 @@ class EnergySystemHandler:
         return [asset for asset in area.asset
                 if isinstance(asset, esdl_asset) and str(getattr(asset, attr)) == val]
 
+    def has_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
+        ''' Boolean, see get_of_type_and_attribute_value '''
+        try:
+            next((asset for asset in area.asset
+                if isinstance(asset, getattr(self.esdl, esdl_type))
+                and str(getattr(asset, attr)) == val))
+            return True
+        except StopIteration:
+            return False
 
     def get_potentials_of_type(self, esdl_type):
         ''' Get a list of potentials of a specific ESDL type in the main instance's area '''

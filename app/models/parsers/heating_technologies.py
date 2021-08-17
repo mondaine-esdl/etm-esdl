@@ -26,30 +26,19 @@ class HeatingTechnologiesParser(AggregratedBuildingParser):
         Parses the three main heating technologies and returns the fitting properties
         '''
         # If there's no heat network connection, determine other technologies
-        if self.__has_heating_technology(aggregated_building, 'HConnection'):
+        if self.energy_system.has_assets_of_type('HConnection', area=aggregated_building):
             return heating_technologies['HConnection'][0]
 
         # If there's no heat network and no heat pump, check for a gas heater
-        if self.__has_heating_technology(aggregated_building, 'GasHeater'):
-            if not self.__has_heating_technology(aggregated_building, 'HeatPump'):
+        if self.energy_system.has_assets_of_type('GasHeater', area=aggregated_building):
+            if not self.energy_system.has_assets_of_type('HeatPump', area=aggregated_building):
                 return heating_technologies['GasHeater'][0]
 
         # Else if there's a (hybrid) heat pump
-        return self.__prop_heat_technology(aggregated_building)
+        return self.__properties_heat_technology(aggregated_building)
 
 
-    def __has_heating_technology(self, aggregated_building, tech_type):
-        '''
-        Checks if the aggregated building has a heating technology of type tech_type
-
-        aggregated_building     AggegratedBuilding asset from the energy system
-        tech_type               String, the type of heating technology e.g. 'GasHeater'
-
-        Returns Boolean
-        '''
-        return self.energy_system.get_assets_of_type(tech_type, area=aggregated_building)
-
-    def __prop_heat_technology(self, aggregated_building):
+    def __properties_heat_technology(self, aggregated_building):
         """
         Returns a dict of the heat technologies properties, based on the available assets in the
         aggegrated_building
@@ -58,13 +47,11 @@ class HeatingTechnologiesParser(AggregratedBuildingParser):
         for technology, properties in heating_technologies.items():
             # Get assets of specific type, filtered by the attribute-value combination
             for prop in properties:
-                list_of_assets = self.energy_system.get_assets_of_type_and_attribute_value(
+                if self.energy_system.has_assets_of_type_and_attribute_value(
                     technology,
                     aggregated_building,
                     prop['attribute'],
                     prop['value']
-                )
-
-                if list_of_assets: return prop
+                ): return prop
 
         return {}

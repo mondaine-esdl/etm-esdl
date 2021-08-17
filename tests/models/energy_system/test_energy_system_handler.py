@@ -32,3 +32,8 @@ def test_get_all_instances_of_type_and_sector(hic_handler):
 
     assert as_list
     assert len(as_list) >= 20
+
+def test_has_assets_of_type(hic_handler):
+    assert not hic_handler.has_assets_of_type('HConnection')
+
+    assert hic_handler.has_assets_of_type('HeatingDemand')
