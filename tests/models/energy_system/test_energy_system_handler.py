@@ -17,3 +17,18 @@ def test_from_string_with_valid_esdl(esdl_string):
     esh = EnergySystemHandler.from_string(esdl_string)
 
     assert isinstance(esh, EnergySystemHandler)
+
+
+@pytest.fixture
+def hic_handler():
+    with open('tests/fixtures/2021_hic_description.esdl') as file:
+        data = file.read()
+    return EnergySystemHandler.from_string(data)
+
+
+def test_get_all_instances_of_type_and_sector(hic_handler):
+    generator = hic_handler.get_all_instances_of_type_and_sector('GasHeater', 'REF')
+    as_list = list(generator)
+
+    assert as_list
+    assert len(as_list) >= 20

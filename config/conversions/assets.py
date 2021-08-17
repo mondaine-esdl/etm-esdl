@@ -113,15 +113,15 @@ supply = {
             }
         ]
     },
-    # 'GasHeater': {
-    #     'REF': [ # refinery
-    #         {
-    #             'attribute': 'power',
-    #             'input': 'industry_chemicals_other_burner_network_gas_share',
-    #             'factor': 'relative'
-    #         }
-    #     ]
-    # },
+    'GasHeater': {
+        'REF': [ # refinery
+            {
+                'attribute': 'power',
+                'input': 'industry_chemicals_other_burner_network_gas_share',
+                'factor': 1E-6
+            }
+        ]
+    },
     'PowerPlant': { # inputs should be determined based on sector="REF"
         'default': [
             {

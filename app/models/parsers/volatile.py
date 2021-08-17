@@ -1,4 +1,6 @@
-''' Represents a single supply asset '''
+"""
+Parser for volatile production (PV parks and wind turbines)
+"""
 
 from app.models.energy_system import EnergyDataRepository
 from app.utils.exceptions import ETMParseError, EnergysystemParseError

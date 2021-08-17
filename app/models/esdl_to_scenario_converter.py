@@ -1,6 +1,5 @@
 ''' Everything to do with converting esdl to slider settings'''
 
-from app.models.parsers.volume import VolumeParser
 import pprint
 from collections import defaultdict
 
@@ -9,7 +8,8 @@ from config.conversions import area_mapping
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser, ChpParser
+    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser, ChpParser,
+    VolumeParser
 )
 
 
@@ -78,6 +78,15 @@ class EsdlToScenarioConverter():
                 ).parse()
         elif asset_type == 'PowerPlant':
             pass
+        elif asset_type == 'GasHeater':
+            for subtype in properties:
+                VolumeParser(
+                    self.energy_system,
+                    properties[subtype],
+                    asset_type=asset_type,
+                    subtype=subtype,
+                    inputs=self.inputs
+                ).parse()
         else:
             VolatileParser(
                 self.energy_system,

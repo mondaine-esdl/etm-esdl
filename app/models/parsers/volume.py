@@ -1,5 +1,5 @@
 """
-Parser for volatile production (PV parks and wind turbines)
+Parser for volumes
 """
 from app.utils.exceptions import EnergysystemParseError
 from app.utils.esdl import full_load_hours
@@ -10,6 +10,8 @@ class VolumeParser(CapacityParser):
     Class to parse ESDL information about a single asset and
     translate it to the relevant ETM inputs that have to do with volume.
     Uses full load hours and power to calculate the volume.
+
+    subtype is expected to be a sector id
 
     TODO: This is not sent directly to the ETM.
     """
@@ -46,9 +48,8 @@ class VolumeParser(CapacityParser):
         """
 
         try:
-            self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_id(
+            self.asset_generator = self.energy_system.get_all_instances_of_type_and_sector(
                 self.asset_type,
-                'sector',
                 self.subtype
             )
 

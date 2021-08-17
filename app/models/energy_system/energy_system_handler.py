@@ -8,8 +8,11 @@ from pyecore.utils import DynamicEPackage, alias
 from pyecore.notification import EObserver
 
 from app.utils.exceptions import EnergysystemParseError
+from app.utils.esdl import in_sector
+
 from vendor.energy_system.xml_resource import XMLResource
-from vendor.esdl import esdl
+# from vendor.esdl import esdl
+
 from .StringURI import StringURI
 
 
@@ -240,7 +243,7 @@ class EnergySystemHandler:
         return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
                 if str(getattr(inst, attr)) == val)
 
-    def get_all_instances_of_type_and_attribute_id(self, esdl_type, attr, attr_id):
+    def get_all_instances_of_type_and_sector(self, esdl_type, sector_id):
         '''
         Returns a generator of all assets or potentials of a specific type.
         Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
@@ -250,11 +253,10 @@ class EnergySystemHandler:
         The assets are then filtered for a specific combination on an attribute and it's ID.
 
         esdl_type   String, the type of asset
-        attr        String, the attribute that should be evaluated
-        arrt_id     String, the value of the attributes id, e.g. REF for Refineries
+        sector_id   String, the value of the sectors id, e.g. REF for Refineries
         '''
         return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
-                if getattr(inst, attr) and getattr(inst, attr).id == attr_id)
+                if in_sector(inst, sector_id))
 
 
     def get_asset_attribute(self, esdl_type, attr, area=None):
