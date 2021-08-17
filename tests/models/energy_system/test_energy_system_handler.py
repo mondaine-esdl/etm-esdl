@@ -3,7 +3,6 @@ Tests for EnergySystemHandler
 Shoul be expanded!!
 '''
 
-# import time
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system.energy_system_handler import EnergySystemHandler

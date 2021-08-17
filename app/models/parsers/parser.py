@@ -78,8 +78,7 @@ class CapacityParser(AssetParser):
         Get all instances of asset type and set the generator.
         """
         try:
-            self.asset_generator = self.energy_system.get_all_instances_of_type(
-                getattr(self.energy_system.esdl, self.asset_type))
+            self.asset_generator = self.energy_system.get_all_instances_of_type(self.asset_type)
 
         except AttributeError as att:
             raise EnergysystemParseError(

@@ -42,34 +42,17 @@ class EnergySystemHandler:
 
         # have a nice __repr__ for some ESDL classes when printing ESDL objects
         # (includes all Assets and EnergyAssets)
-        self.esdl.Item.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
-        self.esdl.Carrier.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
-        self.esdl.Geometry.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
-        self.esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.id, x)
-        self.esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr('QuantityAndUnitReference', x)
-        self.esdl.KPI.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr(x.name, x)
-        self.esdl.ProfileElement.python_class.__repr__ = lambda x: EnergySystemHandler.format_repr('ProfileElement', x)
+        # self.esdl.Item.python_class.__repr__ = lambda x: format_repr(x.name, x)
+        self.esdl.Carrier.python_class.__repr__ = lambda x: format_repr(x.name, x)
+        self.esdl.Geometry.python_class.__repr__ = lambda x: format_repr(x.name, x)
+        self.esdl.QuantityAndUnitType.python_class.__repr__ = lambda x: format_repr(x.id, x)
+        self.esdl.QuantityAndUnitReference.python_class.__repr__ = lambda x: format_repr('QuantityAndUnitReference', x)
+        self.esdl.KPI.python_class.__repr__ = lambda x: format_repr(x.name, x)
+        self.esdl.ProfileElement.python_class.__repr__ = lambda x: format_repr('ProfileElement', x)
 
         if name:
             self.name = name
             self.load_energy_system(name)
-
-    @staticmethod
-    def format_repr(name, esdl_object):
-        ''' Returns a string containing a formatted version of the ESDL object'''
-        return f'{name}: ({EnergySystemHandler.attr_to_dict(esdl_object)})'
-
-    @staticmethod
-    def attr_to_dict(esdl_object):
-        ''' Creates a dict of all the attributes of an ESDL object '''
-        to_dict = dict()
-        to_dict['esdlType'] = esdl_object.eClass.name
-        for attr in dir(esdl_object):
-            attr_value = esdl_object.eGet(attr)
-            if attr_value is not None:
-                to_dict[attr] = attr_value
-        return to_dict
-
 
     @staticmethod
     def generate_uuid():
@@ -130,6 +113,7 @@ class EnergySystemHandler:
         measure.asset.append(asset)
         self.es.instance[0].area.measures.measure.append(measure)
 
+    ######## KPIs ########
 
     def add_kpis(self):
         ''' Add KPIs object to Energy System '''
@@ -152,58 +136,24 @@ class EnergySystemHandler:
         self.es.instance[0].area.KPIs.kpi.append(kpi)
 
 
-    def get_assets_of_type(self, esdl_type, area=None):
-        '''Get a list of assets of a specific ESDL type in the specified area or asset'''
-        assets = area.asset if not area is None else self.es.instance[0].area.asset
+    def get_kpi_by_id(self, kpi_id):
+        ''' Returns a specific KPI by id, see also get_by_id for a faster method '''
+        for kpi in self.es.instance[0].area.KPIs.kpi:
+            if kpi.id == kpi_id:
+                return kpi
 
-        return [asset for asset in assets if isinstance(asset, esdl_type)]
-
-
-    def get_assets_of_type_and_attribute_value(self, esdl_type, area, attribute, value):
-        '''
-        Get a list of assets of a specific ESDL type in the specified area or asset
-        filtered by a specified attribute-value combination
-        '''
-        assets = []
-
-        for current_asset in area.asset:
-            if isinstance(current_asset, esdl_type):
-                if str(getattr(current_asset, attribute)) == value:
-                    assets.append(current_asset)
-        return assets
+        return None
 
 
-    def get_potentials_of_type(self, esdl_type):
-        ''' Get a list of potentials of a specific ESDL type in the main instance's area '''
-        potentials = []
+    def get_kpi_by_name(self, name):
+        ''' Returns a specific KPI by name '''
+        for kpi in self.es.instance[0].area.KPIs.kpi:
+            if kpi.name == name:
+                return kpi
 
-        for current_potential in self.es.instance[0].area.potential:
-            if isinstance(current_potential, esdl_type):
-                potentials.append(current_potential)
-        return potentials
+        return None
 
-
-    def get_all_instances_of_type(self, esdl_type):
-        '''
-        Returns a generator of all assets or potentials of a specific type.
-        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
-        defined in the KPI of an Area or in the EnergySystemInformation object this
-        function returns all of them at once.
-        '''
-        return esdl_type.allInstances()
-
-
-    def get_all_instances_of_type_and_attribute_value(self, esdl_type, attr, val):
-        '''
-        Returns a generator of all assets or potentials of a specific type.
-        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
-        defined in the KPI of an Area or in the EnergySystemInformation object this
-        function returns all of them at once.
-
-        The assets are then filtered for a specific attribute-value combination
-        '''
-        return (inst for inst in esdl_type.allInstances() if str(getattr(inst, attr)) == val)
-
+    ######### LOOKUP ##########
 
     def get_by_id(self, object_id):
         '''
@@ -230,6 +180,82 @@ class EnergySystemHandler:
 
         return None
 
+    def get_assets_of_type(self, esdl_type, area=None):
+        '''Get a list of assets of a specific ESDL type in the specified area or asset'''
+        assets = area.asset if not area is None else self.es.instance[0].area.asset
+        esdl_asset = getattr(self.esdl, esdl_type)
+
+        return [asset for asset in assets if isinstance(asset, esdl_asset)]
+
+
+    def get_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
+        '''
+        Returns a list of assets of a specific ESDL type in the specified area or asset
+        filtered by a specified attribute-value combination
+
+        esdl_type   String, the type of asset
+        area        ESDL Area, the area that contains the assets to be filtered
+        attr        String, the attribute that should be evaluated
+        val         String, the value that the attribute should have
+        '''
+        esdl_asset = getattr(self.esdl, esdl_type)
+
+        return [asset for asset in area.asset
+                if isinstance(asset, esdl_asset) and str(getattr(asset, attr)) == val]
+
+
+    def get_potentials_of_type(self, esdl_type):
+        ''' Get a list of potentials of a specific ESDL type in the main instance's area '''
+        potentials = []
+
+        for current_potential in self.es.instance[0].area.potential:
+            if isinstance(current_potential, esdl_type):
+                potentials.append(current_potential)
+        return potentials
+
+    def get_all_instances_of_type(self, esdl_type):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        esdl_type   String, the type of asset
+        '''
+        return getattr(self.esdl, esdl_type).allInstances()
+
+    def get_all_instances_of_type_and_attribute_value(self, esdl_type, attr, val):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        The assets are then filtered for a specific attribute-value combination
+
+        esdl_type   String, the type of asset
+        attr        String, the attribute that should be evaluated
+        val         String, the value that the attribute should have
+        '''
+        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+                if str(getattr(inst, attr)) == val)
+
+    def get_all_instances_of_type_and_attribute_id(self, esdl_type, attr, attr_id):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        The assets are then filtered for a specific combination on an attribute and it's ID.
+
+        esdl_type   String, the type of asset
+        attr        String, the attribute that should be evaluated
+        arrt_id     String, the value of the attributes id, e.g. REF for Refineries
+        '''
+        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+                if getattr(inst, attr) and getattr(inst, attr).id == attr_id)
+
 
     def get_asset_attribute(self, esdl_type, attr, area=None):
         '''
@@ -250,23 +276,7 @@ class EnergySystemHandler:
             }
         }
 
-
-    def get_kpi_by_id(self, kpi_id):
-        ''' Returns a specific KPI by id, see also get_by_id for a faster method '''
-        for kpi in self.es.instance[0].area.KPIs.kpi:
-            if kpi.id == kpi_id:
-                return kpi
-
-        return None
-
-
-    def get_kpi_by_name(self, name):
-        ''' Returns a specific KPI by name '''
-        for kpi in self.es.instance[0].area.KPIs.kpi:
-            if kpi.name == name:
-                return kpi
-
-        return None
+    ######### LOAD & SAVE ##########
 
     def save(self, filename):
         ''' Saves the energy system to a file '''
@@ -332,6 +342,22 @@ class EnergySystemHandler:
             return handler
         except Exception as exception:
             raise EnergysystemParseError('ESDL could not be parsed') from exception
+
+
+def format_repr(name, esdl_object):
+    ''' Returns a string containing a formatted version of the ESDL object'''
+    return f'{name}: ({attr_to_dict(esdl_object)})'
+
+
+def attr_to_dict(esdl_object):
+    ''' Creates a dict of all the attributes of an ESDL object '''
+    to_dict = dict()
+    to_dict['esdlType'] = esdl_object.eClass.name
+    for attr in dir(esdl_object):
+        attr_value = esdl_object.eGet(attr)
+        if attr_value is not None:
+            to_dict[attr] = attr_value
+    return to_dict
 
 
 class PrintNotification(EObserver):

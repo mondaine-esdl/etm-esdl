@@ -2,7 +2,7 @@
 Some conversion methods
 '''
 import config.conversions.assets as assets
-from app.models.parsers import SupplyParser
+from app.models.parsers import VolatileParser
 from app.models.kpi_handler import KPIHandler
 
 def update_esdl(energy_system, scenario_id):
@@ -17,6 +17,10 @@ def update_esdl(energy_system, scenario_id):
 
     # Update capacities of wind turbines and possibly add measures
     for asset_type in ['WindTurbine']:
-        SupplyParser(energy_system, assets.supply[asset_type]['default'], asset_type).update(scenario_id)
+        VolatileParser(
+            energy_system,
+            assets.supply[asset_type]['default'],
+            asset_type=asset_type
+        ).update(scenario_id)
 
     return energy_system

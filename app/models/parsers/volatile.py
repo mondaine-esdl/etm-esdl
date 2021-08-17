@@ -1,41 +1,25 @@
 ''' Represents a single supply asset '''
 
 from app.models.energy_system import EnergyDataRepository
-from app.utils.exceptions import ETMParseError
+from app.utils.exceptions import ETMParseError, EnergysystemParseError
 from app.services.query_scenario import QueryScenario
 from .parser import CapacityParser
 
-# RENAME TO VOLUME PARSER???
-class SupplyParser(CapacityParser):
+class VolatileParser(CapacityParser):
     """
-    Class to parse ESDL information about a single supply asset and
-    translate it to the relevant ETM inputs.
+    Class to parse ESDL information about a single asset and
+    translate it to the relevant ETM inputs that have to do with volatile assets.
+    Uses full load hours and power to calculate the volatile assets' inputs.
     """
 
-    def __init__(self, energy_system, props, asset_type, *args, **kwargs):
-        super().__init__(energy_system, props, asset_type, *args, **kwargs)
+    def __init__(self, energy_system, props, *args, **kwargs):
+        super().__init__(energy_system, props, *args, **kwargs)
 
         self.full_load_hours = 0.
+        self.__ensure_valid_props()
 
 
     def parse(self):
-        """
-        Check the power and full load hours to set the corresponding props.
-        Returns a dict containing ETM inputs that can be used when converting ESDL to
-        slider settings.
-        """
-        self.set_props()
-
-
-    def update(self, scenario_id):
-        """
-        Update the power and full load hours based on the ETM inputs
-        """
-        self.set_props()
-        self.update_props(scenario_id)
-
-
-    def set_props(self):
         """
         Check the total power and full load hours of the given asset
 
@@ -44,29 +28,50 @@ class SupplyParser(CapacityParser):
         self.power = 0.
         self.full_load_hours = 0.
 
+        power_prop, flh_prop = self.__separate_props()
+
         for asset in self.asset_generator:
-            for prop in self.props:
-                # Calculate ETM input value based on value from ESDL asset
-                etm_value = getattr(asset, prop['attribute']) * prop['factor']
+            current_power = getattr(asset, power_prop['attribute']) * power_prop['factor']
+            self.power += current_power
+            self.inputs[power_prop['input']] += current_power
 
-                # Keep track of the installed capacity to determine the average FLH
-                if prop['attribute'] == 'power':
-                    current_power = etm_value
-                    self.power += etm_value
-                    # print(f'CAP = {self.power}')
+            current_flh = getattr(asset, flh_prop['attribute']) * flh_prop['factor']
+            prev_flh = self.inputs[flh_prop['input']]
+            diff = current_flh - prev_flh # 1920 - 2500 = -580
+            current_flh = diff * current_power / self.power # -580 * 13 / 19
+            self.full_load_hours += current_flh
+            self.inputs[flh_prop['input']] += current_flh
 
-                elif prop['attribute'] == 'fullLoadHours':
-                    prev_etm_value = self.inputs[prop['input']]
-                    diff = etm_value - prev_etm_value # 1920 - 2500 = -580
-                    etm_value = diff * current_power / self.power # -580 * 13 / 19
-                    self.full_load_hours += etm_value
-                    # print(f'FLH = {self.full_load_hours}')
 
-                # Update ETM input value
-                self.inputs[prop['input']] += etm_value
+    def update(self, scenario_id):
+        """
+        Update the power and full load hours based on the ETM inputs
+        """
+        self.parse()
+        self.update_props(scenario_id)
 
-        # print(f'self.power = {self.power}')
-        # print(f'self.full_load_hours = {self.full_load_hours}')
+
+    def __separate_props(self):
+        '''Separate the props into power and FLH'''
+        for prop in self.props:
+            if prop['attribute'] == 'power':
+                power_prop = prop
+            elif prop['attribute'] == 'fullLoadHours':
+                flh_prop = prop
+
+        return power_prop, flh_prop
+
+    def __ensure_valid_props(self):
+        '''Raises an ESPError if power and fullLoadHours are not included in the props'''
+        if all(a in (p['attribute'] for p in self.props) for a in ['power', 'fullLoadHours']):
+            return
+
+        print(self.asset_type)
+
+        raise EnergysystemParseError(
+             f'Props do not contain "power" or "fullLoadHours": {self.props}'
+        )
+
 
     def query_scenario(self, scenario_id, prop):
         """

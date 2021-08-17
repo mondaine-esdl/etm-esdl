@@ -8,7 +8,7 @@ from config.conversions import area_mapping
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, SupplyParser, RooftopPVParser, ChpParser
+    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser, ChpParser
 )
 
 
@@ -66,8 +66,10 @@ class EsdlToScenarioConverter():
             pass
             # for sub_type, props in properties.items():
             #     ChpParser(self.energy_system, asset_type, sub_type, props, inputs=self.inputs).parse()
+        elif asset_type == 'PowerPlant':
+            pass
         else:
-            SupplyParser(self.energy_system, properties['default'], asset_type, inputs=self.inputs).parse()
+            VolatileParser(self.energy_system, properties['default'], asset_type=asset_type, inputs=self.inputs).parse()
 
 
     def determine_number_of_buildings(self):
@@ -92,10 +94,7 @@ class EsdlToScenarioConverter():
 
         Note: can only be run if the building parsers are setup
         """
-        aggregated_buildings = self.energy_system.get_assets_of_type(
-            self.energy_system.esdl.AggregatedBuilding,
-            area
-        )
+        aggregated_buildings = self.energy_system.get_assets_of_type('AggregatedBuilding', area)
 
         for aggregated_building in aggregated_buildings:
             building_type = self.__building_type(aggregated_building)
@@ -119,9 +118,7 @@ class EsdlToScenarioConverter():
         '''
         Returns all instances of aggegrated buildings in the energy system
         '''
-        return self.energy_system.get_all_instances_of_type(
-            self.energy_system.esdl.AggregatedBuilding
-        )
+        return self.energy_system.get_all_instances_of_type('AggregatedBuilding')
 
 
     def __building_type(self, asset):

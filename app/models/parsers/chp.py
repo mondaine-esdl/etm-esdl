@@ -47,7 +47,7 @@ class ChpParser(CapacityParser):
 
         try:
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_value(
-                getattr(self.energy_system.esdl, self.asset_type),
+                self.asset_type,
                 'CHPType',
                 self.subtype
             )

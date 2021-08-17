@@ -33,21 +33,19 @@ class RooftopPVParser(AssetParser):
         """
         Check rooftop PV potential
         """
-        list_of_potentials = self.energy_system.get_all_instances_of_type(
-            self.energy_system.esdl.SolarPotential)
+        potentials_generator = self.energy_system.get_all_instances_of_type('SolarPotential')
 
-        self.potential = sum((potential.value for potential in list_of_potentials))
+        self.potential = sum((potential.value for potential in potentials_generator))
 
 
     def __set_production(self):
         """
         Check rooftop PV installations to determine the production
         """
-        list_of_assets = self.energy_system.get_all_instances_of_type(
-            self.energy_system.esdl.PVInstallation)
+        assets_generator = self.energy_system.get_all_instances_of_type('PVInstallation')
 
         # Assuming there is only one port and one profile
-        self.production = sum((asset.port[0].profile[0].value for asset in list_of_assets))
+        self.production = sum((asset.port[0].profile[0].value for asset in assets_generator))
 
 
     def __set_percentage_used(self):
