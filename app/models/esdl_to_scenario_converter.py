@@ -1,11 +1,13 @@
 ''' Everything to do with converting esdl to slider settings'''
 
-from app.models.parsers.parser import CapacityParser
 import pprint
 from collections import defaultdict
 
 import config.conversions.assets as assets
 from config.conversions import area_mapping
+
+from app.utils.exceptions import EnergysystemParseError
+
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
@@ -55,7 +57,11 @@ class EsdlToScenarioConverter():
     def as_situation(self):
         ''' Calculates the inputs and wraps them in a Situation'''
         self.calculate()
-        year = self.energy_system.es.instance[0].date.date.year
+
+        try:
+            year = self.energy_system.es.instance[0].date.date.year
+        except AttributeError as exc:
+            raise EnergysystemParseError('Date instance was missing in the ESDL') from exc
 
         return Situation(self.inputs, self.area, year)
 

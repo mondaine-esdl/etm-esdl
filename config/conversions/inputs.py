@@ -24,3 +24,9 @@ balancing_groups = {
         'buildings_space_heater_district_heating_steam_hot_water_share'
     ]
 }
+
+ON_HOLD = [
+    'industry_chemicals_other_burner_network_gas_share',
+    'industry_useful_demand_for_chemical_refineries',
+    'industry_useful_demand_for_chemical_other',
+]

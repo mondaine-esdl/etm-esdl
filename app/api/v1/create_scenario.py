@@ -7,6 +7,8 @@ Only: post
 import urllib.parse
 from flask_restx import Namespace, Resource
 
+from config.conversions.inputs import ON_HOLD
+
 from app.utils.api_utils import fail_with
 from app.models.energy_system import EnergySystemHandler
 from app.models.kpi_handler import KPIHandler
@@ -47,7 +49,7 @@ class EnergySystem(Resource):
 
         converter = EsdlToScenarioConverter(self.energy_system_handler)
         self.__create_new_scenario_id(converter.area)
-        self.__set_sliders_in_etm(converter.calculate())
+        self.__set_sliders_in_etm(self.__filter_on_hold(converter.calculate()))
 
         self.__attach_esdl_to_etm(energy_system_title)
 
@@ -63,6 +65,14 @@ class EnergySystem(Resource):
             self.scenario_id = result.value
         else:
             fail_with(result)
+
+    def __filter_on_hold(self, slider_settings):
+        '''Filters the inputs that are on hold'''
+        for hold_input in ON_HOLD:
+            slider_settings.pop(hold_input, None)
+
+        return slider_settings
+
 
     def __set_sliders_in_etm(self, slider_settings):
         ''' Set sliders in new scenario '''
