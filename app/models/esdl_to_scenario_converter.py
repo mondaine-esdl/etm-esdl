@@ -41,7 +41,8 @@ class EsdlToScenarioConverter():
 
         # Parse buildings
         number_of_buildings = self.determine_number_of_buildings()
-        self.inputs['households_number_of_residences'] = number_of_buildings['RESIDENTIAL']
+        if 'RESIDENTIAL' in number_of_buildings:
+            self.inputs['households_number_of_residences'] = number_of_buildings['RESIDENTIAL']
         self.__setup_building_parsers(number_of_buildings)
 
         for sub_area in self.energy_system.es.instance[0].area.area:
@@ -129,7 +130,7 @@ class EsdlToScenarioConverter():
 
         Returns a dict containing number of buildings for UTILITY and RESIDENTIAL
         """
-        number_of_buildings = {'RESIDENTIAL': 0, 'UTILITY': 0}
+        number_of_buildings = defaultdict(int)
 
         for asset in self.__list_of_assets():
             if asset.numberOfBuildings and asset.buildingTypeDistribution:
