@@ -7,9 +7,7 @@ class Situation:
 
     # TODO: or are these the same sliders as are already in the slider settings?
     CONTEXT_INPUTS = [
-        'query_1',
-        'query_2',
-        'query_3',
+        'households_number_of_residences'
     ]
 
     # Sliders that should be calculated with the calculate_slider_based_on_present_share method
