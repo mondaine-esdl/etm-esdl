@@ -11,14 +11,14 @@ class VolumeParser(CapacityParser):
     translate it to the relevant ETM inputs that have to do with volume.
     Uses full load hours and power to calculate the volume.
 
-    subtype is expected to be a sector id
-
-    TODO: This is not sent directly to the ETM.
+    The sector is expected to be in the prop, as the assets will be filtered on
+    sector
     """
 
     def __init__(self, energy_system, props, *args, **kwargs):
-        ''' Assumes props to only have a power item '''
-        self.subtype = kwargs.pop('subtype', None)
+        ''' Assumes props to be one item with 'power' '''
+        if not 'sector' in props:
+            raise EnergysystemParseError(f'No sector was given in the config for {props["input"]}')
 
         super().__init__(energy_system, props, *args, **kwargs)
 
@@ -30,14 +30,14 @@ class VolumeParser(CapacityParser):
         Sets self.power and self.inputs
         """
 
-        self.inputs[self.props[0]['input']] += sum(
+        self.inputs[self.props['input']] += sum(
             (self.calculate_volume(asset) for asset in self.asset_generator)
         )
 
 
     def calculate_volume(self, asset):
         ''' Calculates an assets volume based on power and full load hours'''
-        power = asset.power * self.props[0]['factor']
+        power = asset.power * self.props['factor']
         self.power += power
         return power * full_load_hours(asset)
 
@@ -50,7 +50,7 @@ class VolumeParser(CapacityParser):
         try:
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_sector(
                 self.asset_type,
-                self.subtype
+                self.props['sector']
             )
 
         except AttributeError as att:

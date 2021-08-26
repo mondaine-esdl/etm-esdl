@@ -286,16 +286,36 @@ class EnergySystemHandler:
         The assets are then filtered for hving the specified carrier as input.
 
         esdl_type   String, the type of asset
-        sector_id   String, the value of the sectors id, e.g. REF for Refineries
+        carrier_id  String, the value of the carriers id, e.g. HTLH for network gas
         '''
         return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
                 if self.has_carrier(inst, carrier_id))
 
+    def get_all_instances_of_type_carrier_and_sector(self, esdl_type, sector_id, carrier_id):
+        '''
+        Returns a generator of all assets or potentials of a specific type.
+        Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+        defined in the KPI of an Area or in the EnergySystemInformation object this
+        function returns all of them at once.
+
+        The assets are then filtered for a specific combination on an attribute and it's ID.
+
+        esdl_type   String, the type of asset
+        sector_id   String, the value of the sectors id, e.g. REF for Refineries
+        carrier_id  String, the value of the carriers id, e.g. HTLH for network gas
+        '''
+        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+                if in_sector(inst, sector_id) and self.has_carrier(inst, carrier_id))
+
     def has_carrier(self, asset, carrier_id):
+        '''Carrier id may also be a list'''
         for port in asset.port:
             if not 'In' in port.name: continue
 
             if port.carrier.id == carrier_id:
+                return True
+
+            if isinstance(carrier_id, list) and port.carrier.id in carrier_id:
                 return True
 
         return False

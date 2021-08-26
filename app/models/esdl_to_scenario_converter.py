@@ -12,7 +12,7 @@ from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
     EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser, ChpParser,
-    VolumeParser, CarrierCapacityParser
+    VolumeParser, CarrierCapacityParser, CarrierVolumeParser
 )
 
 
@@ -93,13 +93,12 @@ class EsdlToScenarioConverter():
                     carrier=carrier,
                     inputs=self.inputs
                 ).parse()
-        elif asset_type == 'GasHeater':
+        elif asset_type in ['GasHeater', 'BiomassHeater', 'HeatPump']:
             for subtype in properties:
-                VolumeParser(
+                CarrierVolumeParser(
                     self.energy_system,
-                    properties[subtype],
+                    subtype,
                     asset_type=asset_type,
-                    subtype=subtype,
                     inputs=self.inputs
                 ).parse()
         else:
@@ -117,9 +116,8 @@ class EsdlToScenarioConverter():
             for subtype in properties:
                 VolumeParser(
                     self.energy_system,
-                    properties[subtype],
+                    subtype,
                     asset_type=asset_type,
-                    subtype=subtype,
                     inputs=self.inputs
                 ).parse()
 

@@ -5,14 +5,15 @@ from app.services.query_scenario import QueryScenario
 class Situation:
     ''' Describes a situation that can be used for comparing esdl-scenario settings'''
 
-    # TODO: or are these the same sliders as are already in the slider settings?
+    # TODO: or are these the same sliders as are already in the slider settings? < alle sliders bij elkaar optellen
     CONTEXT_INPUTS = [
-        'households_number_of_residences'
+        'industry_useful_demand_for_chemical_refineries'
     ]
 
     # Sliders that should be calculated with the calculate_slider_based_on_present_share method
     PRESENT_SHARE_SLIDERS =[
-        'households_number_of_residences'
+        'industry_useful_demand_for_chemical_refineries',
+        # alle technologien
     ]
 
     def __init__(self, slider_settings, area, year):
@@ -49,6 +50,7 @@ class Situation:
             slider_settings[slider] = self.calculate_slider_based_on_present_share(other, slider)
 
         # TODO: other methods??
+
 
         return Situation(slider_settings, self.context['area_code'], self.context['end_year'])
 

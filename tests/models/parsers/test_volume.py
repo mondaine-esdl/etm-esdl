@@ -31,12 +31,11 @@ def test_parse_with_heating_demand_present(energy_system_handler_with_heating_de
 
     parser = VolumeParser(
         energy_system_handler_with_heating_demand,
-        heating_demand_props['REF'],
-        asset_type='HeatingDemand',
-        subtype='REF'
+        heating_demand_props[0],
+        asset_type='HeatingDemand'
     )
 
     parser.parse()
     result = parser.get_parsed_inputs()
 
-    assert result[heating_demand_props['REF'][0]['input']] >= 27000000
+    assert result[heating_demand_props[0]['input']] >= 27000000

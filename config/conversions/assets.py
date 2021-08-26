@@ -3,36 +3,32 @@ Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
 demand = {
-    'HeatingDemand': {
-        'REF': [
-            {
-                'attribute': 'power',
-                'input': 'industry_useful_demand_for_chemical_refineries',
-                'factor': 1E-6
-            }
-        ],
-        'CHEMFEED': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-            {
-                'attribute': 'power',
-                'input': 'industry_useful_demand_for_chemical_other',
-                'factor': 1E-6
-            }
-        ],
-        'EDOIL': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-            {
-                'attribute': 'power',
-                'input': 'industry_useful_demand_for_chemical_other',
-                'factor': 1E-6
-            }
-        ],
-        'NONCHLO': [ # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-            {
-                'attribute': 'power',
-                'input': 'industry_useful_demand_for_chemical_other',
-                'factor': 1E-6
-            }
-        ]
-    }
+    'HeatingDemand': [
+        {
+            'attribute': 'power',
+            'sector': 'REF',
+            'input': 'industry_useful_demand_for_chemical_refineries',
+            'factor': 1E-6
+        }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+        {
+            'attribute': 'power',
+            'sector': 'CHEMFEED',
+            'input': 'industry_useful_demand_for_chemical_other',
+            'factor': 1E-6
+        }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+        {
+            'attribute': 'power',
+            'sector': 'EDOIL',
+            'input': 'industry_useful_demand_for_chemical_other',
+            'factor': 1E-6
+        },  # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+        {
+            'attribute': 'power',
+            'sector': 'NONCHLO',
+            'input': 'industry_useful_demand_for_chemical_other',
+            'factor': 1E-6
+        }
+    ]
 }
 
 supply = {
@@ -111,17 +107,57 @@ supply = {
                 'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
                 'factor': 1E-6
             }
-        ]
-    },
-    'GasHeater': {
-        'REF': [ # refinery
+        ],
+        'any' : [
             {
                 'attribute': 'power',
-                'input': 'industry_chemicals_other_burner_network_gas_share',
+                'sector': 'REF',
+                'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
                 'factor': 1E-6
             }
         ]
     },
+    'GasHeater': [
+        {
+            'attribute': 'power',
+            'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+            'sector': 'REF',
+            'input': 'industry_chemicals_other_burner_network_gas_share',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': ['RG', 'PC'],
+            'sector': 'REF',
+            'input': 'industry_chemicals_other_burner_crude_oil_share',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+            'sector': 'REF',
+            'input': 'industry_chemicals_other_burner_hydrogen_share',
+            'factor': 1E-6
+        }
+    ],
+    'BiomassHeater': [
+        {
+            'attribute': 'power',
+            'carrier': 'BM',
+            'sector': 'REF',
+            'input': 'industry_chemicals_other_burner_wood_pellets_share',
+            'factor': 1E-6
+        }
+    ],
+    'HeatPump': [
+        {
+            'attribute': 'power',
+            'carrier': 'E',
+            'sector': 'REF',
+            'input': 'industry_chemicals_other_heater_electricity_share',
+            'factor': 1E-6
+        }
+    ],
     'PowerPlant': {
         'HTLH': [
             {

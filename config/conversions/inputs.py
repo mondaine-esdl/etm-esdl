@@ -22,6 +22,17 @@ balancing_groups = {
         'buildings_space_heater_electricity_share',
         'buildings_space_heater_wood_pellets_share',
         'buildings_space_heater_district_heating_steam_hot_water_share'
+    ],
+    'industry_heating': [
+        'industry_chemicals_other_burner_network_gas_share',
+        'industry_chemicals_other_burner_crude_oil_share',
+        'industry_chemicals_other_burner_wood_pellets_share',
+        'industry_chemicals_other_burner_coal_share',
+        'industry_final_demand_for_chemical_other_steam_hot_water_share',
+        'industry_chemicals_other_steam_recompression_electricity_share',
+        'industry_chemicals_other_heatpump_water_water_electricity_share',
+        'industry_chemicals_other_heater_electricity_share',
+        'industry_chemicals_other_burner_hydrogen_share'
     ]
 }
 
