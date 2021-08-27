@@ -9,7 +9,7 @@ ASSETS = [
         'parser': 'volume',
         'attribute': 'power',
         'sector': 'REF',
-        'input': 'industry_useful_demand_for_chemical_refineries',
+        'input': 'industry_useful_demand_for_chemical_other',
         'factor': 1E-6
     }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
     {

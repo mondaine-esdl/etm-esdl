@@ -49,7 +49,7 @@ class Balancer:
                 continue
 
             if total == 0:
-                for slider in sliders: del self.slider_settings[slider]
+                for slider in sliders: self.slider_settings.pop(slider, None)
             elif total < 100:
                 losses = 100 - total
                 print(f'balancing {group}: sums to {total}, distributing {losses}')

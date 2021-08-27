@@ -15,6 +15,14 @@ def energy_system_handler():
     return EnergySystemHandler.from_string(esdl_string)
 
 @pytest.fixture
+def energy_system_handler_hic():
+    '''ESH based on the hic 2021 description, which contains heating demand'''
+    with open('tests/fixtures/2021_hic_description.esdl') as file:
+        esdl_string = file.read()
+    return EnergySystemHandler.from_string(esdl_string)
+
+
+@pytest.fixture
 def converter(energy_system_handler):
     ''' Basic converter '''
     return EsdlToScenarioConverter(energy_system_handler)
@@ -37,7 +45,7 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
     assert sliders
 
     # HeatDemand was parsed
-    assert 'industry_useful_demand_for_chemical_refineries' in sliders
+    assert 'industry_useful_demand_for_chemical_other' in sliders
     # CHPs were parsed
     assert 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix' in sliders
     # Powerplants were parsed
@@ -52,6 +60,25 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
 
     # TODO @ROOS: hoe moeten die sliders eruit zien?? Voorbeeld:
     # assert sliders[buildings_insulation_level] == 54.0
+
+
+def test_calculate_with_hic(energy_system_handler_hic):
+    converter = EsdlToScenarioConverter(energy_system_handler_hic)
+    sliders = converter.calculate()
+    assert isinstance(sliders, dict)
+    assert sliders
+
+    # HeatDemand was parsed
+    assert 'industry_useful_demand_for_chemical_other' in sliders
+    # CHPs were parsed
+    assert 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix' in sliders
+    # Powerplants were parsed
+    assert 'capacity_of_energy_power_combined_cycle_network_gas' in sliders
+    # GasHeaters
+    assert 'industry_chemicals_other_burner_network_gas_share' in sliders
+    # BiomassHeaters
+    assert 'industry_chemicals_other_burner_wood_pellets_share' in sliders
+
 
 
 def test_parse_aggregated_buidings(converter):

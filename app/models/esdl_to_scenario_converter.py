@@ -103,7 +103,7 @@ class EsdlToScenarioConverter():
         Parses all aggregated_buidings in the specified area, calculates slider settings
         and updates self.inputs accordingly
 
-        Note: can only be run if the building parsers are setup
+        NOTE: can only be run if the building parsers are setup
         """
         aggregated_buildings = self.energy_system.get_assets_of_type('AggregatedBuilding', area)
 
@@ -135,12 +135,12 @@ class EsdlToScenarioConverter():
     def __building_type(self, asset):
         '''
         Returns the building type (UTILITY or RESIDENTIAL) of an aggegrated building asset
+        TODO: could be an esdl util
         '''
         return str(asset.buildingTypeDistribution.buildingTypePercentage[0].buildingType)
 
     def __convert_area(self):
         '''Converts the energy_systems area to an ETM area if a conversion is available'''
         area = self.energy_system.es.instance[0].area.id
-        if area in area_mapping:
-            area = area_mapping[area]
-        return area
+
+        return area_mapping.get(area, area)
