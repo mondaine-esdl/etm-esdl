@@ -25,7 +25,7 @@ def energy_system_handler_with_pv():
 
 
 def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv):
-    parser = RooftopPVParser(energy_system_handler_without_pv, supply['RooftopPV']['default'])
+    parser = RooftopPVParser(energy_system_handler_without_pv, supply['RooftopPV'][0])
 
     parser.parse()
 
@@ -34,7 +34,7 @@ def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv):
 
 
 def test_parse_with_rooftop_pv_present(energy_system_handler_with_pv):
-    parser = RooftopPVParser(energy_system_handler_with_pv, supply['RooftopPV']['default'])
+    parser = RooftopPVParser(energy_system_handler_with_pv, supply['RooftopPV'][0])
 
     parser.parse()
     parser_results = parser.get_parsed_inputs()

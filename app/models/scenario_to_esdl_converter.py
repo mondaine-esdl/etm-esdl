@@ -19,7 +19,7 @@ def update_esdl(energy_system, scenario_id):
     for asset_type in ['WindTurbine']:
         VolatileParser(
             energy_system,
-            assets.supply[asset_type]['default'],
+            assets.supply[asset_type][0],
             asset_type=asset_type
         ).update(scenario_id)
 

@@ -32,8 +32,8 @@ demand = {
 }
 
 supply = {
-    'WindTurbine': {
-        'default': [
+    'WindTurbine': [ # Volatile has sets of attributes, one power and one flh
+        [
             {
                 'attribute': 'power',
                 'input': 'capacity_of_energy_power_wind_turbine_inland',
@@ -49,9 +49,9 @@ supply = {
                 'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
             }
         ],
-    },
-    'PVPark': {
-        'default': [
+    ],
+    'PVPark': [
+        [
             {
                 'attribute': 'power',
                 'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
@@ -67,56 +67,48 @@ supply = {
                 'edr': ''
             }
         ]
-    },
-    'RooftopPV': {
-        'default': [
-            {
-                'inputs': {
-                    'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
-                    'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
-                },
-                'factor': 1E2
-            }
-        ],
-    },
-    'CHP': {
-        'UNDEFINED': [ # do we want to support this?
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-                'factor': 1E-6
-            }
-        ],
-        'STEG': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-                'factor': 1E-6
-            }
-        ],
-        'GAS_TURBINE': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_industry_chp_turbine_gas_power_fuelmix',
-                'factor': 1E-6
-            }
-        ],
-        'GAS_MOTOR': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
-                'factor': 1E-6
-            }
-        ],
-        'any' : [
-            {
-                'attribute': 'power',
-                'sector': 'REF',
-                'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
-                'factor': 1E-6
-            }
-        ]
-    },
+    ],
+    'RooftopPV': [
+        {
+            'inputs': {
+                'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
+                'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
+            },
+            'factor': 1E2
+        }
+    ],
+    'CHP': [
+        {
+            'attribute': 'power',
+            'type': 'UNDEFINED', # do we want to support this?
+            'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'type': 'STEG',
+            'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'type': 'GAS_TURBINE',
+            'input': 'capacity_of_industry_chp_turbine_gas_power_fuelmix',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'type': 'GAS_MOTOR',
+            'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
+            'factor': 1E-6
+        },
+        # {
+        #     'attribute': 'power',
+        #     'sector': 'REF',
+        #     'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
+        #     'factor': 1E-6
+        # }
+    ],
     'GasHeater': [
         {
             'attribute': 'power',
@@ -158,50 +150,44 @@ supply = {
             'factor': 1E-6
         }
     ],
-    'PowerPlant': {
-        'HTLH': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-                'factor': 1E-6
-            }
-        ],
-        'RG': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-                'factor': 1E-6
-            }
-        ],
-        'PC': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-                'factor': 1E-6
-            }
-        ],
-        'RF': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-                'factor': 1E-6
-            }
-        ],
-        'W': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_supercritical_waste_mix',
-                'factor': 1E-6
-            }
-        ],
-        'C': [
-            {
-                'attribute': 'power',
-                'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-                'factor': 1E-6
-            }
-        ]
-    }
+    'PowerPlant': [
+        {
+            'attribute': 'power',
+            'carrier': 'HTLH',
+            'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': 'RG',
+            'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': 'PC',
+            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': 'RF',
+            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': 'W',
+            'input': 'capacity_of_energy_power_supercritical_waste_mix',
+            'factor': 1E-6
+        },
+        {
+            'attribute': 'power',
+            'carrier': 'C',
+            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+            'factor': 1E-6
+        }
+    ]
 }
 
 distributions = {

@@ -12,11 +12,6 @@ class ChpParser(CapacityParser):
     translate it to the relevant ETM inputs.
     """
 
-    def __init__(self, energy_system, props, *args, subtype='UNDEFINED', **kwargs):
-        self.subtype = subtype
-        super().__init__(energy_system, props, *args, **kwargs)
-
-
     def parse(self):
         """
         Check the total power of the given CHP type
@@ -25,13 +20,12 @@ class ChpParser(CapacityParser):
         """
 
         # As we only have need power attribute for CHPs we can do it like this
-        power_pr = self.props[0]
         self.power = sum(
-            getattr(chp, power_pr['attribute']) * power_pr['factor'] for chp in self.asset_generator
+            getattr(chp, self.props['attribute']) * self.props['factor'] for chp in self.asset_generator
         )
 
         # Update ETM input value
-        self.inputs[power_pr['input']] += self.power
+        self.inputs[self.props['input']] += self.power
 
 
     def update(self, scenario_id):
@@ -49,7 +43,7 @@ class ChpParser(CapacityParser):
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_value(
                 self.asset_type,
                 'CHPType',
-                self.subtype
+                self.props['type']
             )
 
         except AttributeError as att:

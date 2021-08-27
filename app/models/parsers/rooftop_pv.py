@@ -64,6 +64,5 @@ class RooftopPVParser(AssetParser):
         and services.
         """
         if self.potential > 0:
-            for prop in self.props:
-                for key in prop['inputs'].values():
-                    self.inputs[key] = self.percentage_used * prop['factor']
+            for key in self.props['inputs'].values():
+                self.inputs[key] = self.percentage_used * self.props['factor']

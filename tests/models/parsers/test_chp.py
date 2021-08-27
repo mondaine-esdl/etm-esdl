@@ -26,8 +26,8 @@ def energy_system_handler_with_chps():
 
 
 def test_parse_without_chps_present(energy_system_handler_without_chps):
-    for chp_type in ['UNDEFINED', 'STEG', 'GAS_TURBINE', 'GAS_MOTOR']:
-        parser = ChpParser(energy_system_handler_without_chps, supply['CHP'][chp_type], asset_type='CHP', subtype=chp_type)
+    for chp_type in supply['CHP']:
+        parser = ChpParser(energy_system_handler_without_chps, chp_type, asset_type='CHP')
 
         parser.parse()
 
@@ -38,9 +38,9 @@ def test_parse_without_chps_present(energy_system_handler_without_chps):
 def test_parse_with_chps_present(energy_system_handler_with_chps):
     inputs = defaultdict(float)
 
-    for chp_type in ['UNDEFINED', 'STEG', 'GAS_TURBINE', 'GAS_MOTOR']:
+    for chp_type in supply['CHP']:
 
-        parser = ChpParser(energy_system_handler_with_chps, supply['CHP'][chp_type], asset_type='CHP', subtype=chp_type, inputs=inputs)
+        parser = ChpParser(energy_system_handler_with_chps, chp_type, asset_type='CHP', inputs=inputs)
 
         parser.parse()
         parser_results = parser.get_parsed_inputs()

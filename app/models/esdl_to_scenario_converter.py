@@ -74,23 +74,21 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         if asset_type == 'RooftopPV':
-            RooftopPVParser(self.energy_system, properties['default'], inputs=self.inputs).parse()
+            RooftopPVParser(self.energy_system, properties, inputs=self.inputs).parse()
         elif asset_type == 'CHP':
             for subtype in properties:
                 ChpParser(
                     self.energy_system,
-                    properties[subtype],
+                    subtype,
                     asset_type=asset_type,
-                    subtype=subtype,
                     inputs=self.inputs
                 ).parse()
         elif asset_type == 'PowerPlant':
-            for carrier in properties:
+            for subtype in properties:
                 CarrierCapacityParser(
                     self.energy_system,
-                    properties[carrier],
+                    subtype,
                     asset_type=asset_type,
-                    carrier=carrier,
                     inputs=self.inputs
                 ).parse()
         elif asset_type in ['GasHeater', 'BiomassHeater', 'HeatPump']:
@@ -102,12 +100,13 @@ class EsdlToScenarioConverter():
                     inputs=self.inputs
                 ).parse()
         else:
-            VolatileParser(
-                self.energy_system,
-                properties['default'],
-                asset_type=asset_type,
-                inputs=self.inputs
-            ).parse()
+            for subtype in properties:
+                VolatileParser(
+                    self.energy_system,
+                    subtype,
+                    asset_type=asset_type,
+                    inputs=self.inputs
+                ).parse()
 
 
     def parse_demand(self, asset_type, properties):

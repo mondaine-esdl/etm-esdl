@@ -26,12 +26,11 @@ def energy_system_handler_with_power_plants():
 
 
 def test_parse_without_power_plants(energy_system_handler_without_power_plants):
-    for carrier, props in supply['PowerPlant'].items():
+    for props in supply['PowerPlant']:
         parser = CarrierCapacityParser(
             energy_system_handler_without_power_plants,
             props,
-            asset_type='PowerPlant',
-            carrier=carrier
+            asset_type='PowerPlant'
         )
 
         parser.parse()
@@ -45,12 +44,11 @@ def test_parse_with_power_plants(energy_system_handler_with_power_plants):
     inputs = defaultdict(float)
 
     # Parse all carriers
-    for carrier, props in supply['PowerPlant'].items():
+    for props in supply['PowerPlant']:
         parser = CarrierCapacityParser(
             energy_system_handler_with_power_plants,
             props,
             asset_type='PowerPlant',
-            carrier=carrier,
             inputs=inputs
         )
 
