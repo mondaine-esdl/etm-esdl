@@ -1,7 +1,7 @@
 '''
 Some conversion methods
 '''
-import config.conversions.assets as assets
+from config.conversions.assets import ASSETS
 from app.models.parsers import VolatileParser
 from app.models.kpi_handler import KPIHandler
 
@@ -16,11 +16,13 @@ def update_esdl(energy_system, scenario_id):
     KPIHandler(energy_system, scenario_id).update()
 
     # Update capacities of wind turbines and possibly add measures
-    for asset_type in ['WindTurbine']:
-        VolatileParser(
-            energy_system,
-            assets.supply[asset_type][0],
-            asset_type=asset_type
-        ).update(scenario_id)
+    for asset in get_configs_for_assets('WindTurbine'):
+        if asset['parser'] == 'volatile':
+            VolatileParser(energy_system, asset).update(scenario_id)
 
     return energy_system
+
+
+def get_configs_for_assets(asset_type):
+    '''Returns a generator full of config asset with given asset type e.g. GasHeater'''
+    return (asset for asset in ASSETS if asset['asset'] == asset_type)

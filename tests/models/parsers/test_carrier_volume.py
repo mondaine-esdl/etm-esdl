@@ -6,9 +6,6 @@ import pytest
 from app.models.energy_system import EnergySystemHandler
 from app.models.parsers.carrier_volume import CarrierVolumeParser
 
-from config.conversions.assets import supply
-
-
 @pytest.fixture
 def energy_system_handler_with_chem_ref_gas_heaters():
     '''ESH based on the hic 2021 description, which contains heating demand'''
@@ -25,30 +22,30 @@ def energy_system_handler_without_chem_ref_gas_heaters():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-def test_parse_with_chem_ref_gas_heaters_present(energy_system_handler_with_chem_ref_gas_heaters):
-    chem_ref_gas_heaters_props = supply['GasHeater']
+def test_parse_with_chem_ref_gas_heaters_present(
+    energy_system_handler_with_chem_ref_gas_heaters, helpers):
+    chem_ref_gas_heaters_prop = helpers.get_first_config_for_asset_type('GasHeater')
 
     parser = CarrierVolumeParser(
         energy_system_handler_with_chem_ref_gas_heaters,
-        chem_ref_gas_heaters_props[0],
-        asset_type='GasHeater'
+        chem_ref_gas_heaters_prop
     )
 
     parser.parse()
     result = parser.get_parsed_inputs()
 
-    assert result[chem_ref_gas_heaters_props[0]['input']] >= 4200000
+    assert result[chem_ref_gas_heaters_prop['input']] >= 4200000
 
-def test_parse_with_no_chem_ref_present(energy_system_handler_without_chem_ref_gas_heaters):
-    chem_ref_gas_heaters_props = supply['GasHeater']
+def test_parse_with_no_chem_ref_present(
+    energy_system_handler_without_chem_ref_gas_heaters, helpers):
+    chem_ref_gas_heaters_prop = helpers.get_first_config_for_asset_type('GasHeater')
 
     parser = CarrierVolumeParser(
         energy_system_handler_without_chem_ref_gas_heaters,
-        chem_ref_gas_heaters_props[0],
-        asset_type='GasHeater'
+        chem_ref_gas_heaters_prop
     )
 
     parser.parse()
     result = parser.get_parsed_inputs()
 
-    assert result[chem_ref_gas_heaters_props[0]['input']] == 0.0
+    assert result[chem_ref_gas_heaters_prop['input']] == 0.0

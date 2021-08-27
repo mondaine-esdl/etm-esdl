@@ -5,9 +5,6 @@ import pytest
 from app.models.energy_system import EnergySystemHandler
 from app.models.parsers.rooftop_pv import RooftopPVParser
 
-from config.conversions.assets import supply
-
-
 @pytest.fixture
 def energy_system_handler_without_pv():
     '''ESH based on the valid Hengelo fixture without rooftop PV'''
@@ -24,8 +21,9 @@ def energy_system_handler_with_pv():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv):
-    parser = RooftopPVParser(energy_system_handler_without_pv, supply['RooftopPV'][0])
+def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv, helpers):
+    a_rooftop_asset = helpers.get_first_config_for_asset_type('RooftopPV')
+    parser = RooftopPVParser(energy_system_handler_without_pv, a_rooftop_asset)
 
     parser.parse()
 
@@ -33,8 +31,9 @@ def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv):
     assert parser.get_parsed_inputs() == {}
 
 
-def test_parse_with_rooftop_pv_present(energy_system_handler_with_pv):
-    parser = RooftopPVParser(energy_system_handler_with_pv, supply['RooftopPV'][0])
+def test_parse_with_rooftop_pv_present(energy_system_handler_with_pv, helpers):
+    a_rooftop_asset = helpers.get_first_config_for_asset_type('RooftopPV')
+    parser = RooftopPVParser(energy_system_handler_with_pv, a_rooftop_asset)
 
     parser.parse()
     parser_results = parser.get_parsed_inputs()

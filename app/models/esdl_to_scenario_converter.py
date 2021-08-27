@@ -11,8 +11,8 @@ from app.utils.exceptions import EnergysystemParseError
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser, ChpParser,
-    VolumeParser, CarrierCapacityParser, CarrierVolumeParser
+    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser,
+    VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser
 )
 
 
@@ -31,13 +31,9 @@ class EsdlToScenarioConverter():
 
         Returns a dict of slider settings
         '''
-        # Parse supply assets and calculate the new input values
-        for asset_type, properties in assets.supply.items():
-            self.parse_supply(asset_type, properties)
-
-        # Parse demand assets and calculate the new input values
-        for asset_type, properties in assets.demand.items():
-            self.parse_demand(asset_type, properties)
+        # Parse supply and demand assets and calculate the new input values
+        for asset in assets.ASSETS:
+            self.parse_asset(asset)
 
         # Parse buildings
         number_of_buildings = self.determine_number_of_buildings()
@@ -67,58 +63,24 @@ class EsdlToScenarioConverter():
         return Situation(self.inputs, self.area, year)
 
 
-    def parse_supply(self, asset_type, properties):
+    def parse_asset(self, asset):
         '''
-        Determines which supply parser to use for the asset type, and calls that parser.
+        Determines which parser to use for the asset type, and calls that parser.
 
-        Returns a dict of slider settings
+        Alters self.inputs
         '''
-        if asset_type == 'RooftopPV':
-            RooftopPVParser(self.energy_system, properties, inputs=self.inputs).parse()
-        elif asset_type == 'CHP':
-            for subtype in properties:
-                ChpParser(
-                    self.energy_system,
-                    subtype,
-                    asset_type=asset_type,
-                    inputs=self.inputs
-                ).parse()
-        elif asset_type == 'PowerPlant':
-            for subtype in properties:
-                CarrierCapacityParser(
-                    self.energy_system,
-                    subtype,
-                    asset_type=asset_type,
-                    inputs=self.inputs
-                ).parse()
-        elif asset_type in ['GasHeater', 'BiomassHeater', 'HeatPump']:
-            for subtype in properties:
-                CarrierVolumeParser(
-                    self.energy_system,
-                    subtype,
-                    asset_type=asset_type,
-                    inputs=self.inputs
-                ).parse()
-        else:
-            for subtype in properties:
-                VolatileParser(
-                    self.energy_system,
-                    subtype,
-                    asset_type=asset_type,
-                    inputs=self.inputs
-                ).parse()
-
-
-    def parse_demand(self, asset_type, properties):
-        '''Determines which parser to use for the asset type, and calls that parser.'''
-        if asset_type == 'HeatingDemand':
-            for subtype in properties:
-                VolumeParser(
-                    self.energy_system,
-                    subtype,
-                    asset_type=asset_type,
-                    inputs=self.inputs
-                ).parse()
+        if asset['parser'] == 'rooftop_pv':
+            RooftopPVParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'subtype_capacity':
+            SubtypeCapacityParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'carrier_capacity':
+            CarrierCapacityParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'carrier_volume':
+            CarrierVolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'volatile':
+            VolatileParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'volume':
+            VolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
 
 
     def determine_number_of_buildings(self):

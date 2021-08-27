@@ -49,7 +49,7 @@ class VolumeParser(CapacityParser):
 
         try:
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_sector(
-                self.asset_type,
+                self.props['asset'],
                 self.props['sector']
             )
 

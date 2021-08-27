@@ -7,6 +7,7 @@ import pytest
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 # pylint: disable=wrong-import-position, disable=import-error, disable=redefined-outer-name
 from app import create_app
+from config.conversions.assets import ASSETS
 
 @pytest.fixture(scope='session', autouse=True)
 def precondition():
@@ -31,3 +32,24 @@ def app():
 def client(app):
     '''Fixture for the client'''
     return app.test_client()
+
+
+class Helpers:
+    '''Put all helper functions that should be globally available here'''
+    @staticmethod
+    def get_configs_for_asset_type(asset_type):
+        '''Returns a generator full of config asset with given asset type e.g. GasHeater'''
+        return (asset for asset in ASSETS if asset['asset'] == asset_type)
+
+    @staticmethod
+    def get_first_config_for_asset_type(asset_type):
+        '''Returns the first found asset of asset_type for the config'''
+        try:
+            return next(Helpers.get_configs_for_asset_type(asset_type))
+        except StopIteration as exc:
+            raise AttributeError(f'No assets found for {asset_type} in the config') from exc
+
+@pytest.fixture
+def helpers():
+    '''Namespace the helpers'''
+    return Helpers

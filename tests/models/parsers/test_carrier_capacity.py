@@ -6,9 +6,6 @@ import pytest
 from app.models.energy_system import EnergySystemHandler
 from app.models.parsers.carrier_capacity import CarrierCapacityParser
 
-from config.conversions.assets import supply
-
-
 @pytest.fixture
 def energy_system_handler_without_power_plants():
     '''ESH based on valid Hengelo fixture'''
@@ -25,12 +22,11 @@ def energy_system_handler_with_power_plants():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-def test_parse_without_power_plants(energy_system_handler_without_power_plants):
-    for props in supply['PowerPlant']:
+def test_parse_without_power_plants(energy_system_handler_without_power_plants, helpers):
+    for props in helpers.get_configs_for_asset_type('PowerPlant'):
         parser = CarrierCapacityParser(
             energy_system_handler_without_power_plants,
-            props,
-            asset_type='PowerPlant'
+            props
         )
 
         parser.parse()
@@ -39,16 +35,15 @@ def test_parse_without_power_plants(energy_system_handler_without_power_plants):
         assert all(val == 0.0 for val in parser.get_parsed_inputs().values())
 
 
-def test_parse_with_power_plants(energy_system_handler_with_power_plants):
+def test_parse_with_power_plants(energy_system_handler_with_power_plants, helpers):
     # Create logger
     inputs = defaultdict(float)
 
     # Parse all carriers
-    for props in supply['PowerPlant']:
+    for props in helpers.get_configs_for_asset_type('PowerPlant'):
         parser = CarrierCapacityParser(
             energy_system_handler_with_power_plants,
             props,
-            asset_type='PowerPlant',
             inputs=inputs
         )
 

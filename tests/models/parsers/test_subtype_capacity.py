@@ -4,10 +4,7 @@ from collections import defaultdict
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
-from app.models.parsers.chp import ChpParser
-
-from config.conversions.assets import supply
-
+from app.models.parsers.subtype_capacity import SubtypeCapacityParser
 
 @pytest.fixture
 def energy_system_handler_without_chps():
@@ -25,9 +22,11 @@ def energy_system_handler_with_chps():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-def test_parse_without_chps_present(energy_system_handler_without_chps):
-    for chp_type in supply['CHP']:
-        parser = ChpParser(energy_system_handler_without_chps, chp_type, asset_type='CHP')
+def test_parse_without_chps_present(energy_system_handler_without_chps, helpers):
+    for chp_type in  helpers.get_configs_for_asset_type('CHP'):
+        if not chp_type['parser'] == 'subtype_capacity': continue
+
+        parser = SubtypeCapacityParser(energy_system_handler_without_chps, chp_type)
 
         parser.parse()
 
@@ -35,12 +34,13 @@ def test_parse_without_chps_present(energy_system_handler_without_chps):
         assert sum(parser.get_parsed_inputs().values()) == 0.0
 
 
-def test_parse_with_chps_present(energy_system_handler_with_chps):
+def test_parse_with_chps_present(energy_system_handler_with_chps, helpers):
     inputs = defaultdict(float)
 
-    for chp_type in supply['CHP']:
-
-        parser = ChpParser(energy_system_handler_with_chps, chp_type, asset_type='CHP', inputs=inputs)
+    helpers.get_configs_for_asset_type('CHP')
+    for chp_type in  helpers.get_configs_for_asset_type('CHP'):
+        if not chp_type['parser'] == 'subtype_capacity': continue
+        parser = SubtypeCapacityParser(energy_system_handler_with_chps, chp_type, inputs=inputs)
 
         parser.parse()
         parser_results = parser.get_parsed_inputs()

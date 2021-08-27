@@ -5,10 +5,6 @@ import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
 from app.models.parsers.volume import VolumeParser
-from app.utils.esdl import full_load_hours
-
-from config.conversions.assets import demand
-
 
 @pytest.fixture
 def energy_system_handler_with_heating_demand():
@@ -26,16 +22,15 @@ def energy_system_handler_without_heating_demand():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-def test_parse_with_heating_demand_present(energy_system_handler_with_heating_demand):
-    heating_demand_props = demand['HeatingDemand']
+def test_parse_with_heating_demand_present(energy_system_handler_with_heating_demand, helpers):
+    heating_demand_prop = helpers.get_first_config_for_asset_type('HeatingDemand')
 
     parser = VolumeParser(
         energy_system_handler_with_heating_demand,
-        heating_demand_props[0],
-        asset_type='HeatingDemand'
+        heating_demand_prop
     )
 
     parser.parse()
     result = parser.get_parsed_inputs()
 
-    assert result[heating_demand_props[0]['input']] >= 27000000
+    assert result[heating_demand_prop['input']] >= 27000000

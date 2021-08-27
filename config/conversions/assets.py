@@ -2,193 +2,239 @@
 Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
-demand = {
-    'HeatingDemand': [
-        {
-            'attribute': 'power',
-            'sector': 'REF',
-            'input': 'industry_useful_demand_for_chemical_refineries',
-            'factor': 1E-6
-        }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-        {
-            'attribute': 'power',
-            'sector': 'CHEMFEED',
-            'input': 'industry_useful_demand_for_chemical_other',
-            'factor': 1E-6
-        }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-        {
-            'attribute': 'power',
-            'sector': 'EDOIL',
-            'input': 'industry_useful_demand_for_chemical_other',
-            'factor': 1E-6
-        },  # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-        {
-            'attribute': 'power',
-            'sector': 'NONCHLO',
-            'input': 'industry_useful_demand_for_chemical_other',
-            'factor': 1E-6
-        }
-    ]
-}
+ASSETS = [
+     ### HeatingDemand ##
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'REF',
+        'input': 'industry_useful_demand_for_chemical_refineries',
+        'factor': 1E-6
+    }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'CHEMFEED',
+        'input': 'industry_useful_demand_for_chemical_other',
+        'factor': 1E-6
+    }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'EDOIL',
+        'input': 'industry_useful_demand_for_chemical_other',
+        'factor': 1E-6
+    },  # CHEMFEED, EDOIL and NONCHLO should be taken into account together
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'NONCHLO',
+        'input': 'industry_useful_demand_for_chemical_other',
+        'factor': 1E-6
+    },
 
-supply = {
-    'WindTurbine': [ # Volatile has sets of attributes, one power and one flh
-        [
-            {
-                'attribute': 'power',
+    ### WindTurbine ###
+    {
+        'asset': 'WindTurbine',
+        'parser': 'volatile',
+        'attr_set': { # Volatile has sets of attributes, one power and one flh
+            'power': {
                 'input': 'capacity_of_energy_power_wind_turbine_inland',
                 'gquery': 'merit_order_onshore_wind_turbines_capacity_in_merit_order_table',
                 'factor': 1E-6,
                 'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
             },
-            {
-                'attribute': 'fullLoadHours',
+            'fullLoadHours': {
                 'input': 'flh_of_energy_power_wind_turbine_inland',
                 'gquery': 'merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table',
                 'factor': 1,
                 'edr': 'b68cb054-44ee-46cb-a32b-ef1b7830f0e1'
             }
-        ],
-    ],
-    'PVPark': [
-        [
-            {
-                'attribute': 'power',
+        }
+    },
+
+    ### PVPark ###
+    {
+        'asset': 'PVPark',
+        'parser': 'volatile',
+        'attr_set': { # Volatile has sets of attributes, one power and one flh
+            'power': {
                 'input': 'capacity_of_energy_power_solar_pv_solar_radiation',
                 'gquery': '',
                 'factor': 1E-6,
                 'edr': ''
             },
-            {
-                'attribute': 'fullLoadHours',
+            'fullLoadHours': {
                 'input': 'flh_of_solar_pv_solar_radiation',
                 'gquery': '',
                 'factor': 1,
                 'edr': ''
             }
-        ]
-    ],
-    'RooftopPV': [
-        {
-            'inputs': {
-                'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
-                'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
-            },
-            'factor': 1E2
-        }
-    ],
-    'CHP': [
-        {
-            'attribute': 'power',
-            'type': 'UNDEFINED', # do we want to support this?
-            'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-            'factor': 1E-6
         },
-        {
-            'attribute': 'power',
-            'type': 'STEG',
-            'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
-            'factor': 1E-6
+    },
+
+    ### Rooftop PV ###
+    {
+        'asset': 'RooftopPV',
+        'parser': 'rooftop_pv',
+        'inputs': {
+            'RESIDENTIAL': 'households_solar_pv_solar_radiation_market_penetration',
+            'BUILDINGS': 'buildings_solar_pv_solar_radiation_market_penetration'
         },
-        {
-            'attribute': 'power',
-            'type': 'GAS_TURBINE',
-            'input': 'capacity_of_industry_chp_turbine_gas_power_fuelmix',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'type': 'GAS_MOTOR',
-            'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
-            'factor': 1E-6
-        },
-        # {
-        #     'attribute': 'power',
-        #     'sector': 'REF',
-        #     'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
-        #     'factor': 1E-6
-        # }
-    ],
-    'GasHeater': [
-        {
-            'attribute': 'power',
-            'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
-            'sector': 'REF',
-            'input': 'industry_chemicals_other_burner_network_gas_share',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': ['RG', 'PC'],
-            'sector': 'REF',
-            'input': 'industry_chemicals_other_burner_crude_oil_share',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
-            'sector': 'REF',
-            'input': 'industry_chemicals_other_burner_hydrogen_share',
-            'factor': 1E-6
-        }
-    ],
-    'BiomassHeater': [
-        {
-            'attribute': 'power',
-            'carrier': 'BM',
-            'sector': 'REF',
-            'input': 'industry_chemicals_other_burner_wood_pellets_share',
-            'factor': 1E-6
-        }
-    ],
-    'HeatPump': [
-        {
-            'attribute': 'power',
-            'carrier': 'E',
-            'sector': 'REF',
-            'input': 'industry_chemicals_other_heater_electricity_share',
-            'factor': 1E-6
-        }
-    ],
-    'PowerPlant': [
-        {
-            'attribute': 'power',
-            'carrier': 'HTLH',
-            'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': 'RG',
-            'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': 'PC',
-            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': 'RF',
-            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': 'W',
-            'input': 'capacity_of_energy_power_supercritical_waste_mix',
-            'factor': 1E-6
-        },
-        {
-            'attribute': 'power',
-            'carrier': 'C',
-            'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-            'factor': 1E-6
-        }
-    ]
-}
+        'factor': 1E2
+    },
+
+    ### CHPs ###
+    {
+        'asset': 'CHP',
+        'parser': 'subtype_capacity',
+        'attribute': 'power',
+        'type_key': 'CHPType',
+        'type': 'UNDEFINED', # do we want to support this?
+        'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'subtype_capacity',
+        'attribute': 'power',
+        'type_key': 'CHPType',
+        'type': 'STEG',
+        'input': 'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'subtype_capacity',
+        'attribute': 'power',
+        'type_key': 'CHPType',
+        'type': 'GAS_TURBINE',
+        'input': 'capacity_of_industry_chp_turbine_gas_power_fuelmix',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'subtype_capacity',
+        'attribute': 'power',
+        'type_key': 'CHPType',
+        'type': 'GAS_MOTOR',
+        'input': 'capacity_of_industry_chp_engine_gas_power_fuelmix',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'REF',
+        'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
+        'factor': 1E-6
+    },
+
+    ### GasHeaters ###
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'sector': 'REF',
+        'input': 'industry_chemicals_other_burner_network_gas_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['RG', 'PC'],
+        'sector': 'REF',
+        'input': 'industry_chemicals_other_burner_crude_oil_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+        'sector': 'REF',
+        'input': 'industry_chemicals_other_burner_hydrogen_share',
+        'factor': 1E-6
+    },
+
+    ### BiomassHeaters ###
+    {
+        'asset': 'BiomassHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'BM',
+        'sector': 'REF',
+        'input': 'industry_chemicals_other_burner_wood_pellets_share',
+        'factor': 1E-6
+    },
+
+    ### HeatPumps ###
+    {
+        'asset': 'HeatPump',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'REF',
+        'input': 'industry_chemicals_other_heater_electricity_share',
+        'factor': 1E-6
+    },
+
+    ### PowerPlants ###
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'HTLH',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RG',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'PC',
+        'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RF',
+        'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'W',
+        'input': 'capacity_of_energy_power_supercritical_waste_mix',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'C',
+        'input': 'capacity_of_energy_power_ultra_supercritical_coal',
+        'factor': 1E-6
+    }
+]
 
 distributions = {
     'energyLabelDistribution': {

@@ -6,7 +6,7 @@ from app.utils.exceptions import EnergysystemParseError
 # from app.services.query_scenario import QueryScenario
 from .parser import CapacityParser
 
-class ChpParser(CapacityParser):
+class SubtypeCapacityParser(CapacityParser):
     """
     Class to parse ESDL information about a single CHP asset and
     translate it to the relevant ETM inputs.
@@ -19,7 +19,7 @@ class ChpParser(CapacityParser):
         Sets self.power and self.inputs
         """
 
-        # As we only have need power attribute for CHPs we can do it like this
+        # As we only have need power attribute for the asset we can do it like this
         self.power = sum(
             getattr(chp, self.props['attribute']) * self.props['factor'] for chp in self.asset_generator
         )
@@ -41,8 +41,8 @@ class ChpParser(CapacityParser):
 
         try:
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_value(
-                self.asset_type,
-                'CHPType',
+                self.props['asset'],
+                self.props['type_key'],
                 self.props['type']
             )
 

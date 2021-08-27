@@ -48,7 +48,6 @@ class AssetParser(Parser):
 
     def __init__(self, energy_system, props, *args, **kwargs):
         self.props = props
-        self.asset_type = kwargs.pop('asset_type', None)
         super().__init__(energy_system, *args, **kwargs)
 
 
@@ -78,7 +77,7 @@ class CapacityParser(AssetParser):
         Get all instances of asset type and set the generator.
         """
         try:
-            self.asset_generator = self.energy_system.get_all_instances_of_type(self.asset_type)
+            self.asset_generator = self.energy_system.get_all_instances_of_type(self.props['asset'])
 
         except AttributeError as att:
             raise EnergysystemParseError(
