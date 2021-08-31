@@ -14,7 +14,7 @@ def test_instance(app):
 def test_call_with_valid_inputs(app, requests_mock):
     inputs = ['input1', 'input2']
 
-    requests_mock.put(
+    requests_mock.get(
         f'{app.config["ETENGINE_URL"]}/scenarios/12345/inputs/{",".join(inputs)}',
         json=[
             {
@@ -43,12 +43,11 @@ def test_call_with_valid_inputs(app, requests_mock):
         result = InputsScenario.execute(12345, *inputs)
         assert result.successful
         assert len(result.value) == 2
-        # TODO: deze aanpassen Nora!
         assert all([key['code'] in inputs for key in result.value])
 
 
 def test_call_with_invalid_input(app, requests_mock):
-    requests_mock.put(
+    requests_mock.get(
         f'{app.config["ETENGINE_URL"]}/scenarios/12345/inputs/input1',
         json={
             'errors': ['Unkown input: input1']
@@ -63,7 +62,7 @@ def test_call_with_invalid_input(app, requests_mock):
 
 
 def test_with_non_existing_scenario_id(app, requests_mock):
-    requests_mock.put(
+    requests_mock.get(
         f'{app.config["ETENGINE_URL"]}/scenarios/12345/inputs/input1',
         json={
             'errors': ['Scenario not found']
@@ -77,7 +76,7 @@ def test_with_non_existing_scenario_id(app, requests_mock):
         assert 'Scenario not found' in result.errors
 
 def test_call_with_etengine_failing(app, requests_mock):
-    requests_mock.put(
+    requests_mock.get(
         f'{app.config["ETENGINE_URL"]}/scenarios/12345/inputs/input1',
         status_code=500
     )

@@ -7,11 +7,11 @@ from app.services.service_result import ServiceResult
 
 class InputsScenario(EtengineService):
     """
-    Query a scenario with supplied gqueries (one or more).
-    Returns a ServiceResult with a dict containing the gquery results as value.
+    Gets the scenarios inputs (one or more).
+    Returns a ServiceResult with a list containing the input results as value.
     """
     def __call__(self, *inputs):
-        response = self.session.put(
+        response = self.session.get(
             f'/scenarios/{self.scenario_id}/inputs/{",".join(inputs)}',
             headers={'Connection': 'close'}
         )

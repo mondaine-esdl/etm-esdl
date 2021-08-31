@@ -36,7 +36,7 @@ def mock_query_response(scenario_id, app, requests_mock, output):
     )
 
 def mock_inputs_response(scenario_id, app, requests_mock, inputs, output):
-    requests_mock.put(
+    requests_mock.get(
         f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}/inputs/{",".join(inputs)}',
         json=output,
         status_code=200

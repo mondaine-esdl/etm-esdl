@@ -96,8 +96,8 @@ class Situation:
 
     def calculate_industry_heat_share_group_sliders(self, other):
         '''Returns slider settings for the industry heat share group'''
-        share_in_context = (
-            other.slider_settings['industry_useful_demand_for_chemical_other'] /
+        share_in_context = Situation.try_division(
+            other.slider_settings['industry_useful_demand_for_chemical_other'],
             self.context['final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic']['future']
         )
 
