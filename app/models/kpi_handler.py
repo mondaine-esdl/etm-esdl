@@ -69,7 +69,6 @@ class KPIHandler():
             else:
                 kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
-            print(f'Adding KPI of type: {type(kpi)}')
             self.energy_system.add_kpi(kpi)
 
 

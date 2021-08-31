@@ -33,4 +33,4 @@ def test_parse_with_heating_demand_present(energy_system_handler_with_heating_de
     parser.parse()
     result = parser.get_parsed_inputs()
 
-    assert result[heating_demand_prop['input']] >= 27000000
+    assert result[heating_demand_prop['input']] >= 27
