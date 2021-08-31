@@ -3,9 +3,9 @@
 from collections import defaultdict
 from config.conversions.inputs import balancing_groups
 
-from app.utils.exceptions import ETMParseError, EnergysystemParseError
-from app.services.query_scenario import QueryScenario
+from app.utils.exceptions import EnergysystemParseError
 from app.models.balancer import Balancer
+import app.models.situation.context as context
 
 class Situation:
     ''' Describes a situation that can be used for comparing esdl-scenario settings'''
@@ -20,13 +20,16 @@ class Situation:
         'capacity_of_industry_chp_turbine_gas_power_fuelmix',
     ]
 
-    EXTRA_QUERIES = [
-        # TODO: replace top query with another one
-        'final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic',
-        'industry_useful_demand_for_chemical_other'
+    EXTRA_SLIDERS = [
+        'industry_useful_demand_for_chemical_other',
     ]
 
-    CONTEXT_QUERIES = PRESENT_SHARE_SLIDERS + balancing_groups['industry_heating'] + EXTRA_QUERIES
+    CONTEXT_QUERIES = [
+        # TODO: replace this query with another one
+        'final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic',
+    ]
+
+    CONTEXT_INPUTS =  PRESENT_SHARE_SLIDERS + balancing_groups['industry_heating'] + EXTRA_SLIDERS
 
     def __init__(self, slider_settings, area, year):
         self.slider_settings = slider_settings
@@ -34,18 +37,20 @@ class Situation:
         self.year = year
         self.context = {}
 
+
     def __eq__(self, other):
         if type(other) is type(self) and self.area == other.area and self.year == other.year:
             return self.slider_settings == other.slider_settings
         return False
 
+
     def set_context_scenario(self, context_scenario_id):
         ''' Get context slider settings from ETM scenario and set them in the Situation'''
-        result = QueryScenario.execute(context_scenario_id, detailed=True, *self.CONTEXT_QUERIES)
-        if result.successful:
-            self.context = result.value
-        else:
-            raise ETMParseError.with_humanized_message(result.errors)
+        self.context = context.get_context_values(
+            context_scenario_id,
+            self.CONTEXT_INPUTS,
+            self.CONTEXT_QUERIES
+        )
 
 
     def relative_change_to_for_context(self, other):
