@@ -17,11 +17,10 @@ def happy_values():
             "code":'input1',
             "unit":"MW"
         },
-        {
+        { # and one without a user value
             "min":0.0,
             "max":28860.24101782573,
             "default":0.521,
-            "user":0.521,
             "step":1.0,
             "code":'input2',
             "unit":"MW"

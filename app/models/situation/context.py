@@ -59,6 +59,6 @@ def extract_present_future(input_response):
     and future (user) values as keys
     '''
     return {
-        'future': input_response['user'],
+        'future': input_response.get('user', input_response['default']),
         'present': input_response['default']
     }
