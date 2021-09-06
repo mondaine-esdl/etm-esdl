@@ -8,38 +8,31 @@ from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.models.situation import Situation
 
 @pytest.fixture
-def energy_system_handler():
+def energy_system_handler_hengelo():
     '''ESH based on the valid Hengelo fixture'''
     with open('tests/fixtures/valid_Hengelo.esdl') as file:
         esdl_string = file.read()
     return EnergySystemHandler.from_string(esdl_string)
 
-@pytest.fixture
-def energy_system_handler_hic():
-    '''ESH based on the hic 2021 description, which contains heating demand'''
-    with open('tests/fixtures/2021_hic_description.esdl') as file:
-        esdl_string = file.read()
-    return EnergySystemHandler.from_string(esdl_string)
-
 
 @pytest.fixture
-def converter(energy_system_handler):
+def converter(energy_system_handler_hengelo):
     ''' Basic converter '''
-    return EsdlToScenarioConverter(energy_system_handler)
+    return EsdlToScenarioConverter(energy_system_handler_hengelo)
 
 
-def test_inputs_values(energy_system_handler):
-    converter = EsdlToScenarioConverter(energy_system_handler)
+def test_inputs_values(energy_system_handler_hengelo):
+    converter = EsdlToScenarioConverter(energy_system_handler_hengelo)
     assert all((val is None for val in converter.inputs.values()))
 
     # now if we start a second converter it shouldn't keep the values from the first!
     converter.inputs['households_heating'] = 10.0
-    new_converter = EsdlToScenarioConverter(energy_system_handler)
+    new_converter = EsdlToScenarioConverter(energy_system_handler_hengelo)
     assert all((val is None for val in new_converter.inputs.values()))
 
 
-def test_calculate_with_valid_hengelo(energy_system_handler):
-    converter = EsdlToScenarioConverter(energy_system_handler)
+def test_calculate_with_valid_hengelo(energy_system_handler_hengelo):
+    converter = EsdlToScenarioConverter(energy_system_handler_hengelo)
     sliders = converter.calculate()
     assert isinstance(sliders, dict)
     assert sliders
@@ -61,9 +54,9 @@ def test_calculate_with_valid_hengelo(energy_system_handler):
     # TODO @ROOS: hoe moeten die sliders eruit zien?? Voorbeeld:
     # assert sliders[buildings_insulation_level] == 54.0
 
-
-def test_calculate_with_hic(energy_system_handler_hic):
-    converter = EsdlToScenarioConverter(energy_system_handler_hic)
+@pytest.mark.parametrize('esdl_file_name', ['2021_hic_description', '2050_hic_description_fake'])
+def test_calculate_with_hic(energy_system_handler):
+    converter = EsdlToScenarioConverter(energy_system_handler)
     sliders = converter.calculate()
     assert isinstance(sliders, dict)
     assert sliders

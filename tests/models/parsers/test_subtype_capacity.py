@@ -14,14 +14,6 @@ def energy_system_handler_without_chps():
     return EnergySystemHandler.from_string(esdl_string)
 
 
-@pytest.fixture
-def energy_system_handler_with_chps():
-    '''ESH based on a valid HIC ESDL with CHPs'''
-    with open('tests/fixtures/hic_description_chp.esdl') as file:
-        esdl_string = file.read()
-    return EnergySystemHandler.from_string(esdl_string)
-
-
 def test_parse_without_chps_present(energy_system_handler_without_chps, helpers):
     for chp_type in  helpers.get_configs_for_asset_type('CHP'):
         if not chp_type['parser'] == 'subtype_capacity': continue
@@ -33,20 +25,23 @@ def test_parse_without_chps_present(energy_system_handler_without_chps, helpers)
         # If no CHPs are described in the ESDL, all input should be 0
         assert sum(parser.get_parsed_inputs().values()) == 0.0
 
-
-def test_parse_with_chps_present(energy_system_handler_with_chps, helpers):
+@pytest.mark.parametrize(
+    'esdl_file_name, chps_expected',
+    [('hic_description_chp', 0.0), ('2050_hic_description_fake', 0.0)]
+)
+def test_parse_with_chps_present(energy_system_handler, chps_expected, helpers):
     inputs = defaultdict(float)
 
     helpers.get_configs_for_asset_type('CHP')
     for chp_type in  helpers.get_configs_for_asset_type('CHP'):
         if not chp_type['parser'] == 'subtype_capacity': continue
-        parser = SubtypeCapacityParser(energy_system_handler_with_chps, chp_type, inputs=inputs)
+        parser = SubtypeCapacityParser(energy_system_handler, chp_type, inputs=inputs)
 
         parser.parse()
         parser_results = parser.get_parsed_inputs()
 
         # Each input value should have a value greater than or equal to 0 (MW)
-        assert all(val >=0 for val in parser_results.values())
+        assert all(val >=chps_expected for val in parser_results.values())
 
     print(parser_results)
 

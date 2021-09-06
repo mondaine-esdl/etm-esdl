@@ -8,6 +8,7 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 # pylint: disable=wrong-import-position, disable=import-error, disable=redefined-outer-name
 from app import create_app
 from config.conversions.assets import ASSETS
+from app.models.energy_system import EnergySystemHandler
 
 @pytest.fixture(scope='session', autouse=True)
 def precondition():
@@ -32,6 +33,14 @@ def app():
 def client(app):
     '''Fixture for the client'''
     return app.test_client()
+
+
+@pytest.fixture
+def energy_system_handler(esdl_file_name):
+    '''ESH based on a valid ESDL'''
+    with open(f'tests/fixtures/{esdl_file_name}.esdl') as file:
+        esdl_string = file.read()
+    return EnergySystemHandler.from_string(esdl_string)
 
 
 class Helpers:

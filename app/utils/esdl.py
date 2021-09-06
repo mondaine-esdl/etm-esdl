@@ -16,24 +16,14 @@ def full_load_hours(asset):
 
     return sum_flh
 
-def in_sector(asset, sector_id):
+def equal_or_in(item, other_or_list):
     '''
-    Returns Boolean depending on if the asset is in the sector or not. Also checks if the assets
-    parents have a sector set, if 'sector' is not an attribute of the asset directly.
+    Returns True if item is or is in other_or_list
 
-    asset       pyecore.ecore object, the asset that is to be checked
-    sector_id   String, the id of the sector, e.g. REF for Refineries
+    Returns:
+        bool
     '''
-    if asset.sector and asset.sector.id == sector_id:
+    if isinstance(other_or_list, list) and item in other_or_list:
         return True
 
-    for port in asset.port:
-        if not 'Out' in port.name: continue
-
-        for connection in port.connectedTo:
-            if not hasattr(connection.energyasset, 'sector'): continue
-
-            if connection.energyasset.sector and connection.energyasset.sector.id == sector_id:
-                return True
-
-    return False
+    return item == other_or_list

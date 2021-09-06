@@ -8,7 +8,7 @@ from pyecore.utils import DynamicEPackage, alias
 from pyecore.notification import EObserver
 
 from app.utils.exceptions import EnergysystemParseError
-from app.utils.esdl import in_sector
+from app.utils.esdl import equal_or_in
 
 from vendor.energy_system.xml_resource import XMLResource
 # from vendor.esdl import esdl
@@ -20,6 +20,10 @@ class EnergySystemHandler:
     """Class to handle (load, read, and update) an ESDL Energy System"""
 
     # TODO: CAN WE USE THE THING FROM THE VENDOR MODULE?
+    # TODO: extract this to a simple module (NO CLASS) and just import the (self.)esdl
+    # somewhere and define all the lookup there - because the lookup does not need
+    # this whole class right?? just the self.esdl and that has nothing to do with the
+    # actual esdl??
     def __init__(self, name=None):
         # create a resourceSet that hold the contents of the esdl.ecore model and the
         # instances we use/create
@@ -205,10 +209,14 @@ class EnergySystemHandler:
         Returns a list of assets of a specific ESDL type in the specified area or asset
         filtered by a specified attribute-value combination
 
-        esdl_type   String, the type of asset
-        area        ESDL Area, the area that contains the assets to be filtered
-        attr        String, the attribute that should be evaluated
-        val         String, the value that the attribute should have
+        Params:
+            esdl_type (str): The type of asset
+            area (esdl.Area): The area that contains the assets to be filtered
+            attr (str): The attribute that should be evaluated
+            val (str): The value that the attribute should have
+
+        Returns:
+            list[esdl.Asset]
         '''
         esdl_asset = getattr(self.esdl, esdl_type)
 
@@ -216,7 +224,19 @@ class EnergySystemHandler:
                 if isinstance(asset, esdl_asset) and str(getattr(asset, attr)) == val]
 
     def has_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
-        ''' Boolean, see get_of_type_and_attribute_value '''
+        '''
+        Works like get_of_type_and_attribute_value, but only checks if the first item
+        can be generated
+
+        Params:
+            esdl_type (str): The type of asset
+            area (esdl.Area): The area that contains the assets to be filtered
+            attr (str): The attribute that should be evaluated
+            val (str): The value that the attribute should have
+
+        Returns:
+            bool
+        '''
         try:
             next((asset for asset in area.asset
                 if isinstance(asset, getattr(self.esdl, esdl_type))
@@ -241,9 +261,13 @@ class EnergySystemHandler:
         defined in the KPI of an Area or in the EnergySystemInformation object this
         function returns all of them at once.
 
-        esdl_type   String, the type of asset
+        Params:
+            esdl_type (str): The type of asset
+
+        Returns:
+            generator of assets or potentials
         '''
-        return getattr(self.esdl, esdl_type).allInstances()
+        yield from getattr(self.esdl, esdl_type).allInstances(resources=(self.resource,))
 
     def get_all_instances_of_type_and_attribute_value(self, esdl_type, attr, val):
         '''
@@ -254,11 +278,15 @@ class EnergySystemHandler:
 
         The assets are then filtered for a specific attribute-value combination
 
-        esdl_type   String, the type of asset
-        attr        String, the attribute that should be evaluated
-        val         String, the value that the attribute should have
+        Params:
+            esdl_type (str): The type of asset
+            attr (str): The attribute that should be evaluated
+            val (str): The value that the attribute should have
+
+        Returns:
+            generator of assets or potentials
         '''
-        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+        yield from (inst for inst in self.get_all_instances_of_type(esdl_type)
                 if str(getattr(inst, attr)) == val)
 
     def get_all_instances_of_type_and_sector(self, esdl_type, sector_id):
@@ -270,11 +298,15 @@ class EnergySystemHandler:
 
         The assets are then filtered for a specific combination on an attribute and it's ID.
 
-        esdl_type   String, the type of asset
-        sector_id   String, the value of the sectors id, e.g. REF for Refineries
+        Params:
+            esdl_type (str): The type of asset
+            sector_id (str | list[str]): The value of the sectors id, e.g. REF for Refineries
+
+        Returns:
+            generator of assets or potentials
         '''
-        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
-                if in_sector(inst, sector_id))
+        yield from (inst for inst in self.get_all_instances_of_type(esdl_type)
+                if self.in_sector(inst, sector_id))
 
     def get_all_instances_of_type_and_carrier(self, esdl_type, carrier_id):
         '''
@@ -283,12 +315,16 @@ class EnergySystemHandler:
         defined in the KPI of an Area or in the EnergySystemInformation object this
         function returns all of them at once.
 
-        The assets are then filtered for hving the specified carrier as input.
+        The assets are then filtered for having the specified carrier as input.
 
-        esdl_type   String, the type of asset
-        carrier_id  String, the value of the carriers id, e.g. HTLH for network gas
+        Params:
+            esdl_type (str): The type of asset
+            carrier_id (str | list[str]): The value of the carriers id, e.g. HTLH for network gas
+
+        Returns:
+            generator of assets or potentials
         '''
-        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
+        yield from (inst for inst in self.get_all_instances_of_type(esdl_type)
                 if self.has_carrier(inst, carrier_id))
 
     def get_all_instances_of_type_carrier_and_sector(self, esdl_type, sector_id, carrier_id):
@@ -298,19 +334,23 @@ class EnergySystemHandler:
         defined in the KPI of an Area or in the EnergySystemInformation object this
         function returns all of them at once.
 
-        The assets are then filtered for a specific combination on an attribute and it's ID.
+        The assets are then filtered for given sectors and carriers.
 
-        esdl_type   String, the type of asset
-        sector_id   String, the value of the sectors id, e.g. REF for Refineries
-        carrier_id  String, the value of the carriers id, e.g. HTLH for network gas
+        Params:
+            esdl_type (str): The type of asset
+            sector_id (str | list[str]): The value of the sectors id, e.g. REF for Refineries
+            carrier_id (str | list[str]): The value of the carriers id, e.g. HTLH for network gas
+
+        Returns:
+            generator of assets or potentials
         '''
-        return (inst for inst in getattr(self.esdl, esdl_type).allInstances()
-                if in_sector(inst, sector_id) and self.has_carrier(inst, carrier_id))
+        yield from (inst for inst in self.get_all_instances_of_type(esdl_type)
+                if self.in_sector(inst, sector_id) and self.has_carrier(inst, carrier_id))
 
     def has_carrier(self, asset, carrier_id):
         '''Carrier id may also be a list'''
         for port in asset.port:
-            if not 'In' in port.name: continue
+            if not isinstance(port, self.esdl.InPort): continue
 
             if port.carrier.id == carrier_id:
                 return True
@@ -320,14 +360,44 @@ class EnergySystemHandler:
 
         return False
 
+    def in_sector(self, asset, sector_id):
+        '''
+        Returns Boolean depending on if the asset is in the sector or not. Also checks if the assets
+        parents have a sector set, if 'sector' is not an attribute of the asset directly.
+
+        Params:
+            asset (pyecore.ecore.Object): The asset that is to be checked.
+            sector_id (str | list[str]): The id of the sector, e.g. REF for Refineries.
+
+        Returns:
+            bool
+        '''
+        if asset.sector and equal_or_in(asset.sector.id, sector_id):
+            return True
+
+        for port in asset.port:
+            if not isinstance(port, self.esdl.OutPort): continue
+
+            for connection in port.connectedTo:
+                if not getattr(connection.energyasset, 'sector', None): continue
+
+                if equal_or_in(connection.energyasset.sector.id, sector_id):
+                    return True
+
+        return False
+
+
     def get_asset_attribute(self, esdl_type, attr, area=None):
         '''
         Create a readable list of the attributes of an ESDL class
         Scoped to a specific area, if one is given
+
+        Returns:
+            list[dict] with formatted assets
         '''
         assets = area.asset if not area is None else self.es.instance[0].area.asset
 
-        return [self.__format_asset(asset, attr) for asset in assets if isinstance(asset, esdl_type)]
+        return [self.__format_asset(ass, attr) for ass in assets if isinstance(ass, esdl_type)]
 
 
     def __format_asset(self, current_asset, attribute):
