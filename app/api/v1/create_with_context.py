@@ -12,6 +12,7 @@ from flask_restx import Namespace, Resource
 
 from app import cache
 from app.utils.api_utils import fail_with
+from app.utils.garbage import HaltGarbageCollection
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.create_scenario import CreateScenario
@@ -61,7 +62,9 @@ class EnergySystem(Resource):
         # Set the ETM scenario as context
         scenario_id = self.__scenario_id(args['scenario_id'], start_situation.area)
         start_situation.set_context_scenario(scenario_id)
-        end_situation = self.__get_as_situation(args['energy_system_end_situation'])
+
+        with HaltGarbageCollection():
+            end_situation = self.__get_as_situation(args['energy_system_end_situation'])
 
         # Compare start and end to create new settings for the context scenario
         sliders = start_situation.relative_change_to_for_context(end_situation).slider_settings
@@ -82,7 +85,8 @@ class EnergySystem(Resource):
         es_id = self.__find_energy_system_id(energy_system)
         start_situation = cache.get(es_id)
         if not start_situation:
-            start_situation = self.__get_as_situation(energy_system)
+            with HaltGarbageCollection():
+                start_situation = self.__get_as_situation(energy_system)
             cache.set(es_id, start_situation)
         return start_situation
 
