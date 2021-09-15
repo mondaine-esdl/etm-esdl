@@ -19,6 +19,7 @@ def esdl_string_hic():
         data = file.read()
     return data
 
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_from_string_with_valid_esdl(esdl_string):
     esh = EnergySystemHandler.from_string(esdl_string)
 
@@ -38,6 +39,7 @@ def future_hic_handler():
     return EnergySystemHandler.from_string(data)
 
 
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_get_all_instances_of_type_and_sector(hic_handler):
     generator = hic_handler.get_all_instances_of_type_and_sector('GasHeater', 'REF')
     as_list = list(generator)
@@ -45,11 +47,13 @@ def test_get_all_instances_of_type_and_sector(hic_handler):
     assert as_list
     assert len(as_list) >= 20
 
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_has_assets_of_type(hic_handler):
     assert not hic_handler.has_assets_of_type('HConnection')
 
     assert hic_handler.has_assets_of_type('HeatingDemand')
 
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_get_all_instances_with_two_handlers(hic_handler, future_hic_handler):
     '''Make sure the instances do not overlap when creating the generator'''
     present_list = list(hic_handler.get_all_instances_of_type('GasHeater'))
@@ -62,6 +66,7 @@ def test_get_all_instances_with_two_handlers(hic_handler, future_hic_handler):
     assert not any((present_heater in future_list for present_heater in present_list))
 
 
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_all_instances_always_returns_same(hic_handler):
     n = 10
 

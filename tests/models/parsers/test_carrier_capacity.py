@@ -15,6 +15,7 @@ def energy_system_handler_without_power_plants():
 
 
 @pytest.fixture
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def hic_2021():
     '''ESH based on a valid HIC ESDL with power plants'''
     with open('tests/fixtures/2021_hic_description.esdl') as file:
@@ -22,6 +23,7 @@ def hic_2021():
     return EnergySystemHandler.from_string(esdl_string)
 
 @pytest.fixture
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def hic_2050():
     '''ESH based on a valid HIC ESDL with power plants'''
     with open('tests/fixtures/2050_hic_description_fake.esdl') as file:
@@ -45,6 +47,7 @@ def test_parse_without_power_plants(energy_system_handler_without_power_plants, 
     'esdl_file_name, network_gas_expected',
     [('2021_hic_description', 3167), ('2050_hic_description_fake', 3167)] # 129)]
 )
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_parse_with_power_plants(energy_system_handler, network_gas_expected, helpers):
     # Create logger
     inputs = defaultdict(float)

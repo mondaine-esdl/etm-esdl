@@ -18,6 +18,7 @@ def energy_system_handler_without_chem_ref_gas_heaters():
     'esdl_file_name, chem_ref_gas_heaters_expected',
     [('2021_hic_description', 4200000), ('2050_hic_description_fake', 4200000)] #0.0)]
 )
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_parse_with_chem_ref_gas_heaters_present(
     energy_system_handler, chem_ref_gas_heaters_expected, helpers):
     chem_ref_gas_heaters_prop = helpers.get_first_config_for_asset_type('GasHeater')

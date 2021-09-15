@@ -18,6 +18,7 @@ def energy_system_handler_without_heating_demand():
     'esdl_file_name, heating_demand_expected',
     [('2021_hic_description', 27), ('2050_hic_description_fake', 27)]#26)]
 )
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_parse_with_heating_demand_present(energy_system_handler, heating_demand_expected, helpers):
     heating_demand_prop = helpers.get_first_config_for_asset_type('HeatingDemand')
 

@@ -29,6 +29,7 @@ def test_parse_without_chps_present(energy_system_handler_without_chps, helpers)
     'esdl_file_name, chps_expected',
     [('hic_description_chp', 0.0), ('2050_hic_description_fake', 0.0)]
 )
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_parse_with_chps_present(energy_system_handler, chps_expected, helpers):
     inputs = defaultdict(float)
 

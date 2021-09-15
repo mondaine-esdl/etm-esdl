@@ -55,6 +55,7 @@ def test_calculate_with_valid_hengelo(energy_system_handler_hengelo):
     # assert sliders[buildings_insulation_level] == 54.0
 
 @pytest.mark.parametrize('esdl_file_name', ['2021_hic_description', '2050_hic_description_fake'])
+@pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_calculate_with_hic(energy_system_handler):
     converter = EsdlToScenarioConverter(energy_system_handler)
     sliders = converter.calculate()
