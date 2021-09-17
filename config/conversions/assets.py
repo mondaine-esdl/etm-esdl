@@ -2,17 +2,20 @@
 Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
+industry_sectors = ['Industry Chemicals', 'Industry Aluminium', 'Industry Metals',
+                   'Industry Refineries', 'Industry Steel', 'Industry Other',
+                   'Industry Food', 'Industry Paper']
+
 ASSETS = [
      ### HeatingDemand ##
     {
         'asset': 'HeatingDemand',
         'parser': 'volume',
         'attribute': 'power',
-        'sector': ['REF', 'CHEMFEED', 'EDOIL', 'NONCHLO'],
+        'sector': industry_sectors,
         'input': 'industry_useful_demand_for_chemical_other',
         'factor': 1E-12
-    }, # CHEMFEED, EDOIL and NONCHLO should be taken into account together
-
+    },
 
     ### WindTurbine ###
     {
@@ -106,7 +109,7 @@ ASSETS = [
         'asset': 'CHP',
         'parser': 'volume',
         'attribute': 'power',
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
         'factor': 1E-6
     },
@@ -117,7 +120,7 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_chemicals_other_burner_network_gas_share',
         'factor': 1E-6
     },
@@ -126,7 +129,7 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': ['RG', 'PC'],
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_chemicals_other_burner_crude_oil_share',
         'factor': 1E-6
     },
@@ -135,7 +138,7 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_chemicals_other_burner_hydrogen_share',
         'factor': 1E-6
     },
@@ -146,7 +149,7 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': 'BM',
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_chemicals_other_burner_wood_pellets_share',
         'factor': 1E-6
     },
@@ -157,7 +160,7 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': 'E',
-        'sector': 'REF',
+        'sector': industry_sectors,
         'input': 'industry_chemicals_other_heater_electricity_share',
         'factor': 1E-6
     },
