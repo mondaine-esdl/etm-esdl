@@ -31,16 +31,17 @@ class VolatileParser(CapacityParser):
         self.full_load_hours = 0.
 
         for asset in self.asset_generator:
-            current_power = asset.power * self.props['attr_set']['power']['factor']
-            self.power += current_power
-            self.inputs[self.props['attr_set']['power']['input']] += current_power
+            current_power = self.__value_of(asset, 'power')
+            if not current_power: continue
 
-            current_flh = asset.fullLoadHours * self.props['attr_set']['fullLoadHours']['factor']
-            prev_flh = self.inputs[self.props['attr_set']['fullLoadHours']['input']]
-            diff = current_flh - prev_flh # 1920 - 2500 = -580
-            current_flh = diff * current_power / self.power # -580 * 13 / 19
+            self.power += current_power
+
+            diff_flh = self.__value_of(asset, 'fullLoadHours') - self.full_load_hours
+            current_flh = diff_flh * current_power / self.power
             self.full_load_hours += current_flh
-            self.inputs[self.props['attr_set']['fullLoadHours']['input']] += current_flh
+
+        self.inputs[self.props['attr_set']['power']['input']] += self.power
+        self.inputs[self.props['attr_set']['fullLoadHours']['input']] += self.full_load_hours
 
 
     def update(self, scenario_id):
@@ -61,6 +62,22 @@ class VolatileParser(CapacityParser):
             f'Props do not contain "power" or "fullLoadHours" in attribute set: {self.props["attr_set"]}'
         )
 
+    def __value_of(self, asset, key):
+        '''
+        Returns the value multiplied with the config factor for the key
+
+        Params:
+            asset (esdl.asset): Asset that is being parsed
+            key (str): Either 'power' of 'fullLoadHours'
+
+        Returns:
+            float
+        '''
+        if not key in ['power', 'fullLoadHours']: return 0.0
+
+        return getattr(asset, key) * self.props['attr_set'][key]['factor']
+
+    ### Update methods ###
 
     def query_scenario(self, scenario_id, prop):
         """
