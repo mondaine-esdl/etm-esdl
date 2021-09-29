@@ -2,18 +2,70 @@
 Config for the mapping of assets in ESDL and their ETM counterparts
 '''
 
-industry_sectors = ['Industry Chemicals', 'Industry Aluminium', 'Industry Metals',
-                   'Industry Refineries', 'Industry Steel', 'Industry Other',
-                   'Industry Food', 'Industry Paper']
-
 ASSETS = [
      ### HeatingDemand ##
     {
         'asset': 'HeatingDemand',
         'parser': 'volume',
         'attribute': 'power',
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_useful_demand_for_chemical_other',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Aluminium',
+        'input': 'industry_aluminium_production',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Metals',
+        'input': 'industry_other_metals_production',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Refineries',
+        'input': 'industry_useful_demand_for_chemical_refineries',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Steel',
+        'input': 'industry_steel_production',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Other',
+        'input': 'industry_useful_demand_for_aggregated_other',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Food',
+        'input': 'industry_useful_demand_for_other_food',
+        'factor': 1E-12
+    },
+    {
+        'asset': 'HeatingDemand',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Paper',
+        'input': 'industry_useful_demand_for_other_paper',
         'factor': 1E-12
     },
 
@@ -109,18 +161,50 @@ ASSETS = [
         'asset': 'CHP',
         'parser': 'volume',
         'attribute': 'power',
-        'sector': industry_sectors,
+        'sector': ['Industry Chemicals'],
         'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
         'factor': 1E-6
     },
+    {
+        'asset': 'CHP',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Refineries',
+        'input': 'industry_final_demand_for_chemical_refineries_steam_hot_water_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_useable_heat_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Food',
+        'input': 'industry_final_demand_for_other_food_steam_hot_water_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'CHP',
+        'parser': 'volume',
+        'attribute': 'power',
+        'sector': 'Industry Paper',
+        'input': 'industry_final_demand_for_other_paper_steam_hot_water_share',
+        'factor': 1E-6
+    },
 
-    ### GasHeaters ###
+    ### GasHeaters (methane) ###
     {
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_chemicals_other_burner_network_gas_share',
         'factor': 1E-6
     },
@@ -128,8 +212,46 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
+        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'sector': 'Industry Refineries',
+        'input': 'industry_chemicals_refineries_burner_network_gas_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_network_gas_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_burner_network_gas_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_burner_network_gas_share',
+        'factor': 1E-6
+    },
+
+    ### GasHeaters (oil) ###
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
         'carrier': ['RG', 'PC'],
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_chemicals_other_burner_crude_oil_share',
         'factor': 1E-6
     },
@@ -137,9 +259,83 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
+        'carrier': ['RG', 'PC'],
+        'sector': 'Industry Refineries',
+        'input': 'industry_chemicals_refineries_burner_crude_oil_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['RG', 'PC'],
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_crude_oil_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['RG', 'PC'],
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_burner_crude_oil_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['RG', 'PC'],
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_burner_crude_oil_share',
+        'factor': 1E-6
+    },
+
+    ### GasHeaters (hydrogen) ###
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
         'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_chemicals_other_burner_hydrogen_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+        'sector': 'Industry Refineries',
+        'input': 'industry_chemicals_refineries_burner_hydrogen_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_hydrogen_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_burner_hydrogen_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': ['H2_local', 'H2_Hvision', 'H2_new'],
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_burner_hydrogen_share',
         'factor': 1E-6
     },
 
@@ -149,8 +345,44 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': 'BM',
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_chemicals_other_burner_wood_pellets_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'BiomassHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'BM',
+        'sector': 'Industry Refineries',
+        'input': 'industry_chemicals_refineries_burner_wood_pellets_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'BiomassHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'BM',
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_wood_pellets_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'BiomassHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'BM',
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_burner_wood_pellets_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'BiomassHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'BM',
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_burner_wood_pellets_share',
         'factor': 1E-6
     },
 
@@ -160,8 +392,35 @@ ASSETS = [
         'parser': 'carrier_volume',
         'attribute': 'power',
         'carrier': 'E',
-        'sector': industry_sectors,
+        'sector': 'Industry Chemicals',
         'input': 'industry_chemicals_other_heater_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'HeatPump',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'HeatPump',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_heater_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'HeatPump',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_heater_electricity_share',
         'factor': 1E-6
     },
 
