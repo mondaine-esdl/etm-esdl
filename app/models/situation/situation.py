@@ -5,6 +5,7 @@ from config.conversions.inputs import balancing_groups
 
 from app.utils.exceptions import EnergysystemParseError
 from app.models.balancer import Balancer
+from app.models.situation.groups import slider_for, context_query_for, balancing_group_for
 import app.models.situation.context as context
 
 class Situation:
@@ -20,16 +21,15 @@ class Situation:
         'capacity_of_industry_chp_turbine_gas_power_fuelmix',
     ]
 
-    EXTRA_SLIDERS = [
-        'industry_useful_demand_for_chemical_other',
+    INDUSTRY_GROUPS = [
+        'chemical_other', 'chemical_refineries', 'aggregated_other', 'other_food', 'other_paper'
     ]
 
-    CONTEXT_QUERIES = [
-        # TODO: replace this query with another one
-        'final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic',
-    ]
+    EXTRA_SLIDERS = [slider_for(group) for group in INDUSTRY_GROUPS]
+    CONTEXT_QUERIES = [context_query_for(group) for group in INDUSTRY_GROUPS]
 
-    CONTEXT_INPUTS =  PRESENT_SHARE_SLIDERS + balancing_groups['industry_heating'] + EXTRA_SLIDERS
+    CONTEXT_INPUTS =  (PRESENT_SHARE_SLIDERS + EXTRA_SLIDERS +
+        [bgs for group in INDUSTRY_GROUPS for bgs in balancing_groups[balancing_group_for(group)]])
 
     def __init__(self, slider_settings, area, year):
         self.slider_settings = slider_settings
@@ -66,13 +66,14 @@ class Situation:
         for slider in self.PRESENT_SHARE_SLIDERS:
             slider_settings[slider] = self.calculate_slider_based_on_present_share(other, slider)
 
-        slider_settings.update(self.calculate_industry_heat_share_group_sliders(other))
-        # NOTE: Extract to something more abstract if more of these are needed
-        slider_settings['industry_useful_demand_for_chemical_other'] = self.calculate_slider_based_on_present_share_of_query(
-            other,
-            'industry_useful_demand_for_chemical_other',
-            'final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic'
-        )
+        for group in self.INDUSTRY_GROUPS:
+            slider_settings.update(self.calculate_industry_heat_share_group_sliders(other, group))
+
+            slider_settings[slider_for(group)] = self.calculate_slider_based_on_present_share_of_query(
+                other,
+                slider_for(group),
+                context_query_for(group)
+            )
 
         Balancer(slider_settings).call()
 
@@ -94,17 +95,18 @@ class Situation:
         )
 
 
-    def calculate_industry_heat_share_group_sliders(self, other):
+    def calculate_industry_heat_share_group_sliders(self, other, group):
         '''Returns slider settings for the industry heat share group'''
         share_in_context = Situation.try_division(
-            other.slider_settings['industry_useful_demand_for_chemical_other'],
-            self.context['final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic']['future']
+            other.slider_settings[slider_for(group)],
+            self.context[context_query_for(group)]['future']
         )
 
         return {
             input: self.calculate_slider_based_on_present_share(other, input, base=share_in_context)
-            for input in balancing_groups['industry_heating']
+            for input in balancing_groups[balancing_group_for(group)]
         }
+
 
     def calculate_slider_based_on_present_share_of_query(self, other, slider, query):
         '''

@@ -7,8 +7,8 @@ from app.services.service_result import ServiceResult
 
 @pytest.fixture
 def happy_values():
-    return [
-        {
+    return {'inputs': {
+        'input1': {
             "min":0.0,
             "max":60680.50675542846,
             "default":3167.0,
@@ -17,7 +17,7 @@ def happy_values():
             "code":'input1',
             "unit":"MW"
         },
-        { # and one without a user value
+        'input2': { # and one without a user value
             "min":0.0,
             "max":28860.24101782573,
             "default":0.521,
@@ -25,7 +25,7 @@ def happy_values():
             "code":'input2',
             "unit":"MW"
         }
-    ]
+    }}
 
 def mock_query_response(scenario_id, app, requests_mock, output):
     requests_mock.put(
@@ -34,16 +34,16 @@ def mock_query_response(scenario_id, app, requests_mock, output):
         status_code=200
     )
 
-def mock_inputs_response(scenario_id, app, requests_mock, inputs, output):
+def mock_inputs_response(scenario_id, app, requests_mock, output):
     requests_mock.get(
-        f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}/inputs/{",".join(inputs)}',
+        f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}',
         json=output,
         status_code=200
     )
 
 def test_process(happy_values):
     inputs = ['input1', 'input2']
-    happy_result = ServiceResult.success(happy_values)
+    happy_result = ServiceResult.success(happy_values['inputs'])
 
     processed = context.process(happy_result)
 
@@ -54,7 +54,7 @@ def test_process(happy_values):
 
 def test_process_with_only_one_input():
     happy_result = ServiceResult.success(
-        {
+        {'happy_input':{
             "min":0.0,
             "max":60680.50675542846,
             "default":3167.0,
@@ -62,7 +62,7 @@ def test_process_with_only_one_input():
             "step":1.0,
             "code":'happy_input',
             "unit":"MW"
-        }
+        }}
     )
 
     processed = context.process(happy_result)
@@ -97,7 +97,7 @@ def test_get_context_values_with_just_inputs(app, requests_mock, happy_values):
     scenario_id = 12345
     inputs = ['input1', 'input2']
 
-    mock_inputs_response(scenario_id, app, requests_mock, inputs, happy_values)
+    mock_inputs_response(scenario_id, app, requests_mock, happy_values)
     mock_query_response(scenario_id, app, requests_mock, {})
 
     with app.app_context():
@@ -110,7 +110,7 @@ def test_get_context_values_with_both(app, requests_mock, happy_values):
     queries = ['query1', 'query2']
     inputs = ['input1', 'input2']
 
-    mock_inputs_response(scenario_id, app, requests_mock, inputs, happy_values)
+    mock_inputs_response(scenario_id, app, requests_mock, happy_values)
     mock_query_response(scenario_id, app, requests_mock,
         {query: {'future': 1, 'present': 0} for query in queries}
     )

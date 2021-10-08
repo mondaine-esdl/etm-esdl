@@ -161,7 +161,7 @@ ASSETS = [
         'asset': 'CHP',
         'parser': 'volume',
         'attribute': 'power',
-        'sector': ['Industry Chemicals'],
+        'sector': 'Industry Chemicals',
         'input': 'industry_final_demand_for_chemical_other_steam_hot_water_share',
         'factor': 1E-6
     },

@@ -24,6 +24,7 @@ def get_context_values(scenario_id, inputs, queries):
         values = process(raw_result) if raw_result.successful else fail_with(raw_result)
 
     # We always need to access this because we need area and end year
+    # (TODO: we can also get that from inputs)
     query_result = QueryScenario.execute(scenario_id, detailed=True, *queries)
     if not query_result.successful: return fail_with(raw_result)
 
@@ -44,13 +45,7 @@ def process(raw_result):
 
     Returns the result in dict form
     '''
-
-    raw_values = raw_result.value
-
-    if not isinstance(raw_values, list):
-        return {raw_values['code'] : extract_present_future(raw_values)}
-
-    return {value['code'] : extract_present_future(value) for value in raw_values}
+    return {key : extract_present_future(value) for key, value in raw_result.value.items()}
 
 
 def extract_present_future(input_response):
