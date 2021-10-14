@@ -4,8 +4,11 @@
 from collections import defaultdict
 from unittest.mock import patch
 import pytest
+
+from config.conversions.inputs import balancing_groups
 from app.models.situation import Situation
 import app.models.situation.context
+from app.models.situation.groups import slider_for, context_query_for, balancing_group_for
 from app.utils.exceptions import EnergysystemParseError
 
 @pytest.fixture
@@ -48,13 +51,13 @@ def slider_settings_hic():
         'capacity_of_industry_chp_turbine_gas_power_fuelmix': 0.0,
         'industry_chemicals_other_burner_coal_share': 0.0,
         'industry_chemicals_other_burner_crude_oil_share': 67.50887666864666,
-        'industry_chemicals_other_burner_hydrogen_share': 0.0,
+        'industry_chemicals_other_burner_hydrogen_share': 19.138794456031782,
         'industry_chemicals_other_burner_network_gas_share': 13.352328875321556,
         'industry_chemicals_other_burner_wood_pellets_share': 0.0,
         'industry_chemicals_other_heater_electricity_share': 0.0,
         'industry_chemicals_other_heatpump_water_water_electricity_share': 0.0,
         'industry_chemicals_other_steam_recompression_electricity_share': 0.0,
-        'industry_final_demand_for_chemical_other_steam_hot_water_share': 19.138794456031782,
+        'industry_final_demand_for_chemical_other_steam_hot_water_share': 0.0,
         'industry_useful_demand_for_chemical_other': 27842795.087307286
         }
     )
@@ -83,28 +86,44 @@ def slider_settings_future_hic():
 
 @pytest.fixture
 def slider_outcomes_nl_fixed():
-    '''Present and Future are fixed'''
-    return {
+    '''Present and Future are fixed. Amazingly ugly.'''
+    # Balancing groups
+    bal = [bgs for group in Situation.INDUSTRY_GROUPS
+        for bgs in balancing_groups[balancing_group_for(group)]]
+    bal_70 = {slider: {'future': 70.0, 'present': 70.0}
+        for slider in bal if slider.endswith('oil_share')}
+    bal_10 = {slider: {'future': 10.0, 'present': 10.0}
+        for slider in bal if slider.split('_')[-2] in ['gas', 'pellets','hydrogen']}
+    bal_0 = {slider: {'future': 0.0, 'present': 0.0}
+        for slider in bal if slider.split('_')[-2] not in ['gas', 'pellets','hydrogen', 'oil']}
+
+    queries = {query: {'future': 57000000.0, 'present': 57000000.0}
+        for query in Situation.CONTEXT_QUERIES}
+    values = {
         'end_year': 2050,
         'area_code': 'nl',
-        'capacity_of_energy_power_combined_cycle_network_gas': {'future': 31670.0, 'present': 31670.0},
+        'capacity_of_energy_power_combined_cycle_network_gas':
+            {'future': 31670.0, 'present': 31670.0},
         'capacity_of_energy_power_supercritical_waste_mix': {'future': 521, 'present': 521},
         'capacity_of_energy_power_ultra_supercritical_coal': {'future': 41910, 'present': 41910},
-        'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix': {'future': 25370, 'present': 25370},
+        'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix':
+            {'future': 25370, 'present': 25370},
         'capacity_of_industry_chp_engine_gas_power_fuelmix': {'future': 10, 'present': 10},
         'capacity_of_industry_chp_turbine_gas_power_fuelmix': {'future': 20, 'present': 20},
-        'industry_chemicals_other_burner_coal_share': {'future': 0.0, 'present': 0.0},
-        'industry_chemicals_other_burner_crude_oil_share': {'future': 70.0, 'present': 70.0},
-        'industry_chemicals_other_burner_hydrogen_share': {'future': 0.0, 'present': 0.0},
-        'industry_chemicals_other_burner_network_gas_share': {'future': 10.0, 'present': 10.0},
-        'industry_chemicals_other_burner_wood_pellets_share': {'future': 10.0, 'present': 10.0},
-        'industry_chemicals_other_heater_electricity_share': {'future': 0.0, 'present': 0.0},
-        'industry_chemicals_other_heatpump_water_water_electricity_share': {'future': 0.0, 'present': 0.0},
-        'industry_chemicals_other_steam_recompression_electricity_share': {'future': 0.0, 'present': 0.0},
-        'industry_final_demand_for_chemical_other_steam_hot_water_share': {'future': 10.0, 'present': 10.0},
         'industry_useful_demand_for_chemical_other': {'future': 100.0, 'present': 100.0},
-        'final_demand_of_natural_gas_and_derivatives_in_other_chemical_industry_energetic': {'future': 57000000.0, 'present': 57000000.0}
+        'industry_useful_demand_for_chemical_refineries': {'future': 100.0, 'present': 100.0},
+        'industry_useful_demand_for_aggregated_other': {'future': 100.0, 'present': 100.0},
+        'industry_useful_demand_for_other_food': {'future': 100.0, 'present': 100.0},
+        'industry_useful_demand_for_other_paper': {'future': 100.0, 'present': 100.0}
     }
+
+    values.update(queries)
+    values.update(bal_0)
+    values.update(bal_70)
+    values.update(bal_10)
+
+    return values
+
 
 def test_set_context_scenario(slider_settings, slider_outcomes_nl_fixed):
     situation = Situation(slider_settings, 'Hengelo', 2020)
@@ -127,7 +146,6 @@ def test_relative_change_to_with_situations_with_different_areas(slider_settings
 
 
 def test_relative_change_to_with_two_valid_situations_that_dont_change(slider_settings_hic, slider_outcomes_nl_fixed):
-
     situation = Situation(slider_settings_hic, 'HIC', 2020)
     situation_2 = Situation(slider_settings_hic, 'HIC', 2050)
 
@@ -138,8 +156,9 @@ def test_relative_change_to_with_two_valid_situations_that_dont_change(slider_se
 
     # Assert nothing changed from the current context scenario settings
     future_nl = {slider: val['future'] for slider, val in slider_outcomes_nl_fixed.items() if isinstance(val, dict)}
+    change_settings = situation.relative_change_to_for_context(situation_2).slider_settings
     assert all(
-        situation.relative_change_to_for_context(situation_2).slider_settings[slider] == future_nl[slider]
+        change_settings[slider] == future_nl[slider]
         for slider in slider_settings_hic
     )
 

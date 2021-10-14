@@ -23,7 +23,7 @@ balancing_groups = {
         'buildings_space_heater_wood_pellets_share',
         'buildings_space_heater_district_heating_steam_hot_water_share'
     ],
-    'industry_heating': [
+    'industry_heating_chemical_other': [
         'industry_chemicals_other_burner_network_gas_share',
         'industry_chemicals_other_burner_crude_oil_share',
         'industry_chemicals_other_burner_wood_pellets_share',
@@ -33,6 +33,41 @@ balancing_groups = {
         'industry_chemicals_other_heatpump_water_water_electricity_share',
         'industry_chemicals_other_heater_electricity_share',
         'industry_chemicals_other_burner_hydrogen_share'
+    ],
+    'industry_heating_chemical_refineries':[
+        'industry_chemicals_refineries_burner_network_gas_share',
+        'industry_chemicals_refineries_burner_crude_oil_share',
+        'industry_chemicals_refineries_burner_hydrogen_share',
+        'industry_chemicals_refineries_burner_wood_pellets_share',
+        'industry_chemicals_refineries_burner_coal_share',
+        'industry_final_demand_for_chemical_refineries_steam_hot_water_share'
+    ],
+    'industry_heating_other_food': [
+        'industry_other_food_burner_network_gas_share',
+        'industry_other_food_burner_crude_oil_share',
+        'industry_other_food_burner_hydrogen_share',
+        'industry_other_food_burner_wood_pellets_share',
+        'industry_other_food_heater_electricity_share',
+        'industry_other_food_burner_coal_share',
+        'industry_final_demand_for_other_food_steam_hot_water_share'
+    ],
+    'industry_heating_other_paper': [
+        'industry_other_paper_burner_network_gas_share',
+        'industry_other_paper_burner_crude_oil_share',
+        'industry_other_paper_burner_hydrogen_share',
+        'industry_other_paper_burner_wood_pellets_share',
+        'industry_other_paper_heater_electricity_share',
+        'industry_other_paper_burner_coal_share',
+        'industry_final_demand_for_other_paper_steam_hot_water_share'
+    ],
+    'industry_heating_aggregated_other': [
+        'industry_aggregated_other_industry_network_gas_share',
+        'industry_aggregated_other_industry_useable_heat_share',
+        'industry_aggregated_other_industry_crude_oil_share',
+        'industry_aggregated_other_industry_hydrogen_share',
+        'industry_aggregated_other_industry_wood_pellets_share',
+        'industry_aggregated_other_industry_electricity_share',
+        'industry_aggregated_other_industry_coal_share',
     ]
 }
 
