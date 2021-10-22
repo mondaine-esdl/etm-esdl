@@ -424,6 +424,44 @@ ASSETS = [
         'factor': 1E-6
     },
 
+    ### GasHeaters (electricity) ###
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Chemicals',
+        'input': 'industry_chemicals_other_heater_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Other',
+        'input': 'industry_aggregated_other_industry_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Food',
+        'input': 'industry_other_food_heater_electricity_share',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'GasHeater',
+        'parser': 'carrier_volume',
+        'attribute': 'power',
+        'carrier': 'E',
+        'sector': 'Industry Paper',
+        'input': 'industry_other_paper_heater_electricity_share',
+        'factor': 1E-6
+    },
+
     ### PowerPlants ###
     {
         'asset': 'PowerPlant',
