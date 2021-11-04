@@ -203,7 +203,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'sector': 'Industry_Chemicals',
         'input': 'industry_chemicals_other_burner_network_gas_share',
         'factor': 1E-6
@@ -212,7 +212,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'sector': 'Industry_Refineries',
         'input': 'industry_chemicals_refineries_burner_network_gas_share',
         'factor': 1E-6
@@ -221,7 +221,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'sector': 'Industry_Other',
         'input': 'industry_aggregated_other_industry_network_gas_share',
         'factor': 1E-6
@@ -230,7 +230,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'sector': 'Industry_Food',
         'input': 'industry_other_food_burner_network_gas_share',
         'factor': 1E-6
@@ -239,7 +239,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['HTLH', 'RTLH_ODO', 'RTLH_NODO'],
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'sector': 'Industry_Paper',
         'input': 'industry_other_paper_burner_network_gas_share',
         'factor': 1E-6
@@ -250,7 +250,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['RG', 'PC'],
+        'carrier': ['RG', 'PC', 'HG', 'CO', 'OR', 'RF'],
         'sector': 'Industry_Chemicals',
         'input': 'industry_chemicals_other_burner_crude_oil_share',
         'factor': 1E-6
@@ -259,7 +259,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['RG', 'PC'],
+        'carrier': ['RG', 'PC', 'HG', 'CO', 'OR', 'RF'],
         'sector': 'Industry_Refineries',
         'input': 'industry_chemicals_refineries_burner_crude_oil_share',
         'factor': 1E-6
@@ -268,7 +268,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['RG', 'PC'],
+        'carrier': ['RG', 'PC', 'HG', 'CO', 'OR', 'RF'],
         'sector': 'Industry_Other',
         'input': 'industry_aggregated_other_industry_crude_oil_share',
         'factor': 1E-6
@@ -277,7 +277,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['RG', 'PC'],
+        'carrier': ['RG', 'PC', 'HG', 'CO', 'OR', 'RF'],
         'sector': 'Industry_Food',
         'input': 'industry_other_food_burner_crude_oil_share',
         'factor': 1E-6
@@ -286,7 +286,7 @@ ASSETS = [
         'asset': 'GasHeater',
         'parser': 'carrier_volume',
         'attribute': 'power',
-        'carrier': ['RG', 'PC'],
+        'carrier': ['RG', 'PC', 'HG', 'CO', 'OR', 'RF'],
         'sector': 'Industry_Paper',
         'input': 'industry_other_paper_burner_crude_oil_share',
         'factor': 1E-6
@@ -467,7 +467,7 @@ ASSETS = [
         'asset': 'PowerPlant',
         'parser': 'carrier_capacity',
         'attribute': 'power',
-        'carrier': 'HTLH',
+        'carrier': ['HTLH', 'HTLG', 'RG', 'RTLH_ODO', 'RTLG_ODO', 'RTLH_NODO', 'RTLG_NODO', 'CH4', 'GM'],
         'input': 'capacity_of_energy_power_combined_cycle_network_gas',
         'factor': 1E-6
     },
@@ -475,79 +475,7 @@ ASSETS = [
         'asset': 'PowerPlant',
         'parser': 'carrier_capacity',
         'attribute': 'power',
-        'carrier': 'HTLG',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RG',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RTLH_ODO',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RTLH_NODO',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RTLG_NODO',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RTLH_ODO',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'GM',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'CH4',
-        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'PC',
-        'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-        'factor': 1E-6
-    },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'RF',
+        'carrier': ['PC', 'RF', 'C'],
         'input': 'capacity_of_energy_power_ultra_supercritical_coal',
         'factor': 1E-6
     },
@@ -559,14 +487,6 @@ ASSETS = [
         'input': 'capacity_of_energy_power_supercritical_waste_mix',
         'factor': 1E-6
     },
-    {
-        'asset': 'PowerPlant',
-        'parser': 'carrier_capacity',
-        'attribute': 'power',
-        'carrier': 'C',
-        'input': 'capacity_of_energy_power_ultra_supercritical_coal',
-        'factor': 1E-6
-    }
 ]
 
 distributions = {
