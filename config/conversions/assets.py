@@ -475,7 +475,63 @@ ASSETS = [
         'asset': 'PowerPlant',
         'parser': 'carrier_capacity',
         'attribute': 'power',
+        'carrier': 'HTLG',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
         'carrier': 'RG',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RTLH_ODO',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RTLH_NODO',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RTLG_NODO',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'RTLH_ODO',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'GM',
+        'input': 'capacity_of_energy_power_combined_cycle_network_gas',
+        'factor': 1E-6
+    },
+    {
+        'asset': 'PowerPlant',
+        'parser': 'carrier_capacity',
+        'attribute': 'power',
+        'carrier': 'CH4',
         'input': 'capacity_of_energy_power_combined_cycle_network_gas',
         'factor': 1E-6
     },
