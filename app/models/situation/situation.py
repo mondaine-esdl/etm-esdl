@@ -90,9 +90,11 @@ class Situation:
         )
         assumed_future = self.context[slider]['future'] * present_share
 
-        return self.context[slider]['future'] + (
+        new_value = self.context[slider]['future'] + (
             (other.slider_settings[slider] - assumed_future) * base
         )
+
+        return new_value if new_value > 0 else 0.0
 
 
     def calculate_industry_heat_share_group_sliders(self, other, group):
