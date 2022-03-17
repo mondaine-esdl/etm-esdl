@@ -1,0 +1,28 @@
+version: v1.0
+name: Deploy to production
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Docker
+    task:
+      prologue:
+        commands:
+          - chmod 0600 ~/.ssh/id_deploy
+          - ssh-add ~/.ssh/id_deploy
+      jobs:
+        - name: Build, publish, deploy
+          commands:
+            - checkout
+            - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+            - docker build . -t etm-esdl:production
+            - docker tag etm-esdl:production "$DOCKERHUB_USERNAME"/etm-esdl:production
+            - docker push "$DOCKERHUB_USERNAME"/etm-esdl:production
+            - echo $SSH_FINGERPRINT >> ~/.ssh/known_hosts
+            - ssh -i ~/.ssh/id_deploy "${SSH_USER}@${SSH_HOST}" -p $SSH_PORT "cd /var/www/etm-esdl && ./deploy.sh"
+      secrets:
+        - name: Docker Hub credentials
+        - name: Production SSH settings
+    run:
+      when: branch = 'master'
