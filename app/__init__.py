@@ -4,15 +4,15 @@ Initializes the app and sets up all the routes and caches
 
 import os
 
-## Sentry ##
-import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
-
 ## App
 from flask import Flask
 from flask_caching import Cache
 # from werkzeug.middleware.proxy_fix import ProxyFix
 from config.config import *
+
+## Sentry ##
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 
 # Setup the cache for the api
 cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
