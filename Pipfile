@@ -13,6 +13,7 @@ requests = "*"
 Flask = "~=1.1.1"
 Flask-Caching = "*"
 'sentry-sdk[flask]' = "*"
+markupsafe = "==2.0.1"
 
 [dev-packages]
 pytest = "*"
