@@ -119,13 +119,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="4.227405247813411"/>
-            <labelPerc energyLabel="LABEL_B" percentage="17.20116618075802"/>
-            <labelPerc energyLabel="LABEL_C" percentage="16.909620991253643"/>
-            <labelPerc energyLabel="LABEL_D" percentage="61.66180758017493"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="4.227405247813411"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="17.20116618075802"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="16.909620991253643"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="61.66180758017493"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -177,10 +177,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -271,13 +271,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="9.873949579831933"/>
-            <labelPerc energyLabel="LABEL_B" percentage="6.722689075630252"/>
-            <labelPerc energyLabel="LABEL_C" percentage="2.5210084033613445"/>
-            <labelPerc energyLabel="LABEL_D" percentage="80.88235294117648"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="9.873949579831933"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="6.722689075630252"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="2.5210084033613445"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="80.88235294117648"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -329,10 +329,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -423,13 +423,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="7.8671328671328675"/>
-            <labelPerc energyLabel="LABEL_B" percentage="19.055944055944053"/>
-            <labelPerc energyLabel="LABEL_C" percentage="3.8461538461538463"/>
-            <labelPerc energyLabel="LABEL_D" percentage="69.23076923076923"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="7.8671328671328675"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="19.055944055944053"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="3.8461538461538463"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="69.23076923076923"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -481,10 +481,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -574,11 +574,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="24.030110017371165"/>
-            <labelPerc energyLabel="LABEL_B" percentage="75.96988998262884"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="24.030110017371165"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="75.96988998262884"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -630,10 +630,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -724,13 +724,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="8.30636461704423"/>
-            <labelPerc energyLabel="LABEL_B" percentage="11.165048543689322"/>
-            <labelPerc energyLabel="LABEL_C" percentage="10.787486515641856"/>
-            <labelPerc energyLabel="LABEL_D" percentage="69.7411003236246"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="8.30636461704423"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="11.165048543689322"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="10.787486515641856"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="69.7411003236246"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -782,10 +782,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -875,11 +875,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="1.3465627214741318"/>
-            <labelPerc energyLabel="LABEL_B" percentage="98.65343727852587"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="1.3465627214741318"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="98.65343727852587"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -931,10 +931,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1024,11 +1024,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="10.714285714285714"/>
-            <labelPerc energyLabel="LABEL_B" percentage="89.28571428571429"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="10.714285714285714"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="89.28571428571429"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1080,10 +1080,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1173,11 +1173,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="20.792563600782778"/>
-            <labelPerc energyLabel="LABEL_B" percentage="79.20743639921723"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="20.792563600782778"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="79.20743639921723"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1229,10 +1229,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1323,13 +1323,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="7.725788900979326"/>
-            <labelPerc energyLabel="LABEL_B" percentage="6.420021762785637"/>
-            <labelPerc energyLabel="LABEL_C" percentage="6.2023939064200215"/>
-            <labelPerc energyLabel="LABEL_D" percentage="79.65179542981502"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="7.725788900979326"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="6.420021762785637"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="6.2023939064200215"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="79.65179542981502"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1381,10 +1381,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1474,11 +1474,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="3.2939189189189184"/>
-            <labelPerc energyLabel="LABEL_B" percentage="96.70608108108108"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="3.2939189189189184"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="96.70608108108108"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1530,10 +1530,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1623,11 +1623,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="56.08899297423887"/>
-            <labelPerc energyLabel="LABEL_B" percentage="43.91100702576112"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="56.08899297423887"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="43.91100702576112"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1679,10 +1679,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1772,11 +1772,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="79.45205479452055"/>
-            <labelPerc energyLabel="LABEL_B" percentage="20.54794520547945"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="79.45205479452055"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="20.54794520547945"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1828,10 +1828,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1921,11 +1921,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="3.5637149028077757"/>
-            <labelPerc energyLabel="LABEL_B" percentage="96.43628509719223"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="3.5637149028077757"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="96.43628509719223"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -1977,10 +1977,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2070,11 +2070,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="5.755395683453238"/>
-            <labelPerc energyLabel="LABEL_B" percentage="94.24460431654677"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="5.755395683453238"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="94.24460431654677"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2126,10 +2126,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2220,11 +2220,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="1.9677996422182469"/>
-            <labelPerc energyLabel="LABEL_B" percentage="98.03220035778175"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="1.9677996422182469"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="98.03220035778175"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2276,10 +2276,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2369,11 +2369,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="0.4024144869215292"/>
-            <labelPerc energyLabel="LABEL_B" percentage="99.59758551307847"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="0.4024144869215292"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="99.59758551307847"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2425,10 +2425,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2518,11 +2518,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="8.827586206896552"/>
-            <labelPerc energyLabel="LABEL_B" percentage="91.17241379310344"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="8.827586206896552"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="91.17241379310344"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2574,10 +2574,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2668,11 +2668,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="1.1037527593818985"/>
-            <labelPerc energyLabel="LABEL_B" percentage="98.89624724061811"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="1.1037527593818985"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="98.89624724061811"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2724,10 +2724,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2817,11 +2817,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="1.1041009463722398"/>
-            <labelPerc energyLabel="LABEL_B" percentage="98.89589905362776"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="1.1041009463722398"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="98.89589905362776"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2873,10 +2873,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -2966,11 +2966,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="2.4745269286754"/>
-            <labelPerc energyLabel="LABEL_B" percentage="97.5254730713246"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="2.4745269286754"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="97.5254730713246"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3022,10 +3022,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3116,11 +3116,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="11.04417670682731"/>
-            <labelPerc energyLabel="LABEL_B" percentage="88.95582329317268"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="11.04417670682731"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="88.95582329317268"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3172,10 +3172,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3265,11 +3265,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="5.88235294117647"/>
-            <labelPerc energyLabel="LABEL_B" percentage="94.11764705882352"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="5.88235294117647"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="94.11764705882352"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3321,10 +3321,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3414,11 +3414,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="5.4613935969868175"/>
-            <labelPerc energyLabel="LABEL_B" percentage="94.53860640301318"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="5.4613935969868175"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="94.53860640301318"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3470,10 +3470,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3563,11 +3563,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="6.715063520871143"/>
-            <labelPerc energyLabel="LABEL_B" percentage="93.28493647912886"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="6.715063520871143"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="93.28493647912886"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3619,10 +3619,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3712,11 +3712,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="4.508566275924256"/>
-            <labelPerc energyLabel="LABEL_B" percentage="95.49143372407575"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="4.508566275924256"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="95.49143372407575"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3768,10 +3768,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3861,11 +3861,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="0.30469226081657524"/>
-            <labelPerc energyLabel="LABEL_B" percentage="99.69530773918342"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="0.30469226081657524"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="99.69530773918342"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -3917,10 +3917,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4010,10 +4010,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4065,10 +4065,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4159,13 +4159,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="21.24217118997912"/>
-            <labelPerc energyLabel="LABEL_B" percentage="6.471816283924843"/>
-            <labelPerc energyLabel="LABEL_C" percentage="10.69937369519833"/>
-            <labelPerc energyLabel="LABEL_D" percentage="61.5866388308977"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="21.24217118997912"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="6.471816283924843"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="10.69937369519833"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="61.5866388308977"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4217,10 +4217,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4310,11 +4310,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="33.42579750346741"/>
-            <labelPerc energyLabel="LABEL_B" percentage="66.57420249653259"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="33.42579750346741"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="66.57420249653259"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4366,10 +4366,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4459,11 +4459,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="3.8461538461538463"/>
-            <labelPerc energyLabel="LABEL_B" percentage="96.15384615384616"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="3.8461538461538463"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="96.15384615384616"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4515,10 +4515,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4608,11 +4608,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="25.045372050816695"/>
-            <labelPerc energyLabel="LABEL_B" percentage="74.9546279491833"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="25.045372050816695"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="74.9546279491833"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4664,10 +4664,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4757,11 +4757,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="27.100840336134453"/>
-            <labelPerc energyLabel="LABEL_B" percentage="72.89915966386555"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="27.100840336134453"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="72.89915966386555"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4813,10 +4813,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4906,10 +4906,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -4961,10 +4961,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5054,11 +5054,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="3.8461538461538463"/>
-            <labelPerc energyLabel="LABEL_B" percentage="96.15384615384616"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="3.8461538461538463"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="96.15384615384616"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5110,10 +5110,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5203,11 +5203,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="9.195402298850574"/>
-            <labelPerc energyLabel="LABEL_B" percentage="90.80459770114942"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="9.195402298850574"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="90.80459770114942"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5259,10 +5259,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5352,11 +5352,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="8.739159439626418"/>
-            <labelPerc energyLabel="LABEL_B" percentage="91.26084056037358"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="8.739159439626418"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="91.26084056037358"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5408,10 +5408,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5501,10 +5501,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5556,10 +5556,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5649,11 +5649,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="4.501323918799647"/>
-            <labelPerc energyLabel="LABEL_B" percentage="95.49867608120036"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="4.501323918799647"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="95.49867608120036"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5705,10 +5705,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5798,11 +5798,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="3.5502958579881656"/>
-            <labelPerc energyLabel="LABEL_B" percentage="96.44970414201184"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="3.5502958579881656"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="96.44970414201184"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5854,10 +5854,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -5947,10 +5947,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6002,10 +6002,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6095,11 +6095,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="11.320754716981133"/>
-            <labelPerc energyLabel="LABEL_B" percentage="88.67924528301887"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="11.320754716981133"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="88.67924528301887"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6151,10 +6151,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6244,11 +6244,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="14.875"/>
-            <labelPerc energyLabel="LABEL_B" percentage="85.125"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="14.875"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="85.125"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6300,10 +6300,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6393,11 +6393,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="4.808548530721282"/>
-            <labelPerc energyLabel="LABEL_B" percentage="95.19145146927872"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="4.808548530721282"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="95.19145146927872"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6449,10 +6449,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6543,13 +6543,13 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="13.35423197492163"/>
-            <labelPerc energyLabel="LABEL_B" percentage="31.724137931034484"/>
-            <labelPerc energyLabel="LABEL_C" percentage="4.952978056426333"/>
-            <labelPerc energyLabel="LABEL_D" percentage="49.96865203761756"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="13.35423197492163"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="31.724137931034484"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_C" percentage="4.952978056426333"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_D" percentage="49.96865203761756"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6601,10 +6601,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6695,10 +6695,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="400.0" lon="333.3333333333333"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6788,10 +6788,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6881,10 +6881,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -6936,10 +6936,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7029,11 +7029,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="7.236180904522612"/>
-            <labelPerc energyLabel="LABEL_B" percentage="92.76381909547739"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="7.236180904522612"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="92.76381909547739"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7085,10 +7085,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7178,11 +7178,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="17.66595289079229"/>
-            <labelPerc energyLabel="LABEL_B" percentage="82.3340471092077"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="17.66595289079229"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="82.3340471092077"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7234,10 +7234,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7327,11 +7327,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="13.254437869822485"/>
-            <labelPerc energyLabel="LABEL_B" percentage="86.74556213017752"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="13.254437869822485"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="86.74556213017752"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7383,10 +7383,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7476,11 +7476,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="78.13163481953292"/>
-            <labelPerc energyLabel="LABEL_B" percentage="21.86836518046709"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="78.13163481953292"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="21.86836518046709"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7532,10 +7532,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7625,10 +7625,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7680,10 +7680,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7773,11 +7773,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="91.34199134199135"/>
-            <labelPerc energyLabel="LABEL_B" percentage="8.658008658008658"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="91.34199134199135"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="8.658008658008658"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7829,10 +7829,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7922,11 +7922,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="21.428571428571427"/>
-            <labelPerc energyLabel="LABEL_B" percentage="78.57142857142857"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="21.428571428571427"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="78.57142857142857"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -7978,10 +7978,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8071,11 +8071,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="11.76470588235294"/>
-            <labelPerc energyLabel="LABEL_B" percentage="88.23529411764706"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="11.76470588235294"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="88.23529411764706"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8127,10 +8127,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8220,11 +8220,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="21.428571428571427"/>
-            <labelPerc energyLabel="LABEL_B" percentage="78.57142857142857"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="21.428571428571427"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="78.57142857142857"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8276,10 +8276,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8369,11 +8369,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="2.3255813953488373"/>
-            <labelPerc energyLabel="LABEL_B" percentage="97.67441860465115"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="2.3255813953488373"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="97.67441860465115"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8425,10 +8425,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8518,11 +8518,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="7.142857142857142"/>
-            <labelPerc energyLabel="LABEL_B" percentage="92.85714285714286"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="7.142857142857142"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="92.85714285714286"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8574,10 +8574,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8667,11 +8667,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="6.0606060606060606"/>
-            <labelPerc energyLabel="LABEL_B" percentage="93.93939393939394"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="6.0606060606060606"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="93.93939393939394"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8723,10 +8723,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8816,11 +8816,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="6.315789473684211"/>
-            <labelPerc energyLabel="LABEL_B" percentage="93.6842105263158"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="6.315789473684211"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="93.6842105263158"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8872,10 +8872,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -8965,11 +8965,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="21.73913043478261"/>
-            <labelPerc energyLabel="LABEL_B" percentage="78.26086956521739"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="21.73913043478261"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="78.26086956521739"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -9021,10 +9021,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -9114,11 +9114,11 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="RESIDENTIAL" percentage="100.0"/>
+            <bin buildingType="RESIDENTIAL" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_A" percentage="14.37908496732026"/>
-            <labelPerc energyLabel="LABEL_B" percentage="85.62091503267973"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_A" percentage="14.37908496732026"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="85.62091503267973"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>
@@ -9170,10 +9170,10 @@
             <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="250.0"/>
           </asset>
           <buildingTypeDistribution>
-            <buildingTypePercentage buildingType="UTILITY" percentage="100.0"/>
+            <bin buildingType="UTILITY" percentage="100.0"/>
           </buildingTypeDistribution>
           <energyLabelDistribution>
-            <labelPerc energyLabel="LABEL_B" percentage="100.0"/>
+            <bin xsi:type="esdl:EnergyLabelBin" energyLabel="LABEL_B" percentage="100.0"/>
           </energyLabelDistribution>
           <geometry xsi:type="esdl:Point" lat="nan" lon="nan"/>
         </asset>

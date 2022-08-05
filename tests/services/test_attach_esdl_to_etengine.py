@@ -4,7 +4,7 @@ import pytest
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.etengine_service import EtengineService
 from app.services.service_result import ServiceResult
-from app.models.energy_system.StringURI import StringURI
+from esdl.esdl_handler import StringURI
 
 @pytest.fixture
 def esdl_stream():

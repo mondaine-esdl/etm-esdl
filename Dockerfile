@@ -19,10 +19,6 @@ RUN pipenv install --deploy --ignore-pipfile
 # -- Copy Application
 COPY . .
 
-# -- Fetch ecore resource
-RUN pipenv run fetch_esdl_ecore_resource
-RUN pipenv run generate_esdl_module
-
 # -- Set Environment
 ENV PYTHONPATH=.:/usr/src/app
 ENV FLASK_APP "app"

@@ -56,8 +56,8 @@ def test_has_assets_of_type(hic_handler):
 @pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_get_all_instances_with_two_handlers(hic_handler, future_hic_handler):
     '''Make sure the instances do not overlap when creating the generator'''
-    present_list = list(hic_handler.get_all_instances_of_type('GasHeater'))
-    future_list = list(future_hic_handler.get_all_instances_of_type('GasHeater'))
+    present_list = list(hic_handler.get_all_instances_of_type_by_name('GasHeater'))
+    future_list = list(future_hic_handler.get_all_instances_of_type_by_name('GasHeater'))
 
     assert len(present_list) == 62
     # assert len(future_list) == 38
@@ -71,12 +71,12 @@ def test_all_instances_always_returns_same(hic_handler):
     n = 10
 
     # Exactly the same items
-    li_set = [set(list(hic_handler.get_all_instances_of_type('GasHeater'))) for _ in range(n)]
+    li_set = [set(list(hic_handler.get_all_instances_of_type_by_name('GasHeater'))) for _ in range(n)]
     first_set = li_set[0]
     assert all(a_set == first_set for a_set in li_set)
 
     # Same item always comes first
-    gen = (next(hic_handler.get_all_instances_of_type('GasHeater')) for _ in range(n))
+    gen = (next(hic_handler.get_all_instances_of_type_by_name('GasHeater')) for _ in range(n))
     assert set([next(gen)]) == set(list(gen))
 
 

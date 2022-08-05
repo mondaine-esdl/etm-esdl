@@ -77,7 +77,7 @@ def test_calculate_with_hic(energy_system_handler):
 
 def test_parse_aggregated_buidings(converter):
     converter._EsdlToScenarioConverter__setup_building_parsers({'RESIDENTIAL': 1000,'UTILITY': 100})
-    first_area = converter.energy_system.es.instance[0].area.area[0]
+    first_area = converter.energy_system.area_instance()[0]
 
     default_inputs = copy.deepcopy(converter.inputs)
 

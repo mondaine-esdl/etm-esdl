@@ -77,8 +77,9 @@ class CapacityParser(AssetParser):
         Get all instances of asset type and set the generator.
         """
         try:
-            self.asset_generator = self.energy_system.get_all_instances_of_type(self.props['asset'])
-
+            self.asset_generator = self.energy_system.get_all_instances_of_type_by_name(
+                self.props['asset']
+            )
         except AttributeError as att:
             raise EnergysystemParseError(
                 f'We currently do not support the asset {str(att).split()[-1]}'

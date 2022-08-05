@@ -53,7 +53,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="686" name="aansl_rest70_collggheater" id="d8515277-9c40-44c3-8633-a1bd0f6197e6">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="1b20ecda-a6f6-4d9d-92e7-d6d088087708">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -102,16 +102,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="4.227405247813411" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="17.20116618075802" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="16.909620991253643" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="61.66180758017493" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="4.227405247813411" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="17.20116618075802" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="16.909620991253643" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="61.66180758017493" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="160794.0" aggregated="true" numberOfBuildings="402" name="aansl_rest70_collggheater" id="b2a92687-271f-4714-823e-1fe89ff910b3">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4aec618c-4a7a-4528-b99a-a1cb2adfebdb">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -160,7 +160,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -205,7 +205,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="476" name="aansl_rest70_collggheater" id="3c099c8d-9b72-4bc7-90ca-d77a02319856">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="db0b8bbc-f3aa-406e-8ce3-5be5604e22bd">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -254,16 +254,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="9.873949579831933" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.722689075630252" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="2.5210084033613445" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="80.88235294117648" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="9.873949579831933" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.722689075630252" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="2.5210084033613445" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="80.88235294117648" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="56820.0" aggregated="true" numberOfBuildings="111" name="aansl_rest70_collggheater" id="856f336c-1d3e-4fe7-9f8d-56aaa956c5e4">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="38f60a4a-5a85-440b-a94b-14c46a80ccda">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -312,7 +312,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -357,7 +357,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="572" name="aansl_rest70_collggheater" id="d5c60e22-6e6e-4eb0-b35f-bb0d7c5b4f89">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="80cfe489-73d9-4048-8e49-2c2202f7e608">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -406,16 +406,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="7.8671328671328675" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="19.055944055944053" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.8461538461538463" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="69.23076923076923" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="7.8671328671328675" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="19.055944055944053" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.8461538461538463" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="69.23076923076923" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="28684.0" aggregated="true" numberOfBuildings="116" name="aansl_rest70_collggheater" id="71bf8951-a7b5-4732-aefc-2abbb7522ccb">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4a149cb7-2d94-42bf-b9fe-d06f714eb6ff">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -464,7 +464,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -508,7 +508,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1727" name="aansl_ewp_lucht" id="3df90c2b-da49-4f7b-96a9-cf3526ec2306">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="15fec0ed-1d3e-419c-a168-6fab75311ae3">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -557,14 +557,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="8b6f6e07-0db5-4a7e-91df-a5fed488f242 6e61d4d5-88e0-42f3-96c6-0789001212aa" id="67170d70-4bf2-41c0-b2c0-107610466374"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="24.030110017371165" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="75.96988998262884" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="24.030110017371165" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="75.96988998262884" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="22717.0" aggregated="true" numberOfBuildings="318" name="aansl_ewp_lucht" id="d6d84cc1-6667-410e-8ab0-161a4fe01fa3">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="0119649b-6b76-477e-856c-3d45642a3b91">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -613,7 +613,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="5de4bc08-07ee-409c-ab94-fc5b6c813c5a 641d4a54-ed22-4481-9bb5-31010624cc07" id="b9279aa0-6839-4c3f-9eaa-77c4b2a7c658"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -658,7 +658,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1854" name="aansl_rest70_collggheater" id="5420ab64-7eb3-4a05-ad3c-e5de22e74250">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4b7089c4-96ca-4394-9fde-6da104f0af87">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -707,16 +707,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="8.30636461704423" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="11.165048543689322" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="10.787486515641856" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="69.7411003236246" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="8.30636461704423" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="11.165048543689322" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="10.787486515641856" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="69.7411003236246" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="78842.0" aggregated="true" numberOfBuildings="285" name="aansl_rest70_collggheater" id="646c436e-0d41-4df5-ad56-6fa20f4eeb1a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="719ec556-e13e-4cac-9ba8-b4407c243e97">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -765,7 +765,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -809,7 +809,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1411" name="aansl_ewp_lucht" id="60be4015-e290-4a88-aa3d-6d5a59674871">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4ba04ea2-57e5-4572-8002-94753c7eefcf">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -858,14 +858,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f7e14d28-722a-4da5-8f87-6d20c038c63c 914b8076-05ea-4be8-9387-70e222cc3170" id="0702b8ea-f048-42ff-881c-b526610ee62c"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="1.3465627214741318" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="98.65343727852587" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="1.3465627214741318" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="98.65343727852587" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="14102.0" aggregated="true" numberOfBuildings="103" name="aansl_ewp_lucht" id="959053b4-c16f-4379-968e-047fe4ebe821">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a6a0efb1-9d8b-4eba-b8e6-48726527380b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -914,7 +914,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="49db8bab-e877-46b9-9034-e61f64e490cb 6efea32c-2630-4f10-aecc-aae34da86973" id="5ede3c6d-4bea-43e6-9487-56b09319846b"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -958,7 +958,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="28" name="aansl_ewp_bodem" id="243e3189-d84d-4175-b5cf-2c2e2f0a6e90">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="e26eee24-b887-4833-8e5f-0cef47244a33">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1007,14 +1007,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="de7400b0-6abe-4c9e-951f-2ca644612307 93ec9f7d-7832-46df-a4ad-435c3df1b684" id="3a96ec15-f4a1-4d72-a357-efcfa4cfc999"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="10.714285714285714" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="89.28571428571429" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="10.714285714285714" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="89.28571428571429" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="18663.0" aggregated="true" numberOfBuildings="22" name="aansl_ewp_bodem" id="6d2d4284-8bd1-4f5a-ab93-5901f9b268fc">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d2473f85-b1f7-49fd-b532-5ea6e8253c69">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1063,7 +1063,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="ec06f5e0-5576-4aaa-9d82-c1ffcf2190fa 6a9bd6c2-528f-48d0-a8b8-60da99f29a7e" id="1c7fc660-3f8c-47a3-bfcb-fe9aaa67f192"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1107,7 +1107,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="2044" name="aansl_ewp_lucht" id="9ccc6106-4af1-4859-8ca7-0429ad1ecae8">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="85ff874d-2ffc-43e3-a22d-3145eaa683d9">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1156,14 +1156,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e42c84b9-4812-4189-bdea-f4712791d968 48eb5f1e-3a6a-47e9-aba2-72a3d900da0a" id="d539f87b-16b3-4dfa-9324-cd4b44e8f06b"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="20.792563600782778" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="79.20743639921723" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="20.792563600782778" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="79.20743639921723" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="24700.0" aggregated="true" numberOfBuildings="415" name="aansl_ewp_lucht" id="8d5b2cba-b25a-47d8-8e1c-8447e291fbf1">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="b838bfa9-0ad0-4cfa-bd0c-6f2525ce2cda">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1212,7 +1212,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="a795c2cd-2548-4351-9241-d82125a54f33 11d2197f-9617-4262-91a0-1c2448a1866d" id="bac95665-3517-4f65-af29-37dfcde8da4c"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1257,7 +1257,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="919" name="aansl_rest70_collggheater" id="1b374c21-bdc1-4e53-b360-9b18d9d98a1e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="dc0b3aeb-d730-421e-bdcc-1d9716c4c985">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -1306,16 +1306,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="7.725788900979326" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.420021762785637" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.2023939064200215" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="79.65179542981502" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="7.725788900979326" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.420021762785637" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.2023939064200215" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="79.65179542981502" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="20232.0" aggregated="true" numberOfBuildings="114" name="aansl_rest70_collggheater" id="90f82a28-3629-4987-89de-273ac06904b5">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="7f0effd4-864f-4576-9912-f30108d04c81">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -1364,7 +1364,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1408,7 +1408,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1184" name="aansl_ewp_lucht" id="45b54db5-cac2-49aa-9774-10067892073e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6800f4f8-bdb7-401a-ba5f-b23f324293ee">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1457,14 +1457,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="095f2108-3117-4265-99e8-039cb1fdbcf0 dda944a2-f20c-46f9-b51e-a0fdd8a618e5" id="1d9e33a7-ade1-46ca-81d4-cd562e59c6c3"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.2939189189189184" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="96.70608108108108" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.2939189189189184" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="96.70608108108108" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="11597.0" aggregated="true" numberOfBuildings="151" name="aansl_ewp_lucht" id="5a6db1dd-8640-4ae5-8cfa-c818b100c696">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="87f99105-a37c-49c1-8258-16c56b969e8f">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1513,7 +1513,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="d43c07a2-904e-4604-95e8-14a06c1d02b6 3ff1def5-03b0-494a-a708-f1ee852ec6ec" id="d519ead7-026f-4994-b70c-d3098caba5b3"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1557,7 +1557,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="854" name="aansl_ewp_lucht" id="63714698-50f6-49af-92e1-9d31849bc9f6">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="7fed52f3-b19a-4e8a-8918-9608fcd20255">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1606,14 +1606,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="8be533c8-d226-4baf-88f4-44bfbd6084b7 3004980d-ced0-40ff-a35a-ab3f9f567701" id="d94d5555-ebef-4eda-9f1e-fa6100419873"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="56.08899297423887" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="43.91100702576112" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="56.08899297423887" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="43.91100702576112" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="5009.0" aggregated="true" numberOfBuildings="106" name="aansl_ewp_lucht" id="1f751795-ac5c-416e-8f63-9e2e6a39d713">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="02bafea3-1aae-4260-8cb2-df71b2c97c99">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1662,7 +1662,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f7da4539-55a2-4c14-ac7b-123b64876a48 0526fb49-d2ae-4a14-9b47-08fb68e34a8a" id="e5b25932-e16d-47e5-b7ff-c26d6529f2aa"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1706,7 +1706,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="73" name="aansl_ewp_bodem" id="3e180ebd-1b7a-4b5f-9194-ae98db71f042">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="502ceb90-0406-4c1a-93b9-8827dec57854">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1755,14 +1755,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="b6c678e5-3aaf-45c5-88af-70aa27ef574f 6332a107-653f-4fff-b46a-e3a64bf5ca43" id="35f30bac-5961-461b-a293-d0617691bcff"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="79.45205479452055" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="20.54794520547945" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="79.45205479452055" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="20.54794520547945" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="2858.0" aggregated="true" numberOfBuildings="8" name="aansl_ewp_bodem" id="04f5d217-29ca-4531-817f-d6adbbc95dd5">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="2d6d9bfc-2476-4d1d-b1c8-53ee61370b38">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1811,7 +1811,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="79f129ee-b971-46d0-bf38-7c8ea9fa9f0f 796e6a51-a882-4564-b157-51490d80e5ec" id="dba9fb8b-052f-4bcd-bf72-4e536b6fa521"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -1855,7 +1855,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="926" name="aansl_ewp_lucht" id="900cc0c1-f734-42a3-aeab-250f15d66d5e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="53f56942-8117-4c2d-801c-98103cc60d3a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1904,14 +1904,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e0627c61-dff1-442e-97f2-a46cdfcad6dd f3788e64-3b5b-431c-a9b9-beadf3734b49" id="aca04a62-bb64-4f7c-b78d-1a300c43b8c9"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.5637149028077757" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="96.43628509719223" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.5637149028077757" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="96.43628509719223" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="3636.0" aggregated="true" numberOfBuildings="10" name="aansl_ewp_lucht" id="6e48055a-dd8e-4b75-8155-08e0325ae240">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="553f673a-cdbb-40e2-a9e8-78ddd5c5867b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -1960,7 +1960,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="38cdcbb3-f3cd-4be6-ba8e-ed44d50eb3aa 57ced031-fd55-4bf3-8552-b0e053bd4404" id="b87d710a-03d8-47ae-bf9d-b4bbfc9167c2"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2004,7 +2004,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="278" name="aansl_ewp_lucht" id="88e611e1-fcd9-455b-8f4b-70ccf62d93c9">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="f3e79d0a-5bf7-4cda-83b6-b41a5f85d41a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2053,14 +2053,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="6466aef3-a486-4fe6-86d4-7669efa50913 10f06fa0-0b14-4053-8cc1-f425b8bfc1ec" id="aaa81826-38cd-4fc2-9f0b-06e67a3a2725"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="5.755395683453238" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="94.24460431654677" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="5.755395683453238" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="94.24460431654677" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="4473.0" aggregated="true" numberOfBuildings="10" name="aansl_ewp_lucht" id="743c0932-e42a-41f9-934d-b5a79149b05a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="02fdc172-bd7c-40ce-bd82-e96121e8c1dc">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2109,7 +2109,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="c2304dff-9ec1-47c2-a47d-beb369270f04 6ec176bc-a585-4bd1-8d69-14dcc2244dce" id="b36856d5-73b8-4850-b0f6-854baf350625"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2154,7 +2154,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="559" name="aansl_rest70_collggheater" id="89026993-84a5-40d6-aef8-0546fbf79ca6">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c80ef78b-5afb-49b1-89c8-7bfb844b8ffa">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -2203,14 +2203,14 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="1.9677996422182469" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="98.03220035778175" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="1.9677996422182469" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="98.03220035778175" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="812.0" aggregated="true" numberOfBuildings="8" name="aansl_rest70_collggheater" id="edb33f18-91cc-43af-a526-d45d21da8e5e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="8ec57a12-4293-401e-9007-7a6b81c42471">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -2259,7 +2259,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2303,7 +2303,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="497" name="aansl_ewp_lucht" id="1151fb51-5dde-4299-958d-2d0d8f8abd73">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="b4dd04e7-6787-4534-9bfc-2e3aa231af89">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2352,14 +2352,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="edefc03e-c22c-4546-992e-58262c70b714 842d501e-5a43-4eec-8d5f-957389b2d333" id="eb558700-a91c-43aa-b943-61bc5dc2caad"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="0.4024144869215292" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="99.59758551307847" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="0.4024144869215292" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="99.59758551307847" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="1423.0" aggregated="true" numberOfBuildings="6" name="aansl_ewp_lucht" id="30edece9-5930-4fdf-b9de-da8c4a9d13f0">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="95263bf3-a8c7-4fb3-9243-64f086a9895d">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2408,7 +2408,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="a679b03a-fb7c-4213-ac7e-c411d9aae5ac 043c3bb6-4287-4043-a39e-63e2c96fcdba" id="40241056-9d31-4287-a24e-11b60ffa1167"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2452,7 +2452,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="725" name="aansl_ewp_lucht" id="27b25370-6c92-4fc3-a889-511c237f4d97">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="04131be6-b5f9-4559-944b-843d8bbdb1ef">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2501,14 +2501,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="8aa7b5d6-bba0-4765-86fd-0ff22290150a d4f0effd-e77a-427f-bb50-804bdb06d8b8" id="da401480-831b-4646-a874-a3a363f3b02a"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="8.827586206896552" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="91.17241379310344" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="8.827586206896552" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="91.17241379310344" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="21553.0" aggregated="true" numberOfBuildings="58" name="aansl_ewp_lucht" id="e300716a-9387-47fc-8242-c7c927a11d55">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="8d9a1aa9-e78e-4226-83ac-1e48bec1282c">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2557,7 +2557,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="db354f45-cad6-4eb3-9466-1dd3aaed3c67 50f3d861-5b49-46c7-a669-37e0d9493abe" id="9960510f-b922-40b3-bac7-c84f8dff0bac"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2602,7 +2602,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="453" name="aansl_rest70_collggheater" id="bc14cc2c-a69a-46a1-a197-fd6b34e6a957">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="234c0e78-a294-480e-9a0d-af3a350552e3">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -2651,14 +2651,14 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="1.1037527593818985" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="98.89624724061811" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="1.1037527593818985" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="98.89624724061811" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="31.0" aggregated="true" numberOfBuildings="3" name="aansl_rest70_collggheater" id="705881ba-8f26-4746-a2ef-174d2924f10e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a02bfcba-b117-4fa9-a462-2dbeae5de3d5">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -2707,7 +2707,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2751,7 +2751,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="634" name="aansl_ewp_lucht" id="2271bd5a-888d-480d-9da8-e75bff9c96d1">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="ea25ea8d-9ee7-459a-bef6-9e3f52473b9c">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2800,14 +2800,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="3efe7983-b08f-4096-a817-7bbb7dd1f062 4e51f26e-4706-43b7-8bb5-2dfbf92441f5" id="0c537dec-8f9c-405b-9b51-312a31b7b5d2"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="1.1041009463722398" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="98.89589905362776" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="1.1041009463722398" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="98.89589905362776" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="494.0" aggregated="true" numberOfBuildings="10" name="aansl_ewp_lucht" id="b997b8c0-58ab-4362-8009-2c67ffac437f">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c92bf2e1-d4b0-44ea-bf4c-9efb649d2ecd">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2856,7 +2856,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="50799b1a-cf58-49b7-aede-88bb29bebf0d 3f9352d4-471d-40e2-b9dd-89747fea5a62" id="1e1a8b47-2241-4c1f-9cb9-b749560756eb"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -2900,7 +2900,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="687" name="aansl_ewp_lucht" id="32d5bcc0-ad06-492e-a3ec-44579c9cfcc9">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4b9b40ff-2ea5-4de0-bbbb-20d016b9b687">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -2949,14 +2949,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="74ae2d5b-0b03-4b3a-9d7d-2f4e32bc0c02 1ea37a89-2130-413a-8f22-1ebb794aabc1" id="52c00bbf-4065-464c-8233-726ba52dd83b"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="2.4745269286754" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="97.5254730713246" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="2.4745269286754" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="97.5254730713246" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="3930.0" aggregated="true" numberOfBuildings="16" name="aansl_ewp_lucht" id="9cd594dc-3e2b-4fdd-bf1a-e8fc569d1d2d">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="44f863a6-9e31-4c96-b5d6-5ae01264d8e4">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3005,7 +3005,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="d293182c-a557-4c7e-aaa3-fbc8da8b1145 2c5ec44e-a2be-4d18-ade3-0b7aed7f8d2d" id="160b76bc-72b4-40bb-90ec-cdd4ad8c79e8"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3050,7 +3050,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="498" name="aansl_rest70_collggheater" id="b18204bb-40ce-4dc7-903f-7092a5df748a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="66da8d37-1e4d-49e9-a3e7-c802265c76d0">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -3099,14 +3099,14 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="11.04417670682731" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="88.95582329317268" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="11.04417670682731" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="88.95582329317268" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="26.0" aggregated="true" numberOfBuildings="3" name="aansl_rest70_collggheater" id="c781aed7-380a-4d46-950d-9d0e41183bb8">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4fc67430-060e-4a09-841f-3ac6ff4c2ac0">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -3155,7 +3155,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3199,7 +3199,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="34" name="aansl_ewp_lucht" id="dd13d336-862e-4c76-a178-99e434c50cf2">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="82ade037-b526-4013-b68e-4178c34fad64">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3248,14 +3248,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="dbdd516f-5547-4f9a-b5ff-48f39fc39c5f 3b800490-5d6d-4aff-ae37-041079697bec" id="5d6bbcf1-2c65-48a7-96d3-2cdd00c9b791"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="5.88235294117647" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="94.11764705882352" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="5.88235294117647" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="94.11764705882352" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="16425.0" aggregated="true" numberOfBuildings="39" name="aansl_ewp_lucht" id="cb52bde7-5e23-42f8-aaeb-4aa62409e3d1">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c4b7f68e-c24a-4928-aabb-a129621dbed1">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3304,7 +3304,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="2a3f07e8-2635-4b79-b9df-8f425c6825be 4a257a5c-c553-4a60-b5bc-d6a22b192444" id="1c508bff-410a-4c83-8833-b96fbaff3dc2"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3348,7 +3348,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="531" name="aansl_ewp_lucht" id="cf8d0d5a-ce21-4bdb-b1fe-487b0455ea32">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="52da6115-742c-457f-abe4-ccef7f1ad80a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3397,14 +3397,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="ca8d04ba-41f0-4f03-a8de-c60a203e3670 e3b2270d-b8b8-4edb-bfcc-fc47c645f1ed" id="5f8b61d6-f202-4b93-8975-f7348ff14abd"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="5.4613935969868175" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="94.53860640301318" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="5.4613935969868175" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="94.53860640301318" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="4677.0" aggregated="true" numberOfBuildings="145" name="aansl_ewp_lucht" id="aa08c09a-bf3a-4920-bd88-ef85cf64fbcb">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="ae6085ee-6242-4262-bf8e-65adf06a5759">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3453,7 +3453,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="47c68dc8-27a9-40ad-8f77-b2dc59ad67f5 e7684083-3a65-4c9c-8a4b-fcad3a73968a" id="c270169f-aa3d-4e61-8f63-72c5f398427e"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3497,7 +3497,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1102" name="aansl_ewp_lucht" id="ecbcb78d-9791-4ccb-9cdc-d0e23da50abb">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="3bf37b0f-bffc-4922-ad9c-214226bed5ba">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3546,14 +3546,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="dc8c4e8f-4057-430f-a943-37f5c5fb6c8e 34e1c1a6-13ee-4893-87fc-30dcab26dda4" id="ec7adea9-c509-4192-9f5b-92091ea05e3c"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.715063520871143" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="93.28493647912886" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.715063520871143" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="93.28493647912886" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="44417.0" aggregated="true" numberOfBuildings="257" name="aansl_ewp_lucht" id="4ae60e36-7967-4de1-8791-45ac40b4b6c5">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="0e013fe1-8f6a-43e7-994b-1543cf94e098">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3602,7 +3602,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="bf71357a-63f8-483d-a361-2a8f3d422244 30dbbb5b-c8c2-45a0-ad22-6f0aab9b1633" id="260d1c47-c9c3-4945-a536-05d7b2e21986"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3646,7 +3646,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1109" name="aansl_ewp_lucht" id="b5d97177-a0b1-4b14-a03d-c53a26048c30">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="858e1e65-6a13-4644-96c3-f152744f5da2">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3695,14 +3695,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="0688d267-3834-4d54-8d20-94ef653c316b f562596a-9e69-492b-9e01-8be05efb6c56" id="06e62e1a-c034-487a-9540-88b36badc40f"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="4.508566275924256" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="95.49143372407575" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="4.508566275924256" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="95.49143372407575" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="7935.0" aggregated="true" numberOfBuildings="100" name="aansl_ewp_lucht" id="32cae4df-51fa-44cb-a1c1-5334a61ebc0d">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="acc4380f-207c-49f1-9f63-b526cf550b75">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3751,7 +3751,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="24051479-938f-4b5c-800a-b6e139c1597e e43cf073-8cad-49f3-a66a-f37916047a60" id="e270e8cc-de96-4c9a-8e6b-5369b9551bf1"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3795,7 +3795,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1641" name="aansl_ewp_lucht" id="644dbd98-9e4e-4ade-a6f7-824655738871">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="f84baa90-50a0-40eb-8cf1-622bef435910">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3844,14 +3844,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="2287bbf6-1d5e-4571-b44d-53ea55bdda8c d13867da-6599-4da7-86db-e58a76042a07" id="986353c3-c94a-4312-b080-98cc21622856"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="0.30469226081657524" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="99.69530773918342" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="0.30469226081657524" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="99.69530773918342" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="53221.0" aggregated="true" numberOfBuildings="341" name="aansl_ewp_lucht" id="a2b92d02-197f-48f8-bfab-e4bd493fe68e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="de8a5e8b-4d1d-4312-bd0e-8f42fef841b1">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3900,7 +3900,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="bc3db3a7-62d4-451a-be07-0302df39d4ec 83d5bbdf-e195-4979-af68-14e232179980" id="32c4fb12-c678-4225-af50-d3a48791ce1b"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -3944,7 +3944,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="2" name="aansl_ewp_bodem" id="3e8a78ca-09e7-4a76-8abd-98bbfe9737ca">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="10fe64ac-d683-4209-8f6d-089086c94372">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -3993,13 +3993,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="7f60de0c-d210-4d2c-bdac-15237c06ff6f 6f300252-e268-473f-bf9d-4d48fc5cea15" id="2feef07f-f9cf-4f97-aa00-823fa985689a"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="10185.0" aggregated="true" numberOfBuildings="8" name="aansl_ewp_bodem" id="00f1d141-6b40-4565-b685-142d0245bc14">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="40e6df49-7aa8-4be6-9925-9c42d3fca4a5">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4048,7 +4048,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="5e9fa63d-47d0-432a-b93e-278e1053156f 746e9315-8a44-4acb-b292-0c2cdcc055ab" id="c17528fc-be2d-4d26-8e7c-f8f8008a9dfe"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4093,7 +4093,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1916" name="aansl_rest70_collggheater" id="82914cd6-3635-4545-9a35-342db7fd9118">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="f965b714-6c9f-401a-ba83-bd3dfcd2f076">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -4142,16 +4142,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="21.24217118997912" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.471816283924843" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="10.69937369519833" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="61.5866388308977" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="21.24217118997912" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.471816283924843" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="10.69937369519833" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="61.5866388308977" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="36615.0" aggregated="true" numberOfBuildings="154" name="aansl_rest70_collggheater" id="6b6107bd-864d-46ab-9054-efae42f2a438">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="4ef18323-30c1-45f6-acad-0f1fd3397217">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -4200,7 +4200,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4244,7 +4244,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="721" name="aansl_ewp_lucht" id="5cfddfc2-a8a8-4a71-bced-bac2ddbb0ad0">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="be0be26c-cc46-4bf8-9ca0-5ff6c3423d5b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4293,14 +4293,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="2d83926b-9138-4e83-aeb9-534c51102415 100db0b1-ed8f-407b-b5b8-d1dbc16bd21b" id="8d7c01e5-1db5-4d4d-98ba-bd821f964890"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="33.42579750346741" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="66.57420249653259" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="33.42579750346741" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="66.57420249653259" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="6619.0" aggregated="true" numberOfBuildings="92" name="aansl_ewp_lucht" id="ff527c19-ab82-47d1-a61e-43ab0e7087cf">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6555aefa-26fd-4740-8d6a-5ceccaf7fdc2">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4349,7 +4349,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="faa74e89-0175-46ca-baa3-3cfe44dd7a0d 7a4a35da-2b19-468f-91ae-baae0d1801aa" id="b48be220-3bae-4889-ab8e-00ad5ca91459"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4393,7 +4393,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="26" name="aansl_ewp_bodem" id="136d0a24-29eb-44a4-829f-349a9cf87185">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a340c77c-e5ca-45a6-864b-7d9db41f6e37">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4442,14 +4442,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e2c5fe41-73d8-46ed-909d-43070f964d58 6b45d1af-f20d-4099-859e-5ae887d4cdcc" id="0bbe0c03-9360-4582-bd6b-c64023f177b3"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.8461538461538463" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="96.15384615384616" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.8461538461538463" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="96.15384615384616" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="22280.0" aggregated="true" numberOfBuildings="33" name="aansl_ewp_bodem" id="ca123106-674a-410a-b480-a65302826569">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c1e186a4-325b-4693-ad47-809cc38f9b2a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4498,7 +4498,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e293e21b-3cd8-4c64-bb07-c3f772756049 54e2a319-51de-460a-a804-e011b68fa1b5" id="5e34bcbf-d760-489a-85fc-ac250e2d49f3"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4542,7 +4542,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="551" name="aansl_ewp_lucht" id="01be4e59-93f4-44eb-96e8-5067da95e119">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="27df7fbe-3f06-40ca-acf9-f64bd2851248">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4591,14 +4591,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="8ffb22a4-4d96-49a2-ae00-83ce1a354491 3fdf55cd-e6eb-46f3-a777-b0d64473bf14" id="4c9d2c6a-aaf0-4188-9819-6f1c9d61c820"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="25.045372050816695" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="74.9546279491833" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="25.045372050816695" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="74.9546279491833" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="9952.0" aggregated="true" numberOfBuildings="40" name="aansl_ewp_lucht" id="af049f4f-b11f-450c-aca3-0592a8cf1621">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="64614179-37e9-4307-952f-8e6b9cfe5974">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4647,7 +4647,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="26d46089-4190-4a59-82f6-a52aa12ff88a da4be1f9-7d17-49d4-b911-18c04c541216" id="719176d9-d62d-45b1-a28f-f0364fd8c46e"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4691,7 +4691,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="476" name="aansl_ewp_lucht" id="d59cc318-41f0-43f5-a8c3-b295b3faddb7">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="e42ab587-b70b-4a20-b4fa-4dffd4ad5580">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4740,14 +4740,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="aff1d7fe-3506-4f8e-a1d5-82481427fd51 fd808a70-0493-4afb-9935-1fbe97ac82f6" id="820f7ea4-3d3d-436e-9a44-ddbea8862276"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="27.100840336134453" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="72.89915966386555" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="27.100840336134453" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="72.89915966386555" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="14187.0" aggregated="true" numberOfBuildings="34" name="aansl_ewp_lucht" id="719a2efb-06f5-461a-9c0f-dda92df28cd1">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6a610e44-e59e-4009-b97b-2b042cccab48">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4796,7 +4796,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f9320755-25e1-4a06-9b09-5ab5b243ec4e 4bacf062-091a-46ae-8966-4bd615e91596" id="1458a7ad-b7b1-4aa5-b01b-39c7eddb6aa6"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4840,7 +4840,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="7" name="aansl_ewp_lucht" id="b2346a87-16c2-480d-8f0b-75746d2ee787">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="bf9b07c8-efab-4067-b7af-32e97e0ea706">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4889,13 +4889,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="8fe55795-15ad-4862-bf67-e7a335b8d060 95d5e31b-4dea-41f5-8b32-61f5ab7ba500" id="29b8c667-c356-4c96-9d14-6dddfab48c33"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="682.0" aggregated="true" numberOfBuildings="4" name="aansl_ewp_lucht" id="05e8e5a9-3146-4cec-8240-2760e1967206">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="20d6978f-d7ba-4793-a652-76b23c330442">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -4944,7 +4944,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="107706a5-540f-4d38-9f3d-013d8766a965 4fb36f6a-a8b1-499b-8b5b-d1dc1fe8aea2" id="27fae48f-6b66-4023-b64e-e5486c7009d0"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -4988,7 +4988,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="26" name="aansl_ewp_bodem" id="cc8f0e09-484f-4af6-80c4-bab50b434c9e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="3cc81260-6067-4f1f-bc01-69a8988bdf10">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5037,14 +5037,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f8e15c2d-10eb-43c2-a61c-ce6915ae3c24 9afa007f-b971-4f80-baf3-744782332f50" id="c1b023d1-bc59-427a-ac60-ff6e5ba017d9"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.8461538461538463" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="96.15384615384616" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.8461538461538463" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="96.15384615384616" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="143588.0" aggregated="true" numberOfBuildings="124" name="aansl_ewp_bodem" id="e1e05e73-be95-479f-a519-7c8c1ccb67ac">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="7b89579e-bac5-48dc-b6bb-cb132c4c8bf8">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5093,7 +5093,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="3e77ba1a-3478-4d0e-97f0-fb9e27302be5 b560841c-5a5d-4746-a2e7-f38135bc4c67" id="ed1f8eef-95ca-456c-9d23-4a574876cd3a"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5137,7 +5137,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="957" name="aansl_ewp_bodem" id="3b64969b-3cfd-4d99-9e66-e4bbdab71a01">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="e1a7e7a8-a98c-4d78-b849-0e5cc2f9deb9">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5186,14 +5186,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="04c46e56-21ec-4859-b56c-cd44108b57d8 8f2afa83-d833-4aaa-ac92-533923787980" id="f2495447-7e4f-4b66-8dd7-89a1ae02b8f3"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="9.195402298850574" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="90.80459770114942" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="9.195402298850574" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="90.80459770114942" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="174864.0" aggregated="true" numberOfBuildings="159" name="aansl_ewp_bodem" id="993eeeea-22c0-4645-899f-b04734e86b30">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="8ccb51e9-f4c9-4c91-84fa-d909fbcec185">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5242,7 +5242,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="69cc3352-26e9-4750-9373-4b17bfb2b007 09c3d5cb-58c0-42cc-a35d-ad285713c10b" id="6e5ded50-8dc9-4ff1-b1a2-97536095ee9f"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5286,7 +5286,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1499" name="aansl_ewp_lucht" id="dc41a35e-380d-4e23-bac6-1e4988dc067e">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="423f78bb-12e7-432c-8d95-6d4c735412aa">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5335,14 +5335,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="1b36d2d9-559c-4a70-80b6-28996960d2ab ae7f199f-1525-4915-b757-2755ff1e6b5b" id="9bdab2a8-ba76-4971-bfcd-6fec84e96510"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="8.739159439626418" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="91.26084056037358" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="8.739159439626418" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="91.26084056037358" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="26229.0" aggregated="true" numberOfBuildings="209" name="aansl_ewp_lucht" id="d3e36d81-d0a7-47ef-ad8a-2fb64c5df692">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="3af2085c-32c4-498c-b5e8-161378c19631">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5391,7 +5391,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="108f19b4-8e32-4fae-a261-c82415877fc1 343adb14-8b01-4f57-939e-df07aa4c9555" id="d7c9bbdf-5422-4bdb-a63a-ccebef6af282"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5435,7 +5435,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="11" name="aansl_ewp_lucht" id="0e66fc5c-30d9-4ad7-bb70-5b397d9211f2">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="bfa105be-edd9-4063-9285-bc8d9fa592e7">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5484,13 +5484,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="aad47383-cfc0-4c79-a02c-a117e751c8b8 d2f7a122-57cd-449a-b89f-506def68913c" id="e9bd8c2d-deb9-4e21-b86c-10483b648b90"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="20875.0" aggregated="true" numberOfBuildings="48" name="aansl_ewp_lucht" id="1c846954-0d38-48a2-9433-88d38dfcd426">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="b7620abe-5fbf-464b-a2b6-0f2c427739ca">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5539,7 +5539,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="40a12a91-c9c7-4115-a2e8-11cce32849b3 4e0319aa-cec9-4835-bf65-8108730b3d34" id="c229afe7-5517-48e5-b6bc-1128fcfd26bb"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5583,7 +5583,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="2266" name="aansl_ewp_lucht" id="3256b11b-370d-4525-9e5b-28c47380da05">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="9c761581-818c-4b54-83f8-462ae34ee883">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5632,14 +5632,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e6982d17-151a-4baf-a1aa-94c5eeeb8d9e 01a3c25d-af2c-4e5a-bde2-4547bcdaed36" id="472f8e78-e9e0-4aa7-90fe-5b63eaa46cec"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="4.501323918799647" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="95.49867608120036" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="4.501323918799647" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="95.49867608120036" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="20111.0" aggregated="true" numberOfBuildings="254" name="aansl_ewp_lucht" id="322dc888-c0c6-496d-895e-6312ebe5a2ed">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="9e8aa066-cd2a-4c92-815a-865aa2a89e5a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5688,7 +5688,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="899a1ec6-4711-412d-a948-aa845115629f 53da77f4-bbc0-43a9-b1ae-c67b20690547" id="ee9a6c9d-61c6-49a0-b6cc-300ada1e1bf9"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5732,7 +5732,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="338" name="aansl_ewp_lucht" id="39df4fb9-1a72-49e0-9894-c56643ced06f">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="cd6e04a7-fcf8-4db7-a7f4-c71d7e99fb67">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5781,14 +5781,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="2f4e8e1d-abf9-4bb2-96e8-c7a7fa3379f9 49d0f059-b28f-4bc6-abc8-18864799e18f" id="8a0361b6-af2e-4ea2-b8d6-71f5bbee71ca"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="3.5502958579881656" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="96.44970414201184" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="3.5502958579881656" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="96.44970414201184" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="4386.0" aggregated="true" numberOfBuildings="68" name="aansl_ewp_lucht" id="f6bbc9d6-3142-4133-84be-99e18cdf246c">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a989e20f-216a-4cff-ac03-463f3156960c">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5837,7 +5837,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="823c86e9-7d69-41d0-afa5-20dccbf686eb f834198b-6835-44e4-a826-eef0fd22c273" id="5b4c2927-17c5-48c3-870c-2817cd0844a8"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -5881,7 +5881,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="3" name="aansl_ewp_bodem" id="4e1319c3-5743-4ec5-9d6c-1f83a9f3f8fd">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="e2389f7b-0ce0-41b7-b959-0e5f8c3ba46e">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5930,13 +5930,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="fba0eb54-6000-420c-b609-80ab0339049d a2bfa986-5594-4de2-aa34-fabf5e429cca" id="e373d5b2-d6aa-4f54-9ba3-4e706bcafcc8"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="15506.0" aggregated="true" numberOfBuildings="20" name="aansl_ewp_bodem" id="43227b85-97cd-42e3-b5b2-0dd085061cd7">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="51e63f4c-b8d4-447d-b817-0207944e3c82">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -5985,7 +5985,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="b65e1555-b5c0-4b20-bbbc-63801d85f056 55cd3a43-4e5a-47b6-8469-9af676de62e0" id="92fcccbb-460d-41b0-9bf1-2a815d4d3f35"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6029,7 +6029,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="53" name="aansl_ewp_bodem" id="cfcbff89-2eaa-4f79-a6fb-4fe051d00926">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6c472fd6-15ec-4353-8a16-7cf230c560e8">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6078,14 +6078,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="7195ba3c-89cb-4621-8aac-d1c9267de7c5 ce88b710-67d7-4e75-b497-02059ced4137" id="2dd24fac-1649-41bb-bc29-f98985fb439c"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="11.320754716981133" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="88.67924528301887" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="11.320754716981133" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="88.67924528301887" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="157402.0" aggregated="true" numberOfBuildings="183" name="aansl_ewp_bodem" id="98200c98-fa62-423c-9eef-7ac3ddd6ea68">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="0bb6832b-4b5e-4a33-a7e5-f0fa0f9bc485">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6134,7 +6134,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="06d99132-5e2b-4e73-988f-9947fea8ae71 fc125e3b-9423-499e-8c54-06d256f386a2" id="a3ce2175-8f6a-412d-bcc2-2f4f62a7df66"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6178,7 +6178,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="800" name="aansl_ewp_bodem" id="bd713562-5795-44d6-b45e-9c134cf3bc89">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d1537f1e-23fd-47dc-a4c3-ecda100a9689">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6227,14 +6227,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="ca36b896-db4a-4751-8b82-ee9c86b1c09a bb58176b-7605-4f0f-81eb-dd92cac898a3" id="ea8e4853-bb38-4f1c-b153-5e4cdf14e8f9"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="14.875" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="85.125" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="14.875" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="85.125" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="117327.0" aggregated="true" numberOfBuildings="157" name="aansl_ewp_bodem" id="e7d6388f-8aee-4eaf-8164-e8daf866c946">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="0e3015df-e652-419f-bb2e-9e890790fa2e">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6283,7 +6283,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="0363452d-345a-45d8-8ea9-e44fe004efaf 2f995cda-f527-479c-8465-48a45615ccc9" id="8ec4f671-0afe-4b7f-b09a-da01c3379ecb"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6327,7 +6327,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1123" name="aansl_ewp_lucht" id="49cdcf09-1a43-4fa2-a08f-6e9bf1f75ad7">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="37256257-59df-408f-aa4a-efbdae1c6f39">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6376,14 +6376,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="a48afcde-50d1-48c9-bba8-9d3a0a44ee3c c2326e40-1c4b-4f1a-897e-27ecd31f9edc" id="b0923165-f76f-4b1a-a6dc-5b8a8dcd1edf"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="4.808548530721282" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="95.19145146927872" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="4.808548530721282" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="95.19145146927872" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="20713.0" aggregated="true" numberOfBuildings="176" name="aansl_ewp_lucht" id="d21749eb-ab62-4e34-ae7b-a6946f1cad68">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6664f79e-5677-4b2f-a2d4-1bade5da8622">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6432,7 +6432,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="458596da-594c-4d2e-88bc-82f202144c98 869f50dd-f566-4a19-bf17-013026c73e32" id="6dcf6ac7-079e-4db7-a166-a03d1012a516"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6477,7 +6477,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="1595" name="aansl_rest70_collggheater" id="31c71635-01d9-4c7f-bb3e-1e9badc7dabd">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a46d3ad8-5466-436c-8ba6-31dae1071520">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -6526,16 +6526,16 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="13.35423197492163" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="31.724137931034484" energyLabel="LABEL_B"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="4.952978056426333" energyLabel="LABEL_C"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="49.96865203761756" energyLabel="LABEL_D"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="13.35423197492163" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="31.724137931034484" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="4.952978056426333" energyLabel="LABEL_C"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="49.96865203761756" energyLabel="LABEL_D"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="31238.0" aggregated="true" numberOfBuildings="228" name="aansl_rest70_collggheater" id="dcf72463-bd8d-4cbc-99e8-8972f38439fd">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d190fd91-4417-4497-84a9-a73404273f07">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -6584,7 +6584,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6629,7 +6629,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="122504.0" aggregated="true" numberOfBuildings="152" name="aansl_rest70_collggheater" id="16040b15-1c0e-4e03-84ff-194c7f26bb4a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="965ffeec-20ba-40e6-b33e-745fdb4efc62">
             <geometry xsi:type="esdl:Point" lon="166.66666666666666" CRS="Simple" lat="166.66666666666666"/>
@@ -6678,7 +6678,7 @@
             </port>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6722,7 +6722,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="48597.0" aggregated="true" numberOfBuildings="173" name="aansl_ewp_bodem" id="582ad044-1a4e-47ec-92f8-27ad7e3b4b1f">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="960a6da7-2d34-433c-b36f-8fb934e7a4c9">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6771,7 +6771,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="3c3a3cd5-78c8-4467-8ec8-70d7eff7abf2 da07d16d-a8e9-42f6-8074-6cca95e8e57d" id="5d42f5a3-73b6-45f5-8b5d-ed4b6ab2ebc1"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6815,7 +6815,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="2" name="aansl_ewp_bodem" id="fc266b31-622f-4153-b4a9-0f48dfcef651">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="7d3ea06a-699e-49d6-91c0-96532ba1a3a3">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6864,13 +6864,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="fd54e6e3-9c74-4d5c-b206-2f128d8724a0 f98a7c36-ab79-415c-9a07-0c8dbd49ef07" id="44ff38f2-9c74-46ef-bb9d-51927f0fd6f5"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="77602.0" aggregated="true" numberOfBuildings="16" name="aansl_ewp_bodem" id="2e61a860-d090-4d46-aa5b-d4b2a7e01776">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="cba32a16-f986-4cab-973a-ecb3ae99a1dc">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -6919,7 +6919,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f7669aab-e4ff-44f3-a28a-8a372953d6c6 95d71ec4-15d8-41b7-9ce9-5a2d368f145d" id="a5fddbfd-2d48-46d1-8f47-2298604fcb10"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -6963,7 +6963,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="995" name="aansl_ewp_lucht" id="c03307c6-86a1-411f-9775-d761a7233597">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="efe898e0-fd49-4ab2-9ed5-b908ac597f62">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7012,14 +7012,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="5a3b5ca7-67d3-4b8d-96a0-3d04a790d5a9 dda64990-6b96-4c8a-81fb-9b28be4614cf" id="8e428105-7c8e-4bdd-8c0c-26f81332716d"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="7.236180904522612" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="92.76381909547739" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="7.236180904522612" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="92.76381909547739" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="12860.0" aggregated="true" numberOfBuildings="25" name="aansl_ewp_lucht" id="57f30b17-8433-45ee-b663-5b2a1efe4f2f">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c320a24d-4fb7-45f6-8dad-faed932c91f9">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7068,7 +7068,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="7d737138-1583-4bee-aaf4-db8ea6e0fa6f 4d138baf-2de4-443f-8a4c-7cf4f7aa91bd" id="bcd066fa-6af2-4c10-9338-9c04185c5555"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7112,7 +7112,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="934" name="aansl_ewp_lucht" id="a1b89356-9dba-4ecf-b746-326be40c46c9">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="9b561420-cc54-452e-9574-d0069744425a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7161,14 +7161,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="1e157184-9c08-4b2c-a550-83e53cf6db6f dac71dcb-e382-40c8-997e-721b27274066" id="1b0e7538-c280-4bcb-9c38-ad25a221f545"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="17.66595289079229" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="82.3340471092077" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="17.66595289079229" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="82.3340471092077" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="5901.0" aggregated="true" numberOfBuildings="17" name="aansl_ewp_lucht" id="1e76976f-1ca5-4a6c-9a7c-043214e496a0">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d099faa9-d085-4878-b042-71a296b9e5ba">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7217,7 +7217,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="375842c8-19b3-46f7-854f-6684c82bb633 9e8365b8-4887-423d-b4be-9a47bf332c5e" id="720c4bf3-9df2-47af-a730-fe2b613950b1"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7261,7 +7261,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="845" name="aansl_ewp_lucht" id="6fc3d7ac-b105-4f98-ba10-d7e9df142c9c">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c7dbfbeb-6695-40ba-a8b6-e5a012eaf142">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7310,14 +7310,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="79c97fcd-251e-44d8-b31c-100694c58113 0899efc6-ac1b-4682-8859-737e552e9baf" id="ab659199-40eb-42e9-8fe9-c58c3eb84d28"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="13.254437869822485" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="86.74556213017752" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="13.254437869822485" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="86.74556213017752" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="11094.0" aggregated="true" numberOfBuildings="29" name="aansl_ewp_lucht" id="1776207d-67e3-4449-84ef-501d50c8d2cd">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d67a954d-e8bd-4d64-b6aa-f608a967ac49">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7366,7 +7366,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="e1fd0afb-6393-4f54-94e8-34af2cc94b2c f0de1924-f466-4e69-9405-38ba9fa0cfa4" id="91733e75-9e7a-44a8-bffc-c3acacc06707"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7410,7 +7410,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="942" name="aansl_ewp_lucht" id="18b69af2-1040-44af-9c25-3632f135d8a9">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="83d9aedf-6880-42de-8262-4cfe81184803">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7459,14 +7459,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="b88002fe-3ea0-4404-9751-19b1b7f55ba1 fafd0a3a-b291-4684-9f88-6443b497c19a" id="74ddee22-0dff-4cd2-b4b6-8d3318a72d46"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="78.13163481953292" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="21.86836518046709" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="78.13163481953292" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="21.86836518046709" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="5416.0" aggregated="true" numberOfBuildings="5" name="aansl_ewp_lucht" id="b4f9a26b-3425-4d68-bd0c-070890fc8d62">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="acac2aa0-b3c8-4684-af02-403aa3a260d7">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7515,7 +7515,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="44036465-25c1-447a-bc2a-d3369d9f9257 0edb10d6-9763-4f95-aec9-4e8f75d20d96" id="63b54556-3d9c-4a57-966e-2315331e8644"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7559,7 +7559,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="6" name="aansl_ewp_lucht" id="7e709324-5925-4e1f-87e2-8f7daeb4e610">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="c520f031-693d-443e-b8f3-dde66b409c79">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7608,13 +7608,13 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="981652ec-a7c7-4c2f-90a4-89adab0c37e0 4129bdbb-d96a-485a-b1be-a3467a9055ab" id="90b42834-1238-4250-ac25-e52338a71f89"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="32.0" aggregated="true" numberOfBuildings="3" name="aansl_ewp_lucht" id="c48af8c8-1e83-4793-a7c5-6401b1568336">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="b5ae3deb-3744-47d0-ba8c-4c536079e7fc">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7663,7 +7663,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="93d879cc-56ac-48e2-bbbe-99f8c89c45b8 7e6cc937-050d-421f-90a8-2e6afca092b8" id="ec709b6f-ded6-4724-b620-8511eb662c98"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7707,7 +7707,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="231" name="aansl_ewp_lucht" id="5a1cec46-19f5-42cd-99e6-73bebf10c250">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="f6ac466e-bc5b-4cff-b11f-397a25f24e6a">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7756,14 +7756,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="1eacac0e-4ab9-49b1-8374-ff476d978b00 6a3a008a-5c3f-49b3-b29b-07128307ebb5" id="464930d2-9ab8-496e-a2cf-e7501263de45"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="91.34199134199135" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="8.658008658008658" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="91.34199134199135" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="8.658008658008658" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="4.0" aggregated="true" numberOfBuildings="1" name="aansl_ewp_lucht" id="aa7aaabb-eefe-461b-9ccf-aa5820fcf99b">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="029078cb-40ae-4712-8105-09197c04e655">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7812,7 +7812,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="40812ace-e5a5-4f12-a45e-492a7d89606a 97c312ed-b46e-4c28-9824-baa5bda9b75e" id="52689784-ac7f-40ca-8e32-14fe9474ba04"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -7856,7 +7856,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="210" name="aansl_ewp_bodem" id="0dd0aa01-5e25-4ac1-a01a-40e97dbf6e42">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="201451b5-300b-4def-ab91-c17bffa97f9b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7905,14 +7905,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="ef20743e-c886-4120-b3da-1653cdd3b129 9404f8e8-a40e-4d4c-8515-5fa9119f109a" id="2b76a251-f0d3-4b0d-8460-7ce95de3f98d"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="21.428571428571427" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="78.57142857142857" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="21.428571428571427" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="78.57142857142857" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="12432.0" aggregated="true" numberOfBuildings="15" name="aansl_ewp_bodem" id="1cb2bfd0-d971-4ac5-b0c5-182e5fdafc7a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="0112ec17-d467-4bd3-af0a-d27c6d7fae20">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -7961,7 +7961,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="9358ec6a-89cd-4224-b505-ef5710f8300b 38a30262-26ba-40c1-91bc-2d8c72b11198" id="a5a45e65-6060-4e9f-961d-01b3715be4ef"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8005,7 +8005,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="17" name="aansl_ewp_lucht" id="c788a272-d420-41e1-a463-f1d5b3c41764">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="a04cf72b-d2c8-4198-aa57-7aeb7427f923">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8054,14 +8054,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="b1d03aa7-6675-431c-8d14-4ca07ed4dac9 3f92e2e9-5b99-4e5c-823a-01abcceb225e" id="3eef66ae-a375-4782-8bcd-7cccd6d0b4f8"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="11.76470588235294" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="88.23529411764706" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="11.76470588235294" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="88.23529411764706" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="16.0" aggregated="true" numberOfBuildings="2" name="aansl_ewp_lucht" id="1ea6480b-8e47-4a17-945f-edf2126f091d">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="6f28dfdd-c403-4d47-947a-5856273def9b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8110,7 +8110,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="3f6fa86d-f525-4027-b233-597bafaa0fe7 10d78110-b3c0-435f-8f46-e7bfb2113acf" id="03bb0998-c094-49c1-a004-ae639b08ac81"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8154,7 +8154,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="14" name="aansl_ewp_lucht" id="bd203230-c165-4450-a983-d10a7fb1c85f">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="935960de-c232-4f86-a3ad-62620a36e66d">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8203,14 +8203,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="bde696f2-24c5-4803-8b80-ce5576dbad54 1ca1a55c-f16a-4496-9d42-0878b085bb16" id="db130f2f-1ea9-4449-a54a-2c9772c6c6a7"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="21.428571428571427" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="78.57142857142857" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="21.428571428571427" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="78.57142857142857" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="2726.0" aggregated="true" numberOfBuildings="8" name="aansl_ewp_lucht" id="4f5bc0da-5123-4caa-b846-c4afb51a02af">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="587a104c-b05e-4ea2-b208-be8396cd073b">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8259,7 +8259,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="54967c1a-c76f-427b-8fbf-6bb33cd9b326 5baf4790-769b-44ec-88bb-eabdd9b3e2f2" id="261b022d-e685-441b-acb8-e8151c772e3a"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8303,7 +8303,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="43" name="aansl_ewp_bodem" id="c4f76021-65c9-44cc-8cc8-31f5827cfeca">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="ddc07d12-46ce-458f-8790-1ef36c5da361">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8352,14 +8352,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="4e26d5fe-e550-43b2-affa-c8eed4672c50 d8f47175-d4b5-4d7c-8ffe-efaae662322c" id="70967490-e9b4-4e0c-8a7b-cdcf73554217"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="2.3255813953488373" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="97.67441860465115" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="2.3255813953488373" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="97.67441860465115" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="22368.0" aggregated="true" numberOfBuildings="15" name="aansl_ewp_bodem" id="66b2caf9-9a54-407f-a11c-f2de41e432db">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="bf36105a-5b79-4798-b4b8-5db31ee27c22">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8408,7 +8408,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="a38b7759-e2bf-4e7d-9906-ad2217058656 b4489748-91af-4c38-9a23-85d9b46319d9" id="0633e3a2-c9a1-4c32-a84d-0947e35de35a"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8452,7 +8452,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="98" name="aansl_ewp_lucht" id="0af47027-e7df-4e8e-8ec5-eea3da46d66a">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="2ea848c2-21a2-4ddd-ad0c-606d742daaf9">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8501,14 +8501,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="d3e9bb23-8551-48d7-9ad8-d26a88d6fb0b 7a879dc3-032a-4506-8cc2-6f66033c3a0f" id="507ebd4d-09ee-4ea3-ba70-6fc715b4d804"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="7.142857142857142" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="92.85714285714286" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="7.142857142857142" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="92.85714285714286" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="758.0" aggregated="true" numberOfBuildings="7" name="aansl_ewp_lucht" id="d0b6c700-a2d5-42dc-9f3b-98a9e6b972a7">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="7194fd8b-26ca-4d31-b898-52eb49ece46d">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8557,7 +8557,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="a2d3a2f7-af7d-4a53-aefa-4bff642dc3e8 b71eabef-a39c-4743-896e-ccdf9897ce7e" id="ee2b1d98-c20e-48d7-bec9-0d16e0056118"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8601,7 +8601,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="33" name="aansl_ewp_bodem" id="c09efda1-7e97-4556-9935-eec818e89d50">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="887ed5da-e3e5-4608-85d7-f49a3f4b8570">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8650,14 +8650,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="9e644848-1f0d-4a70-a6bd-9e801c9112f6 15f98637-a567-485a-9fbc-32457b70f896" id="433da1aa-9c14-4c75-ac02-e95e986ecd92"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.0606060606060606" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="93.93939393939394" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.0606060606060606" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="93.93939393939394" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="12058.0" aggregated="true" numberOfBuildings="82" name="aansl_ewp_bodem" id="f57018a9-fa3f-4b2c-b893-c3661fd91a6c">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="03250b28-ce3a-4677-a231-b873c2df10ab">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8706,7 +8706,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="5f43fbf8-e792-4a8d-8be8-91819c26b61d 2055b609-3796-47a7-97c2-ba4c39c64f18" id="ed973fc0-f514-4302-b894-4ebb639e8617"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8750,7 +8750,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="95" name="aansl_ewp_lucht" id="dfcec548-44fb-409d-a2ec-922a2e755c55">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="9596bdf4-a0f3-4415-bb7b-c61d9617e778">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8799,14 +8799,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="7565877c-fb46-4665-a799-06ff19e7f07d b71d495c-9616-4901-ab5a-fc8bcd0a29cb" id="b2f8f8c1-f9b1-4502-9b50-c3d3e958dfb1"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="6.315789473684211" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="93.6842105263158" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="6.315789473684211" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="93.6842105263158" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="654.0" aggregated="true" numberOfBuildings="15" name="aansl_ewp_lucht" id="a5309afe-2151-44b3-998d-46725069bb74">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="d107dbc5-8641-4ad3-9edb-ba1c9c995cd6">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8855,7 +8855,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="b6d51f4b-d502-4e0d-950d-5359d065b9db 93c2e47c-21e4-474f-889f-2497cb78f177" id="776c654e-3ea4-4dec-a5f8-4c5fc3f4b6ee"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -8899,7 +8899,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="23" name="aansl_ewp_bodem" id="a18a8a0e-a184-409d-82e4-61b205711079">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="2a4f319f-a565-4ef9-8cf6-466bf8875799">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -8948,14 +8948,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="f2211ebf-00cc-4001-930a-a5471599cdf2 60889ac6-d8ac-4478-b168-2005e6fc0401" id="604707b6-dcc2-45ca-82cc-a34f725b427d"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="21.73913043478261" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="78.26086956521739" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="21.73913043478261" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="78.26086956521739" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="1210.0" aggregated="true" numberOfBuildings="3" name="aansl_ewp_bodem" id="02bd5245-aa26-4d0f-8c3f-90ae0bbe78d0">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="ab65668f-5d96-4be6-b2e3-0be0008e42a6">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -9004,7 +9004,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="34edc2fe-6617-4c31-9668-cd93d1cd9f1a a7b5f26f-7c83-449a-90f0-d21a0e6a497f" id="073b5883-431e-437b-bec6-60e6420255b1"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>
@@ -9048,7 +9048,7 @@
         <asset xsi:type="esdl:AggregatedBuilding" aggregated="true" numberOfBuildings="153" name="aansl_ewp_lucht" id="7b73f059-8185-41df-97ab-18a7a8aa6aec">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="RESIDENTIAL"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="RESIDENTIAL"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="b26edd9a-6998-45cb-b0c6-e22ba5bf0f37">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -9097,14 +9097,14 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="ba433f79-c81c-4a6c-b227-b509f7ca4a04 f60370f9-d6a4-4e8a-9ce3-184a2667a451" id="b71330c0-ec65-4733-b780-8e915e95b4f0"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="14.37908496732026" energyLabel="LABEL_A"/>
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="85.62091503267973" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="14.37908496732026" energyLabel="LABEL_A"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="85.62091503267973" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
         <asset xsi:type="esdl:AggregatedBuilding" floorArea="1341.0" aggregated="true" numberOfBuildings="20" name="aansl_ewp_lucht" id="5f8bab66-09cf-444a-9bd4-cbdb4a8a6166">
           <geometry xsi:type="esdl:Point" lon="nan" lat="nan"/>
           <buildingTypeDistribution xsi:type="esdl:BuildingTypeDistribution">
-            <buildingTypePercentage xsi:type="esdl:BuildingTypePercentage" percentage="100.0" buildingType="UTILITY"/>
+            <bin xsi:type="esdl:BuildingTypeBin" percentage="100.0" buildingType="UTILITY"/>
           </buildingTypeDistribution>
           <asset xsi:type="esdl:EConnection" aggregated="true" name="Elektricity_connector" id="772918b3-50d3-4ae2-99d3-624a0aa04534">
             <geometry xsi:type="esdl:Point" lon="125.0" CRS="Simple" lat="250.0"/>
@@ -9153,7 +9153,7 @@
             <port xsi:type="esdl:OutPort" name="OutPort" connectedTo="bd3f0dc3-b43a-44ed-a2ef-c3c4db7ec473 435f5133-8492-4380-823b-779dd87c51b0" id="ea6ba2c2-e60f-4712-95d7-1b1007fde16d"/>
           </asset>
           <energyLabelDistribution xsi:type="esdl:EnergyLabelDistribution">
-            <labelPerc xsi:type="esdl:EnergyLabelPerc" percentage="100.0" energyLabel="LABEL_B"/>
+            <bin xsi:type="esdl:EnergyLabelBin"  percentage="100.0" energyLabel="LABEL_B"/>
           </energyLabelDistribution>
         </asset>
       </area>

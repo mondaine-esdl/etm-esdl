@@ -10,6 +10,7 @@ from flask_restx import Namespace, Resource
 from config.conversions.inputs import ON_HOLD
 
 from app.utils.api_utils import fail_with
+from app.utils.garbage import HaltGarbageCollection
 from app.models.energy_system import EnergySystemHandler
 from app.models.kpi_handler import KPIHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
@@ -49,7 +50,9 @@ class EnergySystem(Resource):
 
         converter = EsdlToScenarioConverter(self.energy_system_handler)
         self.__create_new_scenario_id(converter.area)
-        self.__set_sliders_in_etm(self.__filter_on_hold(converter.calculate()))
+
+        with HaltGarbageCollection():
+            self.__set_sliders_in_etm(self.__filter_on_hold(converter.calculate()))
 
         self.__attach_esdl_to_etm(energy_system_title)
 
@@ -86,7 +89,7 @@ class EnergySystem(Resource):
         KPIHandler(self.energy_system_handler, self.scenario_id).add_kpis_to_esdl()
         result = AttachEsdlToEtengine.execute(
             self.scenario_id,
-            self.energy_system_handler.get_as_stream(),
+            self.energy_system_handler.to_bytesio(),
             energy_system_title
         )
         if not result.successful:

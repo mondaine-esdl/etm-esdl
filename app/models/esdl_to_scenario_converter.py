@@ -7,7 +7,6 @@ import config.conversions.assets as assets
 from config.conversions import area_mapping
 
 from app.utils.exceptions import EnergysystemParseError
-
 from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.parsers import (
@@ -41,7 +40,7 @@ class EsdlToScenarioConverter():
             self.inputs['households_number_of_residences'] = number_of_buildings['RESIDENTIAL']
         self.__setup_building_parsers(number_of_buildings)
 
-        for sub_area in self.energy_system.es.instance[0].area.area:
+        for sub_area in self.energy_system.area_instance():
             self.parse_aggregated_buidings(sub_area)
 
         # Balance sliders in share groups
@@ -56,7 +55,7 @@ class EsdlToScenarioConverter():
         self.calculate()
 
         try:
-            year = self.energy_system.es.instance[0].date.date.year
+            year = self.energy_system.year()
         except AttributeError as exc:
             raise EnergysystemParseError('Date instance was missing in the ESDL') from exc
 
@@ -129,7 +128,7 @@ class EsdlToScenarioConverter():
         '''
         Returns all instances of aggegrated buildings in the energy system
         '''
-        return self.energy_system.get_all_instances_of_type('AggregatedBuilding')
+        return self.energy_system.get_all_instances_of_type_by_name('AggregatedBuilding')
 
 
     def __building_type(self, asset):
@@ -137,10 +136,10 @@ class EsdlToScenarioConverter():
         Returns the building type (UTILITY or RESIDENTIAL) of an aggegrated building asset
         TODO: could be an esdl util
         '''
-        return str(asset.buildingTypeDistribution.buildingTypePercentage[0].buildingType)
+        return str(asset.buildingTypeDistribution.bin[0].buildingType)
 
     def __convert_area(self):
         '''Converts the energy_systems area to an ETM area if a conversion is available'''
-        area = self.energy_system.es.instance[0].area.id
+        area = self.energy_system.area_code()
 
         return area_mapping.get(area, area)

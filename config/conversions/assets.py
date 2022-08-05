@@ -491,7 +491,7 @@ ASSETS = [
 
 distributions = {
     'energyLabelDistribution': {
-        'category': 'labelPerc',
+        'category': 'bin',
         'attribute': 'energyLabel',
         'percentage': 'percentage',
         'inputs': {

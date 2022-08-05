@@ -22,7 +22,7 @@ def asset_has_flh_connected(asset):
 
 @pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_full_load_hours_with_asset_with_full_load_hours(hic_handler):
-    asset = next(hic_handler.get_all_instances_of_type('GasHeater'))
+    asset = next(hic_handler.get_all_instances_of_type_by_name('GasHeater'))
 
     flh = full_load_hours(asset)
 
@@ -30,7 +30,7 @@ def test_full_load_hours_with_asset_with_full_load_hours(hic_handler):
 
 @pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_full_load_hours_with_asset_with_ports(hic_handler):
-    for asset in hic_handler.get_all_instances_of_type('HeatingDemand'):
+    for asset in hic_handler.get_all_instances_of_type_by_name('HeatingDemand'):
         flh = full_load_hours(asset)
         if asset_has_flh_connected(asset):
             assert flh > 0

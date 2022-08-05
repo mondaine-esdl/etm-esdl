@@ -14,14 +14,14 @@ def energy_system_handler():
 def test_parse(energy_system_handler):
     aggregrated_building = energy_system_handler.get_assets_of_type(
         'AggregatedBuilding',
-        energy_system_handler.es.instance[0].area.area[0]
+        energy_system_handler.area_instance()[0]
     )[0]
     total_buildings = {
         'RESIDENTIAL': 10000,
         'UTILITY': 10000
     }
     building_type = str(
-        aggregrated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
+        aggregrated_building.buildingTypeDistribution.bin[0].buildingType
     )
 
     heat_parser = HeatingTechnologiesParser(energy_system_handler, total_buildings)

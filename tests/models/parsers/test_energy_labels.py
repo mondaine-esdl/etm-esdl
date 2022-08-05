@@ -16,10 +16,10 @@ def test_parse(energy_system_handler):
     label_parser = EnergyLabelsParser(energy_system_handler, total_buildings)
     aggregrated_building = energy_system_handler.get_assets_of_type(
         'AggregatedBuilding',
-        energy_system_handler.es.instance[0].area.area[0]
+        energy_system_handler.area_instance()[0]
     )[0]
     building_type = str(
-        aggregrated_building.buildingTypeDistribution.buildingTypePercentage[0].buildingType
+        aggregrated_building.buildingTypeDistribution.bin[0].buildingType
     )
 
     label_parser.parse(aggregrated_building, building_type)
@@ -36,7 +36,7 @@ def test_parse_distribution(energy_system_handler):
 
     aggregrated_building = energy_system_handler.get_assets_of_type(
         'AggregatedBuilding',
-        energy_system_handler.es.instance[0].area.area[0]
+        energy_system_handler.area_instance()[0]
     )[0]
 
     dist, prop = label_parser.parse_distribution(aggregrated_building, 'energyLabelDistribution')

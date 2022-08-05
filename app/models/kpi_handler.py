@@ -1,5 +1,7 @@
 '''Everything to do with KPIs'''
 
+from esdl import esdl
+
 import config.conversions.kpis as kpis
 from config.conversions import quantities
 from app.services.query_scenario import QueryScenario
@@ -23,24 +25,24 @@ class KPIHandler():
         q_and_u = self.energy_system.get_quantity_and_units()
 
         for quantity, prop in quantities.items():
-            if self.energy_system.get_by_id(quantity) is None:
-                q_and_u.quantityAndUnit.append(
-                    self.energy_system.esdl.QuantityAndUnitType(
-                        id=quantity,
-                        physicalQuantity=prop['physicalQuantity'],
-                        multiplier=prop['multiplier'],
-                        unit=prop['unit'],
-                        description=prop['description']
-                    )
-                )
+            if self.energy_system.has_object_with_id(quantity): continue
 
+            q_and_u.quantityAndUnit.append(
+                esdl.QuantityAndUnitType(
+                    id=quantity,
+                    physicalQuantity=prop['physicalQuantity'],
+                    multiplier=prop['multiplier'],
+                    unit=prop['unit'],
+                    description=prop['description']
+                )
+            )
 
     def update(self):
         """
         Update the KPIs of the energy system based on ETM queries
         """
 
-        for kpi in self.energy_system.es.instance[0].area.KPIs.kpi:
+        for kpi in self.energy_system.area().KPIs.kpi:
             # TODO@Roos: if KPI is unknown -> KeyError -> 500. Is that wanted behaviour?
             prop = kpis.gqueries[kpi.id]
             metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
@@ -51,7 +53,6 @@ class KPIHandler():
                 self.__add_results_to_kpi_distribution(kpi, prop, metrics)
             else:
                 kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
-
 
     def add_kpis(self):
         """
@@ -64,13 +65,12 @@ class KPIHandler():
             kpi = self.__create_new_kpi(kpi_id, prop)
 
             if prop['esdl_type'] == 'DistributionKPI':
-                kpi.distribution = self.energy_system.esdl.StringLabelDistribution()
+                kpi.distribution = esdl.StringLabelDistribution()
                 self.__add_results_to_kpi_distribution(kpi, prop, metrics)
             else:
                 kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
             self.energy_system.add_kpi(kpi)
-
 
     def get_metrics(self, *gqueries):
         '''Requests the metrics for the gqueries from the ETM'''
@@ -81,7 +81,6 @@ class KPIHandler():
 
         raise ETMParseError.with_humanized_message(query_result.errors)
 
-
     def __create_new_kpi(self, kpi_id, prop):
         '''Sets up and returns a new KPI with the given id, based on the given properties'''
         return self.energy_system.create_kpi(
@@ -90,7 +89,6 @@ class KPIHandler():
             prop['name'],
             self.energy_system.get_by_id_slow(prop['q_and_u'])
         )
-
 
     def __add_results_to_kpi_distribution(self, kpi, prop, metrics):
         ''' For all gqueries in the prop, add values to the kpi's distribution'''
@@ -101,15 +99,13 @@ class KPIHandler():
                 gquery['label']
         )
 
-
     def __add_value_to_kpi_distribution(self, kpi, value, label):
         '''Add the value to the kpi's ditribution'''
         if value == 0:
             return
         kpi.distribution.stringItem.append(
-            self.energy_system.esdl.StringItem(label=label, value=value)
+            esdl.StringItem(label=label, value=value)
         )
-
 
     def add_kpis_to_esdl(self):
         """

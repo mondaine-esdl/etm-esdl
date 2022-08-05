@@ -33,7 +33,7 @@ class RooftopPVParser(AssetParser):
         """
         Check rooftop PV potential
         """
-        potentials_generator = self.energy_system.get_all_instances_of_type('SolarPotential')
+        potentials_generator = self.energy_system.get_all_instances_of_type_by_name('SolarPotential')
 
         self.potential = sum((potential.value for potential in potentials_generator))
 
@@ -42,7 +42,7 @@ class RooftopPVParser(AssetParser):
         """
         Check rooftop PV installations to determine the production
         """
-        assets_generator = self.energy_system.get_all_instances_of_type('PVInstallation')
+        assets_generator = self.energy_system.get_all_instances_of_type_by_name('PVInstallation')
 
         # Assuming there is only one port and one profile
         self.production = sum((asset.port[0].profile[0].value for asset in assets_generator))

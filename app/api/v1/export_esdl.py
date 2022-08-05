@@ -52,7 +52,7 @@ class ETMScenario(Resource):
         esh = update_esdl(esh, session_id)
 
         return {
-            'energy_system': esh.get_as_string()
+            'energy_system': esh.to_string()
         }
 
 def setup_energy_system_handler_from_args(args):

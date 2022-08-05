@@ -1,6 +1,7 @@
 """
 Parser for volatile production (PV parks and wind turbines)
 """
+import esdl as esdl
 
 from app.models.energy_system import EnergyDataRepository
 from app.utils.exceptions import ETMParseError, EnergysystemParseError
@@ -151,7 +152,7 @@ class VolatileParser(CapacityParser):
         power = edr_asset.power
         flh = int(self.full_load_hours)
 
-        measure = self.energy_system.esdl.Measure()
+        measure = esdl.Measure()
 
         # klass = getattr(self.energy_system.esdl, self.props['asset'])
         # constructor = globals()[klass.name]
@@ -161,7 +162,7 @@ class VolatileParser(CapacityParser):
             # asset = constructor()
             power = min(power, remaining_diff)
 
-            asset = self.energy_system.esdl.WindTurbine(
+            asset = esdl.WindTurbine(
                 id=self.energy_system.generate_uuid(),
                 power=power,
                 fullLoadHours=flh)
