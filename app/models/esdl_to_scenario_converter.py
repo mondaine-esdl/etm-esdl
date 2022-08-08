@@ -3,12 +3,10 @@
 import pprint
 from collections import defaultdict
 
-from config.conversions import area_mapping
-
 from app.utils.exceptions import EnergysystemParseError
 from app.models.situation import Situation
 from app.models.balancer import Balancer
-from app.models.conversion_assets import assets
+from app.models.conversion_assets import assets, area_mapping
 from app.models.parsers import (
     EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser,
     VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser

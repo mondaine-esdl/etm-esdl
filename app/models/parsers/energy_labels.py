@@ -2,8 +2,7 @@
 Parser for energy labels - this one is special because it has a special config
 '''
 
-from app.models.conversion_assets import distributions
-from config.conversions.key_figures import energyLabel
+from app.models.conversion_assets import distributions, energy_label_percentages
 from .parser import AggregratedBuildingParser
 
 class EnergyLabelsParser(AggregratedBuildingParser):
@@ -45,4 +44,4 @@ class EnergyLabelsParser(AggregratedBuildingParser):
         '''
         TODO: @Roos
         '''
-        return perc / 100. * share * energyLabel[str(label)][building_type]
+        return perc / 100. * share * energy_label_percentages[str(label)][building_type]

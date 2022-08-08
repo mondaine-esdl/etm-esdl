@@ -57,3 +57,7 @@ assets = ConversionAssets.load_config()
 
 # TODO: Nora you should not just load these configs without validations :)
 distributions = load_file(Path('config/conversions/distributions.yml'))
+
+energy_label_percentages = load_file(Path('config/conversions/energy_labels.yml'))
+
+area_mapping = load_file(Path('config/conversions/areas.yml'))
