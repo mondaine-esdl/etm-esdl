@@ -1,0 +1,30 @@
+# ESDL asset conversions for heatpumps
+
+- asset: HeatPump
+  parser: carrier_volume
+  attribute: power
+  carrier: E
+  sector: Industry_Chemicals
+  input: industry_chemicals_other_heater_electricity_share
+  factor: 1.e-6
+- asset: HeatPump
+  parser: carrier_volume
+  attribute: power
+  carrier: E
+  sector: Industry_Other
+  input: industry_aggregated_other_industry_electricity_share
+  factor: 1.e-6
+- asset: HeatPump
+  parser: carrier_volume
+  attribute: power
+  carrier: E
+  sector: Industry_Food
+  input: industry_other_food_heater_electricity_share
+  factor: 1.e-6
+- asset: HeatPump
+  parser: carrier_volume
+  attribute: power
+  carrier: E
+  sector: Industry_Paper
+  input: industry_other_paper_heater_electricity_share
+  factor: 1.e-6

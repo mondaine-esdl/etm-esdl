@@ -3,12 +3,12 @@
 import pprint
 from collections import defaultdict
 
-import config.conversions.assets as assets
 from config.conversions import area_mapping
 
 from app.utils.exceptions import EnergysystemParseError
 from app.models.situation import Situation
 from app.models.balancer import Balancer
+from app.models.conversion_asset import assets
 from app.models.parsers import (
     EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser,
     VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser
@@ -23,7 +23,6 @@ class EsdlToScenarioConverter():
         self.energy_system = energy_system
         self.area = self.__convert_area()
 
-
     def calculate(self):
         '''
         Parses the energy_systems assets and converts them to etm slider settings
@@ -31,7 +30,7 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         # Parse supply and demand assets and calculate the new input values
-        for asset in assets.ASSETS:
+        for asset in assets.collection:
             self.parse_asset(asset)
 
         # Parse buildings
@@ -46,9 +45,8 @@ class EsdlToScenarioConverter():
         # Balance sliders in share groups
         Balancer(self.inputs).call()
 
-        pprint.pprint(self.inputs)
+        # pprint.pprint(self.inputs)
         return self.inputs
-
 
     def as_situation(self):
         ''' Calculates the inputs and wraps them in a Situation'''
@@ -60,7 +58,6 @@ class EsdlToScenarioConverter():
             raise EnergysystemParseError('Date instance was missing in the ESDL') from exc
 
         return Situation(self.inputs, self.area, year)
-
 
     def parse_asset(self, asset):
         '''
@@ -80,7 +77,7 @@ class EsdlToScenarioConverter():
             VolatileParser(self.energy_system, asset, inputs=self.inputs).parse()
         elif asset['parser'] == 'volume':
             VolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
-
+        # Watch out! we are skipping the heating_tech parser!
 
     def determine_number_of_buildings(self):
         """
@@ -96,7 +93,6 @@ class EsdlToScenarioConverter():
 
         return number_of_buildings
 
-
     def parse_aggregated_buidings(self, area):
         """
         Parses all aggregated_buidings in the specified area, calculates slider settings
@@ -111,7 +107,6 @@ class EsdlToScenarioConverter():
             self.heat_parser.parse(aggregated_building, building_type)
             self.labels_parser.parse(aggregated_building, building_type)
 
-
     def __setup_building_parsers(self, total_number_of_buildings):
         '''
         Setup the parsers for aggegrated buildings: HeatingTechnologiesParser and EnergyLabelsParser
@@ -123,13 +118,11 @@ class EsdlToScenarioConverter():
             self.energy_system, total_number_of_buildings, self.inputs
         )
 
-
     def __list_of_assets(self):
         '''
         Returns all instances of aggegrated buildings in the energy system
         '''
         return self.energy_system.get_all_instances_of_type_by_name('AggregatedBuilding')
-
 
     def __building_type(self, asset):
         '''

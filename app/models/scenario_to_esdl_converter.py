@@ -1,7 +1,7 @@
 '''
 Some conversion methods
 '''
-from config.conversions.assets import ASSETS
+from app.models.conversion_asset import assets
 from app.models.parsers import VolatileParser
 from app.models.kpi_handler import KPIHandler
 
@@ -25,4 +25,4 @@ def update_esdl(energy_system, scenario_id):
 
 def get_configs_for_assets(asset_type):
     '''Returns a generator full of config asset with given asset type e.g. GasHeater'''
-    return (asset for asset in ASSETS if asset['asset'] == asset_type)
+    return (asset for asset in assets.collection if asset['asset'] == asset_type)
