@@ -2,7 +2,7 @@
 Parser for heating technologies
 '''
 
-from app.models.conversion_asset import assets
+from app.models.conversion_assets import assets
 from .parser import AggregratedBuildingParser
 
 class HeatingTechnologiesParser(AggregratedBuildingParser):

@@ -1,6 +1,6 @@
 import pytest
 
-from app.models.conversion_asset import assets
+from app.models.conversion_assets import assets
 
 def test_collection():
     assert assets.collection

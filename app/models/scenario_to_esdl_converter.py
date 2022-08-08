@@ -1,7 +1,7 @@
 '''
 Some conversion methods
 '''
-from app.models.conversion_asset import assets
+from app.models.conversion_assets import assets
 from app.models.parsers import VolatileParser
 from app.models.kpi_handler import KPIHandler
 

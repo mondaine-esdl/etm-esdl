@@ -1,8 +1,8 @@
 '''
-Parser for energy labels
+Parser for energy labels - this one is special because it has a special config
 '''
 
-from config.conversions.assets import distributions
+from app.models.conversion_assets import distributions
 from config.conversions.key_figures import energyLabel
 from .parser import AggregratedBuildingParser
 

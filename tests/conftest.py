@@ -8,7 +8,7 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 # pylint: disable=wrong-import-position, disable=import-error, disable=redefined-outer-name
 from app import create_app
 from app.models.energy_system import EnergySystemHandler
-from app.models.conversion_asset import assets
+from app.models.conversion_assets import assets
 
 
 @pytest.fixture

@@ -4,9 +4,15 @@ import yaml
 from app.utils import parser_to_snake
 
 # We can put the assets into objects if we want to do some validation on them
+def load_file(source: Path) -> dict:
+    '''Loads a YAML file'''
+    with open(source, 'r') as f:
+        doc = yaml.load(f, Loader=yaml.FullLoader)
+
+    return doc
 
 class ConversionAssets:
-    def __init__(self, collection):
+    def __init__(self, collection: list):
         self.collection = collection
 
     def __iter__(self):
@@ -34,23 +40,20 @@ class ConversionAssets:
 
         return {}
 
-    @staticmethod
-    def _load_file(source):
-        with open(source, 'r') as f:
-            doc = yaml.load(f, Loader=yaml.FullLoader)
-
-        return doc
-
     @classmethod
     def load_config(cls, path=Path('config/conversions/assets')):
         '''Create a new instance based on the current assets in the config'''
         collection = []
 
         for asset_file in path.glob('**/*.yml'):
-            collection.extend(cls._load_file(asset_file))
+            collection.extend(load_file(asset_file))
 
         return cls(collection)
+
 
 # TODO: is this instance only created once? Let's make sure! Or find a package to
 # interface with yml as db?
 assets = ConversionAssets.load_config()
+
+# TODO: Nora you should not just load these configs without validations :)
+distributions = load_file(Path('config/conversions/distributions.yml'))
