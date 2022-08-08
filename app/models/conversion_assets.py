@@ -3,7 +3,6 @@ import yaml
 
 from app.utils import parser_to_snake
 
-# We can put the assets into objects if we want to do some validation on them
 def load_file(source: Path) -> dict:
     '''Loads a YAML file'''
     with open(source, 'r') as f:
@@ -13,6 +12,7 @@ def load_file(source: Path) -> dict:
 
 class ConversionAssets:
     def __init__(self, collection: list):
+        # Should validate each asset had a valid parser, a valid esdl asset etc.
         self.collection = collection
 
     def __iter__(self):
@@ -61,3 +61,5 @@ distributions = load_file(Path('config/conversions/distributions.yml'))
 energy_label_percentages = load_file(Path('config/conversions/energy_labels.yml'))
 
 area_mapping = load_file(Path('config/conversions/areas.yml'))
+
+quantities = load_file(Path('config/conversions/quantities.yml'))

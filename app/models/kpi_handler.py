@@ -3,7 +3,7 @@
 from esdl import esdl
 
 import config.conversions.kpis as kpis
-from config.conversions import quantities
+from app.models.conversion_assets import quantities
 from app.services.query_scenario import QueryScenario
 from app.utils.exceptions import ETMParseError
 

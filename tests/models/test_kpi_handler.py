@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 
 import config.conversions.kpis as kpis
-from config.conversions import quantities
+from app.models.conversion_assets import quantities
 from app.models.kpi_handler import KPIHandler
 from app.models.energy_system import EnergySystemHandler
 from app.utils.exceptions import ETMParseError
