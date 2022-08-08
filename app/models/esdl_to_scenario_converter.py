@@ -30,7 +30,7 @@ class EsdlToScenarioConverter():
         Returns a dict of slider settings
         '''
         # Parse supply and demand assets and calculate the new input values
-        for asset in assets.collection:
+        for asset in assets:
             self.parse_asset(asset)
 
         # Parse buildings
