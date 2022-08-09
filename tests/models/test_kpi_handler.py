@@ -3,8 +3,7 @@
 from unittest.mock import MagicMock
 import pytest
 
-import config.conversions.kpis as kpis
-from app.models.conversion_assets import quantities
+from app.models.conversion_assets import kpis, quantities
 from app.models.kpi_handler import KPIHandler
 from app.models.energy_system import EnergySystemHandler
 from app.utils.exceptions import ETMParseError
@@ -28,7 +27,7 @@ def energy_system_handler_with_kpis():
 
 @pytest.fixture
 def mocked_query_results(future_value):
-    queries = [gquery['gquery'] for prop in kpis.gqueries.values() for gquery in prop['gqueries']]
+    queries = [gquery['gquery'] for prop in kpis.values() for gquery in prop['gqueries']]
     return {query: {'future' : future_value} for query in queries}
 
 

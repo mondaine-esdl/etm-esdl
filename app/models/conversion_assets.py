@@ -63,3 +63,5 @@ energy_label_percentages = load_file(Path('config/conversions/energy_labels.yml'
 area_mapping = load_file(Path('config/conversions/areas.yml'))
 
 quantities = load_file(Path('config/conversions/quantities.yml'))
+
+kpis = load_file(Path('config/conversions/kpis.yml'))

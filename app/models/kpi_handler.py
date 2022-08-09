@@ -2,8 +2,7 @@
 
 from esdl import esdl
 
-import config.conversions.kpis as kpis
-from app.models.conversion_assets import quantities
+from app.models.conversion_assets import kpis, quantities
 from app.services.query_scenario import QueryScenario
 from app.utils.exceptions import ETMParseError
 
@@ -44,7 +43,7 @@ class KPIHandler():
 
         for kpi in self.energy_system.area().KPIs.kpi:
             # TODO@Roos: if KPI is unknown -> KeyError -> 500. Is that wanted behaviour?
-            prop = kpis.gqueries[kpi.id]
+            prop = kpis[kpi.id]
             metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
 
             if prop['esdl_type'] == 'DistributionKPI':
@@ -60,7 +59,7 @@ class KPIHandler():
         """
         self.energy_system.add_kpis()
 
-        for kpi_id, prop in kpis.gqueries.items():
+        for kpi_id, prop in kpis.items():
             metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
             kpi = self.__create_new_kpi(kpi_id, prop)
 
@@ -87,7 +86,7 @@ class KPIHandler():
             prop['esdl_type'],
             kpi_id,
             prop['name'],
-            self.energy_system.get_by_id_slow(prop['q_and_u'])
+            self.energy_system.get_by_id_slow(prop['quantity'])
         )
 
     def __add_results_to_kpi_distribution(self, kpi, prop, metrics):

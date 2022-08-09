@@ -5,7 +5,7 @@ Only: get
 '''
 
 from flask_restx import Namespace, Resource
-from config.conversions.kpis import gqueries as kpis
+from app.models.conversion_assets import kpis
 # pylint: disable=no-self-use
 
 api = Namespace('kpis', description='Get ETM KPIs')

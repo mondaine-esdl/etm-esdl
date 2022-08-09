@@ -5,7 +5,7 @@
 source_of_electricity_production:
   name: Elektriciteitsmix
   quantity: energy_demand
-  factor: 1.e6
+  factor: 1.e+6
   esdl_type: DistributionKPI
   gqueries:
     - label: Import
@@ -51,7 +51,7 @@ total_costs:
 dashboard_reduction_of_co2_emissions_versus_1990:
   name: Reductie CO2-emissies t.o.v. 1990
   quantity: co2_rel
-  factor: 1.e2
+  factor: 1.e+2
   esdl_type: DoubleKPI
   gqueries:
     - label: Reductie CO2-emissies t.o.v. 1990
