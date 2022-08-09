@@ -1,9 +1,9 @@
 ''' Describes a situation that can be used for comparing esdl-scenario settings'''
 
 from collections import defaultdict
-from config.conversions.inputs import balancing_groups
 
 from app.utils.exceptions import EnergysystemParseError
+from app.models.conversion_assets import balancing_groups
 from app.models.balancer import Balancer
 from app.models.situation.groups import slider_for, context_query_for, balancing_group_for
 import app.models.situation.context as context

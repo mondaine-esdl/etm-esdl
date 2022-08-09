@@ -65,3 +65,5 @@ area_mapping = load_file(Path('config/conversions/areas.yml'))
 quantities = load_file(Path('config/conversions/quantities.yml'))
 
 kpis = load_file(Path('config/conversions/kpis.yml'))
+
+balancing_groups = load_file(Path('config/conversions/balancing_groups.yml'))
