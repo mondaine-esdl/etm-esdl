@@ -7,8 +7,8 @@ import pytest
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 # pylint: disable=wrong-import-position, disable=import-error, disable=redefined-outer-name
 from app import create_app
-from config.conversions.assets import ASSETS
 from app.models.energy_system import EnergySystemHandler
+from app.models.conversion_assets import assets
 
 
 @pytest.fixture
@@ -38,7 +38,7 @@ class Helpers:
     @staticmethod
     def get_configs_for_asset_type(asset_type):
         '''Returns a generator full of config asset with given asset type e.g. GasHeater'''
-        return (asset for asset in ASSETS if asset['asset'] == asset_type)
+        return (asset for asset in assets.collection if asset['asset'] == asset_type)
 
     @staticmethod
     def get_first_config_for_asset_type(asset_type):

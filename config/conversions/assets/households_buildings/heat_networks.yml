@@ -1,0 +1,11 @@
+# Currently we combine all types of heat networks
+
+# Aansluiting op het warmtenet
+- asset: HConnection
+  parser: heating_technologies
+  attribute:
+  value:
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_district_heating_steam_hot_water_share
+      UTILITY: buildings_space_heater_district_heating_steam_hot_water_share

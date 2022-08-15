@@ -1,0 +1,51 @@
+# Heatpumps
+
+# Hybride warmtepomp op methaan
+- asset: HeatPump
+  parser: heating_technologies
+  attribute: additionalHeatingSourceType
+  carrier: GAS
+  aggegration: sum
+  inputs:
+    RESIDENTIAL: households_heater_hybrid_heatpump_air_water_electricity_share
+    UTILITY: buildings_space_heater_heatpump_air_water_network_gas_share
+
+# Hybride warmtepomp op waterstof
+- asset: HeatPump
+  parser: heating_technologies
+  attribute: additionalHeatingSourceType
+  carrier: HYDROGEN
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_hybrid_hydrogen_heatpump_air_water_electricity_share,
+      UTILITY: buildings_space_heater_heatpump_air_water_network_gas_share
+
+# Elektrische luchtwarmtepomp
+- asset: HeatPump
+  parser: heating_technologies
+  attribute: source
+  carrier: AIR
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_heatpump_air_water_electricity_share,
+      UTILITY: buildings_space_heater_collective_heatpump_water_water_ts_electricity_share
+
+# Elektrische bodemwarmtepomp
+- asset: HeatPump
+  parser: heating_technologies
+  attribute: source
+  carrier: AQUIFER
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_heatpump_ground_water_electricity_share,
+      UTILITY: buildings_space_heater_collective_heatpump_water_water_ts_electricity_share
+
+# Elektrische bodemwarmtepomp
+- asset: HeatPump
+  parser: heating_technologies
+  attribute: source
+  carrier: SUB_SURFACE
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_heatpump_ground_water_electricity_share,
+      UTILITY: buildings_space_heater_collective_heatpump_water_water_ts_electricity_share

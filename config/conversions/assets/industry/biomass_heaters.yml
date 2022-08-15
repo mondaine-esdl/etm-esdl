@@ -1,0 +1,37 @@
+# ESDL asset conversions for biomass heaters
+
+- asset: BiomassHeater
+  parser: carrier_volume
+  attribute: power
+  carrier: BM
+  sector: Industry_Chemicals
+  input: industry_chemicals_other_burner_wood_pellets_share
+  factor: 1.e-6
+- asset: BiomassHeater
+  parser: carrier_volume
+  attribute: power
+  carrier: BM
+  sector: Industry_Refineries
+  input: industry_chemicals_refineries_burner_wood_pellets_share
+  factor: 1.e-6
+- asset: BiomassHeater
+  parser: carrier_volume
+  attribute: power
+  carrier: BM
+  sector: Industry_Other
+  input: industry_aggregated_other_industry_wood_pellets_share
+  factor: 1.e-6
+- asset: BiomassHeater
+  parser: carrier_volume
+  attribute: power
+  carrier: BM
+  sector: Industry_Food
+  input: industry_other_food_burner_wood_pellets_share
+  factor: 1.e-6
+- asset: BiomassHeater
+  parser: carrier_volume
+  attribute: power
+  carrier: BM
+  sector: Industry_Paper
+  input: industry_other_paper_burner_wood_pellets_share
+  factor: 1.e-6

@@ -5,7 +5,7 @@ from collections import defaultdict
 from unittest.mock import patch
 import pytest
 
-from config.conversions.inputs import balancing_groups
+from app.models.conversion_assets import balancing_groups
 from app.models.situation import Situation
 import app.models.situation.context
 from app.models.situation.groups import slider_for, context_query_for, balancing_group_for

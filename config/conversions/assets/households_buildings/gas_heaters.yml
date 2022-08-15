@@ -1,0 +1,9 @@
+# CV-ketel
+- asset: GasHeater
+  parser: heating_technologies
+  attribute:
+  value:
+  aggregation: sum
+  inputs:
+      RESIDENTIAL: households_heater_combined_network_gas_share
+      UTILITY: buildings_space_heater_network_gas_share

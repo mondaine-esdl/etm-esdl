@@ -7,13 +7,12 @@ Only: post
 import urllib.parse
 from flask_restx import Namespace, Resource
 
-from config.conversions.inputs import ON_HOLD
-
 from app.utils.api_utils import fail_with
 from app.utils.garbage import HaltGarbageCollection
 from app.models.energy_system import EnergySystemHandler
 from app.models.kpi_handler import KPIHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
+from app.models.conversion_assets import config
 from app.services.attach_esdl_to_etengine import AttachEsdlToEtengine
 from app.services.set_scenario_sliders import SetScenarioSliders
 from app.services.create_scenario import CreateScenario
@@ -71,7 +70,7 @@ class EnergySystem(Resource):
 
     def __filter_on_hold(self, slider_settings):
         '''Filters the inputs that are on hold'''
-        for hold_input in ON_HOLD:
+        for hold_input in config['on_hold']:
             slider_settings.pop(hold_input, None)
 
         return slider_settings

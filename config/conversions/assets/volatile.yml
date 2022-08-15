@@ -1,0 +1,41 @@
+# ESDL asset conversions for volatile producers
+
+# WindTurbine
+- asset: WindTurbine
+  parser: volatile
+  # Volatile parser has sets of attributes: one power and one flh
+  attr_set:
+    power:
+      input: capacity_of_energy_power_wind_turbine_inland
+      gquery: merit_order_onshore_wind_turbines_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr: b68cb054-44ee-46cb-a32b-ef1b7830f0e1
+    fullLoadHours:
+      input: flh_of_energy_power_wind_turbine_inland
+      gquery: merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table
+      factor: 1
+      edr: b68cb054-44ee-46cb-a32b-ef1b7830f0e1
+
+# PVPark
+- asset: PVPark
+  parser: volatile
+  # Volatile parser has sets of attributes: one power and one flh
+  attr_set:
+    power:
+      input: capacity_of_energy_power_solar_pv_solar_radiation
+      gquery:
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: flh_of_solar_pv_solar_radiation
+      gquery:
+      factor: 1
+      edr:
+
+# Rooftop PV
+- asset: RooftopPV
+  parser: rooftop_pv
+  inputs:
+      RESIDENTIAL: households_solar_pv_solar_radiation_market_penetration
+      BUILDINGS: buildings_solar_pv_solar_radiation_market_penetration
+  factor: 1.e+2

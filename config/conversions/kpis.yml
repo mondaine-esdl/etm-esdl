@@ -1,0 +1,135 @@
+# ETM gqueries mapped to ESDL KPIs. These KPIs will be added to the ESDL file
+# The quantity field corresponds to the contents of the quantities config
+
+# Elektriciteitsmix
+source_of_electricity_production:
+  name: Elektriciteitsmix
+  quantity: energy_demand
+  factor: 1.e+6
+  esdl_type: DistributionKPI
+  gqueries:
+    - label: Import
+      gquery: import_in_source_of_electricity_production
+    - label: Zon
+      gquery: solar_in_source_of_electricity_production
+    - label: Wind
+      gquery: wind_in_source_of_electricity_production
+    - label: Biogas
+      gquery: biogas_in_source_of_electricity_production
+    - label: Biomassa
+      gquery: biomass_in_source_of_electricity_production
+    - label: Kolen
+      gquery: coal_in_source_of_electricity_production
+    - label: Aardgas
+      gquery: gas_in_source_of_electricity_production
+    - label: Geothermie
+      gquery: geothermal_in_source_of_electricity_production
+    - label: Groengas
+      gquery: greengas_in_source_of_electricity_production
+    - label: Water
+      gquery: hydro_in_source_of_electricity_production
+    - label: Waterstof
+      gquery: hydrogen_in_source_of_electricity_production
+    - label: Nucleair
+      gquery: nuclear_in_source_of_electricity_production
+    - label: Olie
+      gquery: oil_in_source_of_electricity_production
+    - label: Afval
+      gquery: waste_in_source_of_electricity_production
+
+# Totale systeemkosten
+total_costs:
+  name: Totale systeemkosten
+  quantity: total_costs
+  factor: 1
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Totale systeemkosten
+      gquery: total_costs
+
+# Reductie CO2-emissies t.o.v. startjaar (absoluut)
+dashboard_reduction_of_co2_emissions_versus_1990:
+  name: Reductie CO2-emissies t.o.v. 1990
+  quantity: co2_rel
+  factor: 1.e+2
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Reductie CO2-emissies t.o.v. 1990
+      gquery: dashboard_reduction_of_co2_emissions_versus_1990
+
+# Totale CO2-emissies
+total_co2_emissions:
+  name: CO2-emissies totaal
+  quantity: co2_abs
+  factor: 1.e-6
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: CO2-emissies totaal
+      gquery: total_co2_emissions
+
+# Opgesteld vermogen wind op land
+merit_order_onshore_wind_turbines_capacity_in_merit_order_table:
+  name: Opgesteld vermogen wind op land
+  quantity: power
+  factor: 1
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Wind op land (MW)
+      gquery: merit_order_onshore_wind_turbines_capacity_in_merit_order_table
+
+# Vollasturen wind op land
+merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table:
+  name: Vollasturen wind op land
+  quantity: time
+  factor: 1
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Wind op land (FLH)
+      gquery: merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table
+
+# Aandeel hernieuwbare energie op eindgebruik (totaal)
+# renewability:
+
+# Elektriciteitsopek uit hernieuwbare bronnen
+# total_renewable_electricity_produced:
+#     esdl_type: DoubleKPI
+#     name: Elektriciteitsopwek uit hernieuwbare bronnen
+#     quantity: energy_demand
+#     factor: 1
+#
+
+# Aandeel hernieuwbare elektriciteit op eindgebruik
+# share_of_renewable_electricity:
+#     esdl_type: DoubleKPI
+#     gqueries: [share_of_renewable_electricity]
+#     name: Aandeel hernieuwbare elektriciteit op eindgebruik
+#     quantity: share_of_energy_demand
+#     factor: 1
+#
+
+# Energiebesparing t.o.v. startjaar (totaal)
+# turk_energy_use:
+
+# Energie-import (totaal)
+
+# Aandeel import op eindgebruik (totaal)
+# dashboard_energy_import_netto:
+
+# Energie-export (totaal)
+
+# Import van elektriciteit
+# import_in_source_of_electricity_production:
+
+# Aandeel import op eindgebruik (elektriciteit)
+# net_import_of_electricity:
+
+# Export van elektriciteit
+
+# Import van warmte
+
+# Aandeel import op eindgebruik (warmte)
+
+# Export van warmte
+
+# Reductie CO2-emissies t.o.v. startjaar (relatief)
+# dashboard_co2_emissions_versus_start_year:
