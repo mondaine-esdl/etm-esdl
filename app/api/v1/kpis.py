@@ -23,7 +23,16 @@ post_parser.add_argument(
     'scenario_id',
     type=int,
     required=True,
-    help='The ID of the ETM scenario that can be used as context',
+    help='The ID of the ETM scenario that will be used as context',
+    location='form'
+)
+
+post_parser.add_argument(
+    'description',
+    type=str,
+    required=False,
+    help='Decription of the scenario of which the KPIs will be added.' +
+        'This will be the description of the KPIs object in the resulting ESDL.',
     location='form'
 )
 
@@ -46,7 +55,7 @@ class KPIs(Resource):
         '''Add ETM KPI's to the ESDL file'''
         args = post_parser.parse_args()
         esh = EnergySystemHandler.from_string(urllib.parse.unquote(args['energy_system']))
-        KPIHandler(esh, args['scenario_id']).add_kpis_to_esdl()
+        KPIHandler(esh, args['scenario_id']).add_kpis_to_esdl(description=args['description'])
 
         return {
             'energy_system': esh.to_string()
