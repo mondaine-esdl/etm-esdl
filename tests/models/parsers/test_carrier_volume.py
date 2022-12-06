@@ -36,7 +36,7 @@ def test_parse_with_chem_ref_gas_heaters_present(
 
 def test_parse_with_no_chem_ref_present(
     energy_system_handler_without_chem_ref_gas_heaters, helpers):
-    chem_ref_gas_heaters_prop = helpers.get_first_config_for_asset_type('GasHeater')
+    chem_ref_gas_heaters_prop = helpers.get_config_for('GasHeater', 'carrier_volume')
 
     parser = CarrierVolumeParser(
         energy_system_handler_without_chem_ref_gas_heaters,
