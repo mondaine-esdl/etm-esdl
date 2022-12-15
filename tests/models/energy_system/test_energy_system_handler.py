@@ -39,6 +39,12 @@ def future_hic_handler():
         data = file.read()
     return EnergySystemHandler.from_string(data)
 
+@pytest.fixture
+def hengelo_handler():
+    with open('tests/fixtures/valid_Hengelo.esdl') as file:
+        data = file.read()
+    return EnergySystemHandler.from_string(data)
+
 
 @pytest.mark.skip(reason="ESDL file temporarily removed")
 def test_get_all_instances_of_type_and_sector(hic_handler):
@@ -106,3 +112,10 @@ def test_id_for_kpi_object():
     result = id_for_kpi_object(desc)
 
     assert result == 'a_very_very_very_very_very_very_very_ver'
+
+
+def test_add_top_level_area(hengelo_handler):
+    area_name = "Netherlands"
+    hengelo_handler.add_top_level_area(area_name)
+
+    assert hengelo_handler.area().name == "Netherlands"

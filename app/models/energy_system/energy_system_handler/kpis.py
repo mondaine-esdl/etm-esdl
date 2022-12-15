@@ -7,7 +7,8 @@ DEFAULT_DESCRIPTION = 'KPIs from ETM'
 DEFAULT_ID = 'etm_kpis'
 
 def add_kpis(self, description=''):
-    ''' Add KPIs object to Energy System '''
+    ''' Add KPIs object to Energy System. Always add them to the top level area'''
+
     # create new KPIs object
     kpis = esdl.KPIs(
         id=id_for_kpi_object(description),
@@ -53,3 +54,6 @@ def id_for_kpi_object(description):
         return kpi_id[:40]
 
     return kpi_id
+
+
+#  Add top level area id there is none

@@ -8,6 +8,7 @@ from app.utils.exceptions import EnergysystemParseError
 from . import lookup
 from . import kpis
 from . import quantities_and_units
+from . import top_level_area
 
 def area_code(self):
     '''Returns the area code of the Energy System'''
@@ -66,3 +67,7 @@ EnergySystemHandler.create_kpi = kpis.create_kpi
 # Add the Q&U methods
 EnergySystemHandler.get_quantity_and_units = quantities_and_units.get_quantity_and_units
 EnergySystemHandler.add_energy_system_information = quantities_and_units.add_energy_system_information
+
+# Add the area methods
+EnergySystemHandler.add_top_level_area = top_level_area.add_top_level_area
+EnergySystemHandler.is_top_area = top_level_area.is_top_area

@@ -36,6 +36,15 @@ post_parser.add_argument(
     location='form'
 )
 
+post_parser.add_argument(
+    'area_name',
+    type=str,
+    required=False,
+    help='Name of the area to add the KPIs to. This area will be added if it does not yet exist.' +
+        'Defaults to "ETM area".' #the ETM area code of the supplied scenario.',
+    location='form'
+)
+
 @api.route('/')
 class KPIs(Resource):
     """
@@ -55,7 +64,11 @@ class KPIs(Resource):
         '''Add ETM KPI's to the ESDL file'''
         args = post_parser.parse_args()
         esh = EnergySystemHandler.from_string(urllib.parse.unquote(args['energy_system']))
-        KPIHandler(esh, args['scenario_id']).add_kpis_to_esdl(description=args['description'])
+        KPIHandler(esh, args['scenario_id']).add_kpis_to_esdl(
+            description=args['description'],
+            top_level_area=True,
+            top_level_name=args['area_name']
+        )
 
         return {
             'energy_system': esh.to_string()
