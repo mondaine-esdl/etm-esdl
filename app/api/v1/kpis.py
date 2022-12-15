@@ -41,7 +41,7 @@ post_parser.add_argument(
     type=str,
     required=False,
     help='Name of the area to add the KPIs to. This area will be added if it does not yet exist.' +
-        'Defaults to "ETM area".' #the ETM area code of the supplied scenario.',
+        'Defaults to "ETM area".', #the ETM area code of the supplied scenario.',
     location='form'
 )
 
