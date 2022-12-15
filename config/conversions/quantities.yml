@@ -35,3 +35,9 @@ total_costs: # id
   multiplier: MEGA
   unit: EURO
   description: Meur
+
+avg_costs: # id
+  physicalQuantity: COST
+  multiplier: NONE
+  unit: EURO
+  description: eur/MWh

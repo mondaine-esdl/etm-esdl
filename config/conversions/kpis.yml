@@ -67,6 +67,16 @@ total_co2_emissions:
     - label: CO2-emissies totaal
       gquery: total_co2_emissions
 
+# Emissies electriciteit import
+interconnector_co2:
+  name: CO2-emissies import (gewogen gemiddelde)
+  quantity: co2_abs
+  factor: 1.e-6
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Emissie factor warmte import
+      gquery: average_co2_emissions_of_imported_electricity
+
 # Opgesteld vermogen wind op land
 merit_order_onshore_wind_turbines_capacity_in_merit_order_table:
   name: Opgesteld vermogen wind op land
@@ -86,6 +96,16 @@ merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table:
   gqueries:
     - label: Wind op land (FLH)
       gquery: merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table
+
+# Gemiddelde elektriciteitsprijs
+merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table:
+  name: Gemiddelde elektriciteitsprijs
+  quantity: total_costs
+  factor: 1
+  esdl_type: DoubleKPI
+  gqueries:
+    - label: Gemiddelde elektriciteitsprijs
+      gquery: merit_order_price_average
 
 # Aandeel hernieuwbare energie op eindgebruik (totaal)
 # renewability:
