@@ -40,7 +40,7 @@
       BUILDINGS: buildings_solar_pv_solar_radiation_market_penetration
   factor: 1.e+2
 
-# PVInstallation
+# PVInstallation (same settings as PVPark, if both present in file: what do we do?)
 - asset: PVInstallation
   parser: volatile
   attr_set:
