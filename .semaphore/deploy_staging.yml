@@ -17,8 +17,8 @@ blocks:
             - checkout
             - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
             - 'docker build . -t etm-esdl:latest'
-            - 'docker tag etm-esdl:latest "$DOCKERHUB_USERNAME"/etm-esdl:latest'
-            - 'docker push "$DOCKERHUB_USERNAME"/etm-esdl:latest'
+            - 'docker tag etm-esdl:latest quintel/etm-esdl:latest'
+            - 'docker push quintel/etm-esdl:latest'
             - echo $SSH_FINGERPRINT >> ~/.ssh/known_hosts
             - 'ssh -i ~/.ssh/id_deploy "${SSH_USER}@${SSH_HOST}" -p $SSH_PORT "cd /var/www/etm-esdl && ./deploy.sh"'
       secrets:
