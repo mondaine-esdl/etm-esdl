@@ -38,9 +38,9 @@ source_of_electricity_production:
       gquery: waste_in_source_of_electricity_production
 
 # Totale systeemkosten
-total_system_costs:
+total_costs:
   name: Totale systeemkosten
-  quantity: total_costs
+  quantity: costs
   factor: 1
   esdl_type: DoubleKPI
   gqueries:
@@ -98,9 +98,9 @@ merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table:
       gquery: merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table
 
 # Gemiddelde elektriciteitsprijs
-average_electricity_price:
+merit_order_price_average:
   name: Gemiddelde elektriciteitsprijs
-  quantity: total_costs
+  quantity: costs
   factor: 1
   esdl_type: DoubleKPI
   gqueries:

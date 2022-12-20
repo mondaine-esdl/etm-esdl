@@ -30,7 +30,7 @@ co2_rel: # id
   unit: PERCENT
   description: '%'
 
-total_costs: # id
+costs: # id
   physicalQuantity: COST
   multiplier: MEGA
   unit: EURO
