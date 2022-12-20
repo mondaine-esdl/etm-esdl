@@ -53,11 +53,11 @@ class KPIHandler():
             else:
                 kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
-    def add_kpis(self):
+    def add_kpis(self, description=''):
         """
         Add KPIs to self.energy_system
         """
-        self.energy_system.add_kpis()
+        self.energy_system.add_kpis(description=description)
 
         for kpi_id, prop in kpis.items():
             metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
@@ -106,14 +106,18 @@ class KPIHandler():
             esdl.StringItem(label=label, value=value)
         )
 
-    def add_kpis_to_esdl(self):
+    def add_kpis_to_esdl(self, description='', top_level_area=True, top_level_name='ETM area'):
         """
-        After adding the KPI's to the EnergySystem, it's no longer able to be
-        converted into either a file or an esdl string
+        Add the ETM KPI's to the EnergySystem
         """
+        if top_level_area:
+            # TODO: default to scenario area code somehow
+            if not self.energy_system.is_top_area(top_level_name):
+                self.energy_system.add_top_level_area(top_level_name)
+
 
         # Add quantity and units to EnergySystemInformation
         self.add_quantity_and_units()
 
         # Add (empty) KPIs and targets and update KPIs based on ETM metrics
-        self.add_kpis()
+        self.add_kpis(description=description)

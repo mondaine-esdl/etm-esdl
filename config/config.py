@@ -22,7 +22,7 @@ class DevelopmentConfig(Config):
     '''Sets debug to true'''
     DEBUG = True
     # You can replace the ETEngine url here to point to your local version. Example:
-    ETENGINE_URL = 'http://host.docker.internal:3001/api/v3'
+    ETENGINE_URL = 'https://beta-engine.energytransitionmodel.com/api/v3'
     # Where <PORT> should be 3000, 3001, etc. You need host.docker.internal instead of localhost
     # here when running the app in Docker.
 

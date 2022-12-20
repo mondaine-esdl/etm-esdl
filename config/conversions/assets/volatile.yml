@@ -39,3 +39,18 @@
       RESIDENTIAL: households_solar_pv_solar_radiation_market_penetration
       BUILDINGS: buildings_solar_pv_solar_radiation_market_penetration
   factor: 1.e+2
+
+# PVInstallation (same settings as PVPark, if both present in file: what do we do?)
+- asset: PVInstallation
+  parser: volatile
+  attr_set:
+    power:
+      input: capacity_of_energy_power_solar_pv_solar_radiation
+      gquery:
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: flh_of_solar_pv_solar_radiation
+      gquery:
+      factor: 1
+      edr:

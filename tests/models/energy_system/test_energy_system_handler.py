@@ -6,6 +6,7 @@ Shoul be expanded!!
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system.energy_system_handler import EnergySystemHandler
+from app.models.energy_system.energy_system_handler.kpis import id_for_kpi_object
 
 @pytest.fixture
 def esdl_string():
@@ -35,6 +36,12 @@ def hic_handler():
 @pytest.fixture
 def future_hic_handler():
     with open('tests/fixtures/2050_hic_description_fake.esdl') as file:
+        data = file.read()
+    return EnergySystemHandler.from_string(data)
+
+@pytest.fixture
+def hengelo_handler():
+    with open('tests/fixtures/valid_Hengelo.esdl') as file:
         data = file.read()
     return EnergySystemHandler.from_string(data)
 
@@ -94,3 +101,21 @@ def test_all_instances_always_returns_same(hic_handler):
 #          # Same item always comes first
 #         gen = (next(esh.get_all_instances_of_type('GasHeater')) for _ in range(m))
 #         assert set([next(gen)]) == set(list(gen))
+
+def test_id_for_kpi_object():
+    desc = 'KPIs op nationaal niveau'
+    result = id_for_kpi_object(desc)
+
+    assert result == 'kpis_op_nationaal_niveau'
+
+    desc = 'A very very very very very very very very very long description'
+    result = id_for_kpi_object(desc)
+
+    assert result == 'a_very_very_very_very_very_very_very_ver'
+
+
+def test_add_top_level_area(hengelo_handler):
+    area_name = "Netherlands"
+    hengelo_handler.add_top_level_area(area_name)
+
+    assert hengelo_handler.area().name == "Netherlands"
