@@ -16,7 +16,7 @@ blocks:
           - pip install pipenv
           - 'export PATH=$HOME/.local/bin:$PATH'
           - checkout
-          - 'cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master'
+          # - 'cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master'
           - pipenv install --dev --ignore-pipfile --deploy
           - cache store pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock) .venv
       jobs:
