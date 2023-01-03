@@ -3,6 +3,13 @@
 # Electrolyzer
 - asset: Electrolyzer
   parser: flexibility
-  attribute: power
-  input: capacity_of_energy_hydrogen_flexibility_p2g_electricity
-  factor: 1.e-6
+  # Flexibility parser has sets of attributes: one power and one flh
+  attr_set:
+    power:
+      input: capacity_of_energy_hydrogen_flexibility_p2g_electricity
+      gquery: capacity_energy_hydrogen_flexibility_p2g_electricity_for_h2_chart
+      factor: 1.e-6
+    fullLoadHours:
+      input: # the flh are derived from a scenario and cannot be set
+      gquery: flh_p2g
+      factor: 1
