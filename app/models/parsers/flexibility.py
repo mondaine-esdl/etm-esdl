@@ -15,7 +15,6 @@ class FlexibilityParser(CapacityParser):
     def __init__(self, energy_system, props, *args, **kwargs):
         super().__init__(energy_system, props, *args, **kwargs)
         self.full_load_hours = 0.
-        self.power = 0. # is this line of code redundant?
 
 
     def parse(self):
@@ -64,8 +63,7 @@ class FlexibilityParser(CapacityParser):
         """
 
         self.full_load_hours = (
-            self.query_scenario(scenario_id, self.props['attr_set']['full_load_hours']) /
-            self.props['attr_set']['fullLoadHours']['factor']
+            self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
         )
 
         for asset in self.asset_generator:
