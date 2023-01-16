@@ -27,7 +27,6 @@ class FlexibilityParser(CapacityParser):
         self.power = sum((self.__value_of(asset, 'power') for asset in self.asset_generator))
         self.inputs[self.props['attr_set']['power']['input']] = self.power
 
-
     def update(self, scenario_id):
         """
         Find the flexibility asset and update the number of full load hours
@@ -36,7 +35,7 @@ class FlexibilityParser(CapacityParser):
         Sets self.full_load_hours
         """
 
-        self.update_flh()
+        self.__update_flh(scenario_id)
 
 
     def __value_of(self, asset, key):
@@ -63,11 +62,12 @@ class FlexibilityParser(CapacityParser):
         """
 
         self.full_load_hours = (
-            self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
+            self.__query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
         )
 
         for asset in self.asset_generator:
-            asset.fullLoadHours = self.full_load_hours
+            # ESDL expects the FLH to be an integer value
+            asset.fullLoadHours = int(self.full_load_hours)
 
 
     def __query_scenario(self, scenario_id, prop):

@@ -41,17 +41,18 @@ class KPIHandler():
         Update the KPIs of the energy system based on ETM queries
         """
 
-        for kpi in self.energy_system.area().KPIs.kpi:
-            # TODO@Roos: if KPI is unknown -> KeyError -> 500. Is that wanted behaviour?
-            prop = kpis[kpi.id]
-            metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
+        if self.energy_system.area().KPIs:
+            for kpi in self.energy_system.area().KPIs.kpi:
+                # TODO@Roos: if KPI is unknown -> KeyError -> 500. Is that wanted behaviour?
+                prop = kpis[kpi.id]
+                metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
 
-            if prop['esdl_type'] == 'DistributionKPI':
-                for kpi_item in kpi.distribution.stringItem:
-                    kpi.distribution.stringItem.remove(kpi_item)
-                self.__add_results_to_kpi_distribution(kpi, prop, metrics)
-            else:
-                kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
+                if prop['esdl_type'] == 'DistributionKPI':
+                    for kpi_item in kpi.distribution.stringItem:
+                        kpi.distribution.stringItem.remove(kpi_item)
+                    self.__add_results_to_kpi_distribution(kpi, prop, metrics)
+                else:
+                    kpi.value = metrics[prop['gqueries'][0]['gquery']]['future'] * prop['factor']
 
     def add_kpis(self, description=''):
         """

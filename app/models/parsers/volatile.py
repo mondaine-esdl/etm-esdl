@@ -49,7 +49,6 @@ class VolatileParser(CapacityParser):
         """
         Update the power and full load hours based on the ETM inputs
         """
-        self.parse()
         self.update_props(scenario_id)
 
     def __ensure_valid_props(self):
@@ -64,7 +63,7 @@ class VolatileParser(CapacityParser):
         )
 
     def __value_of(self, asset, key):
-        '''
+        """
         Returns the value multiplied with the config factor for the key
 
         Params:
@@ -73,7 +72,7 @@ class VolatileParser(CapacityParser):
 
         Returns:
             float
-        '''
+        """
         if not key in ['power', 'fullLoadHours']: return 0.0
 
         return getattr(asset, key) * self.props['attr_set'][key]['factor']
@@ -82,7 +81,8 @@ class VolatileParser(CapacityParser):
 
     def query_scenario(self, scenario_id, prop):
         """
-        TODO
+        Query the ETM scenario for the gquery value corresponding to the prop
+        that should be updated
         """
         query_result = QueryScenario.execute(scenario_id, prop['gquery'])
 
@@ -93,10 +93,11 @@ class VolatileParser(CapacityParser):
             f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
         )
 
-
     def update_props(self, scenario_id):
         """
-        TODO
+        Update the asset props based on the ETM values.
+
+        TODO: Add measures based on the power in the ETM
         """
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.
@@ -104,10 +105,10 @@ class VolatileParser(CapacityParser):
         flh_val = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
         self.update_flh(flh_val / self.props['attr_set']['fullLoadHours']['factor'])
 
-        power_val = self.query_scenario(scenario_id, self.props['attr_set']['power'])
-        diff = power_val - (self.power / self.props['attr_set']['power']['factor'])
-        if diff > 0:
-            self.add_measures(diff, self.props['attr_set']['power']['edr'])
+        # power_val = self.query_scenario(scenario_id, self.props['attr_set']['power'])
+        # diff = power_val - (self.power / self.props['attr_set']['power']['factor'])
+        # if diff > 0:
+        #     self.add_measures(diff, self.props['attr_set']['power']['edr'])
 
 
     def update_flh(self, val):
@@ -118,7 +119,7 @@ class VolatileParser(CapacityParser):
         self.full_load_hours = val
 
         for asset in self.asset_generator:
-            asset.fullLoadHours = val
+            asset.fullLoadHours = int(val)
 
 
     def remove_assets(self, diff):
