@@ -11,12 +11,16 @@ def get_quantity_and_units(self):
     system, instead of defining them manually per KPI in each area: this fosters reuse
     (but is not necessary)
     '''
-    if self.has_object_with_id('energy_system_information'):
-        return self.get_by_id('quantity_and_units')
+    if not self.energy_system.energySystemInformation:
+        print("hi")
+        self.add_energy_system_information()
 
-    self.add_energy_system_information()
-    q_and_u = esdl.QuantityAndUnits(id='quantity_and_units')
-    self.energy_system.energySystemInformation.quantityAndUnits = q_and_u
+    q_and_u = self.energy_system.energySystemInformation.quantityAndUnits
+
+    if not q_and_u:
+        print("adding!")
+        q_and_u = esdl.QuantityAndUnits(id='quantity_and_units')
+        self.energy_system.energySystemInformation.quantityAndUnits = q_and_u
 
     return q_and_u
 
