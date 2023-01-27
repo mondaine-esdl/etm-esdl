@@ -15,6 +15,12 @@
       gquery: merit_order_onshore_wind_turbines_full_load_hours_in_merit_order_table
       factor: 1
       edr: b68cb054-44ee-46cb-a32b-ef1b7830f0e1
+    marginalCosts:
+      input: # marginal costs cannot be set in the ETM
+      gquery: merit_order_onshore_wind_turbines_operating_costs_in_merit_order_table
+      factor: 1
+      edr:
+
 
 # PVPark
 - asset: PVPark
@@ -31,6 +37,11 @@
       gquery: merit_order_energy_power_solar_pv_solar_radiation_full_load_hours_in_merit_order_table
       factor: 1
       edr:
+    marginalCosts:
+      input: # marginal costs cannot be set in the ETM
+      gquery: merit_order_energy_power_solar_pv_solar_radiation_operating_costs_in_merit_order_table
+      factor: 1
+      edr:
 
 # Rooftop PV
 - asset: RooftopPV
@@ -41,6 +52,8 @@
   factor: 1.e+2
 
 # PVInstallation (same settings as PVPark, if both present in file: what do we do?)
+# TODO: Perhaps we should rename one of those to PVPanel and remove the other in order
+# to cover both PVPark and PVInstallation assets
 - asset: PVInstallation
   parser: volatile
   attr_set:
