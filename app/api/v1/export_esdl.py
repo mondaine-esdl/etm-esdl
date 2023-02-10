@@ -27,8 +27,13 @@ export_parser.add_argument(
     location='form'
 )
 export_parser.add_argument(
-    'session_id', type=str, required=True,
-    help='The session ID of the Energy Transition Model scenario',
+    'session_id_min', type=str, required=True,
+    help='The session ID of the Energy Transition Model default/minimum scenario',
+    location='form'
+)
+export_parser.add_argument(
+    'session_id_max', type=str, required=False,
+    help='The session ID of the Energy Transition Model maximum scenario',
     location='form'
 )
 
@@ -44,12 +49,13 @@ class ETMScenario(Resource):
         Update ESDL energy system description based on ETM scenario settings
         """
         args = export_parser.parse_args()
-        session_id = args['session_id']
+        session_id_min = args['session_id_min']
+        session_id_max = args['session_id_max']
 
         esh = setup_energy_system_handler_from_args(args)
 
         # Call method that updates ESDL based on ETM scenario settings
-        esh = update_esdl(esh, session_id)
+        esh = update_esdl(esh, session_id_min, session_id_max)
 
         return {
             'energy_system': esh.to_string()
