@@ -9,7 +9,8 @@ from app.models.balancer import Balancer
 from app.models.conversion_assets import assets, area_mapping
 from app.models.parsers import (
     EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser,
-    VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser
+    VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser,
+    FlexibilityParser
 )
 
 
@@ -75,6 +76,8 @@ class EsdlToScenarioConverter():
             VolatileParser(self.energy_system, asset, inputs=self.inputs).parse()
         elif asset['parser'] == 'volume':
             VolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
+        elif asset['parser'] == 'flexibility':
+            FlexibilityParser(self.energy_system, asset, inputs=self.inputs).parse()
         # Watch out! we are skipping the heating_tech parser!
 
     def determine_number_of_buildings(self):
