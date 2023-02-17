@@ -1,0 +1,26 @@
+# ESDL conversions for (mobility) demand assets
+
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: HYDROGEN
+  vehicle: EOrderedSet([CAR=1])
+  attribute: power
+  input: # cannot be set in the ETM
+  gquery: capacity_of_transport_car_using_hydrogen # hydrogen_cars_in_use_of_final_demand_in_cars
+  factor: 1.e-6 # gquery returns value in MW
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: HYDROGEN
+  vehicle: EOrderedSet([TRUCK=2])
+  attribute: power
+  input: # cannot be set in the ETM
+  gquery: capacity_of_transport_truck_using_hydrogen # hydrogen_trucks_in_use_of_final_demand_in_freight_transport_technologies
+  factor: 1.e-6 # gquery returns value in MW
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: HYDROGEN
+  vehicle: EOrderedSet([VAN=3])
+  attribute: power
+  input: # cannot be set in the ETM
+  gquery: capacity_of_transport_van_using_hydrogen # hydrogen_vans_in_use_of_final_demand_in_freight_transport_technologies
+  factor: 1.e-6 # gquery returns value in MW

@@ -1,8 +1,8 @@
 '''Lookups methods for the energy system'''
 
 from esdl import esdl
-
 from app.utils.esdl import equal_or_in
+
 
 def get_by_id_slow(self, object_id):
     '''
@@ -19,12 +19,14 @@ def has_object_with_id(self, object_id):
     '''Checks if the object is present in the Energy System'''
     return object_id in self.resource.uuid_dict
 
+
 def get_assets_of_type(self, esdl_type, area=None):
     '''Get a list of assets of a specific ESDL type in the specified area or asset'''
     assets = area.asset if not area is None else self.area().asset
     esdl_asset = esdl_kls(esdl_type)
 
     return [asset for asset in assets if isinstance(asset, esdl_asset)]
+
 
 def has_assets_of_type(self, esdl_type, area=None):
     ''' Boolean, see get_assets_of_type '''
@@ -35,6 +37,7 @@ def has_assets_of_type(self, esdl_type, area=None):
         return True
     except StopIteration:
         return False
+
 
 def get_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
     '''
@@ -52,6 +55,7 @@ def get_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
     '''
     return [asset for asset in area.asset
             if isinstance(asset,  esdl_kls(esdl_type)) and str(getattr(asset, attr)) == val]
+
 
 def has_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
     '''
@@ -74,6 +78,7 @@ def has_assets_of_type_and_attribute_value(self, esdl_type, area, attr, val):
         return True
     except StopIteration:
         return False
+
 
 def get_potentials_of_type(self, esdl_type):
     ''' Get a list of potentials of a specific ESDL type in the main instance's area '''
@@ -121,6 +126,28 @@ def get_all_instances_of_type_and_attribute_value(self, esdl_type, attr, val):
     yield from (inst for inst in self.get_all_instances_of_type_by_name(esdl_type)
             if str(getattr(inst, attr)) == val)
 
+
+def get_all_instances_of_type_and_attribute_values(self, esdl_type, attr_vals):
+    '''
+    Returns a generator of all assets or potentials of a specific type.
+    Not only the ones defined in the main Instance's Area e.g. QuantityAndUnits can be
+    defined in the KPI of an Area or in the EnergySystemInformation object this
+    function returns all of them at once.
+
+    The assets are then filtered for a specific attribute-value combination
+
+    Params:
+        esdl_type (str): The type of asset
+        attr_vals ({str: str}): A dict with the attribute/value combinations
+                                that should be evaluated
+
+    Returns:
+        generator of assets or potentials
+    '''
+    yield from (inst for inst in self.get_all_instances_of_type_by_name(esdl_type)
+            if all((str(getattr(inst, attr)) == val for attr, val in attr_vals.items())))
+
+
 def get_all_instances_of_type_and_sector(self, esdl_type, sector_id):
     '''
     Returns a generator of all assets or potentials of a specific type.
@@ -140,6 +167,7 @@ def get_all_instances_of_type_and_sector(self, esdl_type, sector_id):
     yield from (inst for inst in self.get_all_instances_of_type_by_name(esdl_type)
             if self.in_sector(inst, sector_id))
 
+
 def get_all_instances_of_type_and_carrier(self, esdl_type, carrier_id):
     '''
     Returns a generator of all assets or potentials of a specific type.
@@ -158,6 +186,7 @@ def get_all_instances_of_type_and_carrier(self, esdl_type, carrier_id):
     '''
     yield from (inst for inst in self.get_all_instances_of_type_by_name(esdl_type)
             if self.has_carrier(inst, carrier_id))
+
 
 def get_all_instances_of_type_carrier_and_sector(self, esdl_type, sector_id, carrier_id):
     '''
@@ -179,6 +208,7 @@ def get_all_instances_of_type_carrier_and_sector(self, esdl_type, sector_id, car
     yield from (inst for inst in self.get_all_instances_of_type_by_name(esdl_type)
             if self.in_sector(inst, sector_id) and self.has_carrier(inst, carrier_id))
 
+
 def has_carrier(self, asset, carrier_id):
     '''Carrier id may also be a list'''
     for port in asset.port:
@@ -191,6 +221,7 @@ def has_carrier(self, asset, carrier_id):
             return True
 
     return False
+
 
 def in_sector(self, asset, sector_id):
     '''
@@ -218,6 +249,7 @@ def in_sector(self, asset, sector_id):
 
     return False
 
+
 def get_asset_attribute(self, esdl_type, attr, area=None):
     '''
     Create a readable list of the attributes of an ESDL class
@@ -230,6 +262,7 @@ def get_asset_attribute(self, esdl_type, attr, area=None):
 
     return [format_asset(ass, attr) for ass in assets if isinstance(ass, esdl_kls(esdl_type))]
 
+
 def format_asset(current_asset, attribute):
     return {
         'name': current_asset.name,  # name
@@ -238,6 +271,7 @@ def format_asset(current_asset, attribute):
             'value': getattr(current_asset, attribute)
         }
     }
+
 
 def esdl_kls(esdl_type_name):
     '''Returns the Class of the esdl_type_name'''

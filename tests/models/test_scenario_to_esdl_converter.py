@@ -10,8 +10,7 @@ from app.models.energy_system import EnergySystemHandler
 
 # To mock their update methods
 from app.models.kpi_handler import KPIHandler
-from app.models.parsers.volatile import VolatileParser
-from app.models.parsers.flexibility import FlexibilityParser
+from app.models.parsers import FlexibilityParser, MobilityDemandParser, VolatileParser
 
 @pytest.fixture
 def energy_system_handler():
@@ -26,6 +25,7 @@ def test_update_esdl(energy_system_handler):
     KPIHandler.update = MagicMock(return_value=None)
     VolatileParser.update = MagicMock(return_value=None)
     FlexibilityParser.update = MagicMock(return_value=None)
+    MobilityDemandParser.update = MagicMock(return_value=None)
 
     esh = update_esdl(energy_system_handler, 123456)
     assert esh
