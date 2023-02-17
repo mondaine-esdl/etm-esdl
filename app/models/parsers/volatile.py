@@ -4,6 +4,7 @@ Parser for volatile production (PV parks and wind turbines)
 import esdl as esdl
 
 from app.models.energy_system import EnergyDataRepository
+from app.models.cost_handler import CostHandler
 from app.utils.exceptions import ETMParseError, EnergysystemParseError
 from app.services.query_scenario import QueryScenario
 from .parser import CapacityParser
@@ -19,6 +20,7 @@ class VolatileParser(CapacityParser):
         super().__init__(energy_system, props, *args, **kwargs)
 
         self.full_load_hours = 0.
+        self.marginal_costs = 0.
         self.__ensure_valid_props()
 
 
@@ -51,6 +53,7 @@ class VolatileParser(CapacityParser):
         """
         self.update_props(scenario_id)
 
+
     def __ensure_valid_props(self):
         '''Raises an ESPError if power and fullLoadHours are not included in the props'''
         if all(a in self.props['attr_set'] for a in ['power', 'fullLoadHours']):
@@ -61,6 +64,7 @@ class VolatileParser(CapacityParser):
         raise EnergysystemParseError(
             f'Props do not contain "power" or "fullLoadHours" in attribute set: {self.props["attr_set"]}'
         )
+
 
     def __value_of(self, asset, key):
         """
@@ -76,6 +80,7 @@ class VolatileParser(CapacityParser):
         if not key in ['power', 'fullLoadHours']: return 0.0
 
         return getattr(asset, key) * self.props['attr_set'][key]['factor']
+
 
     ### Update methods ###
 
@@ -93,6 +98,7 @@ class VolatileParser(CapacityParser):
             f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
         )
 
+
     def update_props(self, scenario_id):
         """
         Update the asset props based on the ETM values.
@@ -102,8 +108,12 @@ class VolatileParser(CapacityParser):
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.
         # TODO: Send the queries in batches instead of one-by-one
-        flh_val = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
-        self.update_flh(flh_val / self.props['attr_set']['fullLoadHours']['factor'])
+        self.full_load_hours = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
+        self.marginal_costs = self.query_scenario(scenario_id, self.props['attr_set']['marginalCosts'])
+
+        for asset in self.asset_generator:
+            self.update_flh(asset)
+            self.update_costs(asset)
 
         # power_val = self.query_scenario(scenario_id, self.props['attr_set']['power'])
         # diff = power_val - (self.power / self.props['attr_set']['power']['factor'])
@@ -111,15 +121,20 @@ class VolatileParser(CapacityParser):
         #     self.add_measures(diff, self.props['attr_set']['power']['edr'])
 
 
-    def update_flh(self, val):
+    def update_costs(self, asset):
         """
         For each instance in the list of assets of this type of supply, update
         the number of full load hours to the ETM value.
         """
-        self.full_load_hours = val
+        CostHandler(asset).update_marginal_costs(self.marginal_costs)
 
-        for asset in self.asset_generator:
-            asset.fullLoadHours = int(val)
+
+    def update_flh(self, asset):
+        """
+        For each instance in the list of assets of this type of supply, update
+        the number of full load hours to the ETM value.
+        """
+        asset.fullLoadHours = int(self.full_load_hours)
 
 
     def remove_assets(self, diff):
