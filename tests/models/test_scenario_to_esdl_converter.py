@@ -27,5 +27,5 @@ def test_update_esdl(energy_system_handler):
     FlexibilityParser.update = MagicMock(return_value=None)
     MobilityDemandParser.update = MagicMock(return_value=None)
 
-    esh = update_esdl(energy_system_handler, 123456)
+    esh = update_esdl(energy_system_handler, 123456, None)
     assert esh

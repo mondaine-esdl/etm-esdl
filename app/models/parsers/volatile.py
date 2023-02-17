@@ -5,6 +5,7 @@ import esdl as esdl
 
 from app.models.energy_system import EnergyDataRepository
 from app.models.cost_handler import CostHandler
+from app.models.range_handler import RangeHandler
 from app.utils.exceptions import ETMParseError, EnergysystemParseError
 from app.services.query_scenario import QueryScenario
 from .parser import CapacityParser
@@ -20,7 +21,6 @@ class VolatileParser(CapacityParser):
         super().__init__(energy_system, props, *args, **kwargs)
 
         self.full_load_hours = 0.
-        self.marginal_costs = 0.
         self.__ensure_valid_props()
 
 
@@ -47,11 +47,14 @@ class VolatileParser(CapacityParser):
         self.inputs[self.props['attr_set']['fullLoadHours']['input']] += self.full_load_hours
 
 
-    def update(self, scenario_id):
+    def update(self, scenario_id_min, scenario_id_max):
         """
         Update the power and full load hours based on the ETM inputs
         """
-        self.update_props(scenario_id)
+        self.__update_props(scenario_id_min, scenario_id_max)
+
+        # TODO: Add measures
+        # TODO: Add range?
 
 
     def __ensure_valid_props(self):
@@ -99,7 +102,7 @@ class VolatileParser(CapacityParser):
         )
 
 
-    def update_props(self, scenario_id):
+    def __update_props(self, scenario_id_min, scenario_id_max):
         """
         Update the asset props based on the ETM values.
 
@@ -108,33 +111,56 @@ class VolatileParser(CapacityParser):
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.
         # TODO: Send the queries in batches instead of one-by-one
-        self.full_load_hours = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
-        self.marginal_costs = self.query_scenario(scenario_id, self.props['attr_set']['marginalCosts'])
+        self.full_load_hours = self.query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
+
+        marginal_costs = self.query_scenario(scenario_id_min, self.props['attr_set']['marginalCosts'])
+
+        min_power = self.query_scenario(scenario_id_min, self.props['attr_set']['power'])
+        # If no second scenario ID is geven, it's not possible to execute the query 
+        if scenario_id_max: max_power = self.query_scenario(scenario_id_max, self.props['attr_set']['power'])
+        qu_power = {"multiplier": "MEGA", "unit": "WATT", "physicalQuantity": "power"}
 
         for asset in self.asset_generator:
             self.update_flh(asset)
-            self.update_costs(asset)
+            self.update_costs(asset, marginal_costs)
+            # If no second scenario ID is given, don't add a range to the asset
+            if scenario_id_max: self.update_range(asset, "power", qu_power, min_power, max_power)
 
-        # power_val = self.query_scenario(scenario_id, self.props['attr_set']['power'])
+        # power_val = self.query_scenario(scenario_id_min, self.props['attr_set']['power'])
         # diff = power_val - (self.power / self.props['attr_set']['power']['factor'])
         # if diff > 0:
         #     self.add_measures(diff, self.props['attr_set']['power']['edr'])
 
 
-    def update_costs(self, asset):
+    def update_costs(self, asset, marginal_costs):
         """
-        For each instance in the list of assets of this type of supply, update
-        the number of full load hours to the ETM value.
+        For this instance in the list of assets of this type of supply, update
+        the marginal costs to the ETM value.
         """
-        CostHandler(asset).update_marginal_costs(self.marginal_costs)
+        CostHandler(asset).update_marginal_costs(marginal_costs)
 
 
     def update_flh(self, asset):
         """
-        For each instance in the list of assets of this type of supply, update
+        For this instance of the list of assets of this type of supply, update
         the number of full load hours to the ETM value.
         """
         asset.fullLoadHours = int(self.full_load_hours)
+
+
+    def update_range(self, asset, attr, qu, min, max):
+        """
+        For this instance of the list of assets of this type of supply, update
+        the minimum and maximum values of the range for the given attribute to
+        the ETM value.
+
+        asset   obj, asset that the range should be added to
+        attr    str, attribute the range relates to (e.g. "power")
+        qu      dict, specifying the quantity and units
+        min     float, minimum value of the range
+        max     float, maximum value of the range
+        """
+        RangeHandler(asset, attr, qu).update(min, max)
 
 
     def remove_assets(self, diff):

@@ -29,7 +29,7 @@
   attr_set:
     power:
       input: capacity_of_energy_power_solar_pv_solar_radiation
-      gquery:
+      gquery: merit_order_energy_power_solar_pv_solar_radiation_capacity_in_merit_order_table
       factor: 1.e-6
       edr:
     fullLoadHours:
@@ -59,11 +59,16 @@
   attr_set:
     power:
       input: capacity_of_energy_power_solar_pv_solar_radiation
-      gquery:
+      gquery: merit_order_energy_power_solar_pv_solar_radiation_capacity_in_merit_order_table
       factor: 1.e-6
       edr:
     fullLoadHours:
       input: flh_of_solar_pv_solar_radiation
-      gquery:
+      gquery: merit_order_energy_power_solar_pv_solar_radiation_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # marginal costs cannot be set in the ETM
+      gquery: merit_order_energy_power_solar_pv_solar_radiation_operating_costs_in_merit_order_table
       factor: 1
       edr:

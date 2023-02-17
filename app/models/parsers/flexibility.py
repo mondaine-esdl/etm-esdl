@@ -2,7 +2,9 @@
 Parser for flexibility assets (electrolyzers)
 """
 
+from app.models.range_handler import RangeHandler
 from app.services.query_scenario import QueryScenario
+from app.utils.exceptions import ETMParseError
 from .parser import CapacityParser
 
 class FlexibilityParser(CapacityParser):
@@ -27,15 +29,52 @@ class FlexibilityParser(CapacityParser):
         self.power = sum((self.__value_of(asset, 'power') for asset in self.asset_generator))
         self.inputs[self.props['attr_set']['power']['input']] = self.power
 
-    def update(self, scenario_id):
+
+    def update(self, scenario_id_min, scenario_id_max):
         """
-        Find the flexibility asset and update the number of full load hours
-        with the ETM value
+        Find the flexibility asset and update the number of full load hours with the ETM value
 
         Sets self.full_load_hours
         """
+        self.full_load_hours = (
+            self.__query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
+        )
 
-        self.__update_flh(scenario_id)
+        min_power = self.__query_scenario(scenario_id_min, self.props['attr_set']['power'])
+         # If no second scenario ID is geven, it's not possible to execute the query 
+        if scenario_id_max: max_power = self.__query_scenario(scenario_id_max, self.props['attr_set']['power'])
+
+        qu_power = {"multiplier": "MEGA", "unit": "WATT", "physicalQuantity": "power"}
+
+        for asset in self.asset_generator:
+            self.__update_flh(asset)
+            
+            # If no second scenario ID is given, don't add a range to the asset
+            if scenario_id_max: self.__update_range(asset, "power", qu_power, min_power, max_power)
+
+
+    def __update_flh(self, asset):
+        """
+        For each instance in the list of assets of this type of supply, update
+        the number of full load hours to the ETM value.
+        """
+        # ESDL expects the FLH to be an integer value
+        asset.fullLoadHours = int(self.full_load_hours)
+
+   
+    def __update_range(self, asset, attr, qu, min, max):
+        """
+        For this instance of the list of assets of this type of supply, update
+        the minimum and maximum values of the range for the given attribute to
+        the ETM value.
+
+        asset   obj, asset that the range should be added to
+        attr    str, attribute the range relates to (e.g. "power")
+        qu      dict, specifying the quantity and units
+        min     float, minimum value of the range
+        max     float, maximum value of the range
+        """
+        RangeHandler(asset, attr, qu).update(min, max)
 
 
     def __value_of(self, asset, key):
@@ -53,21 +92,6 @@ class FlexibilityParser(CapacityParser):
         if not key in ['power', 'fullLoadHours']: return 0.0
 
         return getattr(asset, key) * self.props['attr_set'][key]['factor']
-
-
-    def __update_flh(self, scenario_id):
-        """
-        For each instance in the list of assets of this type of supply, update
-        the number of full load hours to the ETM value.
-        """
-
-        self.full_load_hours = (
-            self.__query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
-        )
-
-        for asset in self.asset_generator:
-            # ESDL expects the FLH to be an integer value
-            asset.fullLoadHours = int(self.full_load_hours)
 
 
     def __query_scenario(self, scenario_id, prop):
