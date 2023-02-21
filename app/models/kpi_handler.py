@@ -60,9 +60,9 @@ class KPIHandler():
         """
         self.energy_system.add_kpis(description=description)
 
-        for kpi_id, prop in kpis.items():
+        for prop in kpis.values():
             metrics = self.get_metrics(*[gquery['gquery'] for gquery in prop['gqueries']])
-            kpi = self.__create_new_kpi(kpi_id, prop)
+            kpi = self.__create_new_kpi(prop)
 
             if prop['esdl_type'] == 'DistributionKPI':
                 kpi.distribution = esdl.StringLabelDistribution()
@@ -81,11 +81,10 @@ class KPIHandler():
 
         raise ETMParseError.with_humanized_message(query_result.errors)
 
-    def __create_new_kpi(self, kpi_id, prop):
+    def __create_new_kpi(self, prop):
         '''Sets up and returns a new KPI with the given id, based on the given properties'''
         return self.energy_system.create_kpi(
             prop['esdl_type'],
-            kpi_id,
             prop['name'],
             self.energy_system.get_by_id_slow(prop['quantity'])
         )
