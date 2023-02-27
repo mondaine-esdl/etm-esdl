@@ -1,6 +1,7 @@
 ''' Module that contains all parsers for ETM/ESDL conversion '''
 
 from .carrier_volume import CarrierVolumeParser
+from .costs import CostsParser
 from .subtype_capacity import SubtypeCapacityParser
 from .energy_labels import EnergyLabelsParser
 from .flexibility import FlexibilityParser
