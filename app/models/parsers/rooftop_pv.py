@@ -2,7 +2,7 @@
 
 from .parser import AssetParser
 
-class RooftopPVParser(AssetParser):
+class RooftopPvParser(AssetParser):
     """
     Class to parse ESDL information about rooftop PV installations and
     translate it to the relevant ETM inputs.

@@ -8,7 +8,7 @@ from app.models.situation import Situation
 from app.models.balancer import Balancer
 from app.models.conversion_assets import assets, area_mapping
 from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPVParser,
+    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPvParser,
     VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser,
     FlexibilityParser
 )
@@ -65,7 +65,7 @@ class EsdlToScenarioConverter():
         Alters self.inputs
         '''
         if asset['parser'] == 'rooftop_pv':
-            RooftopPVParser(self.energy_system, asset, inputs=self.inputs).parse()
+            RooftopPvParser(self.energy_system, asset, inputs=self.inputs).parse()
         elif asset['parser'] == 'subtype_capacity':
             SubtypeCapacityParser(self.energy_system, asset, inputs=self.inputs).parse()
         elif asset['parser'] == 'carrier_capacity':

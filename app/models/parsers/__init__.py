@@ -5,7 +5,7 @@ from .subtype_capacity import SubtypeCapacityParser
 from .energy_labels import EnergyLabelsParser
 from .flexibility import FlexibilityParser
 from .heating_technologies import HeatingTechnologiesParser
-from .rooftop_pv import RooftopPVParser
+from .rooftop_pv import RooftopPvParser
 from .carrier_capacity import CarrierCapacityParser
 from .demand import MobilityDemandParser
 from .volume import VolumeParser

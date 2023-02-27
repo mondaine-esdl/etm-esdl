@@ -62,6 +62,8 @@ class AssetParser(Parser):
         Update all supplies of a certain asset type in the energy system based on an ETM
         scenario
         '''
+        raise NotImplementedError()
+
 
 class CapacityParser(AssetParser):
     ''' AssetParser that tracks the capacity of the assets as well '''

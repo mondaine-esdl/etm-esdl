@@ -3,7 +3,7 @@
 import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 from app.models.energy_system import EnergySystemHandler
-from app.models.parsers.rooftop_pv import RooftopPVParser
+from app.models.parsers.rooftop_pv import RooftopPvParser
 
 @pytest.fixture
 def energy_system_handler_without_pv():
@@ -23,7 +23,7 @@ def energy_system_handler_with_pv():
 
 def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv, helpers):
     a_rooftop_asset = helpers.get_first_config_for_asset_type('RooftopPV')
-    parser = RooftopPVParser(energy_system_handler_without_pv, a_rooftop_asset)
+    parser = RooftopPvParser(energy_system_handler_without_pv, a_rooftop_asset)
 
     parser.parse()
 
@@ -33,7 +33,7 @@ def test_parse_without_rooftop_pv_present(energy_system_handler_without_pv, help
 
 def test_parse_with_rooftop_pv_present(energy_system_handler_with_pv, helpers):
     a_rooftop_asset = helpers.get_first_config_for_asset_type('RooftopPV')
-    parser = RooftopPVParser(energy_system_handler_with_pv, a_rooftop_asset)
+    parser = RooftopPvParser(energy_system_handler_with_pv, a_rooftop_asset)
 
     parser.parse()
     parser_results = parser.get_parsed_inputs()
