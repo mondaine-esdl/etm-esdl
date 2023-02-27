@@ -1,11 +1,12 @@
 """
 Some conversion methods
 """
-from app.models.conversion_assets import assets
+
+from app.models.asset_filter import AssetFilter, find_parser
 from app.models.parsers import FlexibilityParser, MobilityDemandParser, VolatileParser
 from app.models.kpi_handler import KPIHandler
 
-def update_esdl(energy_system, scenario_id_min, scenario_id_max):
+def update_esdl(energy_system, scenario_id_min, scenario_id_max, filter=[]):
     """
     Updates the given energy system based on one or two ETM scenario ids
 
@@ -16,20 +17,15 @@ def update_esdl(energy_system, scenario_id_min, scenario_id_max):
     # Update KPIs
     KPIHandler(energy_system, scenario_id_min).update()
 
+    asset_types = filter if filter else ['WindTurbine', 'PVPark', 'Electrolyzer', 'MobilityDemand']
+
     # Update FLH for wind turbines, PV parks and electrolyzers, and capacities for MobilityDemand;
     # possibly also add measures for wind turbines
-    for asset in get_configs_for_assets('WindTurbine', 'PVPark', 'Electrolyzer', 'MobilityDemand'):
-        if asset['parser'] == 'volatile':
-            VolatileParser(energy_system, asset).update(scenario_id_min, scenario_id_max)
-        elif asset['parser'] == 'flexibility':
-            FlexibilityParser(energy_system, asset).update(scenario_id_min, scenario_id_max)
-        elif asset['parser'] == 'mobility_demand':
+    for asset in AssetFilter.assets_for(*asset_types, method='update'):
+        if asset['parser'] == 'mobility_demand':
             MobilityDemandParser(energy_system, asset).update(scenario_id_min)
+
+        else:
+            find_parser(asset)(energy_system, asset).update(scenario_id_min, scenario_id_max)
+
     return energy_system
-
-
-def get_configs_for_assets(*asset_types):
-    """
-    Returns a generator full of config asset with given asset type e.g. GasHeater
-    """
-    return (asset for asset in assets if asset['asset'] in asset_types)

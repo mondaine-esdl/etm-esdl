@@ -36,6 +36,11 @@ export_parser.add_argument(
     help='The session ID of the Energy Transition Model maximum scenario',
     location='form'
 )
+export_parser.add_argument(
+    'filter', action='append', required=False,
+    help='List of assets to update or add to the ESDL file (e.g. WindTurbine)',
+    location='form'
+)
 
 ## Controller
 @api.route('/')
@@ -55,7 +60,7 @@ class ETMScenario(Resource):
         esh = setup_energy_system_handler_from_args(args)
 
         # Call method that updates ESDL based on ETM scenario settings
-        esh = update_esdl(esh, session_id_min, session_id_max)
+        esh = update_esdl(esh, session_id_min, session_id_max, filter=args['filter'])
 
         return {
             'energy_system': esh.to_string()

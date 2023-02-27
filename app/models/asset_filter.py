@@ -1,4 +1,5 @@
 from app.models.conversion_assets import assets
+from app.utils.exceptions import FilterValidationError
 import app.models.parsers
 
 class AssetFilter:
@@ -6,8 +7,8 @@ class AssetFilter:
         pass
 
     @staticmethod
-    def filter(*asset_types, notify_unknown_asset_types=True, method='parse'):
-        '''What about update or parse? This we have to validate as well!'''
+    def assets_for(*asset_types, notify_unknown_asset_types=True, method='parse'):
+        '''Main method, return filtered and validated assets for the asset types and methods'''
         if notify_unknown_asset_types:
             AssetFilter.validate_types(*asset_types)
         return (asset for asset in assets if AssetFilter.elegible(asset, asset_types, method))
@@ -44,9 +45,6 @@ class AssetFilter:
             reason = f'unknown method {method}'
 
         raise FilterValidationError(f'Asset {asset["asset"]} does not support {reason}')
-
-class FilterValidationError(Exception):
-    pass
 
 
 def find_parser(asset):

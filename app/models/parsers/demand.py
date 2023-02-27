@@ -54,11 +54,26 @@ class MobilityDemandParser(CapacityParser):
 
         A warning is provided if there are more instances of this asset.
         """
+        asset = self.__next_asset()
+
+        # TODO: Do we still want to do this when there is no asset?
+        self.power = self.query_scenario(scenario_id)
+
+        if asset:
+            asset.power = self.power
 
         # TODO: provide warning if there's more than 1 asset in the asset_generator
+        # How do we want to communicate this to the user? An extra part of the API
+        # JSON return called 'warnings' next to returning the energy system?
+        # Here is how you can measure if there's another asset:
+        # if self.__next_asset():
+        #     print('A warning')
 
-        self.power = self.query_scenario(scenario_id)
-        next(self.asset_generator).power = self.power
+    def __next_asset(self):
+        try:
+            return next(self.asset_generator)
+        except StopIteration:
+            return
 
     def query_scenario(self, scenario_id):
         """

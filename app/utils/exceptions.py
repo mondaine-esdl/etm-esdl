@@ -48,3 +48,7 @@ class ETMParseError(HumanizableException):
     returning falsey data
     '''
     ERROR_MESSAGES = etm_error_messages
+
+class FilterValidationError(HumanizableException):
+    '''Exception that is raised trying to filter and validate asset types'''
+    pass

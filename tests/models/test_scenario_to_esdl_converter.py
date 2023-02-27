@@ -7,6 +7,7 @@ import pytest
 
 from app.models.scenario_to_esdl_converter import update_esdl
 from app.models.energy_system import EnergySystemHandler
+from app.models.asset_filter import FilterValidationError
 
 # To mock their update methods
 from app.models.kpi_handler import KPIHandler
@@ -21,6 +22,7 @@ def energy_system_handler():
 
 
 def test_update_esdl(energy_system_handler):
+    '''TODO: unmock this test!'''
     #  !! THIS TEST IS MOCKED !!
     KPIHandler.update = MagicMock(return_value=None)
     VolatileParser.update = MagicMock(return_value=None)
@@ -29,3 +31,17 @@ def test_update_esdl(energy_system_handler):
 
     esh = update_esdl(energy_system_handler, 123456, None)
     assert esh
+
+def test_update_esdl_with_filter(energy_system_handler):
+    KPIHandler.update = MagicMock(return_value=None)
+    VolatileParser.update = MagicMock(return_value=None)
+
+    esh = update_esdl(energy_system_handler, 123456, None, filter=['PVPark'])
+    assert esh
+
+def test_update_esdl_with_falsey_filter(energy_system_handler):
+    KPIHandler.update = MagicMock(return_value=None)
+    VolatileParser.update = MagicMock(return_value=None)
+
+    with pytest.raises(FilterValidationError):
+        update_esdl(energy_system_handler, 123456, None, filter=['PVPark', 'Pirates'])

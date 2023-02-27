@@ -24,15 +24,15 @@ def test_validate_applicable_parser():
         AssetFilter.validate_applicable_parser(heating, 'update')
 
 def test_filter():
-    filtered_results = AssetFilter.filter('WindTurbine', 'Electrolyzer')
+    filtered_results = AssetFilter.assets_for('WindTurbine', 'Electrolyzer')
 
     # Found some results without raising anything
     assert filtered_results
 
     # Error raised for unknown asset typers
     with pytest.raises(FilterValidationError):
-        AssetFilter.filter('WindTurbine', 'Tabletennis')
+        AssetFilter.assets_for('WindTurbine', 'Tabletennis')
 
      # Error raised if incorrect
     with pytest.raises(FilterValidationError):
-        [_ for _ in (AssetFilter.filter('WindTurbine', 'HConnection', method='update'))]
+        [_ for _ in (AssetFilter.assets_for('WindTurbine', 'HConnection', method='update'))]
