@@ -59,8 +59,3 @@ def get_top_level_carriers(self):
         self.energy_system.energySystemInformation.carriers = carriers
 
     return carriers
-
-
-def set_cost_of_asset(self, asset):
-    if not asset.cost:
-        asset.cost = esld.Cost
