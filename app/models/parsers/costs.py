@@ -4,6 +4,7 @@ import esdl
 import uuid
 
 from app.models.parsers.parser import AssetParser
+from app.models.conversion_assets import quantities
 from app.services.query_scenario import QueryScenario
 from app.utils.exceptions import ETMParseError
 
@@ -24,6 +25,8 @@ class CostsParser(AssetParser):
         else:
             carrier.cost.value = value
 
+        carrier.cost.profileQuantityAndUnit = self.__quantity_and_unit('carrier_costs')
+
     def query_scenario(self, scenario_id):
         """
         Query the ETM scenario
@@ -40,3 +43,7 @@ class CostsParser(AssetParser):
         raise ETMParseError(
             f"We currently do not support the ETM gquery listed in the config: {self.props['gquery']}"
         )
+
+    def __quantity_and_unit(self, quantity_id):
+        '''TODO: Move this to a more appropriate place'''
+        return esdl.QuantityAndUnitType(**quantities[quantity_id])

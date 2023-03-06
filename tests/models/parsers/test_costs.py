@@ -40,3 +40,4 @@ def test_update_costs_te_elec_carrier(energy_system_handler, costs_expected, hel
 
     assert resulting_asset.cost
     assert resulting_asset.cost.value == costs_expected
+    assert resulting_asset.cost.profileQuantityAndUnit.unit == 'EURO'
