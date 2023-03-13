@@ -56,6 +56,7 @@ class AssetParser(Parser):
         Parse all supplies of a certain asset type in the energy system and add the
         results to self.inputs
         '''
+        raise NotImplementedError()
 
     def update(self, scenario_id):
         '''

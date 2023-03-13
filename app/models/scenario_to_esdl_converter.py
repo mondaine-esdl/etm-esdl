@@ -17,7 +17,7 @@ def update_esdl(energy_system, scenario_id_min, scenario_id_max, filter=[]):
     # Update KPIs
     KPIHandler(energy_system, scenario_id_min).update()
 
-    asset_types = filter if filter else ['WindTurbine', 'PVPark', 'Electrolyzer', 'MobilityDemand']
+    asset_types = filter if filter else ['WindTurbine', 'PVPark', 'Electrolyzer', 'MobilityDemand', 'EnergyCarrier']
 
     # Update FLH for wind turbines, PV parks and electrolyzers, and capacities for MobilityDemand;
     # possibly also add measures for wind turbines

@@ -68,6 +68,8 @@ EnergySystemHandler.create_kpi = kpis.create_kpi
 # Add the Q&U methods
 EnergySystemHandler.get_quantity_and_units = quantities_and_units.get_quantity_and_units
 EnergySystemHandler.add_energy_system_information = quantities_and_units.add_energy_system_information
+EnergySystemHandler.get_carrier = quantities_and_units.get_carrier
+EnergySystemHandler.get_top_level_carriers = quantities_and_units.get_top_level_carriers
 
 # Add the area methods
 EnergySystemHandler.add_top_level_area = top_level_area.add_top_level_area

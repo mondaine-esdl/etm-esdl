@@ -41,3 +41,10 @@ avg_costs: # id
   multiplier: NONE
   unit: EURO
   description: eur/MWh
+
+carrier_costs:
+  physicalQuantity: COST
+  unit: EURO
+  description: eur/MWh
+  perUnit: WATTHOUR
+  perMultiplier: MEGA
