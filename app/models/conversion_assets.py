@@ -66,6 +66,8 @@ quantities = load_file(Path('config/conversions/quantities.yml'))
 
 kpis = load_file(Path('config/conversions/kpis.yml'))
 
+sbi_codes = load_file(Path('config/conversions/sbi_codes.yml'))
+
 balancing_groups = load_file(Path('config/conversions/balancing_groups.yml'))
 
 config = load_file(Path('config/conversions/config.yml'))

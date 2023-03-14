@@ -1,0 +1,13 @@
+# Using SBI codes to separate utility buildings from industry ones
+
+# TODO @Charlotte: fill these lists with the correct SBI codes
+
+utility: [
+  'B08553',
+  'A02562'
+]
+
+industry: [
+  'G45192',
+  'G46382'
+]
