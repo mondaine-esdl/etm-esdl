@@ -11,7 +11,10 @@ def energy_system_handler():
         esdl_string = file.read()
     return EnergySystemHandler.from_string(esdl_string)
 
-def test_parse(energy_system_handler):
+# TODO
+# def test_parse_buildings():
+
+def test_parse_aggregated_buildings(energy_system_handler):
     total_buildings = {'RESIDENTIAL': 10000, 'UTILITY': 10000}
     label_parser = EnergyLabelsParser(energy_system_handler, total_buildings)
     aggregrated_building = energy_system_handler.get_assets_of_type(
