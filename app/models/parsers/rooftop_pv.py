@@ -45,8 +45,15 @@ class RooftopPvParser(AssetParser):
         assets_generator = self.energy_system.get_all_instances_of_type_by_name('PVInstallation')
 
         # Assuming there is only one port and one profile
-        self.production = sum((asset.port[0].profile[0].value for asset in assets_generator))
+        self.production = sum((self.__value_mocked_for_influx_db(asset) for asset in assets_generator))
 
+
+    def __value_mocked_for_influx_db(self, asset):
+        '''If value is not found (like for influx db) return 0'''
+        try:
+            return asset.port[0].profile[0].value
+        except AttributeError:
+            return 0
 
     def __set_percentage_used(self):
         """

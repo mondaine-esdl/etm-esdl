@@ -136,6 +136,7 @@
     </sectors>
   </energySystemInformation>
   <instance xsi:type="esdl:Instance" id="aeb63348-caab-4705-bb9e-280e7fbfa24c" name="Huidige situatie">
+    <date xsi:type="esdl:InstanceDate" date="2050-01-01T00:00:00.000000"/>
     <area xsi:type="esdl:Area" id="b51e7025-6e5e-4193-82ff-7a1923736b8d" name="Bedrijventerrein(en): Welgelegen">
       <asset xsi:type="esdl:ElectricityNetwork" name="Elektriciteitsnetwerk" id="91a3688f-8d3e-4b92-ac0b-7d1c4d518c31">
         <port xsi:type="esdl:InPort" carrier="bebfc1f5-9405-4964-8d2f-d5f08520165c" name="In" connectedTo="3be5dd16-4cb9-4458-a3ae-e966c0264b3b" id="28a29edf-f14a-41de-9d93-cdec5dcad46c"/>
