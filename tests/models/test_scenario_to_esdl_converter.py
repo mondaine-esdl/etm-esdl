@@ -2,7 +2,7 @@
 # if I throw in an energysystem do i get one out that is different
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 import pytest
 
 from app.models.scenario_to_esdl_converter import update_esdl
@@ -11,7 +11,7 @@ from app.models.asset_filter import FilterValidationError
 
 # To mock their update methods
 from app.models.kpi_handler import KPIHandler
-from app.models.parsers import FlexibilityParser, MobilityDemandParser, VolatileParser
+from app.models.parsers import FlexibilityParser, MobilityDemandParser, VolatileParser, CostsParser
 
 @pytest.fixture
 def energy_system_handler():
@@ -21,6 +21,13 @@ def energy_system_handler():
     return EnergySystemHandler.from_string(esdl_string)
 
 
+@pytest.fixture
+def mocking_parsers():
+    '''Currently only mocks CostsParser'''
+    with patch("app.models.parsers.CostsParser.update", new=MagicMock(return_value=None)):
+        yield
+
+@pytest.mark.usefixtures("mocking_parsers")
 def test_update_esdl(energy_system_handler):
     '''TODO: unmock this test!'''
     #  !! THIS TEST IS MOCKED !!
@@ -30,6 +37,7 @@ def test_update_esdl(energy_system_handler):
     MobilityDemandParser.update = MagicMock(return_value=None)
 
     esh = update_esdl(energy_system_handler, 123456, None)
+
     assert esh
 
 def test_update_esdl_with_filter(energy_system_handler):

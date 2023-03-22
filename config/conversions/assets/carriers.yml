@@ -1,0 +1,7 @@
+# Information about carriers
+# Only update!
+- asset: EnergyCarrier
+  parser: costs
+  attribute: Electricity # name of the asset
+  gquery: merit_order_price_average
+  factor: 1
