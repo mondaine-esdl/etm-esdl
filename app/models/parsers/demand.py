@@ -17,6 +17,7 @@ class MobilityDemandParser(CapacityParser):
     def __init__(self, energy_system, props, *args, **kwargs):
         super().__init__(energy_system, props, *args, **kwargs)
 
+
     def set_asset_generator(self):
         """
         Set the generator to assets with vehicle type and carrier.
@@ -37,30 +38,37 @@ class MobilityDemandParser(CapacityParser):
                 f'We currently do not support the asset {str(att).split()[-1]}'
             ) from att
 
+
     def update(self, scenario_id):
         """
         Find the demand asset and update the value of the (input) capacity
         with the ETM value
 
-        Sets self.power
+        Sets self.power and self.fullLoadHours
         """
 
         self.__update_power(scenario_id)
 
+
     def __update_power(self, scenario_id):
         """
         For the first instance in the list of assets of this type of demand, update
-        the number of full load hours to the ETM value.
+        the power to the ETM value and (for now, statically) set the number of 
+        full load hours.
 
         A warning is provided if there are more instances of this asset.
         """
         asset = self.__next_asset()
 
-        # TODO: Do we still want to do this when there is no asset?
-        self.power = self.query_scenario(scenario_id)
-
+        # TODO: As a QUICK & DIRTY FIX the full load hours for this type of consumers 
+        # (the different types of mobility demand) are statically set to 8760.
+        # The ETM doesn't provide a gquery returning this value so, ideally, these
+        # should be derived from the profile attached to the asset. Since these
+        # consumers have flat curves we can assume the number of full load hours
+        # to be 8760.
         if asset:
-            asset.power = self.power
+            asset.power = self.query_scenario(scenario_id)
+            asset.fullLoadHours = 8760.
 
         # TODO: provide warning if there's more than 1 asset in the asset_generator
         # How do we want to communicate this to the user? An extra part of the API
@@ -69,11 +77,13 @@ class MobilityDemandParser(CapacityParser):
         # if self.__next_asset():
         #     print('A warning')
 
+
     def __next_asset(self):
         try:
             return next(self.asset_generator)
         except StopIteration:
             return
+
 
     def query_scenario(self, scenario_id):
         """
