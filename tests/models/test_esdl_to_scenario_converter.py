@@ -20,7 +20,7 @@ def energy_system_handler_hengelo():
 @pytest.fixture
 def energy_system_handler_mmvib_micro():
     '''ESH based on the mmvib micro case fixture'''
-    with open('tests/fixtures/mmvib_micro_pand_scenario.esdl') as file:
+    with open('tests/fixtures/pand_scenario.esdl') as file:
         esdl_string = file.read()
     return EnergySystemHandler.from_string(esdl_string)
 
