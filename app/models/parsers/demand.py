@@ -104,7 +104,9 @@ class MobilityDemandParser(CapacityParser):
         query_result = QueryScenario.execute(scenario_id, prop['gquery'])
 
         if query_result.successful:
-            return query_result.value[prop['gquery']]['future'] / prop ['factor']
+            print('query_result.value', query_result.value)
+            print('prop["gquery"]', prop['gquery'])
+            return query_result.value[prop['gquery']]['future'] / prop['factor']
 
         raise ETMParseError(
             f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
