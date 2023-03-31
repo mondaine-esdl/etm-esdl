@@ -104,8 +104,6 @@ class MobilityDemandParser(CapacityParser):
         query_result = QueryScenario.execute(scenario_id, prop['gquery'])
 
         if query_result.successful:
-            print('query_result.value', query_result.value)
-            print('prop["gquery"]', prop['gquery'])
             return query_result.value[prop['gquery']]['future'] / prop['factor']
 
         raise ETMParseError(

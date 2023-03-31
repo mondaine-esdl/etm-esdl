@@ -74,11 +74,6 @@ def test_parse_with_mobility_demand(esh_with_mobility_demand, app, requests_mock
     assert len(mobility_demands) > 0
 
     first_mobility_demand = mobility_demands[0]
-    second_mobility_demand = mobility_demands[1]
-
-    # Check the power and FLH before updating the attributes
-    power_before_update = first_mobility_demand.power
-    flh_before_update = first_mobility_demand.fullLoadHours
 
     # Call the update method
     with app.app_context():
@@ -94,11 +89,8 @@ def test_parse_with_mobility_demand(esh_with_mobility_demand, app, requests_mock
     # TODO
 
     # Check if the power has been updated for the first asset
-    power_after_update = first_mobility_demand.power
-    assert power_before_update != power_after_update
+    assert first_mobility_demand.power == 100.e6
 
     # Check if the number of FLH has been updated and if it has been 
     # set to 8760 for the first asset
-    flh_after_update = first_mobility_demand.fullLoadHours
-    assert flh_before_update != flh_after_update
-    assert flh_after_update == 8760
+    assert first_mobility_demand.fullLoadHours == 8760
