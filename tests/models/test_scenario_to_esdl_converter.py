@@ -23,9 +23,14 @@ def energy_system_handler():
 
 @pytest.fixture
 def mocking_parsers():
-    '''Currently only mocks CostsParser'''
+    """
+    Currently only mocks CostsParser and MobilityDemandParser
+    
+    TODO: Beautify this
+    """
     with patch("app.models.parsers.CostsParser.update", new=MagicMock(return_value=None)):
-        yield
+        with patch("app.models.parsers.MobilityDemandParser.update", new=MagicMock(return_value=None)):
+            yield
 
 @pytest.mark.usefixtures("mocking_parsers")
 def test_update_esdl(energy_system_handler):
@@ -34,7 +39,6 @@ def test_update_esdl(energy_system_handler):
     KPIHandler.update = MagicMock(return_value=None)
     VolatileParser.update = MagicMock(return_value=None)
     FlexibilityParser.update = MagicMock(return_value=None)
-    MobilityDemandParser.update = MagicMock(return_value=None)
 
     esh = update_esdl(energy_system_handler, 123456, None)
 
