@@ -6,12 +6,9 @@ from collections import defaultdict
 from app.utils.exceptions import EnergysystemParseError
 from app.models.situation import Situation
 from app.models.balancer import Balancer
-from app.models.conversion_assets import assets, area_mapping
-from app.models.parsers import (
-    EnergyLabelsParser, HeatingTechnologiesParser, VolatileParser, RooftopPvParser,
-    VolumeParser, CarrierCapacityParser, CarrierVolumeParser, SubtypeCapacityParser,
-    FlexibilityParser
-)
+from app.models.asset_filter import AssetFilter, find_parser
+from app.models.conversion_assets import area_mapping
+from app.models.parsers import EnergyLabelsParser, HeatingTechnologiesParser
 
 
 class EsdlToScenarioConverter():
@@ -22,14 +19,14 @@ class EsdlToScenarioConverter():
         self.energy_system = energy_system
         self.area = self.__convert_area()
 
-    def calculate(self):
+    def calculate(self, filter=[]):
         '''
         Parses the energy_systems assets and converts them to etm slider settings
 
         Returns a dict of slider settings
         '''
         # Parse supply and demand assets and calculate the new input values
-        for asset in assets:
+        for asset in AssetFilter.assets_for(*filter):
             self.parse_asset(asset)
 
         # Parse buildings
@@ -64,21 +61,14 @@ class EsdlToScenarioConverter():
 
         Alters self.inputs
         '''
-        if asset['parser'] == 'rooftop_pv':
-            RooftopPvParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'subtype_capacity':
-            SubtypeCapacityParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'carrier_capacity':
-            CarrierCapacityParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'carrier_volume':
-            CarrierVolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'volatile':
-            VolatileParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'volume':
-            VolumeParser(self.energy_system, asset, inputs=self.inputs).parse()
-        elif asset['parser'] == 'flexibility':
-            FlexibilityParser(self.energy_system, asset, inputs=self.inputs).parse()
         # Watch out! we are skipping the heating_tech parser!
+        if asset['parser'] in ['heating_technologies']:
+            return
+        try:
+            find_parser(asset)(self.energy_system, asset, inputs=self.inputs).parse()
+        except NotImplementedError:
+            # This includes mobility demand, costs and others that only have an update method
+            pass
 
     def determine_number_of_buildings(self):
         """

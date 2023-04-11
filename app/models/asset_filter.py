@@ -15,7 +15,7 @@ class AssetFilter:
 
     @staticmethod
     def elegible(asset, asset_types, method):
-        if not asset['asset'] in asset_types:
+        if asset_types and not asset['asset'] in asset_types:
             return False
 
         AssetFilter.validate_applicable_parser(asset, method)

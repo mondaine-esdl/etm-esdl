@@ -36,3 +36,11 @@ def test_filter():
      # Error raised if incorrect
     with pytest.raises(FilterValidationError):
         [_ for _ in (AssetFilter.assets_for('WindTurbine', 'HConnection', method='update'))]
+
+def test_with_empty_filter():
+    asset_list = []
+    filtered_results = AssetFilter.assets_for(*asset_list)
+
+    assert filtered_results
+    # Should not be empty
+    assert len(list(filtered_results))
