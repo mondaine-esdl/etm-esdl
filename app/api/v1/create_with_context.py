@@ -42,6 +42,12 @@ context_parser.add_argument(
     help='The ID of the ETM scenario that can be used as context',
     location='form'
 )
+context_parser.add_argument(
+    'filter', action='append', required=False,
+    help='List of assets to update or add to the scenario file (e.g. WindTurbine),' +
+        'if left empty uses all available assets',
+    location='form'
+)
 # TODO: add context area, required if context scenario_id was not provided
 
 ## Controller
@@ -57,6 +63,7 @@ class EnergySystem(Resource):
         Transform ESDL energy system description into an ETM scenario
         """
         args = context_parser.parse_args()
+        self.filter = args['filter'] if args['filter'] else []
         start_situation = self.__get_start_situation(args['energy_system_start_situation'])
 
         # Set the ETM scenario as context
@@ -95,7 +102,7 @@ class EnergySystem(Resource):
             EnergySystemHandler.from_string(
                 urllib.parse.unquote(energy_system)
             )
-        ).as_situation()
+        ).as_situation(filter=self.filter)
 
     def __find_energy_system_id(self, energy_system):
         ''' Parses the string energy_system in search for it's id '''

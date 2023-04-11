@@ -44,9 +44,9 @@ class EsdlToScenarioConverter():
         # pprint.pprint(self.inputs)
         return self.inputs
 
-    def as_situation(self):
+    def as_situation(self, filter=[]):
         ''' Calculates the inputs and wraps them in a Situation'''
-        self.calculate()
+        self.calculate(filter=filter)
 
         try:
             year = self.energy_system.year()
