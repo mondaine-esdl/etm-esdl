@@ -3,48 +3,63 @@
 share_of_energy_demand: # id
   physicalQuantity: ENERGY
   multiplier: NONE
+  perMultiplier:
   unit: PERCENT
+  perUnit:
   description: '%'
 
 energy_demand: # id
   physicalQuantity: ENERGY
   multiplier: MEGA
+  perMultiplier:
   unit: JOULE
+  perUnit:
   description: MJ
 
 power: # id
   physicalQuantity: POWER
   multiplier: MEGA
+  perMultiplier:
   unit: WATT
+  perUnit:
   description: MW
 
 co2_abs: # id
   physicalQuantity: EMISSION
   multiplier: MEGA
+  perMultiplier:
   unit: GRAM
+  perUnit:
   description: ton
 
 co2_rel: # id
   physicalQuantity: EMISSION
   multiplier: NONE
+  perMultiplier:
   unit: PERCENT
+  perUnit:
   description: '%'
 
 costs: # id
   physicalQuantity: COST
   multiplier: MEGA
+  perMultiplier:
   unit: EURO
+  perUnit:
   description: Meur
 
 avg_costs: # id
   physicalQuantity: COST
   multiplier: NONE
+  perMultiplier:
   unit: EURO
+  perUnit:
   description: eur/MWh
 
 carrier_costs:
   physicalQuantity: COST
-  unit: EURO
-  description: eur/MWh
-  perUnit: WATTHOUR
+  multiplier:
   perMultiplier: MEGA
+  unit: EURO
+  perUnit: WATTHOUR
+  description: eur/MWh

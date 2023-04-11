@@ -31,7 +31,9 @@ class KPIHandler():
                     id=quantity,
                     physicalQuantity=prop['physicalQuantity'],
                     multiplier=prop['multiplier'],
+                    perMultiplier=prop['perMultiplier'],
                     unit=prop['unit'],
+                    perUnit=prop['perUnit'],
                     description=prop['description']
                 )
             )
