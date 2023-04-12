@@ -114,9 +114,10 @@ def test_calculate_with_mmvib_micro(energy_system_handler_mmvib_micro):
 def test_parse_buildings_mmvib(converter_mmvib_micro):
     number_of_buildings = converter_mmvib_micro.determine_number_of_buildings()
 
-    # The MMvIB micro case ESDL should have 114 utility buildings and 0 residential buildings.
+    # The MMvIB micro case ESDL should have 3 (of 114 in total) utility buildings and 0 
+    # residential buildings based on the current config sbi_codes.yml
     assert number_of_buildings['RESIDENTIAL'] == 0
-    assert number_of_buildings['UTILITY'] == 114
+    assert number_of_buildings['UTILITY'] == 3
 
     # Setup building parsers
     converter_mmvib_micro._EsdlToScenarioConverter__setup_building_parsers(number_of_buildings)
