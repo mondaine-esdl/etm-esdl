@@ -27,6 +27,13 @@ import_parser.add_argument(
     location='form'
 )
 import_parser.add_argument('energy_system_title', type=str, required=False, location='form')
+import_parser.add_argument(
+    'scenario_id',
+    type=int,
+    required=False,
+    location='form',
+    help='If you want to update an existing scenario instead of creating an ew one, please specify the ID here.'
+)
 
 ## Controller
 @api.route('/')
@@ -48,7 +55,12 @@ class EnergySystem(Resource):
         )
 
         converter = EsdlToScenarioConverter(self.energy_system_handler)
-        self.__create_new_scenario_id(converter.area)
+
+        # NOTE: we don't validate if this scenario matches the area!
+        if args['scenario_id']:
+            self.scenario_id = args['scenario_id']
+        else:
+            self.__create_new_scenario_id(converter.area)
 
         with HaltGarbageCollection():
             self.__set_sliders_in_etm(self.__filter_on_hold(converter.calculate()))
