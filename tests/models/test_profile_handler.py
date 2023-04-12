@@ -9,7 +9,6 @@ from esdl import esdl
 
 from app.models.energy_system import EnergySystemHandler
 from app.models.profile_handler import ProfileHandler
-from app.utils.exceptions import ETMParseError
 
 
 @pytest.fixture
