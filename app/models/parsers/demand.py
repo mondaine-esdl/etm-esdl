@@ -2,6 +2,9 @@
 Parser for demand assets (e.g. MobilityDemand)
 """
 
+from esdl import esdl
+
+from app.models.profile_handler import ProfileHandler
 from app.services.query_scenario import QueryScenario
 from app.utils.exceptions import ETMParseError, EnergysystemParseError
 from .parser import CapacityParser
@@ -57,9 +60,15 @@ class MobilityDemandParser(CapacityParser):
         if asset:
             self.power = self.query_scenario(scenario_id, self.props['attr_set']['power'])
             self.full_load_hours = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
+            self.volume = self.query_scenario(scenario_id, self.props['attr_set']['volume'])
 
-        self.__update_power(asset)
-        self.__update_flh(asset)
+            self.__update_power(asset)
+            self.__update_flh(asset)
+
+            qu_volume = esdl.QuantityAndUnitType(
+                physicalQuantity="ENERGY",
+                unit="JOULE")
+            self.__update_profile(asset, qu_volume)
 
         # TODO: provide warning if there's more than 1 asset in the asset_generator
         # How do we want to communicate this to the user? An extra part of the API
@@ -83,6 +92,15 @@ class MobilityDemandParser(CapacityParser):
         """
         # ESDL expects the FLH to be an integer value
         asset.fullLoadHours = int(self.full_load_hours)
+
+
+    def __update_profile(self, asset, qu):
+        """
+        Sets the profile of the asset to a single value 
+        based on the ETM value 
+        (self.volume)
+        """
+        ProfileHandler(asset).update(self.volume, qu)
 
 
     def __next_asset(self):
