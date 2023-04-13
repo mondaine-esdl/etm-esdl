@@ -1,6 +1,6 @@
 # Using SBI codes to separate utility buildings from industry ones
 
-# TODO @Charlotte: fill these lists with the correct SBI codes
+# This is a 'rough' division of industry & utility, should be revised and mapped in detail if necessary in future projects.
 
 utility: [
   'G',
