@@ -21,10 +21,11 @@ class StagingConfig(ProductionConfig):
 class DevelopmentConfig(Config):
     '''Sets debug to true'''
     DEBUG = True
-    # You can replace the ETEngine url here to point to your local version. Example:
+    # You can uncomment the ETEngine url below to point to your local version instead of beta:
+    # ETENGINE_URL = 'http://host.docker.internal:3000/api/v3'
+    # You need host.docker.internal instead of localhost here when running the app in Docker.
+    # Comment this beta url when using your local engine:
     ETENGINE_URL = 'https://beta-engine.energytransitionmodel.com/api/v3'
-    # Where <PORT> should be 3000, 3001, etc. You need host.docker.internal instead of localhost
-    # here when running the app in Docker.
 
 class TestingConfig(Config):
     '''Sets testing to true'''
