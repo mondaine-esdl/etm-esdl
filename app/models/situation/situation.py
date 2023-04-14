@@ -19,10 +19,11 @@ class Situation:
         'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
         'capacity_of_industry_chp_engine_gas_power_fuelmix',
         'capacity_of_industry_chp_turbine_gas_power_fuelmix',
+        'capacity_of_energy_power_solar_pv_solar_radiation'
     ]
 
     INDUSTRY_GROUPS = [
-        'chemical_other', 'chemical_refineries', 'aggregated_other', 'other_food', 'other_paper'
+        # 'chemical_other', 'chemical_refineries', 'aggregated_other', 'other_food', 'other_paper'
     ]
 
     EXTRA_SLIDERS = [slider_for(group) for group in INDUSTRY_GROUPS]
@@ -64,7 +65,8 @@ class Situation:
 
         slider_settings = defaultdict(float)
         for slider in self.PRESENT_SHARE_SLIDERS:
-            slider_settings[slider] = self.calculate_slider_based_on_present_share(other, slider)
+            if slider in slider_settings.keys():
+                slider_settings[slider] = self.calculate_slider_based_on_present_share(other, slider)
 
         for group in self.INDUSTRY_GROUPS:
             slider_settings.update(self.calculate_industry_heat_share_group_sliders(other, group))

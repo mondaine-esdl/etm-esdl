@@ -13,8 +13,7 @@ class InputsScenario(EtengineService):
     def __call__(self, *inputs):
         response = self.session.get(
             f'/scenarios/{self.scenario_id}',
-            headers={'Connection': 'close'},
-            data={'include_inputs': True}
+            headers={'Connection': 'close'}
         )
 
         return self.__handle_response(response, *inputs)
@@ -24,7 +23,7 @@ class InputsScenario(EtengineService):
         Returns a service result, by which we can check later if it's a success or not
         '''
         if response.ok:
-            filtered_inputs = {k:v for k,v in response.json()['inputs'].items() if k in inputs}
+            filtered_inputs = {k:v for k,v in response.json()['user_values'].items() if k in inputs}
             return ServiceResult.success(filtered_inputs)
         try:
             # Check if ETE returned any errors
