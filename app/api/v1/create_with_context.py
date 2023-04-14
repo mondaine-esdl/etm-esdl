@@ -106,7 +106,7 @@ class EnergySystem(Resource):
 
     def __find_energy_system_id(self, energy_system):
         ''' Parses the string energy_system in search for it's id '''
-        return re.search(r'(?<=id\=\")\w+(-\w+)+', energy_system.split('\n', 2)[1]).group(0)
+        return re.search(r'(?<=id\=\")\w+(-\w+)+', energy_system.split('>', 2)[1]).group(0)
 
     def __scenario_id(self, scenario_id, area):
         '''Returns a fresh ETM scenario id to use as context'''
