@@ -34,6 +34,12 @@ import_parser.add_argument(
     location='form',
     help='If you want to update an existing scenario instead of creating an ew one, please specify the ID here.'
 )
+import_parser.add_argument(
+    'filter', action='append', required=False,
+    help='List of assets to update or add to the scenario file (e.g. WindTurbine),' +
+        'if left empty uses all available assets',
+    location='form'
+)
 
 ## Controller
 @api.route('/')
@@ -63,7 +69,9 @@ class EnergySystem(Resource):
             self.__create_new_scenario_id(converter.area)
 
         with HaltGarbageCollection():
-            self.__set_sliders_in_etm(self.__filter_on_hold(converter.calculate()))
+            self.__set_sliders_in_etm(
+                self.__filter_on_hold(converter.calculate(filter=args['filter']))
+            )
 
         self.__attach_esdl_to_etm(energy_system_title)
 
