@@ -7,7 +7,7 @@ import pytest
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.models.parsers.demand import MobilityDemandParser
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 @pytest.fixture
 def esh_without_mobility_demand():
@@ -38,6 +38,11 @@ def mocked_values():
             'present': 0., 
             'future': 8760., 
             'unit': 'hours'
+        },
+        'hydrogen_cars_in_use_of_final_demand_in_cars': {
+            'present': 0., 
+            'future': 200., 
+            'unit': 'JOULE'
         }
     }
 
@@ -94,3 +99,7 @@ def test_parse_with_mobility_demand(esh_with_mobility_demand, app, requests_mock
     # Check if the number of FLH has been updated and if it has been 
     # set to 8760 for the first asset
     assert first_mobility_demand.fullLoadHours == 8760
+
+    # Check if the volume has been added as a SingleValue profile
+    # for the first asset
+    assert first_mobility_demand.port[0].profile[0].value == 200.e15
