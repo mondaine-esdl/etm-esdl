@@ -25,7 +25,7 @@ def get_context_values(scenario_id, inputs, queries):
 
     # We always need to access this because we need area and end year
     # (TODO: we can also get that from inputs)
-    query_result = QueryScenario.execute(scenario_id, detailed=True, *queries)
+    query_result = QueryScenario.execute(scenario_id, *queries)
     if not query_result.successful: return fail_with(raw_result)
 
     values.update(query_result.value)
@@ -53,7 +53,12 @@ def extract_present_future(input_response):
     Returns the response of an input_response as a dict with the present (default)
     and future (user) values as keys
     '''
+    try:
+        future_value = input_response['user']
+    except:
+        future_value = input_response['default']
+
     return {
-        'future': input_response.get('user', input_response['default']),
+        'future': future_value,
         'present': input_response['default']
     }
