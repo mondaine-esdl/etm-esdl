@@ -7,7 +7,7 @@ from app.services.service_result import ServiceResult
 
 @pytest.fixture
 def happy_values():
-    return {'inputs': {
+    return {
         'input1': {
             "min":0.0,
             "max":60680.50675542846,
@@ -25,7 +25,7 @@ def happy_values():
             "code":'input2',
             "unit":"MW"
         }
-    }}
+    }
 
 def mock_query_response(scenario_id, app, requests_mock, output):
     requests_mock.put(
@@ -36,14 +36,14 @@ def mock_query_response(scenario_id, app, requests_mock, output):
 
 def mock_inputs_response(scenario_id, app, requests_mock, output):
     requests_mock.get(
-        f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}',
+        f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}/inputs',
         json=output,
         status_code=200
     )
 
 def test_process(happy_values):
     inputs = ['input1', 'input2']
-    happy_result = ServiceResult.success(happy_values['inputs'])
+    happy_result = ServiceResult.success(happy_values)
 
     processed = context.process(happy_result)
 

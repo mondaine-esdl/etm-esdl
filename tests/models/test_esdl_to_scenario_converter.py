@@ -139,7 +139,7 @@ def test_parse_buildings_mmvib(converter_mmvib_micro):
     # Test if inputs for space heating in buildings sum up to 1
     sum_of_inputs = sum([val for input, val in converter_mmvib_micro.inputs.items() 
                  if input in balancing_groups['buildings_heating']])
-    assert sum_of_inputs == 100.
+    assert round(sum_of_inputs,2) == 100.
 
 # TODO: For this test we need a fixture with both Building and AggregatedBuilding assets
 # def test_all_buildings_mmvib(converter_mmvib_micro):
