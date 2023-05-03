@@ -1,13 +1,20 @@
-'''Helpers for naming issues concerning indusrty groups'''
+"""
+Helpers for naming issues concerning industry groups
+"""
 
 
 def slider_for(group):
-    '''Returns the slider (str) for the industry group'''
+    """
+    Returns the slider (str) representing the (changing)
+    size of the industry group
+    """
     return f'industry_useful_demand_for_{group}'
 
 
 def context_query_for(group):
-    '''Returns the context query (str) for the group'''
+    """
+    Returns the context query (str) for the group
+    """
     if group == 'chemical_other':
         query_group = 'other_chemical'
     elif group == 'chemical_refineries':
@@ -24,5 +31,7 @@ def context_query_for(group):
 
 
 def balancing_group_for(group):
-    '''Returns the balancing group (str) for the group'''
+    """
+    Returns the balancing group (str) for the group
+    """
     return f'industry_heating_{group}'
