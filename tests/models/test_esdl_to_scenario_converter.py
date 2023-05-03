@@ -114,10 +114,10 @@ def test_calculate_with_mmvib_micro(energy_system_handler_mmvib_micro):
 def test_parse_buildings_mmvib(converter_mmvib_micro):
     number_of_buildings = converter_mmvib_micro.determine_number_of_buildings()
 
-    # The MMvIB micro case ESDL should have 3 (of 114 in total) utility buildings and 0 
+    # The MMvIB micro case ESDL should have 51 (of 114 in total) utility buildings and 0 
     # residential buildings based on the current config sbi_codes.yml
     assert number_of_buildings['RESIDENTIAL'] == 0
-    assert number_of_buildings['UTILITY'] == 3
+    assert number_of_buildings['UTILITY'] == 51
 
     # Setup building parsers
     converter_mmvib_micro._EsdlToScenarioConverter__setup_building_parsers(number_of_buildings)
@@ -153,6 +153,24 @@ def test_parse_buildings_mmvib(converter_mmvib_micro):
 #     for sub_area in converter_mmvib_micro.energy_system.area_instance():
 #         converter_mmvib_micro.parse_aggregated_buidings(sub_area)
 #     assert True
+
+def test_sbi_filter(energy_system_handler_mmvib_micro, converter_mmvib_micro):
+    first_building = energy_system_handler_mmvib_micro.get_assets_of_type('Building')[0]
+    industry_building = energy_system_handler_mmvib_micro.get_assets_of_type('Building')[11]
+    utility_building = energy_system_handler_mmvib_micro.get_assets_of_type('Building')[12]
+        
+    print(first_building.sector.code)
+    print(industry_building.sector.code)
+    print(utility_building.sector.code)
+
+    # The first building has a single SBI code (B08553) that corresponds to industry
+    assert converter_mmvib_micro._EsdlToScenarioConverter__in_industry(first_building) == True
+
+    # This building has a multi-value SBI code (B06420, A03102) of which B06420 corresponds to industry
+    assert converter_mmvib_micro._EsdlToScenarioConverter__in_industry(industry_building) == True
+
+    # This building has a multi-value SBI code (M70221, G45312, G45311) of which none corresponds to industry
+    assert converter_mmvib_micro._EsdlToScenarioConverter__in_industry(utility_building) == False
 
 def test_parse_aggregated_buidings_hengelo(converter_hengelo):
     converter_hengelo._EsdlToScenarioConverter__setup_building_parsers({'RESIDENTIAL': 1000,'UTILITY': 100})
