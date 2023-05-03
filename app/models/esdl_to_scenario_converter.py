@@ -114,8 +114,8 @@ class EsdlToScenarioConverter():
         buildings = self.energy_system.get_assets_of_type('Building')
 
         for building in buildings:
-            building_type = "UTILITY"
-            self.heat_parser.parse(building, building_type)
+            if building.sector.code and not self.__in_industry(building):
+                self.heat_parser.parse(building, "UTILITY")
 
 
     def parse_aggregated_buidings(self, area):
