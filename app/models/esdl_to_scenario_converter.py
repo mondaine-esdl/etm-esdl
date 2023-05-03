@@ -33,10 +33,10 @@ class EsdlToScenarioConverter():
             self.parse_asset(asset)
 
         # Parse buildings
-        number_of_buildings = self.determine_number_of_buildings()
-        if 'RESIDENTIAL' in number_of_buildings:
-            self.inputs['households_number_of_residences'] = number_of_buildings['RESIDENTIAL']
-        self.__setup_building_parsers(number_of_buildings)
+        self.number_of_buildings = self.determine_number_of_buildings()
+        if 'RESIDENTIAL' in self.number_of_buildings:
+            self.inputs['households_number_of_residences'] = self.number_of_buildings['RESIDENTIAL']
+        self.__setup_building_parsers(self.number_of_buildings)
 
         # Parse buildings on top area level
         self.parse_buildings()
@@ -62,7 +62,7 @@ class EsdlToScenarioConverter():
         except AttributeError as exc:
             raise EnergysystemParseError('Date instance was missing in the ESDL') from exc
 
-        return Situation(self.inputs, self.area, year)
+        return Situation(self.inputs, self.number_of_buildings, self.area, year)
 
 
     def parse_asset(self, asset):
@@ -94,7 +94,7 @@ class EsdlToScenarioConverter():
                 number_of_buildings[self.__building_type(asset)] += asset.numberOfBuildings
 
         for asset in self.__list_of_buildings():
-            if asset.sector and asset.sector.code not in sbi_codes.get('industry'):
+            if asset.sector.code and not self.__in_industry(asset):
                 number_of_buildings["UTILITY"] += 1
 
             # elif asset.type:
@@ -167,6 +167,28 @@ class EsdlToScenarioConverter():
         TODO: could be an esdl util
         """
         return str(asset.buildingTypeDistribution.bin[0].buildingType)
+
+
+    def __in_industry(self, asset):
+        """
+        Classifies the SBI code of the building asset to either industry or utility.
+        If a building has more than one SBI code, the industry SBI code always dominates.
+        In other words, if there is a building with two utility SBI codes and one industry 
+        SBI code, the whole building is classified as industry.
+        """
+        string_of_sbi_codes = asset.sector.code
+        list_of_sbi_codes = string_of_sbi_codes.split(", ")
+
+        for sbi_code in list_of_sbi_codes:
+            for it in range(len(sbi_code)):
+                # Check if the code is in the industry list
+                if sbi_code in sbi_codes.get('industry'):
+                    return True
+                # If not, remove the last digit of the code and check again
+                sbi_code = sbi_code[0:len(sbi_code)-1]
+        
+        # If even the first digit is not in the list of industry codes, return false
+        return False
 
 
     def __convert_area(self):
