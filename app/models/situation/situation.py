@@ -19,24 +19,27 @@ class Situation:
         'capacity_of_industry_chp_combined_cycle_gas_power_fuelmix',
         'capacity_of_industry_chp_engine_gas_power_fuelmix',
         'capacity_of_industry_chp_turbine_gas_power_fuelmix',
+        'capacity_of_energy_power_solar_pv_solar_radiation'
     ]
 
     INDUSTRY_GROUPS = [
         'chemical_other', 'chemical_refineries', 'aggregated_other', 'other_food', 'other_paper'
     ]
 
-    EXTRA_SLIDERS = [slider_for(group) for group in INDUSTRY_GROUPS]
-    CONTEXT_QUERIES = [context_query_for(group) for group in INDUSTRY_GROUPS]
+    EXTRA_INDUSTRY_SLIDERS = [slider_for(group) for group in INDUSTRY_GROUPS]
+    EXTRA_BUILDING_SLIDER = 'number_of_buildings'
+    CONTEXT_QUERIES = [context_query_for(group) for group in INDUSTRY_GROUPS] + ['etmoses_number_of_buildings']
+    
+    CONTEXT_INPUTS = (PRESENT_SHARE_SLIDERS + EXTRA_INDUSTRY_SLIDERS + [EXTRA_BUILDING_SLIDER] +
+        [bgs for group in INDUSTRY_GROUPS for bgs in balancing_groups[balancing_group_for(group)]] +
+        balancing_groups['buildings_heating'])
 
-    CONTEXT_INPUTS =  (PRESENT_SHARE_SLIDERS + EXTRA_SLIDERS +
-        [bgs for group in INDUSTRY_GROUPS for bgs in balancing_groups[balancing_group_for(group)]])
-
-    def __init__(self, slider_settings, area, year):
+    def __init__(self, slider_settings, number_of_buildings, area, year):
         self.slider_settings = slider_settings
+        self.number_of_buildings = number_of_buildings
         self.area = area
         self.year = year
         self.context = {}
-
 
     def __eq__(self, other):
         if type(other) is type(self) and self.area == other.area and self.year == other.year:
@@ -54,18 +57,20 @@ class Situation:
 
 
     def relative_change_to_for_context(self, other):
-        '''
+        """
         Calculates new slider settings. Compares the current 'present' Situation to the
         relative change to another 'future' Situation, based on the context set for the
         current Situation.
         Returns a new Situation for the context, with the change of self to other incorporated
-        '''
+        """
         Situation.sanity_check(self, other)
 
+        # Calculate settings for present share sliders
         slider_settings = defaultdict(float)
         for slider in self.PRESENT_SHARE_SLIDERS:
             slider_settings[slider] = self.calculate_slider_based_on_present_share(other, slider)
 
+        # Calculate settings for industry sliders
         for group in self.INDUSTRY_GROUPS:
             slider_settings.update(self.calculate_industry_heat_share_group_sliders(other, group))
 
@@ -75,19 +80,23 @@ class Situation:
                 context_query_for(group)
             )
 
+        # Calculate settings for building heating mix sliders
+        slider_settings.update(self.calculate_buildings_heat_share_group_sliders(other))
+
         Balancer(slider_settings).call()
 
-        return Situation(slider_settings, self.context['area_code'], self.context['end_year'])
+        return Situation(slider_settings, self.number_of_buildings, self.context['area_code'], self.context['end_year'])
 
 
     def calculate_slider_based_on_present_share(self, other, slider, base=1.0):
-        '''
+        """
         Calculate a new slider setting based on present and future Situations and a context.
         Assumes self as present and other as future.
-        '''
+        """
         present_share = Situation.try_division(
             self.slider_settings[slider], self.context[slider]['present']
         )
+
         assumed_future = self.context[slider]['future'] * present_share
 
         new_value = self.context[slider]['future'] + (
@@ -95,6 +104,21 @@ class Situation:
         )
 
         return new_value if new_value > 0 else 0.0
+
+
+    def calculate_buildings_heat_share_group_sliders(self, other):
+        """
+        Returns slider settings for the buildings heat share group
+        """
+        share_in_context = Situation.try_division(
+            self.number_of_buildings['UTILITY'],
+            self.context['etmoses_number_of_buildings']['future']
+        )
+
+        return {
+            input: self.calculate_slider_based_on_present_share(other, input, base=share_in_context)
+            for input in balancing_groups['buildings_heating']
+        }
 
 
     def calculate_industry_heat_share_group_sliders(self, other, group):
@@ -121,11 +145,13 @@ class Situation:
             self.slider_settings[slider],
             self.context[query]['present']
         )
+
         assumed_future = self.context[query]['future'] * present_share
         assumed_new_size = self.context[query]['future'] + (
             other.slider_settings[slider] - assumed_future
         )
-        return assumed_new_size / self.context[query]['present'] * 100
+
+        return Situation.try_division(assumed_new_size, self.context[query]['present']) * 100
 
     @staticmethod
     def try_division(first, second):

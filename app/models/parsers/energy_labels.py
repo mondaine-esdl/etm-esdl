@@ -3,20 +3,23 @@ Parser for energy labels - this one is special because it has a special config
 '''
 
 from app.models.conversion_assets import distributions, energy_label_percentages
-from .parser import AggregratedBuildingParser
+from .parser import BuildingParser
 
-class EnergyLabelsParser(AggregratedBuildingParser):
+class EnergyLabelsParser(BuildingParser):
     '''Parser for energy labels, parses per aggegrated building and builds ETM inputs'''
 
-    def parse(self, aggregated_building, building_type):
+    def parse(self, building, building_type, is_aggregated=False):
         '''
         Parses an aggegrated building and updates self.inputs accordingly
 
-        aggregated_building     AggegratedBuilding asset from the energy system
+        building                Building or AggegratedBuilding asset from the energy system
         building_type           String, the type of building to be parsed
+        is_aggregated           Boolean, True for an AggregatedBuilding and False for a Building
         '''
-        energy_labels, prop = self.parse_distribution(aggregated_building, 'energyLabelDistribution')
-        share = aggregated_building.numberOfBuildings / self.total_buildings[building_type]
+        energy_labels, prop = self.parse_distribution(building, 'energyLabelDistribution')
+
+        number_of_buildings = building.numberOfBuildings if is_aggregated else 1
+        share = number_of_buildings / self.total_buildings[building_type]
 
         etm_value = sum((
             self.__value(perc, share, label, building_type) for label, perc in energy_labels.items()
@@ -25,17 +28,17 @@ class EnergyLabelsParser(AggregratedBuildingParser):
         for input_value in prop['inputs'][building_type]:
             self.inputs[input_value] += etm_value
 
-    def parse_distribution(self, aggregated_building, distribution_type):
+    def parse_distribution(self, building, distribution_type):
         """
         Parses the distribution of a certain type in an aggegrated building assets into a dict
-        aggregated_building     AggegratedBuilding asset from the energy system
+        building                AggegratedBuilding asset from the energy system
         distribution_type       String, the type of distribution to be parsed e.g.
                                 'energyLabelDistribution'
 
         Returns a tuple with the distribution (dict), and iets properties (dict)
         """
         prop = distributions[distribution_type]
-        categories = getattr(getattr(aggregated_building, distribution_type), prop['category'])
+        categories = getattr(getattr(building, distribution_type), prop['category'])
         dist = {getattr(cat, prop['attribute']): cat.percentage for cat in categories}
 
         return dist, prop

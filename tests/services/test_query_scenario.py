@@ -17,6 +17,7 @@ def test_call_with_valid_queries(app, requests_mock):
     requests_mock.put(
         f'{app.config["ETENGINE_URL"]}/scenarios/12345',
         json={
+            'scenario': {},
             'gqueries': {
                 queries[0]: {'future': 1, 'present': 0.5},
                 queries[1]: {'future': 0.5, 'present': 1}
@@ -73,7 +74,7 @@ def test_call_with_etengine_failing(app, requests_mock):
         assert not result.successful
         assert 'ETEngine returned a 500' in  result.errors
 
-def test_call_with_detailed(app, requests_mock):
+def test_call(app, requests_mock):
     queries = ['query1', 'query2']
 
     requests_mock.put(
@@ -92,7 +93,7 @@ def test_call_with_detailed(app, requests_mock):
     )
 
     with app.app_context():
-        result = QueryScenario.execute(12345, detailed=True, *queries)
+        result = QueryScenario.execute(12345, *queries)
         assert result.successful
         assert 'end_year' in result.value
         assert queries[0] in result.value

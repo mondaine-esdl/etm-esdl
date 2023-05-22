@@ -44,12 +44,12 @@
       edr:
 
 # Rooftop PV
-- asset: RooftopPV
-  parser: rooftop_pv
-  inputs:
-      RESIDENTIAL: households_solar_pv_solar_radiation_market_penetration
-      BUILDINGS: buildings_solar_pv_solar_radiation_market_penetration
-  factor: 1.e+2
+# - asset: RooftopPV
+#   parser: rooftop_pv
+#   inputs:
+#       RESIDENTIAL: households_solar_pv_solar_radiation_market_penetration
+#       BUILDINGS: buildings_solar_pv_solar_radiation_market_penetration
+#   factor: 1.e+2
 
 # PVInstallation (same settings as PVPark, if both present in file: what do we do?)
 # TODO: Perhaps we should rename one of those to PVPanel and remove the other in order
