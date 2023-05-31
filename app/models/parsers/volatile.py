@@ -3,8 +3,9 @@ Parser for volatile production (PV parks and wind turbines)
 """
 import esdl as esdl
 
-from app.models.energy_system import EnergyDataRepository
+from app.models.conversion_assets import quantities
 from app.models.cost_handler import CostHandler
+from app.models.energy_system import EnergyDataRepository
 from app.models.range_handler import RangeHandler
 from app.utils.exceptions import ETMParseError, EnergysystemParseError
 from app.services.query_scenario import QueryScenario
@@ -118,7 +119,7 @@ class VolatileParser(CapacityParser):
         min_power = self.query_scenario(scenario_id_min, self.props['attr_set']['power'])
         # If no second scenario ID is geven, it's not possible to execute the query 
         if scenario_id_max: max_power = self.query_scenario(scenario_id_max, self.props['attr_set']['power'])
-        qu_power = {"multiplier": "MEGA", "unit": "WATT", "physicalQuantity": "power"}
+        qu_power = quantities['power']
 
         for asset in self.asset_generator:
             self.update_flh(asset)

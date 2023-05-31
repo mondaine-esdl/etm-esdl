@@ -1,0 +1,27 @@
+# ESDL asset conversions for storage assets
+
+# Battery (large-scale)
+- asset: Battery
+  parser: storage
+  # Flexibility parser has sets of attributes: one power and one flh
+  attr_set:
+    capacity: # we call this volume in the ETM
+      input: # the volume is derived from a scenario and cannot be set
+      gquery: energy_flexibility_mv_batteries_electricity_volume
+      factor: 2.77778e-10 # MWh to J
+    maxChargeRate: # we call this capacity in the ETM
+      input: capacity_of_energy_flexibility_mv_batteries_electricity
+      gquery: energy_flexibility_mv_batteries_electricity_capacity
+      factor: 1.e-6
+    maxDischargeRate: # we call this capacity in the ETM
+      input: capacity_of_energy_flexibility_mv_batteries_electricity
+      gquery: energy_flexibility_mv_batteries_electricity_capacity
+      factor: 1.e-6
+    fullLoadHours:
+      input: # the flh are derived from a scenario and cannot be set
+      gquery: energy_flexibility_mv_batteries_electricity_flhs
+      factor: 1
+    marginalCosts:
+      input: # marginal costs cannot be set in the ETM
+      gquery: # TODO
+      factor: 1
