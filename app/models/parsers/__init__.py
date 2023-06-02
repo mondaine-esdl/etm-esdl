@@ -10,5 +10,6 @@ from .heating_technologies import HeatingTechnologiesParser
 from .rooftop_pv import RooftopPvParser
 from .carrier_capacity import CarrierCapacityParser
 from .demand import MobilityDemandParser
+from .production import PowerPlantParser
 from .volume import VolumeParser
 from .volatile import VolatileParser

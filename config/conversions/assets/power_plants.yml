@@ -1,5 +1,160 @@
 # ESDL asset conversions for powerplants
 
+# Nuclear 2nd generation
+- asset: PowerPlant
+  parser: production
+  plant_type: NUCLEAR_2ND_GENERATION
+  fuel: URANIUM
+  attr_set:
+    power:
+      input: capacity_of_energy_power_nuclear_gen2_uranium_oxide
+      gquery: merit_order_nuclear_ii_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_nuclear_ii_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_nuclear_ii_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Nuclear 3rd generation
+- asset: PowerPlant
+  parser: production
+  plant_type: NUCLEAR_3RD_GENERATION
+  fuel: URANIUM
+  attr_set:
+    power:
+      input: capacity_of_energy_power_nuclear_gen3_uranium_oxide
+      gquery: merit_order_nuclear_iii_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_nuclear_iii_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_nuclear_iii_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Combined cycle network gas
+- asset: PowerPlant
+  parser: production
+  plant_type: COMBINED_CYCLE_GAS_TURBINE
+  fuel: NATURAL_GAS
+  attr_set:
+    power:
+      input: capacity_of_energy_power_combined_cycle_network_gas
+      gquery: merit_order_gas_ccgt_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_gas_ccgt_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_gas_ccgt_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Combined cycle network gas
+- asset: PowerPlant
+  parser: production
+  plant_type: STEAM_TURBINE
+  fuel: NATURAL_GAS
+  attr_set:
+    power:
+      input: capacity_of_energy_power_turbine_network_gas
+      gquery: merit_order_gas_turbine_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_gas_turbine_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_gas_turbine_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Combined cycle network gas
+- asset: PowerPlant
+  parser: production
+  plant_type: SUPER_CRITICAL_STEAM_TURBINE
+  fuel: NATURAL_GAS
+  attr_set:
+    power:
+      input: capacity_of_energy_power_ultra_supercritical_network_gas
+      gquery: merit_order_gas_conv_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_gas_conv_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_gas_conv_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Combined cycle network gas
+- asset: PowerPlant
+  parser: production
+  plant_type: INTERNAL_COMBUSTION
+  fuel: NATURAL_GAS
+  attr_set:
+    power:
+      input: capacity_of_energy_power_engine_network_gas
+      gquery: merit_order_gas_engine_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit-order
+      gquery: merit_order_gas_engine_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_gas_engine_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# Combined cycle network gas
+- asset: PowerPlant
+  parser: production
+  plant_type: WASTE_INCENERATION
+  fuel: UNDEFINED
+  attr_set:
+    power:
+      input: capacity_of_energy_power_supercritical_waste_mix
+      gquery: merit_order_waste_power_capacity_in_merit_order_table
+      factor: 1.e-6
+      edr:
+    fullLoadHours:
+      input: # cannot be set, determined by the merit order
+      gquery: merit_order_waste_power_full_load_hours_in_merit_order_table
+      factor: 1
+      edr:
+    marginalCosts:
+      input: # cannot be set, only indirectly through fuel costs or costs for O&M
+      gquery: merit_order_waste_power_operating_costs_in_merit_order_table
+      factor: 1
+      edr: 
+
+# ESDL asset conversions for powerplants (Gridmaster specific)
 - asset: PowerPlant
   parser: carrier_capacity
   attribute: power
