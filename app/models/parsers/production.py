@@ -71,7 +71,7 @@ class PowerPlantParser(CapacityParser):
 
         if asset:
             # Update the full load hours based on the min value
-            self.full_load_hours = self.query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
+            self.full_load_hours = self.__query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
             self.__update_flh(asset)
 
             # Update the power range based on the min and max value
@@ -85,8 +85,8 @@ class PowerPlantParser(CapacityParser):
                 self.__update_range(asset, "power", qu_power, min_power, max_power)
 
             # Update the marginal costs
-            marginal_costs = self.query_scenario(scenario_id_min, self.props['attr_set']['marginalCosts'])
-            self.update_costs(asset, marginal_costs)
+            marginal_costs = self.__query_scenario(scenario_id_min, self.props['attr_set']['marginalCosts'])
+            self.__update_costs(asset, marginal_costs)
 
         # TODO: provide warning if there's more than 1 asset in the asset_generator
         # How do we want to communicate this to the user? An extra part of the API
@@ -152,7 +152,7 @@ class PowerPlantParser(CapacityParser):
         return getattr(asset, key) * self.props['attr_set'][key]['factor']
 
     
-    def query_scenario(self, scenario_id, prop):
+    def __query_scenario(self, scenario_id, prop):
         """
         Query the ETM scenario for the value to set the given prop to
 

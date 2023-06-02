@@ -224,7 +224,7 @@
           <point xsi:type="esdl:Point" lat="52.087799973048305" lon="5.057723522186279"/>
         </geometry>
       </asset>
-      <asset xsi:type="esdl:PowerPlant" fuel="URANIUM" name="PowerPlant_f521" id="f521a519-9c80-4661-a66c-e6a035adce2c">
+      <asset xsi:type="esdl:PowerPlant" fuel="URANIUM" type="NUCLEAR_2ND_GENERATION" name="PowerPlant_f521" power="10000000.0" id="f521a519-9c80-4661-a66c-e6a035adce2c">
         <port xsi:type="esdl:InPort" name="In" id="7db444bc-0c27-4f2e-84a6-5b05dc207f5b" carrier="b2418fd5-d4f8-451f-ae4e-6171b1e71103" connectedTo="dbaecb4d-6837-4011-ace5-91558bff6374"/>
         <port xsi:type="esdl:OutPort" name="Out" id="afaeff88-cc8a-4397-b6cf-84d48d5a70a8"/>
         <geometry xsi:type="esdl:Point" lat="52.08789226610088" lon="5.07345199584961"/>
