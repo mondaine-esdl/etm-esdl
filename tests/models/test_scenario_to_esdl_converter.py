@@ -30,7 +30,8 @@ def mocking_parsers():
     """
     with patch("app.models.parsers.CostsParser.update", new=MagicMock(return_value=None)):
         with patch("app.models.parsers.MobilityDemandParser.update", new=MagicMock(return_value=None)):
-            yield
+            with patch("app.models.parsers.StorageParser.update", new=MagicMock(return_value=None)):
+                yield
 
 @pytest.mark.usefixtures("mocking_parsers")
 def test_update_esdl(energy_system_handler):
