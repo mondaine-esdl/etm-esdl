@@ -32,7 +32,7 @@ def hic_2050():
 
 
 def test_parse_without_power_plants(energy_system_handler_without_power_plants, helpers):
-    for props in helpers.get_configs_for_asset_type('PowerPlant'):
+    for props in helpers.get_configs_for('PowerPlant', 'carrier_capacity'):
         parser = CarrierCapacityParser(
             energy_system_handler_without_power_plants,
             props
@@ -53,7 +53,7 @@ def test_parse_with_power_plants(energy_system_handler, network_gas_expected, he
     inputs = defaultdict(float)
 
     # Parse all carriers
-    for props in helpers.get_configs_for_asset_type('PowerPlant'):
+    for props in helpers.get_configs_for('PowerPlant', 'carrier_capacity'):
         parser = CarrierCapacityParser(
             energy_system_handler,
             props,

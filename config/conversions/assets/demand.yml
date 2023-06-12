@@ -51,3 +51,54 @@
       input: # cannot be set in the ETM
       gquery: hydrogen_vans_in_use_of_final_demand_in_freight_transport_technologies
       factor: 1.e-15 # gquery returns value in PJ
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: ELECTRICITY
+  vehicle: EOrderedSet([VAN=3])
+  attr_set:
+    power:
+      input: # cannot be set in the ETM
+      gquery: capacity_of_transport_van_using_electricity
+      factor: 1.e-6 # gquery returns value in MW
+    fullLoadHours:
+      input: # the flh are derived from a scenario and cannot be set
+      gquery: flh_of_transport_van_using_electricity
+      factor: 1
+    volume:
+      input: # cannot be set in the ETM
+      gquery: electric_vans_in_use_of_final_demand_in_freight_transport_technologies
+      factor: 1.e-15 # gquery returns value in PJ
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: ELECTRICITY
+  vehicle: EOrderedSet([TRUCK=2])
+  attr_set:
+    power:
+      input: # cannot be set in the ETM
+      gquery: capacity_of_transport_truck_using_electricity
+      factor: 1.e-6 # gquery returns value in MW
+    fullLoadHours:
+      input: # the flh are derived from a scenario and cannot be set
+      gquery: flh_of_transport_truck_using_hydrogen
+      factor: 1
+    volume:
+      input: # cannot be set in the ETM
+      gquery: electric_trucks_in_use_of_final_demand_in_freight_transport_technologies
+      factor: 1.e-15 # gquery returns value in PJ
+- asset: MobilityDemand
+  parser: mobility_demand # or volume?
+  fuel: ELECTRICITY
+  vehicle: EOrderedSet([CAR=1])
+  attr_set:
+    power:
+      input: # cannot be set in the ETM
+      gquery: capacity_of_transport_car_using_electricity
+      factor: 1.e-6 # gquery returns value in MW
+    fullLoadHours:
+      input: # the flh are derived from a scenario and cannot be set
+      gquery: flh_of_transport_car_using_hydrogen
+      factor: 1
+    volume:
+      input: # cannot be set in the ETM
+      gquery: electric_cars_in_use_of_final_demand_in_cars
+      factor: 1.e-15 # gquery returns value in PJ

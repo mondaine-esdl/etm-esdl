@@ -49,9 +49,17 @@ class Helpers:
             raise AttributeError(f'No assets found for {asset_type} in the config') from exc
 
     @staticmethod
-    def get_config_for(asset_type, parser):
+    def get_first_config_for(asset_type, parser):
         '''Returns a the first config asset with given asset type e.g. GasHeater and parser type'''
         return next(
+            asset for asset in assets.collection
+            if asset['asset'] == asset_type and asset['parser'] == parser
+        )
+
+    @staticmethod
+    def get_configs_for(asset_type, parser):
+        '''Returns a the first config asset with given asset type e.g. GasHeater and parser type'''
+        return (
             asset for asset in assets.collection
             if asset['asset'] == asset_type and asset['parser'] == parser
         )

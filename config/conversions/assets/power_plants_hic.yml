@@ -1,0 +1,19 @@
+# ESDL asset conversions for powerplants (Gridmaster HIC specific)
+- asset: PowerPlant
+  parser: carrier_capacity
+  attribute: power
+  carrier: [HTLH,HTLG, RG, RTLH_ODO, RTLG_ODO, RTLH_NODO, RTLG_NODO, CH4, GM]
+  input: capacity_of_energy_power_combined_cycle_network_gas
+  factor: 1.e-6
+- asset: PowerPlant
+  parser: carrier_capacity
+  attribute: power
+  carrier: [PC, R, C]
+  input: capacity_of_energy_power_ultra_supercritical_coal
+  factor: 1.e-6
+- asset: PowerPlant
+  parser: carrier_capacity
+  attribute: power
+  carrier: W
+  input: capacity_of_energy_power_supercritical_waste_mix
+  factor: 1.e-6

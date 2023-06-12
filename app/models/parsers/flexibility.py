@@ -26,7 +26,6 @@ class FlexibilityParser(CapacityParser):
 
         Sets self.power and self.input
         """
-
         self.power = sum((self.__value_of(asset, 'power') for asset in self.asset_generator))
         self.inputs[self.props['attr_set']['power']['input']] = self.power
 
