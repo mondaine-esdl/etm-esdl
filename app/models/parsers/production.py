@@ -29,6 +29,7 @@ class PowerPlantParser(CapacityParser):
         """
 
         try:
+            print(self.props)
             self.asset_generator = self.energy_system.get_all_instances_of_type_and_attribute_values(
                 self.props['asset'],
                 {
