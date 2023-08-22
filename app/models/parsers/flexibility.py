@@ -4,8 +4,7 @@ Parser for flexibility assets (electrolyzers)
 
 from app.models.conversion_assets import quantities
 from app.models.range_handler import RangeHandler
-from app.services.query_scenario import QueryScenario
-from app.utils.exceptions import ETMParseError
+from app.services.gquery_cache import GqueryCache
 from .parser import CapacityParser
 
 class FlexibilityParser(CapacityParser):
@@ -36,22 +35,19 @@ class FlexibilityParser(CapacityParser):
 
         Sets self.full_load_hours
         """
-        self.full_load_hours = (
-            self.__query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
-        )
+        self.full_load_hours = GqueryCache().for_scenario_id(scenario_id_min).get_factor_divided_for_attr_set(self.props['attr_set']['fullLoadHours'])
 
-        min_power = self.__query_scenario(scenario_id_min, self.props['attr_set']['power'])
-         # If no second scenario ID is geven, it's not possible to execute the query 
-        if scenario_id_max: max_power = self.__query_scenario(scenario_id_max, self.props['attr_set']['power'])
-
-        qu_power = quantities['power']
+        min_power = GqueryCache().for_scenario_id(scenario_id_min).get_factor_divided_for_attr_set(self.props['attr_set']['power'])
+        if scenario_id_max:
+            qu_power = quantities['power']
+            max_power = GqueryCache().for_scenario_id(scenario_id_max).get_factor_divided_for_attr_set(self.props['attr_set']['power'])
 
         for asset in self.asset_generator:
             self.__update_flh(asset)
             
             # If no second scenario ID is given, don't add a range to the asset
-            if scenario_id_max: self.__update_range(asset, "power", qu_power, min_power, max_power)
-
+            if scenario_id_max:
+                self.__update_range(asset, "power", qu_power, min_power, max_power)
 
     def __update_flh(self, asset):
         """
@@ -92,22 +88,3 @@ class FlexibilityParser(CapacityParser):
         if not key in ['power', 'fullLoadHours']: return 0.0
 
         return getattr(asset, key) * self.props['attr_set'][key]['factor']
-
-
-    def __query_scenario(self, scenario_id, prop):
-        """
-        Query the ETM scenario for the value to set the given prop to
-
-        Params:
-            scenario_id (str): e.g. '123456'
-            prop (str): e.g. 'fullLoadHours'
-        """
-
-        query_result = QueryScenario.execute(scenario_id, prop['gquery'])
-
-        if query_result.successful:
-            return query_result.value[prop['gquery']]['future'] / prop ['factor']
-
-        raise ETMParseError(
-            f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
-        )

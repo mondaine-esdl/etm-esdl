@@ -2,9 +2,10 @@
 # if I throw in an energysystem do i get one out that is different
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import Mock, MagicMock, patch
 import pytest
 
+from app.services.gquery_cache import GqueryCache
 from app.models.scenario_to_esdl_converter import update_esdl
 from app.models.energy_system import EnergySystemHandler
 from app.models.asset_filter import FilterValidationError
@@ -37,19 +38,22 @@ def mocking_parsers():
 def test_update_esdl(energy_system_handler):
     '''TODO: unmock this test!'''
     #  !! THIS TEST IS MOCKED !!
-    KPIHandler.update = MagicMock(return_value=None)
-    VolatileParser.update = MagicMock(return_value=None)
-    FlexibilityParser.update = MagicMock(return_value=None)
+    with patch.object(GqueryCache(), 'perform_request', return_value=Mock(successful=True, value={})):
+        KPIHandler.update = MagicMock(return_value=None)
+        VolatileParser.update = MagicMock(return_value=None)
+        FlexibilityParser.update = MagicMock(return_value=None)
 
-    esh = update_esdl(energy_system_handler, 123456, None)
+        esh = update_esdl(energy_system_handler, 123456, None)
 
     assert esh
 
 def test_update_esdl_with_filter(energy_system_handler):
-    KPIHandler.update = MagicMock(return_value=None)
-    VolatileParser.update = MagicMock(return_value=None)
+    with patch.object(GqueryCache(), 'perform_request', return_value=Mock(successful=True, value={})):
+        KPIHandler.update = MagicMock(return_value=None)
+        VolatileParser.update = MagicMock(return_value=None)
 
-    esh = update_esdl(energy_system_handler, 123456, None, filter=['PVPark'])
+        esh = update_esdl(energy_system_handler, 123456, None, filter=['PVPark'])
+
     assert esh
 
 def test_update_esdl_with_falsey_filter(energy_system_handler):

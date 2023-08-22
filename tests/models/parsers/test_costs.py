@@ -1,29 +1,24 @@
 ''' Tests for the CHP parser '''
-
-
-import pytest
 # pylint: disable=import-error disable=redefined-outer-name disable=missing-function-docstring
+import pytest
+from unittest.mock import Mock, patch
 from app.models.energy_system import EnergySystemHandler
 from app.models.parsers.costs import CostsParser
-
-
-def mock_query(query, scenario_id, value, requests_mock, app):
-    output = {query: {'present': value, 'future': value}}
-
-    requests_mock.put(
-        f'{app.config["ETENGINE_URL"]}/scenarios/{scenario_id}',
-        json={'gqueries': output, 'scenario': {'end_year': 2050, 'area_code': 'nl'}},
-        status_code=200
-    )
+from app.services.gquery_cache import GqueryCache
+from app.services.query_scenario import QueryScenario
 
 @pytest.mark.parametrize(
     'esdl_file_name, costs_expected',
     [('meso_case', 5), ('valid_Hengelo', 6)]
 )
-def test_update_costs_te_elec_carrier(energy_system_handler, costs_expected, helpers, requests_mock, app):
+def test_update_costs_te_elec_carrier(app, energy_system_handler, costs_expected, helpers):
+    GqueryCache().reset() # Pytest does not reset initialized classes/objects in between tests
     carrier_elec_prop = helpers.get_first_config_for_asset_type('EnergyCarrier')
     scenario_id = 12345
-    mock_query(carrier_elec_prop['gquery'], scenario_id, costs_expected, requests_mock, app)
+
+    query_results = {
+        carrier_elec_prop['gquery']: {'present': costs_expected,'future': costs_expected}
+    }
 
     parser = CostsParser(
         energy_system_handler,
@@ -31,7 +26,8 @@ def test_update_costs_te_elec_carrier(energy_system_handler, costs_expected, hel
     )
 
     with app.app_context():
-        parser.update(scenario_id, scenario_id)
+        with patch.object(QueryScenario, 'execute', return_value=Mock(successful=True, value=query_results)):
+            parser.update(scenario_id, scenario_id)
 
     resulting_asset = energy_system_handler.get_carrier(
         carrier_elec_prop['attribute'],

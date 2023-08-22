@@ -5,8 +5,8 @@ Parser for demand assets (e.g. MobilityDemand)
 from esdl import esdl
 
 from app.models.profile_handler import ProfileHandler
-from app.services.query_scenario import QueryScenario
-from app.utils.exceptions import ETMParseError, EnergysystemParseError
+from app.services.gquery_cache import GqueryCache
+from app.utils.exceptions import EnergysystemParseError
 from .parser import CapacityParser
 
 
@@ -58,9 +58,10 @@ class MobilityDemandParser(CapacityParser):
         asset = self.__next_asset()
 
         if asset:
-            self.power = self.query_scenario(scenario_id, self.props['attr_set']['power'])
-            self.full_load_hours = self.query_scenario(scenario_id, self.props['attr_set']['fullLoadHours'])
-            self.volume = self.query_scenario(scenario_id, self.props['attr_set']['volume'])
+            GqueryCache().for_scenario_id(scenario_id)
+            self.power = GqueryCache().get_factor_divided_for_attr_set(self.props['attr_set']['power'])
+            self.full_load_hours = GqueryCache().get_factor_divided_for_attr_set(self.props['attr_set']['fullLoadHours'])
+            self.volume = GqueryCache().get_factor_divided_for_attr_set(self.props['attr_set']['volume'])
 
             self.__update_power(asset)
             self.__update_flh(asset)
@@ -108,22 +109,3 @@ class MobilityDemandParser(CapacityParser):
             return next(self.asset_generator)
         except StopIteration:
             return
-
-
-    def query_scenario(self, scenario_id, prop):
-        """
-        Query the ETM scenario for the value to set the given prop to
-
-        Params:
-            scenario_id (str): e.g. '123456'
-            prop (str): e.g. 'fullLoadHours'
-        """
-
-        query_result = QueryScenario.execute(scenario_id, prop['gquery'])
-
-        if query_result.successful:
-            return query_result.value[prop['gquery']]['future'] / prop['factor']
-
-        raise ETMParseError(
-            f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
-        )

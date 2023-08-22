@@ -10,6 +10,9 @@ class Config(object):
     # Point to the correct version of ETEngine
     ETENGINE_URL = 'https://engine.energytransitionmodel.com/api/v3'
 
+    # Time in seconds before the cached values in GqueryCache are considered invalid
+    GQUERY_RESULTS_CACHE_MAX_AGE_SECONDS = 30
+
 class ProductionConfig(Config):
     ''' Use the defaults for production'''
     ETENGINE_URL = 'https://engine.energytransitionmodel.com/api/v3'

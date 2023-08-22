@@ -7,8 +7,8 @@ from app.models.conversion_assets import quantities
 from app.models.cost_handler import CostHandler
 from app.models.energy_system import EnergyDataRepository
 from app.models.range_handler import RangeHandler
-from app.utils.exceptions import ETMParseError, EnergysystemParseError
-from app.services.query_scenario import QueryScenario
+from app.services.gquery_cache import GqueryCache
+from app.utils.exceptions import EnergysystemParseError
 from .parser import CapacityParser
 
 class VolatileParser(CapacityParser):
@@ -88,21 +88,6 @@ class VolatileParser(CapacityParser):
 
     ### Update methods ###
 
-    def query_scenario(self, scenario_id, prop):
-        """
-        Query the ETM scenario for the gquery value corresponding to the prop
-        that should be updated
-        """
-        query_result = QueryScenario.execute(scenario_id, prop['gquery'])
-
-        if query_result.successful:
-            return query_result.value[prop['gquery']]['future'] / prop['factor']
-
-        raise ETMParseError(
-            f"We currently do not support the ETM gquery listed in the config: {prop['gquery']}"
-        )
-
-
     def __update_props(self, scenario_id_min, scenario_id_max):
         """
         Update the asset props based on the ETM values.
@@ -111,24 +96,23 @@ class VolatileParser(CapacityParser):
         """
         # First, update the full load hours. This value is necessary for the
         # measures that follow from updating the power.
-        # TODO: Send the queries in batches instead of one-by-one
-        self.full_load_hours = self.query_scenario(scenario_id_min, self.props['attr_set']['fullLoadHours'])
+        self.full_load_hours = GqueryCache().for_scenario_id(scenario_id_min).get_factor_divided_for_attr_set(self.props['attr_set']['fullLoadHours'])
+        marginal_costs = GqueryCache().for_scenario_id(scenario_id_min).get_factor_divided_for_attr_set(self.props['attr_set']['marginalCosts'])
 
-        marginal_costs = self.query_scenario(scenario_id_min, self.props['attr_set']['marginalCosts'])
-
-        min_power = self.query_scenario(scenario_id_min, self.props['attr_set']['power'])
-        # If no second scenario ID is geven, it's not possible to execute the query 
-        if scenario_id_max: max_power = self.query_scenario(scenario_id_max, self.props['attr_set']['power'])
-        qu_power = quantities['power']
+        min_power = GqueryCache().for_scenario_id(scenario_id_min).get_factor_divided_for_attr_set(self.props['attr_set']['power'])
+        if scenario_id_max:
+            qu_power = quantities['power']
+            max_power = GqueryCache().for_scenario_id(scenario_id_max).get_factor_divided_for_attr_set(self.props['attr_set']['power'])
 
         for asset in self.asset_generator:
             self.update_flh(asset)
             self.update_costs(asset, marginal_costs)
-            # If no second scenario ID is given, don't add a range to the asset
-            if scenario_id_max: self.update_range(asset, "power", qu_power, min_power, max_power)
 
-        # power_val = self.query_scenario(scenario_id_min, self.props['attr_set']['power'])
-        # diff = power_val - (self.power / self.props['attr_set']['power']['factor'])
+            # If no second scenario ID is given, don't add a range to the asset
+            if scenario_id_max:
+                self.update_range(asset, "power", qu_power, min_power, max_power)
+
+        # diff = min_power - (self.power / self.props['attr_set']['power']['factor'])
         # if diff > 0:
         #     self.add_measures(diff, self.props['attr_set']['power']['edr'])
 
