@@ -13,6 +13,7 @@ from flask_restx import Namespace, Resource
 from app import cache
 from app.utils.api_utils import fail_with
 from app.utils.garbage import HaltGarbageCollection
+from app.utils.exceptions import ETMParseError
 from app.models.energy_system import EnergySystemHandler
 from app.models.esdl_to_scenario_converter import EsdlToScenarioConverter
 from app.services.create_scenario import CreateScenario
@@ -106,7 +107,12 @@ class EnergySystem(Resource):
 
     def __find_energy_system_id(self, energy_system):
         ''' Parses the string energy_system in search for it's id '''
-        return re.search(r'(?<=id\=\")\w+(-\w+)+', energy_system.split('>', 2)[1]).group(0)
+        try:
+            return re.search(r'(?<=id\=\")\w+(-\w+)+', energy_system.split('>', 2)[1]).group(0)
+        except IndexError as e:
+            raise ETMParseError(
+                'ID of ESDL file could not be located in the first two lines of the file'
+            ) from e
 
     def __scenario_id(self, scenario_id, area):
         '''Returns a fresh ETM scenario id to use as context'''
