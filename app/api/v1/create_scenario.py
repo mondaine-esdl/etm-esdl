@@ -70,7 +70,7 @@ class EnergySystem(Resource):
 
         with HaltGarbageCollection():
             self.__set_sliders_in_etm(
-                self.__filter_on_hold(converter.calculate(filter=args['filter']))
+                self.__filter_on_hold(converter.calculate(filter=args['filter'] or []))
             )
 
         self.__attach_esdl_to_etm(energy_system_title)
