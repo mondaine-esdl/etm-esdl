@@ -75,7 +75,7 @@ def setup_energy_system_handler_from_args(args):
     if args['energy_system']:
         return EnergySystemHandler.from_string(urllib.parse.unquote(args['energy_system']))
 
-    result = FetchEsdlFromEtengine.execute(args['session_id'])
+    result = FetchEsdlFromEtengine.execute(args['session_id_min'])
     if result.successful:
         return EnergySystemHandler.from_string(result.value)
 
