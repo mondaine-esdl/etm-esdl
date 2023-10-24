@@ -64,13 +64,13 @@ def test_parse_aggregated_buildings(energy_system_handler_hengelo):
     heat_parser = HeatingTechnologiesParser(energy_system_handler_hengelo, total_buildings)
     heat_parser.parse(aggregrated_building, building_type)
     inputs = heat_parser.get_parsed_inputs()
-    assert 'households_heater_district_heating_steam_hot_water_share' in inputs
+    assert 'households_heater_district_heating_ht_steam_hot_water_share' in inputs
 
     # now we parse the same asset again and see if the input doubles
-    old_heater_val = inputs.copy()['households_heater_district_heating_steam_hot_water_share']
+    old_heater_val = inputs.copy()['households_heater_district_heating_ht_steam_hot_water_share']
     heat_parser.parse(aggregrated_building, building_type)
     doubled_inputs = heat_parser.get_parsed_inputs()
-    doubled_heater_val = doubled_inputs['households_heater_district_heating_steam_hot_water_share']
+    doubled_heater_val = doubled_inputs['households_heater_district_heating_ht_steam_hot_water_share']
     assert doubled_heater_val == 2 * old_heater_val
 
 

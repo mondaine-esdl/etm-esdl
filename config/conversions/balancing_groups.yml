@@ -1,7 +1,9 @@
 households_heating:
   - households_heater_combined_network_gas_share
   - households_heater_combined_hydrogen_share
-  - households_heater_district_heating_steam_hot_water_share
+  - households_heater_district_heating_ht_steam_hot_water_share
+  - households_heater_district_heating_mt_steam_hot_water_share
+  - households_heater_district_heating_lt_steam_hot_water_share
   - households_heater_heatpump_air_water_electricity_share
   - households_heater_heatpump_ground_water_electricity_share
   - households_heater_hybrid_heatpump_air_water_electricity_share
@@ -12,10 +14,13 @@ households_heating:
   - households_heater_network_gas_share
   - households_heater_crude_oil_share
   - households_heater_coal_share
+  - 
 buildings_heating:
   - buildings_space_heater_network_gas_share
   - buildings_space_heater_combined_hydrogen_share
-  - buildings_space_heater_district_heating_steam_hot_water_share
+  - buildings_space_heater_district_heating_ht_steam_hot_water_share
+  - buildings_space_heater_district_heating_mt_steam_hot_water_share
+  - buildings_space_heater_district_heating_lt_steam_hot_water_share
   - buildings_space_heater_heatpump_air_water_network_gas_share
   - buildings_space_heater_heatpump_air_water_electricity_share
   - buildings_space_heater_hybrid_heatpump_air_water_electricity_share
