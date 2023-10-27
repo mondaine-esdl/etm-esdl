@@ -8,7 +8,7 @@
     capacity: # we call this volume in the ETM
       input: # the volume is derived from a scenario and cannot be set
       gquery: energy_flexibility_mv_batteries_electricity_volume
-      factor: 2.77778e-10 # MWh to J
+      factor: 3.6e-9 # MWh to J
     maxChargeRate: # we call this capacity in the ETM
       input: capacity_of_energy_flexibility_mv_batteries_electricity
       gquery: energy_flexibility_mv_batteries_electricity_capacity
