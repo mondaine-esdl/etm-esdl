@@ -32,6 +32,10 @@ def update_esdl(energy_system, scenario_id_min, scenario_id_max, filter=[]):
     # Update FLH for wind turbines, PV parks and electrolyzers, and capacities for MobilityDemand;
     # possibly also add measures for wind turbines
     for asset in assets:
+        # Skip the carrier_capacity parser for now
+        if asset['parser'] == 'carrier_capacity':
+            continue
+
         if asset['parser'] == 'mobility_demand':
             MobilityDemandParser(energy_system, asset).update(scenario_id_min)
 
