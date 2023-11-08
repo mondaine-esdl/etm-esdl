@@ -18,7 +18,7 @@ def update_esdl(energy_system, scenario_id_min, scenario_id_max, filter=[]):
     # Update KPIs
     KPIHandler(energy_system, scenario_id_min).update()
 
-    asset_types = filter if filter else ['WindTurbine', 'PVPark', 'Electrolyzer', 'Battery', 'GasConversion','MobilityDemand', 'EnergyCarrier']
+    asset_types = filter if filter else ['WindTurbine', 'PVPark', 'Electrolyzer', 'Battery', 'GasConversion','MobilityDemand', 'EnergyCarrier', 'PowerPlant']
     assets = [asset for asset in AssetFilter.assets_for(*asset_types, method='update')]
 
     # Query ETEngine scenario's for given scenario id and assets. The GqueryCache class is a Singleton
