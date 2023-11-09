@@ -55,7 +55,7 @@ class StorageParser(CapacityParser):
             
             # If no second scenario ID is given, don't add a range to the asset
             if scenario_id_max:
-                self.__update_range(asset, "maxChargeRate", qu_power, min_power, max_power)
+                self.__update_range(asset, 'power', qu_power, min_power, max_power)
 
 
     def __update_flh(self, asset):
